@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>API Test</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .section {
+            margin: 20px 0;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        button {
+            margin: 5px;
+            padding: 10px 20px;
+            cursor: pointer;
+        }
+        pre {
+            background: #f4f4f4;
+            padding: 10px;
+            border-radius: 5px;
+            overflow-x: auto;
+        }
+    </style>
+</head>
+<body>
+    <h1>StatVizForge API テスト</h1>
+    
+    <div class="section">
+        <h2>API接続設定</h2>
+        <p>API URL: <input type="text" id="apiUrl" value="http://172.24.67.130:8000/api" style="width: 300px;"></p>
+    </div>
+
+    <div class="section">
+        <h2>プロジェクトAPI</h2>
+        <button onclick="testAPI('GET', '/projects/')">プロジェクト一覧</button>
+        <button onclick="createProject()">プロジェクト作成</button>
+    </div>
+
+    <div class="section">
+        <h2>レスポンス</h2>
+        <pre id="response">レスポンスがここに表示されます</pre>
+    </div>
+
+    <script>
+        function getApiUrl() {
+            return document.getElementById('apiUrl').value;
+        }
+
+        async function testAPI(method, endpoint, data = null) {
+            const url = getApiUrl() + endpoint;
+            const options = {
+                method: method,
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                credentials: 'include'
+            };
+
+            if (data) {
+                options.body = JSON.stringify(data);
+            }
+
+            try {
+                const response = await fetch(url, options);
+                const result = await response.json();
+                document.getElementById('response').textContent = JSON.stringify(result, null, 2);
+            } catch (error) {
+                document.getElementById('response').textContent = 'Error: ' + error.message;
+            }
+        }
+
+        function createProject() {
+            const data = {
+                folder_name: 'test_project_' + Date.now(),
+                project_name: 'テストプロジェクト',
+                description: 'APIテスト用プロジェクト',
+                tags: ['テスト', 'API'],
+                status: 'active'
+            };
+            testAPI('POST', '/projects/', data);
+        }
+    </script>
+</body>
+</html>
