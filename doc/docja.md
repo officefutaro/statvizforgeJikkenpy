@@ -32,7 +32,7 @@
 }
 ```
 
-**配置場所**: `/app/backend/projects-registry.json`
+**配置場所**: `/project/projects-registry.json`
 
 ## バックエンド構築
 
@@ -80,8 +80,7 @@ app/backend/
 ├── manage.py
 ├── requirements.txt
 ├── .env
-├── .gitignore
-└── projects-registry.json
+└── .gitignore
 ```
 
 ### 実装したAPIエンドポイント
@@ -190,6 +189,21 @@ python manage.py createsuperuser
 - `/app/backend/api_test.html` - APIテスト用HTML
 - `/app/backend/frontend_integration.md` - フロントエンド統合ガイド
 - `/app/frontend/BOLT_NEW_INSTRUCTIONS.md` - Bolt.new用の開発指示書
+
+## 最近の更新内容（2025-07-21）
+
+### API仕様の大幅変更
+- プロジェクト管理APIが`~/project/projects-registry.json`ファイルを直接操作するように変更
+- データベースを使用せず、JSONファイルでプロジェクト情報を管理
+- `/api/projects/`エンドポイントがprojects-registry.jsonの内容をそのまま返すように変更
+
+### ファイル配置の変更
+- `projects-registry.json`を`/app/backend/`から`/project/`に移動
+- プロジェクトデータとアプリケーション設定の分離
+
+### 新機能の追加
+- API履歴記録機能（開発モードのみ）
+- サーバー情報API（`/api/server-info/`）
 
 ## 今後の作業
 1. 各APIエンドポイントの実装を具体化

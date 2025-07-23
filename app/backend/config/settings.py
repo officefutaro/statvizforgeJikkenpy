@@ -44,6 +44,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'api.middleware.api_logger.APILoggerMiddleware',  # API履歴記録（開発モードのみ）
 ]
 
 ROOT_URLCONF = 'config.urls'
