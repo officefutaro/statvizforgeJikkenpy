@@ -33,7 +33,7 @@ class ProjectViewSet(viewsets.ModelViewSet):
             )
     
     def create(self, request):
-        """プロジェクト新規作成 - projects-registry.jsonに追加"""
+        """プロジェクト新規作成 - projects-registry.jsonに追加、プロジェクトフォルダとproject.jsonを作成"""
         language = get_language_from_request(request)
         
         # バリデーション
@@ -84,10 +84,14 @@ class ProjectViewSet(viewsets.ModelViewSet):
             new_project['created_date'] = now
             new_project['modified_date'] = now
             
+            # プロジェクトフォルダ構造を作成
+            self._create_project_folder_structure(new_project['folder_name'], new_project)
+            
+            # projects-registry.jsonを更新
             registry_data['projects'].append(new_project)
             registry_data['last_updated'] = now
-            
             save_projects_registry(registry_data)
+            
             return Response(new_project, status=status.HTTP_201_CREATED)
         except Exception as e:
             return create_error_response(
@@ -95,6 +99,38 @@ class ProjectViewSet(viewsets.ModelViewSet):
                 language,
                 status_code=status.HTTP_500_INTERNAL_SERVER_ERROR
             )
+    
+    def _create_project_folder_structure(self, folder_name, project_data):
+        """プロジェクトフォルダ構造を作成"""
+        import os
+        import json
+        from pathlib import Path
+        from config.paths import PROJECT_DATA_DIR
+        
+        # プロジェクトフォルダパス
+        project_folder = PROJECT_DATA_DIR / folder_name
+        
+        # フォルダ構造を作成
+        project_folder.mkdir(exist_ok=True)
+        (project_folder / 'raw').mkdir(exist_ok=True)
+        (project_folder / 'db').mkdir(exist_ok=True)
+        (project_folder / 'analysisdata').mkdir(exist_ok=True)
+        (project_folder / 'git').mkdir(exist_ok=True)
+        
+        # project.jsonファイルを作成
+        project_json_data = {
+            'folder_name': project_data['folder_name'],
+            'project_name': project_data['project_name'],
+            'description': project_data['description'],
+            'created_date': project_data['created_date'],
+            'modified_date': project_data['modified_date'],
+            'tags': project_data.get('tags', []),
+            'status': project_data.get('status', 'active')
+        }
+        
+        project_json_path = project_folder / 'project.json'
+        with open(project_json_path, 'w', encoding='utf-8') as f:
+            json.dump(project_json_data, f, ensure_ascii=False, indent=2)
     
     def retrieve(self, request, pk=None):
         """プロジェクト詳細取得"""
