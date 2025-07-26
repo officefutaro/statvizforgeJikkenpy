@@ -41,6 +41,46 @@ ERROR_MESSAGES = {
         'en': 'Failed to delete project',
         'ja': 'プロジェクトの削除に失敗しました',
         'zh': '项目删除失败'
+    },
+    'FAILED_TO_ARCHIVE_PROJECT': {
+        'en': 'Failed to archive project',
+        'ja': 'プロジェクトのアーカイブに失敗しました',
+        'zh': '项目归档失败'
+    },
+    'FAILED_TO_LOAD_DELETED_PROJECTS': {
+        'en': 'Failed to load deleted projects',
+        'ja': '削除済みプロジェクトの読み込みに失敗しました',
+        'zh': '加载已删除项目失败'
+    },
+    'NO_DELETED_PROJECTS': {
+        'en': 'No deleted projects found',
+        'ja': '削除済みプロジェクトが見つかりません',
+        'zh': '未找到已删除的项目'
+    },
+    'DELETED_PROJECT_NOT_FOUND': {
+        'en': 'Deleted project not found',
+        'ja': '削除済みプロジェクトが見つかりません',
+        'zh': '未找到已删除的项目'
+    },
+    'ARCHIVE_FILE_NOT_FOUND': {
+        'en': 'Archive file not found',
+        'ja': 'アーカイブファイルが見つかりません',
+        'zh': '未找到归档文件'
+    },
+    'PROJECT_FOLDER_ALREADY_EXISTS': {
+        'en': 'Project folder already exists',
+        'ja': 'プロジェクトフォルダが既に存在します',
+        'zh': '项目文件夹已存在'
+    },
+    'FAILED_TO_EXTRACT_ARCHIVE': {
+        'en': 'Failed to extract archive',
+        'ja': 'アーカイブの展開に失敗しました',
+        'zh': '解压归档失败'
+    },
+    'FAILED_TO_RESTORE_PROJECT': {
+        'en': 'Failed to restore project',
+        'ja': 'プロジェクトの復元に失敗しました',
+        'zh': '恢复项目失败'
     }
 }
 

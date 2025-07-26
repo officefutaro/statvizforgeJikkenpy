@@ -1,9 +1,11 @@
 from django.db import models
 from django.contrib.auth.models import User
+import uuid
 
 
 class Project(models.Model):
     """プロジェクトモデル"""
+    id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
     folder_name = models.CharField(max_length=255, unique=True)
     project_name = models.CharField(max_length=255)
     description = models.TextField(blank=True)
@@ -21,6 +23,7 @@ class Project(models.Model):
 
 class ProjectFile(models.Model):
     """プロジェクトファイルモデル"""
+    id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
     project = models.ForeignKey(Project, on_delete=models.CASCADE, related_name='files')
     file = models.FileField(upload_to='project_files/')
     file_name = models.CharField(max_length=255)
@@ -36,6 +39,7 @@ class ProjectFile(models.Model):
 
 class DataAnalysis(models.Model):
     """データ分析モデル"""
+    id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
     project = models.ForeignKey(Project, on_delete=models.CASCADE, related_name='analyses')
     analysis_type = models.CharField(max_length=100)
     parameters = models.JSONField(default=dict)

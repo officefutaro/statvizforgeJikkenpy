@@ -7,7 +7,7 @@ class ProjectSerializer(serializers.ModelSerializer):
     class Meta:
         model = Project
         fields = '__all__'
-        read_only_fields = ('created_date', 'modified_date')
+        read_only_fields = ('id', 'created_date', 'modified_date')
 
 
 class ProjectFileSerializer(serializers.ModelSerializer):
@@ -15,7 +15,7 @@ class ProjectFileSerializer(serializers.ModelSerializer):
     class Meta:
         model = ProjectFile
         fields = '__all__'
-        read_only_fields = ('uploaded_at',)
+        read_only_fields = ('id', 'uploaded_at',)
 
 
 class DataAnalysisSerializer(serializers.ModelSerializer):
@@ -23,4 +23,4 @@ class DataAnalysisSerializer(serializers.ModelSerializer):
     class Meta:
         model = DataAnalysis
         fields = '__all__'
-        read_only_fields = ('created_at', 'completed_at')
+        read_only_fields = ('id', 'created_at', 'completed_at')

@@ -5,6 +5,7 @@ from pathlib import Path
 
 # プロジェクトルート
 PROJECT_ROOT = Path(__file__).resolve().parent.parent.parent.parent
+BASE_DIR = PROJECT_ROOT  # BASE_DIRエイリアスを追加
 
 # 各ディレクトリ
 APP_DIR = PROJECT_ROOT / 'app'

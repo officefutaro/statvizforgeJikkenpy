@@ -12,6 +12,7 @@ from .localization import (
     create_error_response, 
     get_field_validation_message
 )
+import uuid
 
 
 class ProjectViewSet(viewsets.ModelViewSet):
@@ -74,9 +75,8 @@ class ProjectViewSet(viewsets.ModelViewSet):
                     status_code=status.HTTP_409_CONFLICT
                 )
             
-            # IDを自動生成（最大ID + 1）
-            max_id = max([p.get('id', 0) for p in registry_data['projects']], default=0)
-            new_project['id'] = max_id + 1
+            # UUIDを自動生成
+            new_project['id'] = str(uuid.uuid4())
             
             # 日時を追加
             from datetime import datetime
@@ -136,7 +136,7 @@ class ProjectViewSet(viewsets.ModelViewSet):
         """プロジェクト詳細取得"""
         try:
             registry_data = load_projects_registry()
-            project = next((p for p in registry_data['projects'] if p.get('id') == int(pk)), None)
+            project = next((p for p in registry_data['projects'] if p.get('id') == pk), None)
             
             if not project:
                 return Response(
@@ -155,7 +155,7 @@ class ProjectViewSet(viewsets.ModelViewSet):
         """プロジェクト更新"""
         try:
             registry_data = load_projects_registry()
-            project_index = next((i for i, p in enumerate(registry_data['projects']) if p.get('id') == int(pk)), None)
+            project_index = next((i for i, p in enumerate(registry_data['projects']) if p.get('id') == pk), None)
             
             if project_index is None:
                 return Response(
@@ -179,28 +179,294 @@ class ProjectViewSet(viewsets.ModelViewSet):
             )
     
     def destroy(self, request, pk=None):
-        """プロジェクト削除"""
+        """プロジェクト削除 - プロジェクトをzipアーカイブしてtrashに移動"""
+        language = get_language_from_request(request)
+        
         try:
             registry_data = load_projects_registry()
-            project_index = next((i for i, p in enumerate(registry_data['projects']) if p.get('id') == int(pk)), None)
+            project_index = next((i for i, p in enumerate(registry_data['projects']) if p.get('id') == pk), None)
             
             if project_index is None:
-                return Response(
-                    {'error': 'Project not found'},
-                    status=status.HTTP_404_NOT_FOUND
+                return create_error_response(
+                    'PROJECT_NOT_FOUND',
+                    language,
+                    status_code=status.HTTP_404_NOT_FOUND
                 )
             
-            # 削除
+            # 削除対象プロジェクト情報を取得
             from datetime import datetime
-            deleted_project = registry_data['projects'].pop(project_index)
+            deleted_project = registry_data['projects'][project_index]
+            folder_name = deleted_project['folder_name']
+            
+            # プロジェクトフォルダをzipアーカイブ
+            archived = self._archive_project(folder_name, deleted_project)
+            
+            if not archived:
+                return create_error_response(
+                    'FAILED_TO_ARCHIVE_PROJECT',
+                    language,
+                    status_code=status.HTTP_500_INTERNAL_SERVER_ERROR
+                )
+            
+            # プロジェクトフォルダを削除
+            self._delete_project_folder(folder_name)
+            
+            # projects-registry.jsonから削除
+            deleted_project['deletion_date'] = datetime.now().isoformat()
+            deleted_project['reason'] = 'ユーザー削除'
+            
+            # アーカイブ済みプロジェクトリストに追加
+            if 'archived_projects' not in registry_data:
+                registry_data['archived_projects'] = []
+            registry_data['archived_projects'].append(deleted_project)
+            
+            # アクティブプロジェクトから削除
+            registry_data['projects'].pop(project_index)
             registry_data['last_updated'] = datetime.now().isoformat()
             
             save_projects_registry(registry_data)
             return Response(status=status.HTTP_204_NO_CONTENT)
         except Exception as e:
-            return Response(
-                {'error': f'Failed to delete project: {str(e)}'},
-                status=status.HTTP_500_INTERNAL_SERVER_ERROR
+            return create_error_response(
+                'FAILED_TO_DELETE_PROJECT',
+                language,
+                status_code=status.HTTP_500_INTERNAL_SERVER_ERROR
+            )
+    
+    def _archive_project(self, folder_name, project_data):
+        """プロジェクトフォルダをzipアーカイブしてtrashに保存"""
+        import zipfile
+        import os
+        import json
+        from pathlib import Path
+        from datetime import datetime
+        from config.paths import PROJECT_DATA_DIR, BASE_DIR
+        
+        # プロジェクトフォルダパス
+        project_folder = PROJECT_DATA_DIR / folder_name
+        
+        if not project_folder.exists():
+            return False
+        
+        # trashディレクトリ確認・作成
+        trash_dir = BASE_DIR / 'project' / 'trash'
+        trash_dir.mkdir(parents=True, exist_ok=True)
+        
+        # zipファイル名（フォルダ名_日時.zip）
+        timestamp = datetime.now().strftime('%Y%m%d_%H%M%S')
+        zip_filename = f"{folder_name}_{timestamp}.zip"
+        zip_path = trash_dir / zip_filename
+        
+        try:
+            # zipファイル作成
+            with zipfile.ZipFile(zip_path, 'w', zipfile.ZIP_DEFLATED) as zipf:
+                # プロジェクトフォルダ内のすべてのファイルを追加
+                for root, dirs, files in os.walk(project_folder):
+                    for file in files:
+                        file_path = Path(root) / file
+                        arcname = file_path.relative_to(project_folder.parent)
+                        zipf.write(file_path, arcname)
+            
+            # プロジェクトデータに追加情報を保存
+            project_data['archive_filename'] = zip_filename
+            project_data['archive_path'] = str(zip_path)
+            project_data['archive_size'] = os.path.getsize(zip_path)
+            
+            # trash-registry.jsonを更新
+            trash_registry_path = trash_dir / 'trash-registry.json'
+            trash_registry = {'version': '1.0.0', 'deleted_projects': []}
+            
+            if trash_registry_path.exists():
+                with open(trash_registry_path, 'r', encoding='utf-8') as f:
+                    trash_registry = json.load(f)
+            
+            # 削除プロジェクト情報を追加
+            deleted_info = {
+                'id': project_data.get('id'),
+                'folder_name': folder_name,
+                'project_name': project_data.get('project_name'),
+                'archive_filename': zip_filename,
+                'archive_size': project_data['archive_size'],
+                'deletion_date': datetime.now().isoformat(),
+                'original_created_date': project_data.get('created_date'),
+                'tags': project_data.get('tags', []),
+                'description': project_data.get('description', '')
+            }
+            
+            trash_registry['deleted_projects'].append(deleted_info)
+            trash_registry['last_updated'] = datetime.now().isoformat()
+            
+            # trash-registry.jsonを保存
+            with open(trash_registry_path, 'w', encoding='utf-8') as f:
+                json.dump(trash_registry, f, ensure_ascii=False, indent=2)
+            
+            return True
+        except Exception as e:
+            print(f"Failed to archive project: {e}")
+            return False
+    
+    def _delete_project_folder(self, folder_name):
+        """プロジェクトフォルダを削除"""
+        import shutil
+        from pathlib import Path
+        from config.paths import PROJECT_DATA_DIR
+        
+        project_folder = PROJECT_DATA_DIR / folder_name
+        
+        if project_folder.exists():
+            try:
+                shutil.rmtree(project_folder)
+                return True
+            except Exception as e:
+                print(f"Failed to delete project folder: {e}")
+                return False
+        return True
+    
+    @action(detail=False, methods=['get'])
+    def deleted(self, request):
+        """削除済みプロジェクト一覧を取得"""
+        language = get_language_from_request(request)
+        
+        try:
+            from pathlib import Path
+            import json
+            from config.paths import BASE_DIR
+            
+            trash_dir = BASE_DIR / 'project' / 'trash'
+            trash_registry_path = trash_dir / 'trash-registry.json'
+            
+            if not trash_registry_path.exists():
+                return Response({
+                    'version': '1.0.0',
+                    'deleted_projects': [],
+                    'last_updated': None
+                })
+            
+            with open(trash_registry_path, 'r', encoding='utf-8') as f:
+                trash_registry = json.load(f)
+            
+            return Response(trash_registry)
+        except Exception as e:
+            return create_error_response(
+                'FAILED_TO_LOAD_DELETED_PROJECTS',
+                language,
+                status_code=status.HTTP_500_INTERNAL_SERVER_ERROR
+            )
+    
+    @action(detail=True, methods=['post'])
+    def restore(self, request, pk=None):
+        """プロジェクトを復元 - trashからzipファイルを展開して復元"""
+        language = get_language_from_request(request)
+        
+        try:
+            from pathlib import Path
+            import json
+            import zipfile
+            import shutil
+            from datetime import datetime
+            from config.paths import BASE_DIR, PROJECT_DATA_DIR
+            
+            # trash-registry.jsonを読み込み
+            trash_dir = BASE_DIR / 'project' / 'trash'
+            trash_registry_path = trash_dir / 'trash-registry.json'
+            
+            if not trash_registry_path.exists():
+                return create_error_response(
+                    'NO_DELETED_PROJECTS',
+                    language,
+                    status_code=status.HTTP_404_NOT_FOUND
+                )
+            
+            with open(trash_registry_path, 'r', encoding='utf-8') as f:
+                trash_registry = json.load(f)
+            
+            # 対象プロジェクトを検索
+            deleted_project = None
+            project_index = None
+            for i, project in enumerate(trash_registry.get('deleted_projects', [])):
+                if project['id'] == pk:
+                    deleted_project = project
+                    project_index = i
+                    break
+            
+            if not deleted_project:
+                return create_error_response(
+                    'DELETED_PROJECT_NOT_FOUND',
+                    language,
+                    status_code=status.HTTP_404_NOT_FOUND
+                )
+            
+            # zipファイルの確認
+            zip_filename = deleted_project['archive_filename']
+            zip_path = trash_dir / zip_filename
+            
+            if not zip_path.exists():
+                return create_error_response(
+                    'ARCHIVE_FILE_NOT_FOUND',
+                    language,
+                    status_code=status.HTTP_404_NOT_FOUND
+                )
+            
+            # プロジェクトフォルダが既に存在するかチェック
+            folder_name = deleted_project['folder_name']
+            project_folder = PROJECT_DATA_DIR / folder_name
+            
+            if project_folder.exists():
+                return create_error_response(
+                    'PROJECT_FOLDER_ALREADY_EXISTS',
+                    language,
+                    status_code=status.HTTP_400_BAD_REQUEST
+                )
+            
+            # zipファイルを展開
+            try:
+                with zipfile.ZipFile(zip_path, 'r') as zipf:
+                    zipf.extractall(PROJECT_DATA_DIR.parent)
+            except Exception as e:
+                return create_error_response(
+                    'FAILED_TO_EXTRACT_ARCHIVE',
+                    language,
+                    status_code=status.HTTP_500_INTERNAL_SERVER_ERROR
+                )
+            
+            # projects-registry.jsonに復元
+            registry_data = load_projects_registry()
+            
+            # 復元するプロジェクトデータを作成
+            restored_project = {
+                'id': deleted_project['id'],
+                'folder_name': deleted_project['folder_name'],
+                'project_name': deleted_project['project_name'],
+                'description': deleted_project.get('description', ''),
+                'tags': deleted_project.get('tags', []),
+                'status': 'active',
+                'created_date': deleted_project.get('original_created_date', datetime.now().isoformat()),
+                'modified_date': datetime.now().isoformat(),
+                'restored_date': datetime.now().isoformat()
+            }
+            
+            registry_data['projects'].append(restored_project)
+            registry_data['last_updated'] = datetime.now().isoformat()
+            
+            save_projects_registry(registry_data)
+            
+            # trash-registry.jsonから削除
+            trash_registry['deleted_projects'].pop(project_index)
+            trash_registry['last_updated'] = datetime.now().isoformat()
+            
+            with open(trash_registry_path, 'w', encoding='utf-8') as f:
+                json.dump(trash_registry, f, ensure_ascii=False, indent=2)
+            
+            # アーカイブファイルを削除（オプション：保持する場合はこの行をコメントアウト）
+            # zip_path.unlink()
+            
+            return Response(restored_project)
+            
+        except Exception as e:
+            return create_error_response(
+                'FAILED_TO_RESTORE_PROJECT',
+                language,
+                status_code=status.HTTP_500_INTERNAL_SERVER_ERROR
             )
 
 

@@ -1,0 +1,289 @@
+Creating test database for alias 'default' ('file:memorydb_default?mode=memory&cache=shared')...
+============================================================
+StatVizForge API テストスイート
+============================================================
+実行開始時刻: 2025-07-26 18:03:19
+
+Found 16 test(s).
+Operations to perform:
+  Synchronize unmigrated apps: corsheaders, messages, rest_framework, staticfiles
+  Apply all migrations: admin, api, auth, contenttypes, sessions
+Synchronizing apps without migrations:
+  Creating tables...
+    Running deferred SQL...
+Running migrations:
+  Applying contenttypes.0001_initial... OK
+  Applying auth.0001_initial... OK
+  Applying admin.0001_initial... OK
+  Applying admin.0002_logentry_remove_auto_add... OK
+  Applying admin.0003_logentry_add_action_flag_choices... OK
+  Applying api.0001_initial... OK
+  Applying contenttypes.0002_remove_content_type_name... OK
+  Applying auth.0002_alter_permission_name_max_length... OK
+  Applying auth.0003_alter_user_email_max_length... OK
+  Applying auth.0004_alter_user_username_opts... OK
+  Applying auth.0005_alter_user_last_login_null... OK
+  Applying auth.0006_require_contenttypes_0002... OK
+  Applying auth.0007_alter_validators_add_error_messages... OK
+  Applying auth.0008_alter_user_username_max_length... OK
+  Applying auth.0009_alter_user_last_name_max_length... OK
+  Applying auth.0010_alter_group_name_max_length... OK
+  Applying auth.0011_update_proxy_permissions... OK
+  Applying auth.0012_alter_user_first_name_max_length... OK
+  Applying sessions.0001_initial...test_api_response_time (api.tests.ProjectAPIPerformanceTestCase.test_api_response_time)
+API応答時間テスト ... ok
+test_プロジェクトライフサイクル_エラー混在 (api.tests.ProjectIntegrationTestCase.test_プロジェクトライフサイクル_エラー混在)
+正常操作とエラー操作が混在するライフサイクル ... FAIL
+test_同時削除復元操作 (api.tests.ProjectIntegrationTestCase.test_同時削除復元操作)
+複数プロジェクトの同時削除・復元操作 ... FAIL
+test_complete_project_lifecycle (api.tests.ProjectLifecycleTestCase.test_complete_project_lifecycle)
+プロジェクト完全ライフサイクルテスト: 作成→更新→削除→復元 ... FAIL
+test_endpoint_compatibility_0_RESTful_endpoints (api.tests.ProjectLifecycleTestCase.test_endpoint_compatibility_0_RESTful_endpoints)
+RESTful vs Legacy エンドポイント互換性テスト [with *args=('RESTful_endpoints', '/api/proj...cts/', '/api/projects/deleted/')] ... FAIL
+test_endpoint_compatibility_1_Legacy_endpoints (api.tests.ProjectLifecycleTestCase.test_endpoint_compatibility_1_Legacy_endpoints)
+RESTful vs Legacy エンドポイント互換性テスト [with *args=('Legacy_endpoints', '/api/proje...list', '/api/projects/archived')] ... FAIL
+test_error_handling_scenarios (api.tests.ProjectLifecycleTestCase.test_error_handling_scenarios)
+エラーハンドリングシナリオテスト ... ok
+test_language_parameter_handling (api.tests.ProjectLifecycleTestCase.test_language_parameter_handling)
+言語パラメータ処理テスト（エラーメッセージのみ） ... ok
+test_multiple_projects_interaction (api.tests.ProjectLifecycleTestCase.test_multiple_projects_interaction)
+複数プロジェクトの相互作用テスト ... FAIL
+test_タグ配列バリデーション_0__ (api.tests.ProjectValidationTestCase.test_タグ配列バリデーション_0__)
+様々なタグ配列のバリデーション [with test_name='空のタグ配列', tags=[]] ... FAIL
+test_タグ配列バリデーション_1__ (api.tests.ProjectValidationTestCase.test_タグ配列バリデーション_1__)
+様々なタグ配列のバリデーション [with test_name='単一タグ', tags=['tag1']] ... FAIL
+test_タグ配列バリデーション_2__ (api.tests.ProjectValidationTestCase.test_タグ配列バリデーション_2__)
+様々なタグ配列のバリデーション [with test_name='複数タグ', tags=['tag1', 'tag2', 'tag3']] ... FAIL
+test_タグ配列バリデーション_3__ (api.tests.ProjectValidationTestCase.test_タグ配列バリデーション_3__)
+様々なタグ配列のバリデーション [with test_name='日本語タグ', tags=['日本語', 'テスト', 'サンプル']] ... FAIL
+test_タグ配列バリデーション_4__ (api.tests.ProjectValidationTestCase.test_タグ配列バリデーション_4__)
+様々なタグ配列のバリデーション [with test_name='英数字タグ', tags=['test', 'sample', 'demo123']] ... FAIL
+test_プロジェクト名バリデーション (api.tests.ProjectValidationTestCase.test_プロジェクト名バリデーション)
+プロジェクト名の長さと文字種バリデーション ... FAIL
+test_重複フォルダ名チェック (api.tests.ProjectValidationTestCase.test_重複フォルダ名チェック)
+フォルダ名の重複チェック ... FAIL
+
+======================================================================
+FAIL: test_プロジェクトライフサイクル_エラー混在 (api.tests.ProjectIntegrationTestCase.test_プロジェクトライフサイクル_エラー混在)
+正常操作とエラー操作が混在するライフサイクル
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/futaro/project/StatVizForge_JikkenPy/app/backend/api/tests.py", line 447, in test_プロジェクトライフサイクル_エラー混在
+    self.assertEqual(response.status_code, status.HTTP_201_CREATED)
+AssertionError: 500 != 201
+
+======================================================================
+FAIL: test_同時削除復元操作 (api.tests.ProjectIntegrationTestCase.test_同時削除復元操作)
+複数プロジェクトの同時削除・復元操作
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/futaro/project/StatVizForge_JikkenPy/app/backend/api/tests.py", line 395, in test_同時削除復元操作
+    self.assertEqual(response.status_code, status.HTTP_201_CREATED)
+AssertionError: 500 != 201
+
+======================================================================
+FAIL: test_complete_project_lifecycle (api.tests.ProjectLifecycleTestCase.test_complete_project_lifecycle)
+プロジェクト完全ライフサイクルテスト: 作成→更新→削除→復元
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/usr/lib/python3.12/unittest/mock.py", line 1390, in patched
+    return func(*newargs, **newkeywargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/futaro/project/StatVizForge_JikkenPy/app/backend/api/tests.py", line 59, in test_complete_project_lifecycle
+    project = self._create_project()
+              ^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/futaro/project/StatVizForge_JikkenPy/app/backend/api/tests.py", line 223, in _create_project
+    self.assertEqual(response.status_code, status.HTTP_201_CREATED)
+AssertionError: 500 != 201
+
+======================================================================
+FAIL: test_endpoint_compatibility_0_RESTful_endpoints (api.tests.ProjectLifecycleTestCase.test_endpoint_compatibility_0_RESTful_endpoints)
+RESTful vs Legacy エンドポイント互換性テスト [with *args=('RESTful_endpoints', '/api/proj...cts/', '/api/projects/deleted/')]
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/futaro/project/StatVizForge_JikkenPy/app/backend/venv/lib/python3.12/site-packages/parameterized/parameterized.py", line 620, in standalone_func
+    return func(*(a + p.args), **p.kwargs, **kw)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/unittest/mock.py", line 1390, in patched
+    return func(*newargs, **newkeywargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/futaro/project/StatVizForge_JikkenPy/app/backend/venv/lib/python3.12/site-packages/parameterized/parameterized.py", line 93, in dummy_func
+    return orgfunc(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/unittest/mock.py", line 1390, in patched
+    return func(*newargs, **newkeywargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/futaro/project/StatVizForge_JikkenPy/app/backend/api/tests.py", line 120, in test_endpoint_compatibility
+    self.assertEqual(response.status_code, status.HTTP_200_OK)
+AssertionError: 500 != 200
+
+======================================================================
+FAIL: test_endpoint_compatibility_1_Legacy_endpoints (api.tests.ProjectLifecycleTestCase.test_endpoint_compatibility_1_Legacy_endpoints)
+RESTful vs Legacy エンドポイント互換性テスト [with *args=('Legacy_endpoints', '/api/proje...list', '/api/projects/archived')]
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/futaro/project/StatVizForge_JikkenPy/app/backend/venv/lib/python3.12/site-packages/parameterized/parameterized.py", line 620, in standalone_func
+    return func(*(a + p.args), **p.kwargs, **kw)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/unittest/mock.py", line 1390, in patched
+    return func(*newargs, **newkeywargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/futaro/project/StatVizForge_JikkenPy/app/backend/venv/lib/python3.12/site-packages/parameterized/parameterized.py", line 93, in dummy_func
+    return orgfunc(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/unittest/mock.py", line 1390, in patched
+    return func(*newargs, **newkeywargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/futaro/project/StatVizForge_JikkenPy/app/backend/api/tests.py", line 120, in test_endpoint_compatibility
+    self.assertEqual(response.status_code, status.HTTP_200_OK)
+AssertionError: 500 != 200
+
+======================================================================
+FAIL: test_multiple_projects_interaction (api.tests.ProjectLifecycleTestCase.test_multiple_projects_interaction)
+複数プロジェクトの相互作用テスト
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/usr/lib/python3.12/unittest/mock.py", line 1390, in patched
+    return func(*newargs, **newkeywargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/futaro/project/StatVizForge_JikkenPy/app/backend/api/tests.py", line 153, in test_multiple_projects_interaction
+    project = self._create_project(project_data)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/futaro/project/StatVizForge_JikkenPy/app/backend/api/tests.py", line 223, in _create_project
+    self.assertEqual(response.status_code, status.HTTP_201_CREATED)
+AssertionError: 500 != 201
+
+======================================================================
+FAIL: test_タグ配列バリデーション_0__ (api.tests.ProjectValidationTestCase.test_タグ配列バリデーション_0__)
+様々なタグ配列のバリデーション [with test_name='空のタグ配列', tags=[]]
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/futaro/project/StatVizForge_JikkenPy/app/backend/venv/lib/python3.12/site-packages/parameterized/parameterized.py", line 620, in standalone_func
+    return func(*(a + p.args), **p.kwargs, **kw)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/futaro/project/StatVizForge_JikkenPy/app/backend/api/tests.py", line 372, in test_タグ配列バリデーション
+    self.assertEqual(response.status_code, status.HTTP_201_CREATED)
+AssertionError: 500 != 201
+
+======================================================================
+FAIL: test_タグ配列バリデーション_1__ (api.tests.ProjectValidationTestCase.test_タグ配列バリデーション_1__)
+様々なタグ配列のバリデーション [with test_name='単一タグ', tags=['tag1']]
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/futaro/project/StatVizForge_JikkenPy/app/backend/venv/lib/python3.12/site-packages/parameterized/parameterized.py", line 620, in standalone_func
+    return func(*(a + p.args), **p.kwargs, **kw)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/futaro/project/StatVizForge_JikkenPy/app/backend/api/tests.py", line 372, in test_タグ配列バリデーション
+    self.assertEqual(response.status_code, status.HTTP_201_CREATED)
+AssertionError: 500 != 201
+
+======================================================================
+FAIL: test_タグ配列バリデーション_2__ (api.tests.ProjectValidationTestCase.test_タグ配列バリデーション_2__)
+様々なタグ配列のバリデーション [with test_name='複数タグ', tags=['tag1', 'tag2', 'tag3']]
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/futaro/project/StatVizForge_JikkenPy/app/backend/venv/lib/python3.12/site-packages/parameterized/parameterized.py", line 620, in standalone_func
+    return func(*(a + p.args), **p.kwargs, **kw)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/futaro/project/StatVizForge_JikkenPy/app/backend/api/tests.py", line 372, in test_タグ配列バリデーション
+    self.assertEqual(response.status_code, status.HTTP_201_CREATED)
+AssertionError: 500 != 201
+
+======================================================================
+FAIL: test_タグ配列バリデーション_3__ (api.tests.ProjectValidationTestCase.test_タグ配列バリデーション_3__)
+様々なタグ配列のバリデーション [with test_name='日本語タグ', tags=['日本語', 'テスト', 'サンプル']]
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/futaro/project/StatVizForge_JikkenPy/app/backend/venv/lib/python3.12/site-packages/parameterized/parameterized.py", line 620, in standalone_func
+    return func(*(a + p.args), **p.kwargs, **kw)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/futaro/project/StatVizForge_JikkenPy/app/backend/api/tests.py", line 372, in test_タグ配列バリデーション
+    self.assertEqual(response.status_code, status.HTTP_201_CREATED)
+AssertionError: 500 != 201
+
+======================================================================
+FAIL: test_タグ配列バリデーション_4__ (api.tests.ProjectValidationTestCase.test_タグ配列バリデーション_4__)
+様々なタグ配列のバリデーション [with test_name='英数字タグ', tags=['test', 'sample', 'demo123']]
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/futaro/project/StatVizForge_JikkenPy/app/backend/venv/lib/python3.12/site-packages/parameterized/parameterized.py", line 620, in standalone_func
+    return func(*(a + p.args), **p.kwargs, **kw)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/futaro/project/StatVizForge_JikkenPy/app/backend/api/tests.py", line 372, in test_タグ配列バリデーション
+    self.assertEqual(response.status_code, status.HTTP_201_CREATED)
+AssertionError: 500 != 201
+
+======================================================================
+FAIL: test_プロジェクト名バリデーション (api.tests.ProjectValidationTestCase.test_プロジェクト名バリデーション)
+プロジェクト名の長さと文字種バリデーション
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/futaro/project/StatVizForge_JikkenPy/app/backend/api/tests.py", line 304, in test_プロジェクト名バリデーション
+    self.assertEqual(response.status_code, status.HTTP_201_CREATED)
+AssertionError: 500 != 201
+
+======================================================================
+FAIL: test_重複フォルダ名チェック (api.tests.ProjectValidationTestCase.test_重複フォルダ名チェック)
+フォルダ名の重複チェック
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/futaro/project/StatVizForge_JikkenPy/app/backend/api/tests.py", line 335, in test_重複フォルダ名チェック
+    self.assertEqual(response1.status_code, status.HTTP_201_CREATED)
+AssertionError: 500 != 201
+
+----------------------------------------------------------------------
+Ran 16 tests in 0.028s
+
+FAILED (failures=13)
+Destroying test database for alias 'default' ('file:memorydb_default?mode=memory&cache=shared')...
+ OK
+System check identified no issues (0 silenced).
+
+=== パフォーマンステスト開始 ===
+✓ プロジェクト一覧取得応答時間: 0.003秒
+=== パフォーマンステスト完了 ===
+
+=== エラー混在ライフサイクルテスト開始 ===
+
+=== 同時削除復元操作テスト開始 ===
+
+=== プロジェクト完全ライフサイクルテスト開始 ===
+
+Phase 1: プロジェクト作成
+
+=== RESTful_endpoints 互換性テスト開始 ===
+
+=== Legacy_endpoints 互換性テスト開始 ===
+
+=== エラーハンドリングテスト開始 ===
+✓ 存在しないプロジェクト取得 - 404エラー確認
+✓ 存在しないプロジェクト削除 - 404エラー確認
+✓ 存在しないプロジェクト復元 - 404エラー確認
+✓ 不正なリクエストデータ - 400エラー確認
+=== エラーハンドリングテスト完了 ===
+
+=== 言語パラメータテスト開始 ===
+=== 言語パラメータテスト完了 ===
+
+=== 複数プロジェクト相互作用テスト開始 ===
+
+=== タグバリデーションテスト: 空のタグ配列 ===
+
+=== タグバリデーションテスト: 単一タグ ===
+
+=== タグバリデーションテスト: 複数タグ ===
+
+=== タグバリデーションテスト: 日本語タグ ===
+
+=== タグバリデーションテスト: 英数字タグ ===
+
+=== プロジェクト名バリデーションテスト開始 ===
+
+=== 重複フォルダ名チェックテスト開始 ===
+
+============================================================
+テスト実行結果
+============================================================
+実行時間: 0.18秒
+失敗数: 13
+❌ テストに失敗しました。
