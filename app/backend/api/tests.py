@@ -98,37 +98,6 @@ class ProjectLifecycleTestCase(APITestCase):
         
         print("\n=== プロジェクト完全ライフサイクルテスト完了 ===")
 
-    @parameterized.expand([
-        ("RESTful_endpoints", "/api/projects/", "/api/projects/deleted/"),
-        ("Legacy_endpoints", "/api/projects/list", "/api/projects/archived"),
-    ])
-    @patch('api.utils.load_projects_registry')
-    @patch('api.utils.save_projects_registry')
-    @patch('builtins.open', new_callable=mock_open)
-    @patch('pathlib.Path.exists')
-    def test_endpoint_compatibility(self, pattern_name, list_url, deleted_url, 
-                                  mock_exists, mock_file, mock_save, mock_load):
-        """RESTful vs Legacy エンドポイント互換性テスト"""
-        
-        mock_load.return_value = self.mock_registry.copy()
-        mock_exists.return_value = True
-        
-        print(f"\n=== {pattern_name} 互換性テスト開始 ===")
-        
-        # プロジェクト一覧取得テスト
-        response = self.client.get(list_url)
-        self.assertEqual(response.status_code, status.HTTP_200_OK)
-        self.assertIn('version', response.data)
-        self.assertIn('projects', response.data)
-        print(f"✓ {list_url} - 一覧取得成功")
-        
-        # 削除済み一覧取得テスト
-        response = self.client.get(deleted_url)
-        self.assertEqual(response.status_code, status.HTTP_200_OK)
-        print(f"✓ {deleted_url} - 削除済み一覧取得成功")
-        
-        print(f"=== {pattern_name} 互換性テスト完了 ===")
-
     @patch('api.utils.load_projects_registry')
     @patch('api.utils.save_projects_registry')
     @patch('builtins.open', new_callable=mock_open)
@@ -487,6 +456,544 @@ class ProjectIntegrationTestCase(APITestCase):
         print("✓ 存在しないプロジェクト復元エラー確認")
         
         print("=== エラー混在ライフサイクルテスト完了 ===")
+
+
+class FileManagementTestCase(APITestCase):
+    """ファイル管理API統合テスト"""
+    
+    def setUp(self):
+        """テスト前の準備"""
+        self.test_project_folder = 'test_file_project'
+        
+        # モックファイルツリー
+        self.mock_file_tree = {
+            'name': 'raw',
+            'path': '',
+            'type': 'directory',
+            'size': 0,
+            'modified': '2025-07-27T10:00:00',
+            'children': [
+                {
+                    'name': 'test.txt',
+                    'path': 'test.txt',
+                    'type': 'file',
+                    'size': 100,
+                    'modified': '2025-07-27T10:00:00',
+                    'children': []
+                },
+                {
+                    'name': 'subfolder',
+                    'path': 'subfolder',
+                    'type': 'directory',
+                    'size': 0,
+                    'modified': '2025-07-27T10:00:00',
+                    'children': [
+                        {
+                            'name': 'nested.py',
+                            'path': 'subfolder/nested.py',
+                            'type': 'file',
+                            'size': 500,
+                            'modified': '2025-07-27T10:00:00',
+                            'children': []
+                        }
+                    ]
+                }
+            ]
+        }
+
+    @patch('api.file_explorer.FileExplorer.get_directory_structure')
+    @patch('api.file_comments.FileCommentManager.get_file_summary')
+    def test_directory_tree_retrieval(self, mock_comments, mock_tree):
+        """ディレクトリツリー取得テスト"""
+        print("\n=== ディレクトリツリー取得テスト開始 ===")
+        
+        mock_tree.return_value = self.mock_file_tree
+        mock_comments.return_value = {
+            'test.txt': {'comment_count': 2, 'has_comments': True}
+        }
+        
+        response = self.client.get(f'/api/files/tree/{self.test_project_folder}')
+        
+        self.assertEqual(response.status_code, status.HTTP_200_OK)
+        self.assertEqual(response.data['name'], 'raw')
+        self.assertEqual(response.data['type'], 'directory')
+        self.assertTrue(len(response.data['children']) > 0)
+        
+        # コメント情報が追加されているかチェック
+        test_file = next((child for child in response.data['children'] if child['name'] == 'test.txt'), None)
+        self.assertIsNotNone(test_file)
+        self.assertEqual(test_file['comment_count'], 2)
+        self.assertTrue(test_file['has_comments'])
+        
+        print("✓ ディレクトリツリー取得成功")
+        print("✓ コメント情報統合確認")
+        print("=== ディレクトリツリー取得テスト完了 ===")
+
+    @patch('api.file_explorer.FileExplorer.upload_file')
+    def test_single_file_upload(self, mock_upload):
+        """単一ファイルアップロードテスト"""
+        print("\n=== 単一ファイルアップロードテスト開始 ===")
+        
+        mock_upload.return_value = {
+            'success': True,
+            'file': {
+                'name': 'test_upload.txt',
+                'path': 'test_upload.txt',
+                'size': 1024,
+                'uploaded': '2025-07-27T10:00:00',
+                'mime_type': 'text/plain'
+            }
+        }
+        
+        # ファイルデータをシミュレート
+        from django.core.files.uploadedfile import SimpleUploadedFile
+        test_file = SimpleUploadedFile("test_upload.txt", b"test content")
+        
+        response = self.client.post(f'/api/files/upload/{self.test_project_folder}', {
+            'files': test_file
+        })
+        
+        self.assertEqual(response.status_code, status.HTTP_201_CREATED)
+        self.assertTrue(response.data['success'])
+        self.assertEqual(response.data['file']['name'], 'test_upload.txt')
+        
+        print("✓ 単一ファイルアップロード成功")
+        print("=== 単一ファイルアップロードテスト完了 ===")
+
+    @patch('api.file_explorer.FileExplorer.upload_multiple_files')
+    def test_multiple_file_upload(self, mock_upload):
+        """複数ファイルアップロードテスト"""
+        print("\n=== 複数ファイルアップロードテスト開始 ===")
+        
+        mock_upload.return_value = {
+            'success': True,
+            'uploaded_files': [
+                {
+                    'name': 'file1.txt',
+                    'path': 'file1.txt',
+                    'size': 100,
+                    'uploaded': '2025-07-27T10:00:00',
+                    'mime_type': 'text/plain'
+                },
+                {
+                    'name': 'file2.csv',
+                    'path': 'file2.csv',
+                    'size': 200,
+                    'uploaded': '2025-07-27T10:00:00',
+                    'mime_type': 'text/csv'
+                }
+            ],
+            'failed_files': [],
+            'total_count': 2,
+            'success_count': 2,
+            'error_count': 0
+        }
+        
+        from django.core.files.uploadedfile import SimpleUploadedFile
+        files = [
+            SimpleUploadedFile("file1.txt", b"content1"),
+            SimpleUploadedFile("file2.csv", b"content2")
+        ]
+        
+        response = self.client.post(f'/api/files/upload/{self.test_project_folder}', {
+            'files': files
+        })
+        
+        self.assertEqual(response.status_code, status.HTTP_201_CREATED)
+        self.assertTrue(response.data['success'])
+        self.assertEqual(response.data['success_count'], 2)
+        self.assertEqual(len(response.data['uploaded_files']), 2)
+        
+        print("✓ 複数ファイルアップロード成功")
+        print("=== 複数ファイルアップロードテスト完了 ===")
+
+    @patch('api.file_explorer.FileExplorer.search_files')
+    @patch('api.file_comments.FileCommentManager.get_file_summary')
+    def test_file_search(self, mock_comments, mock_search):
+        """ファイル検索テスト"""
+        print("\n=== ファイル検索テスト開始 ===")
+        
+        mock_search.return_value = {
+            'success': True,
+            'query': 'test',
+            'search_type': 'name',
+            'total_results': 2,
+            'results': [
+                {
+                    'name': 'test.txt',
+                    'path': 'test.txt',
+                    'type': 'file',
+                    'size': 100,
+                    'modified': '2025-07-27T10:00:00',
+                    'match_type': 'name',
+                    'directory': ''
+                },
+                {
+                    'name': 'test_data.csv',
+                    'path': 'data/test_data.csv',
+                    'type': 'file',
+                    'size': 1500,
+                    'modified': '2025-07-27T10:00:00',
+                    'match_type': 'name',
+                    'directory': 'data'
+                }
+            ]
+        }
+        
+        mock_comments.return_value = {
+            'test.txt': {'comment_count': 1, 'has_comments': True}
+        }
+        
+        # 名前による検索
+        response = self.client.get(f'/api/files/search/{self.test_project_folder}?q=test&type=name')
+        
+        self.assertEqual(response.status_code, status.HTTP_200_OK)
+        self.assertTrue(response.data['success'])
+        self.assertEqual(response.data['total_results'], 2)
+        self.assertEqual(len(response.data['results']), 2)
+        
+        # コメント情報が追加されているかチェック
+        test_file = next((r for r in response.data['results'] if r['name'] == 'test.txt'), None)
+        self.assertIsNotNone(test_file)
+        self.assertEqual(test_file['comment_count'], 1)
+        
+        print("✓ ファイル名検索成功")
+        print("✓ 検索結果にコメント情報統合確認")
+        print("=== ファイル検索テスト完了 ===")
+
+    @patch('api.file_explorer.FileExplorer.delete_item')
+    @patch('api.views.FileViewSet._cleanup_comments_for_deleted_item')
+    def test_file_deletion(self, mock_cleanup, mock_delete):
+        """ファイル削除テスト"""
+        print("\n=== ファイル削除テスト開始 ===")
+        
+        mock_delete.return_value = True
+        
+        response = self.client.delete(f'/api/files/delete/{self.test_project_folder}', {
+            'file_path': 'test.txt'
+        })
+        
+        self.assertEqual(response.status_code, status.HTTP_200_OK)
+        self.assertTrue(response.data['success'])
+        
+        # コメントクリーンアップが呼ばれたかチェック
+        mock_cleanup.assert_called_once_with(self.test_project_folder, 'test.txt')
+        
+        print("✓ ファイル削除成功")
+        print("✓ コメントクリーンアップ実行確認")
+        print("=== ファイル削除テスト完了 ===")
+
+    @patch('api.file_explorer.FileExplorer.move_item')
+    @patch('api.views.FileViewSet._update_comments_for_moved_item')
+    def test_file_move(self, mock_update_comments, mock_move):
+        """ファイル移動テスト"""
+        print("\n=== ファイル移動テスト開始 ===")
+        
+        mock_move.return_value = True
+        
+        response = self.client.post(f'/api/files/move/{self.test_project_folder}', {
+            'source_path': 'test.txt',
+            'destination_path': 'moved/test.txt'
+        })
+        
+        self.assertEqual(response.status_code, status.HTTP_200_OK)
+        self.assertTrue(response.data['success'])
+        self.assertEqual(response.data['new_path'], 'moved/test.txt')
+        
+        # コメント更新が呼ばれたかチェック
+        mock_update_comments.assert_called_once_with(
+            self.test_project_folder, 'test.txt', 'moved/test.txt'
+        )
+        
+        print("✓ ファイル移動成功")
+        print("✓ コメントパス更新確認")
+        print("=== ファイル移動テスト完了 ===")
+
+    @patch('api.file_explorer.FileExplorer.create_directory')
+    def test_directory_creation(self, mock_create):
+        """ディレクトリ作成テスト"""
+        print("\n=== ディレクトリ作成テスト開始 ===")
+        
+        mock_create.return_value = True
+        
+        response = self.client.post(f'/api/files/mkdir/{self.test_project_folder}', {
+            'dir_path': 'new_directory'
+        })
+        
+        self.assertEqual(response.status_code, status.HTTP_200_OK)
+        self.assertTrue(response.data['success'])
+        self.assertEqual(response.data['path'], 'new_directory')
+        
+        print("✓ ディレクトリ作成成功")
+        print("=== ディレクトリ作成テスト完了 ===")
+
+    def test_file_api_error_handling(self):
+        """ファイルAPI エラーハンドリングテスト"""
+        print("\n=== ファイルAPI エラーハンドリングテスト開始 ===")
+        
+        # 存在しないプロジェクトフォルダ
+        response = self.client.get('/api/files/tree/nonexistent_project')
+        self.assertEqual(response.status_code, status.HTTP_404_NOT_FOUND)
+        print("✓ 存在しないプロジェクトフォルダエラー確認")
+        
+        # 検索クエリなし
+        response = self.client.get(f'/api/files/search/{self.test_project_folder}')
+        self.assertEqual(response.status_code, status.HTTP_400_BAD_REQUEST)
+        print("✓ 検索クエリなしエラー確認")
+        
+        # 無効な検索タイプ
+        response = self.client.get(f'/api/files/search/{self.test_project_folder}?q=test&type=invalid')
+        self.assertEqual(response.status_code, status.HTTP_400_BAD_REQUEST)
+        print("✓ 無効な検索タイプエラー確認")
+        
+        # ファイルパスなしで削除
+        response = self.client.delete(f'/api/files/delete/{self.test_project_folder}')
+        self.assertEqual(response.status_code, status.HTTP_400_BAD_REQUEST)
+        print("✓ ファイルパスなし削除エラー確認")
+        
+        print("=== ファイルAPI エラーハンドリングテスト完了 ===")
+
+
+class FileCommentsTestCase(APITestCase):
+    """ファイルコメントAPI テスト"""
+    
+    def setUp(self):
+        """テスト前の準備"""
+        self.test_project_folder = 'test_comment_project'
+        self.test_file_path = 'test.txt'
+
+    @patch('api.file_comments.FileCommentManager.get_file_comments')
+    def test_get_file_comments(self, mock_get_comments):
+        """ファイルコメント取得テスト"""
+        print("\n=== ファイルコメント取得テスト開始 ===")
+        
+        mock_get_comments.return_value = [
+            {
+                'id': 'comment1',
+                'text': 'テストコメント1',
+                'author': 'テストユーザー',
+                'created_at': '2025-07-27T10:00:00',
+                'updated_at': '2025-07-27T10:00:00'
+            }
+        ]
+        
+        response = self.client.get(f'/api/files/comments/{self.test_project_folder}?file_path={self.test_file_path}')
+        
+        self.assertEqual(response.status_code, status.HTTP_200_OK)
+        self.assertIn('comments', response.data)
+        self.assertEqual(len(response.data['comments']), 1)
+        self.assertEqual(response.data['comments'][0]['text'], 'テストコメント1')
+        
+        print("✓ ファイルコメント取得成功")
+        print("=== ファイルコメント取得テスト完了 ===")
+
+    @patch('api.file_comments.FileCommentManager.add_comment')
+    def test_add_file_comment(self, mock_add_comment):
+        """ファイルコメント追加テスト"""
+        print("\n=== ファイルコメント追加テスト開始 ===")
+        
+        mock_add_comment.return_value = {
+            'success': True,
+            'comment': {
+                'id': 'new_comment',
+                'text': '新しいコメント',
+                'author': 'テストユーザー',
+                'created_at': '2025-07-27T10:00:00'
+            }
+        }
+        
+        comment_data = {
+            'file_path': self.test_file_path,
+            'comment': '新しいコメント',
+            'author': 'テストユーザー'
+        }
+        
+        response = self.client.post(f'/api/files/comments/{self.test_project_folder}', comment_data)
+        
+        self.assertEqual(response.status_code, status.HTTP_201_CREATED)
+        self.assertTrue(response.data['success'])
+        self.assertEqual(response.data['comment']['text'], '新しいコメント')
+        
+        print("✓ ファイルコメント追加成功")
+        print("=== ファイルコメント追加テスト完了 ===")
+
+    @patch('api.file_comments.FileCommentManager.update_comment')
+    def test_update_file_comment(self, mock_update_comment):
+        """ファイルコメント更新テスト"""
+        print("\n=== ファイルコメント更新テスト開始 ===")
+        
+        mock_update_comment.return_value = {
+            'success': True,
+            'comment': {
+                'id': 'comment1',
+                'text': '更新されたコメント',
+                'author': 'テストユーザー',
+                'updated_at': '2025-07-27T11:00:00'
+            }
+        }
+        
+        update_data = {
+            'file_path': self.test_file_path,
+            'comment': '更新されたコメント'
+        }
+        
+        response = self.client.put(f'/api/files/comments/{self.test_project_folder}/comment1', update_data)
+        
+        self.assertEqual(response.status_code, status.HTTP_200_OK)
+        self.assertTrue(response.data['success'])
+        self.assertEqual(response.data['comment']['text'], '更新されたコメント')
+        
+        print("✓ ファイルコメント更新成功")
+        print("=== ファイルコメント更新テスト完了 ===")
+
+    @patch('api.file_comments.FileCommentManager.delete_comment')
+    def test_delete_file_comment(self, mock_delete_comment):
+        """ファイルコメント削除テスト"""
+        print("\n=== ファイルコメント削除テスト開始 ===")
+        
+        mock_delete_comment.return_value = {'success': True}
+        
+        response = self.client.delete(f'/api/files/comments/{self.test_project_folder}/comment1?file_path={self.test_file_path}')
+        
+        self.assertEqual(response.status_code, status.HTTP_200_OK)
+        self.assertTrue(response.data['success'])
+        
+        print("✓ ファイルコメント削除成功")
+        print("=== ファイルコメント削除テスト完了 ===")
+
+    def test_comment_api_validation(self):
+        """コメントAPI バリデーションテスト"""
+        print("\n=== コメントAPI バリデーションテスト開始 ===")
+        
+        # ファイルパスなしでコメント追加
+        response = self.client.post(f'/api/files/comments/{self.test_project_folder}', {
+            'comment': 'コメント'
+        })
+        self.assertEqual(response.status_code, status.HTTP_400_BAD_REQUEST)
+        print("✓ ファイルパスなしエラー確認")
+        
+        # コメントテキストなしで追加
+        response = self.client.post(f'/api/files/comments/{self.test_project_folder}', {
+            'file_path': self.test_file_path
+        })
+        self.assertEqual(response.status_code, status.HTTP_400_BAD_REQUEST)
+        print("✓ コメントテキストなしエラー確認")
+        
+        # ファイルパスなしでコメント更新
+        response = self.client.put(f'/api/files/comments/{self.test_project_folder}/comment1', {
+            'comment': '更新コメント'
+        })
+        self.assertEqual(response.status_code, status.HTTP_400_BAD_REQUEST)
+        print("✓ 更新時ファイルパスなしエラー確認")
+        
+        print("=== コメントAPI バリデーションテスト完了 ===")
+
+
+class APIIntegrationTestCase(APITestCase):
+    """API統合テスト - 複数APIの連携"""
+    
+    @patch('api.utils.load_projects_registry')
+    @patch('api.utils.save_projects_registry')
+    @patch('api.file_explorer.FileExplorer.get_directory_structure')
+    @patch('api.file_explorer.FileExplorer.upload_file')
+    @patch('api.file_comments.FileCommentManager.add_comment')
+    @patch('pathlib.Path.exists')
+    @patch('pathlib.Path.mkdir')
+    def test_full_workflow_integration(self, mock_mkdir, mock_exists, mock_add_comment, 
+                                     mock_upload, mock_tree, mock_save, mock_load):
+        """完全ワークフロー統合テスト：プロジェクト作成→ファイル操作→コメント→検索"""
+        print("\n=== 完全ワークフロー統合テスト開始 ===")
+        
+        # セットアップ
+        mock_load.return_value = {'version': '1.0.0', 'projects': []}
+        mock_exists.return_value = True
+        
+        # Phase 1: プロジェクト作成
+        project_data = {
+            'folder_name': 'integration_test_project',
+            'project_name': '統合テストプロジェクト',
+            'description': '統合テスト用プロジェクト',
+            'status': 'active'
+        }
+        
+        response = self.client.post('/api/projects/', project_data)
+        self.assertEqual(response.status_code, status.HTTP_201_CREATED)
+        project_id = response.data['id']
+        project_folder = response.data['folder_name']
+        print(f"✓ Phase 1: プロジェクト作成成功 - {project_id}")
+        
+        # Phase 2: ファイルアップロード
+        mock_upload.return_value = {
+            'success': True,
+            'file': {
+                'name': 'integration_test.py',
+                'path': 'integration_test.py',
+                'size': 1024,
+                'uploaded': '2025-07-27T10:00:00',
+                'mime_type': 'text/x-python'
+            }
+        }
+        
+        from django.core.files.uploadedfile import SimpleUploadedFile
+        test_file = SimpleUploadedFile("integration_test.py", b"# Integration test file")
+        
+        response = self.client.post(f'/api/files/upload/{project_folder}', {
+            'files': test_file
+        })
+        self.assertEqual(response.status_code, status.HTTP_201_CREATED)
+        print("✓ Phase 2: ファイルアップロード成功")
+        
+        # Phase 3: ファイルツリー取得
+        mock_tree.return_value = {
+            'name': 'raw',
+            'path': '',
+            'type': 'directory',
+            'size': 0,
+            'modified': '2025-07-27T10:00:00',
+            'children': [
+                {
+                    'name': 'integration_test.py',
+                    'path': 'integration_test.py',
+                    'type': 'file',
+                    'size': 1024,
+                    'modified': '2025-07-27T10:00:00',
+                    'children': []
+                }
+            ]
+        }
+        
+        response = self.client.get(f'/api/files/tree/{project_folder}')
+        self.assertEqual(response.status_code, status.HTTP_200_OK)
+        self.assertEqual(response.data['name'], 'raw')
+        print("✓ Phase 3: ファイルツリー取得成功")
+        
+        # Phase 4: ファイルコメント追加
+        mock_add_comment.return_value = {
+            'success': True,
+            'comment': {
+                'id': 'integration_comment',
+                'text': '統合テスト用コメント',
+                'author': 'TestUser',
+                'created_at': '2025-07-27T10:00:00'
+            }
+        }
+        
+        comment_data = {
+            'file_path': 'integration_test.py',
+            'comment': '統合テスト用コメント',
+            'author': 'TestUser'
+        }
+        
+        response = self.client.post(f'/api/files/comments/{project_folder}', comment_data)
+        self.assertEqual(response.status_code, status.HTTP_201_CREATED)
+        print("✓ Phase 4: ファイルコメント追加成功")
+        
+        # Phase 5: プロジェクト削除（クリーンアップ）
+        response = self.client.delete(f'/api/projects/{project_id}/')
+        self.assertEqual(response.status_code, status.HTTP_204_NO_CONTENT)
+        print("✓ Phase 5: プロジェクト削除成功")
+        
+        print("=== 完全ワークフロー統合テスト完了 ===")
 
 
 if __name__ == '__main__':

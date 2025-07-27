@@ -4,14 +4,16 @@ from rest_framework.response import Response
 from rest_framework.parsers import MultiPartParser, FormParser
 from django.http import FileResponse
 from django.conf import settings
-from .models import Project, ProjectFile, DataAnalysis
-from .serializers import ProjectSerializer, ProjectFileSerializer, DataAnalysisSerializer
+from .models import Project, ProjectFile
+from .serializers import ProjectSerializer, ProjectFileSerializer
 from .utils import load_projects_registry, save_projects_registry
 from .localization import (
     get_language_from_request, 
     create_error_response, 
     get_field_validation_message
 )
+from .file_explorer import FileExplorer
+from .file_comments import FileCommentManager
 import uuid
 
 
@@ -476,41 +478,399 @@ class FileViewSet(viewsets.ModelViewSet):
     serializer_class = ProjectFileSerializer
     parser_classes = (MultiPartParser, FormParser)
     
-    @action(detail=False, methods=['post'], url_path='upload')
-    def upload(self, request):
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.file_explorer = FileExplorer()
+        self.comment_manager = FileCommentManager()
+    
+    @action(detail=False, methods=['get'], url_path='tree/(?P<project_folder>[^/.]+)')
+    def directory_tree(self, request, project_folder=None):
+        """プロジェクトのディレクトリツリーを取得"""
+        language = get_language_from_request(request)
+        path = request.query_params.get('path', '')
+        
+        try:
+            tree_data = self.file_explorer.get_directory_structure(project_folder, path)
+            if 'error' in tree_data:
+                return create_error_response(
+                    'PATH_NOT_FOUND' if tree_data['error'] == 'Path not found' else 'PROJECT_NOT_FOUND',
+                    language,
+                    status_code=status.HTTP_404_NOT_FOUND
+                )
+            
+            # コメント情報を追加
+            comment_summary = self.comment_manager.get_file_summary(project_folder)
+            self._add_comments_to_tree(tree_data, comment_summary)
+            
+            return Response(tree_data)
+        except Exception as e:
+            return create_error_response(
+                'FAILED_TO_GET_DIRECTORY',
+                language,
+                status_code=status.HTTP_500_INTERNAL_SERVER_ERROR
+            )
+    
+    @action(detail=False, methods=['post'], url_path='upload/(?P<project_folder>[^/.]+)')
+    def upload(self, request, project_folder=None):
         """ファイルアップロード"""
-        # TODO: ファイルアップロード処理を実装
-        return Response({'message': 'Upload endpoint'}, status=status.HTTP_200_OK)
+        language = get_language_from_request(request)
+        
+        if not project_folder:
+            return create_error_response(
+                'PROJECT_FOLDER_REQUIRED',
+                language,
+                status_code=status.HTTP_400_BAD_REQUEST
+            )
+        
+        files = request.FILES.getlist('files')
+        if not files:
+            return create_error_response(
+                'NO_FILES_PROVIDED',
+                language,
+                status_code=status.HTTP_400_BAD_REQUEST
+            )
+        
+        target_path = request.data.get('target_path', '')
+        
+        try:
+            if len(files) == 1:
+                # 単一ファイル
+                result = self.file_explorer.upload_file(project_folder, files[0], target_path)
+            else:
+                # 複数ファイル
+                result = self.file_explorer.upload_multiple_files(project_folder, files, target_path)
+            
+            if result.get('success'):
+                return Response(result, status=status.HTTP_201_CREATED)
+            else:
+                return create_error_response(
+                    'UPLOAD_FAILED',
+                    language,
+                    details=result,
+                    status_code=status.HTTP_500_INTERNAL_SERVER_ERROR
+                )
+        except Exception as e:
+            return create_error_response(
+                'UPLOAD_ERROR',
+                language,
+                status_code=status.HTTP_500_INTERNAL_SERVER_ERROR
+            )
     
-    @action(detail=True, methods=['get'], url_path='download')
-    def download(self, request, pk=None):
-        """ファイルダウンロード"""
-        # TODO: ファイルダウンロード処理を実装
-        return Response({'message': 'Download endpoint'}, status=status.HTTP_200_OK)
     
-    @action(detail=False, methods=['get'], url_path='list/(?P<project_id>[^/.]+)')
-    def list_by_project(self, request, project_id=None):
-        """プロジェクト内ファイル一覧"""
-        # TODO: プロジェクト別ファイル一覧取得処理を実装
-        return Response({'message': f'Files for project {project_id}'}, status=status.HTTP_200_OK)
+    def _add_comments_to_tree(self, node: dict, comment_summary: dict, current_path: str = ''):
+        """ツリーノードにコメント情報を追加する再帰関数"""
+        node_path = current_path + '/' + node['name'] if current_path else node['name']
+        node_path = node_path.lstrip('/')
+        
+        # このノードのコメント情報を追加
+        if node_path in comment_summary:
+            node['comment_count'] = comment_summary[node_path]['comment_count']
+            node['has_comments'] = comment_summary[node_path]['has_comments']
+        else:
+            node['comment_count'] = 0
+            node['has_comments'] = False
+        
+        # 子ノードも処理
+        if 'children' in node:
+            for child in node['children']:
+                self._add_comments_to_tree(child, comment_summary, node_path)
+
+    @action(detail=False, methods=['get', 'post'], url_path='comments/(?P<project_folder>[^/.]+)')
+    def file_comments(self, request, project_folder=None):
+        """ファイルコメント管理"""
+        language = get_language_from_request(request)
+        
+        if request.method == 'GET':
+            file_path = request.query_params.get('file_path')
+            if file_path:
+                # 特定ファイルのコメント取得
+                comments = self.comment_manager.get_file_comments(project_folder, file_path)
+                return Response({'comments': comments})
+            else:
+                # 全コメント情報取得
+                all_comments = self.comment_manager.get_all_comments(project_folder)
+                return Response(all_comments)
+        
+        elif request.method == 'POST':
+            # 新しいコメント追加
+            file_path = request.data.get('file_path')
+            comment_text = request.data.get('comment')
+            author = request.data.get('author', 'Anonymous')
+            
+            if not file_path or not comment_text:
+                return create_error_response(
+                    'MISSING_REQUIRED_FIELDS',
+                    language,
+                    status_code=status.HTTP_400_BAD_REQUEST
+                )
+            
+            result = self.comment_manager.add_comment(project_folder, file_path, comment_text, author)
+            
+            if result['success']:
+                return Response(result, status=status.HTTP_201_CREATED)
+            else:
+                return create_error_response(
+                    'FAILED_TO_ADD_COMMENT',
+                    language,
+                    details=result,
+                    status_code=status.HTTP_500_INTERNAL_SERVER_ERROR
+                )
+
+    @action(detail=False, methods=['put', 'delete'], url_path='comments/(?P<project_folder>[^/.]+)/(?P<comment_id>[^/.]+)')
+    def comment_detail(self, request, project_folder=None, comment_id=None):
+        """個別コメントの更新・削除"""
+        language = get_language_from_request(request)
+        file_path = request.data.get('file_path') or request.query_params.get('file_path')
+        
+        if not file_path:
+            return create_error_response(
+                'FILE_PATH_REQUIRED',
+                language,
+                status_code=status.HTTP_400_BAD_REQUEST
+            )
+        
+        if request.method == 'PUT':
+            # コメント更新
+            new_text = request.data.get('comment')
+            if not new_text:
+                return create_error_response(
+                    'COMMENT_TEXT_REQUIRED',
+                    language,
+                    status_code=status.HTTP_400_BAD_REQUEST
+                )
+            
+            result = self.comment_manager.update_comment(project_folder, file_path, comment_id, new_text)
+            
+            if result['success']:
+                return Response(result)
+            else:
+                return create_error_response(
+                    'FAILED_TO_UPDATE_COMMENT',
+                    language,
+                    details=result,
+                    status_code=status.HTTP_500_INTERNAL_SERVER_ERROR
+                )
+        
+        elif request.method == 'DELETE':
+            # コメント削除
+            result = self.comment_manager.delete_comment(project_folder, file_path, comment_id)
+            
+            if result['success']:
+                return Response({'success': True})
+            else:
+                return create_error_response(
+                    'FAILED_TO_DELETE_COMMENT',
+                    language,
+                    details=result,
+                    status_code=status.HTTP_500_INTERNAL_SERVER_ERROR
+                )
+
+    @action(detail=False, methods=['delete'], url_path='delete/(?P<project_folder>[^/.]+)')
+    def delete_file(self, request, project_folder=None):
+        """ファイル・ディレクトリ削除"""
+        language = get_language_from_request(request)
+        file_path = request.data.get('file_path') or request.query_params.get('file_path')
+        
+        if not file_path:
+            return create_error_response(
+                'FILE_PATH_REQUIRED',
+                language,
+                status_code=status.HTTP_400_BAD_REQUEST
+            )
+        
+        try:
+            result = self.file_explorer.delete_item(project_folder, file_path)
+            if result:
+                # コメントも一緒に削除（ファイルの場合）
+                self._cleanup_comments_for_deleted_item(project_folder, file_path)
+                
+                return Response({
+                    'success': True,
+                    'message': 'Item deleted successfully'
+                })
+            else:
+                return create_error_response(
+                    'DELETE_FAILED',
+                    language,
+                    status_code=status.HTTP_500_INTERNAL_SERVER_ERROR
+                )
+        except Exception as e:
+            return create_error_response(
+                'DELETE_ERROR',
+                language,
+                status_code=status.HTTP_500_INTERNAL_SERVER_ERROR
+            )
+
+    @action(detail=False, methods=['post'], url_path='move/(?P<project_folder>[^/.]+)')
+    def move_file(self, request, project_folder=None):
+        """ファイル・ディレクトリ移動"""
+        language = get_language_from_request(request)
+        source_path = request.data.get('source_path')
+        destination_path = request.data.get('destination_path')
+        
+        if not source_path or not destination_path:
+            return create_error_response(
+                'SOURCE_AND_DESTINATION_REQUIRED',
+                language,
+                status_code=status.HTTP_400_BAD_REQUEST
+            )
+        
+        try:
+            result = self.file_explorer.move_item(project_folder, source_path, destination_path)
+            if result:
+                # コメントのパスも更新
+                self._update_comments_for_moved_item(project_folder, source_path, destination_path)
+                
+                return Response({
+                    'success': True,
+                    'message': 'Item moved successfully',
+                    'new_path': destination_path
+                })
+            else:
+                return create_error_response(
+                    'MOVE_FAILED',
+                    language,
+                    status_code=status.HTTP_500_INTERNAL_SERVER_ERROR
+                )
+        except Exception as e:
+            return create_error_response(
+                'MOVE_ERROR',
+                language,
+                status_code=status.HTTP_500_INTERNAL_SERVER_ERROR
+            )
+
+    @action(detail=False, methods=['post'], url_path='mkdir/(?P<project_folder>[^/.]+)')
+    def create_directory(self, request, project_folder=None):
+        """新規ディレクトリ作成"""
+        language = get_language_from_request(request)
+        dir_path = request.data.get('dir_path')
+        
+        if not dir_path:
+            return create_error_response(
+                'DIRECTORY_PATH_REQUIRED',
+                language,
+                status_code=status.HTTP_400_BAD_REQUEST
+            )
+        
+        try:
+            result = self.file_explorer.create_directory(project_folder, dir_path)
+            if result:
+                return Response({
+                    'success': True,
+                    'message': 'Directory created successfully',
+                    'path': dir_path
+                })
+            else:
+                return create_error_response(
+                    'CREATE_DIRECTORY_FAILED',
+                    language,
+                    status_code=status.HTTP_500_INTERNAL_SERVER_ERROR
+                )
+        except Exception as e:
+            return create_error_response(
+                'CREATE_DIRECTORY_ERROR',
+                language,
+                status_code=status.HTTP_500_INTERNAL_SERVER_ERROR
+            )
+
+    def _cleanup_comments_for_deleted_item(self, project_folder: str, file_path: str):
+        """削除されたアイテムのコメントをクリーンアップ"""
+        try:
+            comments_data = self.comment_manager.load_comments(project_folder)
+            paths_to_remove = []
+            
+            # 削除されたパスとその子パスのコメントを特定
+            for comment_path in comments_data['comments'].keys():
+                if comment_path == file_path or comment_path.startswith(file_path + '/'):
+                    paths_to_remove.append(comment_path)
+            
+            # コメントを削除
+            for path in paths_to_remove:
+                del comments_data['comments'][path]
+            
+            self.comment_manager.save_comments(project_folder, comments_data)
+        except Exception:
+            # コメント削除に失敗してもファイル削除は成功とする
+            pass
+
+    def _update_comments_for_moved_item(self, project_folder: str, old_path: str, new_path: str):
+        """移動されたアイテムのコメントパスを更新"""
+        try:
+            comments_data = self.comment_manager.load_comments(project_folder)
+            updated_comments = {}
+            
+            # パスを更新
+            for comment_path, comments in comments_data['comments'].items():
+                if comment_path == old_path:
+                    # 完全一致の場合
+                    updated_comments[new_path] = comments
+                elif comment_path.startswith(old_path + '/'):
+                    # 子パスの場合
+                    relative_path = comment_path[len(old_path):]
+                    updated_comments[new_path + relative_path] = comments
+                else:
+                    # 無関係なパス
+                    updated_comments[comment_path] = comments
+            
+            comments_data['comments'] = updated_comments
+            self.comment_manager.save_comments(project_folder, comments_data)
+        except Exception:
+            # コメント更新に失敗してもファイル移動は成功とする
+            pass
+
+    @action(detail=False, methods=['get'], url_path='search/(?P<project_folder>[^/.]+)')
+    def search_files(self, request, project_folder=None):
+        """ファイル検索"""
+        language = get_language_from_request(request)
+        query = request.query_params.get('q', '').strip()
+        search_type = request.query_params.get('type', 'name')  # name, content, both
+        
+        if not query:
+            return create_error_response(
+                'SEARCH_QUERY_REQUIRED',
+                language,
+                status_code=status.HTTP_400_BAD_REQUEST
+            )
+        
+        if search_type not in ['name', 'content', 'both']:
+            return create_error_response(
+                'INVALID_SEARCH_TYPE',
+                language,
+                status_code=status.HTTP_400_BAD_REQUEST
+            )
+        
+        try:
+            results = self.file_explorer.search_files(project_folder, query, search_type)
+            
+            if 'error' in results:
+                return create_error_response(
+                    'SEARCH_FAILED',
+                    language,
+                    details={'error': results['error']},
+                    status_code=status.HTTP_404_NOT_FOUND if 'not found' in results['error'].lower() else status.HTTP_500_INTERNAL_SERVER_ERROR
+                )
+            
+            # コメント情報を追加
+            comment_summary = self.comment_manager.get_file_summary(project_folder)
+            for result in results['results']:
+                file_path = result['path']
+                if file_path in comment_summary:
+                    result['comment_count'] = comment_summary[file_path]['comment_count']
+                    result['has_comments'] = comment_summary[file_path]['has_comments']
+                else:
+                    result['comment_count'] = 0
+                    result['has_comments'] = False
+            
+            return Response(results)
+        except Exception as e:
+            return create_error_response(
+                'SEARCH_ERROR',
+                language,
+                status_code=status.HTTP_500_INTERNAL_SERVER_ERROR
+            )
 
 
-class DataViewSet(viewsets.ModelViewSet):
-    """データ処理API"""
-    queryset = DataAnalysis.objects.all()
-    serializer_class = DataAnalysisSerializer
-    
-    @action(detail=False, methods=['post'], url_path='analyze')
-    def analyze(self, request):
-        """データ分析実行"""
-        # TODO: データ分析処理を実装
-        return Response({'message': 'Analysis endpoint'}, status=status.HTTP_200_OK)
-    
-    @action(detail=True, methods=['get'], url_path='results')
-    def get_results(self, request, pk=None):
-        """分析結果取得"""
-        # TODO: 分析結果取得処理を実装
-        return Response({'message': f'Results for analysis {pk}'}, status=status.HTTP_200_OK)
+
 
 
 @api_view(['GET'])

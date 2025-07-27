@@ -1,0 +1,56 @@
+{
+  "app": {
+    "name": "StatVizForge_JikkenPy",
+    "version": "1.0.0",
+    "environment": "development",
+    "debug": true
+  },
+  "api": {
+    "baseUrl": "http://localhost:8000",
+    "timeout": 30000,
+    "retryAttempts": 3
+  },
+  "frontend": {
+    "port": 3000,
+    "host": "localhost",
+    "publicPath": "/"
+  },
+  "backend": {
+    "port": 8000,
+    "host": "localhost",
+    "allowedHosts": ["localhost", "127.0.0.1"],
+    "corsOrigins": ["http://localhost:3000"]
+  },
+  "database": {
+    "type": "sqlite",
+    "name": "db.sqlite3",
+    "path": "./backend/db.sqlite3"
+  },
+  "logging": {
+    "level": "info",
+    "format": "json",
+    "outputPath": "../logs/"
+  },
+  "features": {
+    "enableMockData": true,
+    "enableApiLogging": true,
+    "enableAutoSave": true,
+    "autoSaveInterval": 60000
+  },
+  "paths": {
+    "projectsRoot": "../project/",
+    "trashRoot": "../project/trash/",
+    "logsRoot": "../logs/",
+    "tempRoot": "../temp/"
+  },
+  "limits": {
+    "maxProjectSize": 104857600,
+    "maxFileUploadSize": 10485760,
+    "maxProjectsPerUser": 100
+  },
+  "localization": {
+    "defaultLanguage": "ja",
+    "supportedLanguages": ["ja", "en"],
+    "fallbackLanguage": "en"
+  }
+}

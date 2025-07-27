@@ -362,3 +362,458 @@
 }
 ステータス: 200
 ---
+
+[2025-07-27 09:35:04] GET /api/projects/
+リクエスト: {'lang': ['ja']}
+レスポンス: {
+  "version": "1.0.0",
+  "last_updated": "2025-07-24T23:31:44.186614",
+  "retention_months": 13,
+  "projects": [
+    {
+      "folder_name": "testProject",
+      "project_name": "テストのためのプロジェクト",
+      "description": "テストです。",
+      "tags": [],
+      "status": "active",
+      "id": "2cec431a-0416-4451-a43b-fdc85e0c5c62",
+      "created_date": "2025-07-24T23:31:44.186614",
+      "modified_date": "2025-07-24T23:31:44.186614"
+    }
+  ],
+  "archived_projects": [],
+  "reserved_folders": [
+    "node_modules",
+    "dist",
+    "build",
+    ".git",
+    "backend",
+    "frontend",
+    "trash",
+    "recycle_bin",
+    "deleted",
+    ".trash"
+  ]
+}
+ステータス: 200
+---
+
+[2025-07-27 09:43:11] GET /api/projects/
+リクエスト: {'lang': ['ja']}
+レスポンス: {
+  "version": "1.0.0",
+  "last_updated": "2025-07-24T23:31:44.186614",
+  "retention_months": 13,
+  "projects": [
+    {
+      "folder_name": "testProject",
+      "project_name": "テストのためのプロジェクト",
+      "description": "テストです。",
+      "tags": [],
+      "status": "active",
+      "id": "2cec431a-0416-4451-a43b-fdc85e0c5c62",
+      "created_date": "2025-07-24T23:31:44.186614",
+      "modified_date": "2025-07-24T23:31:44.186614"
+    }
+  ],
+  "archived_projects": [],
+  "reserved_folders": [
+    "node_modules",
+    "dist",
+    "build",
+    ".git",
+    "backend",
+    "frontend",
+    "trash",
+    "recycle_bin",
+    "deleted",
+    ".trash"
+  ]
+}
+ステータス: 200
+---
+
+[2025-07-27 09:43:11] GET /api/projects/
+リクエスト: {'lang': ['ja']}
+レスポンス: {
+  "version": "1.0.0",
+  "last_updated": "2025-07-24T23:31:44.186614",
+  "retention_months": 13,
+  "projects": [
+    {
+      "folder_name": "testProject",
+      "project_name": "テストのためのプロジェクト",
+      "description": "テストです。",
+      "tags": [],
+      "status": "active",
+      "id": "2cec431a-0416-4451-a43b-fdc85e0c5c62",
+      "created_date": "2025-07-24T23:31:44.186614",
+      "modified_date": "2025-07-24T23:31:44.186614"
+    }
+  ],
+  "archived_projects": [],
+  "reserved_folders": [
+    "node_modules",
+    "dist",
+    "build",
+    ".git",
+    "backend",
+    "frontend",
+    "trash",
+    "recycle_bin",
+    "deleted",
+    ".trash"
+  ]
+}
+ステータス: 200
+---
+
+[2025-07-27 09:44:06] GET /api/projects/
+リクエスト: {'lang': ['ja']}
+レスポンス: {
+  "version": "1.0.0",
+  "last_updated": "2025-07-24T23:31:44.186614",
+  "retention_months": 13,
+  "projects": [
+    {
+      "folder_name": "testProject",
+      "project_name": "テストのためのプロジェクト",
+      "description": "テストです。",
+      "tags": [],
+      "status": "active",
+      "id": "2cec431a-0416-4451-a43b-fdc85e0c5c62",
+      "created_date": "2025-07-24T23:31:44.186614",
+      "modified_date": "2025-07-24T23:31:44.186614"
+    }
+  ],
+  "archived_projects": [],
+  "reserved_folders": [
+    "node_modules",
+    "dist",
+    "build",
+    ".git",
+    "backend",
+    "frontend",
+    "trash",
+    "recycle_bin",
+    "deleted",
+    ".trash"
+  ]
+}
+ステータス: 200
+---
+
+[2025-07-27 09:44:06] GET /api/projects/
+リクエスト: {'lang': ['ja']}
+レスポンス: {
+  "version": "1.0.0",
+  "last_updated": "2025-07-24T23:31:44.186614",
+  "retention_months": 13,
+  "projects": [
+    {
+      "folder_name": "testProject",
+      "project_name": "テストのためのプロジェクト",
+      "description": "テストです。",
+      "tags": [],
+      "status": "active",
+      "id": "2cec431a-0416-4451-a43b-fdc85e0c5c62",
+      "created_date": "2025-07-24T23:31:44.186614",
+      "modified_date": "2025-07-24T23:31:44.186614"
+    }
+  ],
+  "archived_projects": [],
+  "reserved_folders": [
+    "node_modules",
+    "dist",
+    "build",
+    ".git",
+    "backend",
+    "frontend",
+    "trash",
+    "recycle_bin",
+    "deleted",
+    ".trash"
+  ]
+}
+ステータス: 200
+---
+
+[2025-07-27 09:44:39] GET /api/projects/
+リクエスト: {'lang': ['ja']}
+レスポンス: {
+  "version": "1.0.0",
+  "last_updated": "2025-07-24T23:31:44.186614",
+  "retention_months": 13,
+  "projects": [
+    {
+      "folder_name": "testProject",
+      "project_name": "テストのためのプロジェクト",
+      "description": "テストです。",
+      "tags": [],
+      "status": "active",
+      "id": "2cec431a-0416-4451-a43b-fdc85e0c5c62",
+      "created_date": "2025-07-24T23:31:44.186614",
+      "modified_date": "2025-07-24T23:31:44.186614"
+    }
+  ],
+  "archived_projects": [],
+  "reserved_folders": [
+    "node_modules",
+    "dist",
+    "build",
+    ".git",
+    "backend",
+    "frontend",
+    "trash",
+    "recycle_bin",
+    "deleted",
+    ".trash"
+  ]
+}
+ステータス: 200
+---
+
+[2025-07-27 09:44:39] GET /api/projects/
+リクエスト: {'lang': ['ja']}
+レスポンス: {
+  "version": "1.0.0",
+  "last_updated": "2025-07-24T23:31:44.186614",
+  "retention_months": 13,
+  "projects": [
+    {
+      "folder_name": "testProject",
+      "project_name": "テストのためのプロジェクト",
+      "description": "テストです。",
+      "tags": [],
+      "status": "active",
+      "id": "2cec431a-0416-4451-a43b-fdc85e0c5c62",
+      "created_date": "2025-07-24T23:31:44.186614",
+      "modified_date": "2025-07-24T23:31:44.186614"
+    }
+  ],
+  "archived_projects": [],
+  "reserved_folders": [
+    "node_modules",
+    "dist",
+    "build",
+    ".git",
+    "backend",
+    "frontend",
+    "trash",
+    "recycle_bin",
+    "deleted",
+    ".trash"
+  ]
+}
+ステータス: 200
+---
+
+[2025-07-27 10:08:53] GET /api/projects/
+リクエスト: {'lang': ['ja']}
+レスポンス: {
+  "version": "1.0.0",
+  "last_updated": "2025-07-24T23:31:44.186614",
+  "retention_months": 13,
+  "projects": [
+    {
+      "folder_name": "testProject",
+      "project_name": "テストのためのプロジェクト",
+      "description": "テストです。",
+      "tags": [],
+      "status": "active",
+      "id": "2cec431a-0416-4451-a43b-fdc85e0c5c62",
+      "created_date": "2025-07-24T23:31:44.186614",
+      "modified_date": "2025-07-24T23:31:44.186614"
+    }
+  ],
+  "archived_projects": [],
+  "reserved_folders": [
+    "node_modules",
+    "dist",
+    "build",
+    ".git",
+    "backend",
+    "frontend",
+    "trash",
+    "recycle_bin",
+    "deleted",
+    ".trash"
+  ]
+}
+ステータス: 200
+---
+
+[2025-07-27 10:08:53] GET /api/projects/
+リクエスト: {'lang': ['ja']}
+レスポンス: {
+  "version": "1.0.0",
+  "last_updated": "2025-07-24T23:31:44.186614",
+  "retention_months": 13,
+  "projects": [
+    {
+      "folder_name": "testProject",
+      "project_name": "テストのためのプロジェクト",
+      "description": "テストです。",
+      "tags": [],
+      "status": "active",
+      "id": "2cec431a-0416-4451-a43b-fdc85e0c5c62",
+      "created_date": "2025-07-24T23:31:44.186614",
+      "modified_date": "2025-07-24T23:31:44.186614"
+    }
+  ],
+  "archived_projects": [],
+  "reserved_folders": [
+    "node_modules",
+    "dist",
+    "build",
+    ".git",
+    "backend",
+    "frontend",
+    "trash",
+    "recycle_bin",
+    "deleted",
+    ".trash"
+  ]
+}
+ステータス: 200
+---
+
+[2025-07-27 10:13:58] GET /api/projects/
+リクエスト: {'lang': ['ja']}
+レスポンス: {
+  "version": "1.0.0",
+  "last_updated": "2025-07-24T23:31:44.186614",
+  "retention_months": 13,
+  "projects": [
+    {
+      "folder_name": "testProject",
+      "project_name": "テストのためのプロジェクト",
+      "description": "テストです。",
+      "tags": [],
+      "status": "active",
+      "id": "2cec431a-0416-4451-a43b-fdc85e0c5c62",
+      "created_date": "2025-07-24T23:31:44.186614",
+      "modified_date": "2025-07-24T23:31:44.186614"
+    }
+  ],
+  "archived_projects": [],
+  "reserved_folders": [
+    "node_modules",
+    "dist",
+    "build",
+    ".git",
+    "backend",
+    "frontend",
+    "trash",
+    "recycle_bin",
+    "deleted",
+    ".trash"
+  ]
+}
+ステータス: 200
+---
+
+[2025-07-27 10:13:58] GET /api/projects/
+リクエスト: {'lang': ['ja']}
+レスポンス: {
+  "version": "1.0.0",
+  "last_updated": "2025-07-24T23:31:44.186614",
+  "retention_months": 13,
+  "projects": [
+    {
+      "folder_name": "testProject",
+      "project_name": "テストのためのプロジェクト",
+      "description": "テストです。",
+      "tags": [],
+      "status": "active",
+      "id": "2cec431a-0416-4451-a43b-fdc85e0c5c62",
+      "created_date": "2025-07-24T23:31:44.186614",
+      "modified_date": "2025-07-24T23:31:44.186614"
+    }
+  ],
+  "archived_projects": [],
+  "reserved_folders": [
+    "node_modules",
+    "dist",
+    "build",
+    ".git",
+    "backend",
+    "frontend",
+    "trash",
+    "recycle_bin",
+    "deleted",
+    ".trash"
+  ]
+}
+ステータス: 200
+---
+
+[2025-07-27 10:20:10] GET /api/projects/
+リクエスト: {'lang': ['ja']}
+レスポンス: {
+  "version": "1.0.0",
+  "last_updated": "2025-07-24T23:31:44.186614",
+  "retention_months": 13,
+  "projects": [
+    {
+      "folder_name": "testProject",
+      "project_name": "テストのためのプロジェクト",
+      "description": "テストです。",
+      "tags": [],
+      "status": "active",
+      "id": "2cec431a-0416-4451-a43b-fdc85e0c5c62",
+      "created_date": "2025-07-24T23:31:44.186614",
+      "modified_date": "2025-07-24T23:31:44.186614"
+    }
+  ],
+  "archived_projects": [],
+  "reserved_folders": [
+    "node_modules",
+    "dist",
+    "build",
+    ".git",
+    "backend",
+    "frontend",
+    "trash",
+    "recycle_bin",
+    "deleted",
+    ".trash"
+  ]
+}
+ステータス: 200
+---
+
+[2025-07-27 10:20:10] GET /api/projects/
+リクエスト: {'lang': ['ja']}
+レスポンス: {
+  "version": "1.0.0",
+  "last_updated": "2025-07-24T23:31:44.186614",
+  "retention_months": 13,
+  "projects": [
+    {
+      "folder_name": "testProject",
+      "project_name": "テストのためのプロジェクト",
+      "description": "テストです。",
+      "tags": [],
+      "status": "active",
+      "id": "2cec431a-0416-4451-a43b-fdc85e0c5c62",
+      "created_date": "2025-07-24T23:31:44.186614",
+      "modified_date": "2025-07-24T23:31:44.186614"
+    }
+  ],
+  "archived_projects": [],
+  "reserved_folders": [
+    "node_modules",
+    "dist",
+    "build",
+    ".git",
+    "backend",
+    "frontend",
+    "trash",
+    "recycle_bin",
+    "deleted",
+    ".trash"
+  ]
+}
+ステータス: 200
+---
