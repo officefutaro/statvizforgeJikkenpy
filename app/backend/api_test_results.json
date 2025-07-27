@@ -1,0 +1,15 @@
+{
+  "results": {
+    "server_info": "✅ 成功",
+    "project_list": "✅ 成功",
+    "deleted_projects": "✅ 成功",
+    "file_tree": "✅ 成功",
+    "file_search": "✅ 成功",
+    "file_comments": "❌ 失敗",
+    "url_patterns": "✅ 成功"
+  },
+  "success_count": 6,
+  "total_count": 7,
+  "overall_status": "良好",
+  "success_rate": 85.71428571428571
+}

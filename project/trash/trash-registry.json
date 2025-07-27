@@ -1,5 +1,44 @@
 {
   "version": "1.0.0",
-  "last_updated": "2025-07-25T00:00:00.000000",
-  "deleted_projects": []
+  "last_updated": "2025-07-27T10:38:36.035743",
+  "deleted_projects": [
+    {
+      "id": "82886a55-fe6c-4559-9dfa-27aeb21e924e",
+      "folder_name": "direct_test_project",
+      "project_name": "直接テストプロジェクト",
+      "archive_filename": "direct_test_project_20250727_103756.zip",
+      "archive_size": 347,
+      "deletion_date": "2025-07-27T10:37:56.952598",
+      "original_created_date": "2025-07-27T10:37:56.949497",
+      "tags": [
+        "test"
+      ],
+      "description": "直接テスト用プロジェクト"
+    },
+    {
+      "id": "1c91b519-f4e1-428c-833d-bfbc95483b9d",
+      "folder_name": "minimal_test",
+      "project_name": "Minimal Test",
+      "archive_filename": "minimal_test_20250727_103836.zip",
+      "archive_size": 292,
+      "deletion_date": "2025-07-27T10:38:36.029972",
+      "original_created_date": "2025-07-27T10:38:36.026164",
+      "tags": [],
+      "description": "Minimal test project"
+    },
+    {
+      "id": "658786da-0f80-4434-bf7c-4e389df4b9b2",
+      "folder_name": "success_test_project",
+      "project_name": "成功テストプロジェクト",
+      "archive_filename": "success_test_project_20250727_103836.zip",
+      "archive_size": 385,
+      "deletion_date": "2025-07-27T10:38:36.035740",
+      "original_created_date": "2025-07-27T10:38:36.034282",
+      "tags": [
+        "success",
+        "test"
+      ],
+      "description": "正常に作成されるべきプロジェクト"
+    }
+  ]
 }

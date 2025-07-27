@@ -817,3 +817,12492 @@
 }
 ステータス: 200
 ---
+
+[2025-07-27 10:31:10] POST /api/projects/
+リクエスト: --BoUnDaRyStRiNg
+Content-Disposition: form-data; name="folder_name"
+
+test_project_debug
+--BoUnDaRyStRiNg
+Content-Disposition: form-data; name="project_name"
+
+デバッグテスト
+--BoUnDaRyStRiNg
+Content-Disposition: form-data; name="description"
+
+デバッグ用プロジェクト
+--BoUnDaRyStRiNg--
+
+レスポンス: {
+  "error": "FAILED_TO_CREATE_PROJECT",
+  "message": "Failed to create project"
+}
+ステータス: 500
+---
+
+[2025-07-27 10:32:30] POST /api/projects/
+リクエスト: --BoUnDaRyStRiNg
+Content-Disposition: form-data; name="folder_name"
+
+test_project_simple
+--BoUnDaRyStRiNg
+Content-Disposition: form-data; name="project_name"
+
+Simple Test Project
+--BoUnDaRyStRiNg
+Content-Disposition: form-data; name="description"
+
+A simple test project
+--BoUnDaRyStRiNg
+Content-Disposition: form-data; name="tags"
+
+test
+--BoUnDaRyStRiNg
+Content-Disposition: form-data; name="status"
+
+active
+--BoUnDaRyStRiNg--
+
+レスポンス: {
+  "error": "FAILED_TO_CREATE_PROJECT",
+  "message": "Failed to create project"
+}
+ステータス: 500
+---
+
+[2025-07-27 10:32:30] GET /api/files/tree/test_project
+リクエスト: {}
+レスポンス: <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <title>Page not found at /api/files/tree/test_project</title>
+  <meta name="robots" content="NONE,NOARCHIVE">
+  <style>
+    html * { padding:0; margin:0; }
+    body * { padding:10px 20px; }
+    body * * { padding:0; }
+    body { font-family: sans-serif; background:#eee; color:#000; }
+    body > :where(header, main, footer) { border-bottom:1px solid #ddd; }
+    h1 { font-weight:normal; margin-bottom:.4em; }
+    h1 small { font-size:60%; color:#666; font-weight:normal; }
+    table { border:none; border-collapse: collapse; width:100%; }
+    td, th { vertical-align:top; padding:2px 3px; }
+    th { width:12em; text-align:right; color:#666; padding-right:.5em; }
+    #info { background:#f6f6f6; }
+    #info ol { margin: 0.5em 4em; }
+    #info ol li { font-family: monospace; }
+    #summary { background: #ffc; }
+    #explanation { background:#eee; border-bottom: 0px none; }
+    pre.exception_value { font-family: sans-serif; color: #575757; font-size: 1.5em; margin: 10px 0 10px 0; }
+  </style>
+</head>
+<body>
+  <header id="summary">
+    <h1>Page not found <small>(404)</small></h1>
+    
+    <table class="meta">
+      <tr>
+        <th scope="row">Request Method:</th>
+        <td>GET</td>
+      </tr>
+      <tr>
+        <th scope="row">Request URL:</th>
+        <td>http://testserver/api/files/tree/test_project</td>
+      </tr>
+      
+    </table>
+  </header>
+
+  <main id="info">
+    
+      <p>
+      Using the URLconf defined in <code>config.urls</code>,
+      Django tried these URL patterns, in this order:
+      </p>
+      <ol>
+        
+          <li>
+            
+              <code>
+                admin/
+                
+              </code>
+            
+          </li>
+        
+          <li>
+            
+              <code>
+                api/
+                
+              </code>
+            
+              <code>
+                
+                
+              </code>
+            
+              <code>
+                ^files/$
+                [name='file-list']
+              </code>
+            
+          </li>
+        
+          <li>
+            
+              <code>
+                api/
+                
+              </code>
+            
+              <code>
+                
+                
+              </code>
+            
+              <code>
+                ^files\.(?P&lt;format&gt;[a-z0-9]+)/?$
+                [name='file-list']
+              </code>
+            
+          </li>
+        
+          <li>
+            
+              <code>
+                api/
+                
+              </code>
+            
+              <code>
+                
+                
+              </code>
+            
+              <code>
+                ^files/comments/(?P&lt;project_folder&gt;[^/.]+)/(?P&lt;comment_id&gt;[^/.]+)/$
+                [name='file-comment-detail']
+              </code>
+            
+          </li>
+        
+          <li>
+            
+              <code>
+                api/
+                
+              </code>
+            
+              <code>
+                
+                
+              </code>
+            
+              <code>
+                ^files/comments/(?P&lt;project_folder&gt;[^/.]+)/(?P&lt;comment_id&gt;[^/.]+)\.(?P&lt;format&gt;[a-z0-9]+)/?$
+                [name='file-comment-detail']
+              </code>
+            
+          </li>
+        
+          <li>
+            
+              <code>
+                api/
+                
+              </code>
+            
+              <code>
+                
+                
+              </code>
+            
+              <code>
+                ^files/mkdir/(?P&lt;project_folder&gt;[^/.]+)/$
+                [name='file-create-directory']
+              </code>
+            
+          </li>
+        
+          <li>
+            
+              <code>
+                api/
+                
+              </code>
+            
+              <code>
+                
+                
+              </code>
+            
+              <code>
+                ^files/mkdir/(?P&lt;project_folder&gt;[^/.]+)\.(?P&lt;format&gt;[a-z0-9]+)/?$
+                [name='file-create-directory']
+              </code>
+            
+          </li>
+        
+          <li>
+            
+              <code>
+                api/
+                
+              </code>
+            
+              <code>
+                
+                
+              </code>
+            
+              <code>
+                ^files/delete/(?P&lt;project_folder&gt;[^/.]+)/$
+                [name='file-delete-file']
+              </code>
+            
+          </li>
+        
+          <li>
+            
+              <code>
+                api/
+                
+              </code>
+            
+              <code>
+                
+                
+              </code>
+            
+              <code>
+                ^files/delete/(?P&lt;project_folder&gt;[^/.]+)\.(?P&lt;format&gt;[a-z0-9]+)/?$
+                [name='file-delete-file']
+              </code>
+            
+          </li>
+        
+          <li>
+            
+              <code>
+                api/
+                
+              </code>
+            
+              <code>
+                
+                
+              </code>
+            
+              <code>
+                ^files/tree/(?P&lt;project_folder&gt;[^/.]+)/$
+                [name='file-directory-tree']
+              </code>
+            
+          </li>
+        
+          <li>
+            
+              <code>
+                api/
+                
+              </code>
+            
+              <code>
+                
+                
+              </code>
+            
+              <code>
+                ^files/tree/(?P&lt;project_folder&gt;[^/.]+)\.(?P&lt;format&gt;[a-z0-9]+)/?$
+                [name='file-directory-tree']
+              </code>
+            
+          </li>
+        
+          <li>
+            
+              <code>
+                api/
+                
+              </code>
+            
+              <code>
+                
+                
+              </code>
+            
+              <code>
+                ^files/comments/(?P&lt;project_folder&gt;[^/.]+)/$
+                [name='file-file-comments']
+              </code>
+            
+          </li>
+        
+          <li>
+            
+              <code>
+                api/
+                
+              </code>
+            
+              <code>
+                
+                
+              </code>
+            
+              <code>
+                ^files/comments/(?P&lt;project_folder&gt;[^/.]+)\.(?P&lt;format&gt;[a-z0-9]+)/?$
+                [name='file-file-comments']
+              </code>
+            
+          </li>
+        
+          <li>
+            
+              <code>
+                api/
+                
+              </code>
+            
+              <code>
+                
+                
+              </code>
+            
+              <code>
+                ^files/move/(?P&lt;project_folder&gt;[^/.]+)/$
+                [name='file-move-file']
+              </code>
+            
+          </li>
+        
+          <li>
+            
+              <code>
+                api/
+                
+              </code>
+            
+              <code>
+                
+                
+              </code>
+            
+              <code>
+                ^files/move/(?P&lt;project_folder&gt;[^/.]+)\.(?P&lt;format&gt;[a-z0-9]+)/?$
+                [name='file-move-file']
+              </code>
+            
+          </li>
+        
+          <li>
+            
+              <code>
+                api/
+                
+              </code>
+            
+              <code>
+                
+                
+              </code>
+            
+              <code>
+                ^files/search/(?P&lt;project_folder&gt;[^/.]+)/$
+                [name='file-search-files']
+              </code>
+            
+          </li>
+        
+          <li>
+            
+              <code>
+                api/
+                
+              </code>
+            
+              <code>
+                
+                
+              </code>
+            
+              <code>
+                ^files/search/(?P&lt;project_folder&gt;[^/.]+)\.(?P&lt;format&gt;[a-z0-9]+)/?$
+                [name='file-search-files']
+              </code>
+            
+          </li>
+        
+          <li>
+            
+              <code>
+                api/
+                
+              </code>
+            
+              <code>
+                
+                
+              </code>
+            
+              <code>
+                ^files/upload/(?P&lt;project_folder&gt;[^/.]+)/$
+                [name='file-upload']
+              </code>
+            
+          </li>
+        
+          <li>
+            
+              <code>
+                api/
+                
+              </code>
+            
+              <code>
+                
+                
+              </code>
+            
+              <code>
+                ^files/upload/(?P&lt;project_folder&gt;[^/.]+)\.(?P&lt;format&gt;[a-z0-9]+)/?$
+                [name='file-upload']
+              </code>
+            
+          </li>
+        
+          <li>
+            
+              <code>
+                api/
+                
+              </code>
+            
+              <code>
+                
+                
+              </code>
+            
+              <code>
+                ^files/(?P&lt;pk&gt;[^/.]+)/$
+                [name='file-detail']
+              </code>
+            
+          </li>
+        
+          <li>
+            
+              <code>
+                api/
+                
+              </code>
+            
+              <code>
+                
+                
+              </code>
+            
+              <code>
+                ^files/(?P&lt;pk&gt;[^/.]+)\.(?P&lt;format&gt;[a-z0-9]+)/?$
+                [name='file-detail']
+              </code>
+            
+          </li>
+        
+          <li>
+            
+              <code>
+                api/
+                
+              </code>
+            
+              <code>
+                
+                
+              </code>
+            
+              <code>
+                
+                [name='api-root']
+              </code>
+            
+          </li>
+        
+          <li>
+            
+              <code>
+                api/
+                
+              </code>
+            
+              <code>
+                
+                
+              </code>
+            
+              <code>
+                &lt;drf_format_suffix:format&gt;
+                [name='api-root']
+              </code>
+            
+          </li>
+        
+          <li>
+            
+              <code>
+                api/
+                
+              </code>
+            
+              <code>
+                projects/
+                [name='project-list-create']
+              </code>
+            
+          </li>
+        
+          <li>
+            
+              <code>
+                api/
+                
+              </code>
+            
+              <code>
+                projects/deleted/
+                [name='project-deleted']
+              </code>
+            
+          </li>
+        
+          <li>
+            
+              <code>
+                api/
+                
+              </code>
+            
+              <code>
+                projects/&lt;str:pk&gt;/
+                [name='project-detail']
+              </code>
+            
+          </li>
+        
+          <li>
+            
+              <code>
+                api/
+                
+              </code>
+            
+              <code>
+                projects/&lt;str:pk&gt;/restore/
+                [name='project-restore']
+              </code>
+            
+          </li>
+        
+          <li>
+            
+              <code>
+                api/
+                
+              </code>
+            
+              <code>
+                server-info/
+                [name='server_info']
+              </code>
+            
+          </li>
+        
+          <li>
+            
+              <code>
+                ^media/(?P&lt;path&gt;.*)$
+                
+              </code>
+            
+          </li>
+        
+      </ol>
+      <p>
+        
+          The current path, <code>api/files/tree/test_project</code>,
+        
+        didn’t match any of these.
+      </p>
+    
+  </main>
+
+  <footer id="explanation">
+    <p>
+      You’re seeing this error because you have <code>DEBUG = True</code> in
+      your Django settings file. Change that to <code>False</code>, and Django
+      will display a standard 404 page.
+    </p>
+  </footer>
+</body>
+</html>
+
+ステータス: 404
+---
+
+[2025-07-27 10:32:30] GET /api/files/search/test_project
+リクエスト: {'q': ['test'], 'type': ['name']}
+レスポンス: <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <title>Page not found at /api/files/search/test_project</title>
+  <meta name="robots" content="NONE,NOARCHIVE">
+  <style>
+    html * { padding:0; margin:0; }
+    body * { padding:10px 20px; }
+    body * * { padding:0; }
+    body { font-family: sans-serif; background:#eee; color:#000; }
+    body > :where(header, main, footer) { border-bottom:1px solid #ddd; }
+    h1 { font-weight:normal; margin-bottom:.4em; }
+    h1 small { font-size:60%; color:#666; font-weight:normal; }
+    table { border:none; border-collapse: collapse; width:100%; }
+    td, th { vertical-align:top; padding:2px 3px; }
+    th { width:12em; text-align:right; color:#666; padding-right:.5em; }
+    #info { background:#f6f6f6; }
+    #info ol { margin: 0.5em 4em; }
+    #info ol li { font-family: monospace; }
+    #summary { background: #ffc; }
+    #explanation { background:#eee; border-bottom: 0px none; }
+    pre.exception_value { font-family: sans-serif; color: #575757; font-size: 1.5em; margin: 10px 0 10px 0; }
+  </style>
+</head>
+<body>
+  <header id="summary">
+    <h1>Page not found <small>(404)</small></h1>
+    
+    <table class="meta">
+      <tr>
+        <th scope="row">Request Method:</th>
+        <td>GET</td>
+      </tr>
+      <tr>
+        <th scope="row">Request URL:</th>
+        <td>http://testserver/api/files/search/test_project?q=test&amp;type=name</td>
+      </tr>
+      
+    </table>
+  </header>
+
+  <main id="info">
+    
+      <p>
+      Using the URLconf defined in <code>config.urls</code>,
+      Django tried these URL patterns, in this order:
+      </p>
+      <ol>
+        
+          <li>
+            
+              <code>
+                admin/
+                
+              </code>
+            
+          </li>
+        
+          <li>
+            
+              <code>
+                api/
+                
+              </code>
+            
+              <code>
+                
+                
+              </code>
+            
+              <code>
+                ^files/$
+                [name='file-list']
+              </code>
+            
+          </li>
+        
+          <li>
+            
+              <code>
+                api/
+                
+              </code>
+            
+              <code>
+                
+                
+              </code>
+            
+              <code>
+                ^files\.(?P&lt;format&gt;[a-z0-9]+)/?$
+                [name='file-list']
+              </code>
+            
+          </li>
+        
+          <li>
+            
+              <code>
+                api/
+                
+              </code>
+            
+              <code>
+                
+                
+              </code>
+            
+              <code>
+                ^files/comments/(?P&lt;project_folder&gt;[^/.]+)/(?P&lt;comment_id&gt;[^/.]+)/$
+                [name='file-comment-detail']
+              </code>
+            
+          </li>
+        
+          <li>
+            
+              <code>
+                api/
+                
+              </code>
+            
+              <code>
+                
+                
+              </code>
+            
+              <code>
+                ^files/comments/(?P&lt;project_folder&gt;[^/.]+)/(?P&lt;comment_id&gt;[^/.]+)\.(?P&lt;format&gt;[a-z0-9]+)/?$
+                [name='file-comment-detail']
+              </code>
+            
+          </li>
+        
+          <li>
+            
+              <code>
+                api/
+                
+              </code>
+            
+              <code>
+                
+                
+              </code>
+            
+              <code>
+                ^files/mkdir/(?P&lt;project_folder&gt;[^/.]+)/$
+                [name='file-create-directory']
+              </code>
+            
+          </li>
+        
+          <li>
+            
+              <code>
+                api/
+                
+              </code>
+            
+              <code>
+                
+                
+              </code>
+            
+              <code>
+                ^files/mkdir/(?P&lt;project_folder&gt;[^/.]+)\.(?P&lt;format&gt;[a-z0-9]+)/?$
+                [name='file-create-directory']
+              </code>
+            
+          </li>
+        
+          <li>
+            
+              <code>
+                api/
+                
+              </code>
+            
+              <code>
+                
+                
+              </code>
+            
+              <code>
+                ^files/delete/(?P&lt;project_folder&gt;[^/.]+)/$
+                [name='file-delete-file']
+              </code>
+            
+          </li>
+        
+          <li>
+            
+              <code>
+                api/
+                
+              </code>
+            
+              <code>
+                
+                
+              </code>
+            
+              <code>
+                ^files/delete/(?P&lt;project_folder&gt;[^/.]+)\.(?P&lt;format&gt;[a-z0-9]+)/?$
+                [name='file-delete-file']
+              </code>
+            
+          </li>
+        
+          <li>
+            
+              <code>
+                api/
+                
+              </code>
+            
+              <code>
+                
+                
+              </code>
+            
+              <code>
+                ^files/tree/(?P&lt;project_folder&gt;[^/.]+)/$
+                [name='file-directory-tree']
+              </code>
+            
+          </li>
+        
+          <li>
+            
+              <code>
+                api/
+                
+              </code>
+            
+              <code>
+                
+                
+              </code>
+            
+              <code>
+                ^files/tree/(?P&lt;project_folder&gt;[^/.]+)\.(?P&lt;format&gt;[a-z0-9]+)/?$
+                [name='file-directory-tree']
+              </code>
+            
+          </li>
+        
+          <li>
+            
+              <code>
+                api/
+                
+              </code>
+            
+              <code>
+                
+                
+              </code>
+            
+              <code>
+                ^files/comments/(?P&lt;project_folder&gt;[^/.]+)/$
+                [name='file-file-comments']
+              </code>
+            
+          </li>
+        
+          <li>
+            
+              <code>
+                api/
+                
+              </code>
+            
+              <code>
+                
+                
+              </code>
+            
+              <code>
+                ^files/comments/(?P&lt;project_folder&gt;[^/.]+)\.(?P&lt;format&gt;[a-z0-9]+)/?$
+                [name='file-file-comments']
+              </code>
+            
+          </li>
+        
+          <li>
+            
+              <code>
+                api/
+                
+              </code>
+            
+              <code>
+                
+                
+              </code>
+            
+              <code>
+                ^files/move/(?P&lt;project_folder&gt;[^/.]+)/$
+                [name='file-move-file']
+              </code>
+            
+          </li>
+        
+          <li>
+            
+              <code>
+                api/
+                
+              </code>
+            
+              <code>
+                
+                
+              </code>
+            
+              <code>
+                ^files/move/(?P&lt;project_folder&gt;[^/.]+)\.(?P&lt;format&gt;[a-z0-9]+)/?$
+                [name='file-move-file']
+              </code>
+            
+          </li>
+        
+          <li>
+            
+              <code>
+                api/
+                
+              </code>
+            
+              <code>
+                
+                
+              </code>
+            
+              <code>
+                ^files/search/(?P&lt;project_folder&gt;[^/.]+)/$
+                [name='file-search-files']
+              </code>
+            
+          </li>
+        
+          <li>
+            
+              <code>
+                api/
+                
+              </code>
+            
+              <code>
+                
+                
+              </code>
+            
+              <code>
+                ^files/search/(?P&lt;project_folder&gt;[^/.]+)\.(?P&lt;format&gt;[a-z0-9]+)/?$
+                [name='file-search-files']
+              </code>
+            
+          </li>
+        
+          <li>
+            
+              <code>
+                api/
+                
+              </code>
+            
+              <code>
+                
+                
+              </code>
+            
+              <code>
+                ^files/upload/(?P&lt;project_folder&gt;[^/.]+)/$
+                [name='file-upload']
+              </code>
+            
+          </li>
+        
+          <li>
+            
+              <code>
+                api/
+                
+              </code>
+            
+              <code>
+                
+                
+              </code>
+            
+              <code>
+                ^files/upload/(?P&lt;project_folder&gt;[^/.]+)\.(?P&lt;format&gt;[a-z0-9]+)/?$
+                [name='file-upload']
+              </code>
+            
+          </li>
+        
+          <li>
+            
+              <code>
+                api/
+                
+              </code>
+            
+              <code>
+                
+                
+              </code>
+            
+              <code>
+                ^files/(?P&lt;pk&gt;[^/.]+)/$
+                [name='file-detail']
+              </code>
+            
+          </li>
+        
+          <li>
+            
+              <code>
+                api/
+                
+              </code>
+            
+              <code>
+                
+                
+              </code>
+            
+              <code>
+                ^files/(?P&lt;pk&gt;[^/.]+)\.(?P&lt;format&gt;[a-z0-9]+)/?$
+                [name='file-detail']
+              </code>
+            
+          </li>
+        
+          <li>
+            
+              <code>
+                api/
+                
+              </code>
+            
+              <code>
+                
+                
+              </code>
+            
+              <code>
+                
+                [name='api-root']
+              </code>
+            
+          </li>
+        
+          <li>
+            
+              <code>
+                api/
+                
+              </code>
+            
+              <code>
+                
+                
+              </code>
+            
+              <code>
+                &lt;drf_format_suffix:format&gt;
+                [name='api-root']
+              </code>
+            
+          </li>
+        
+          <li>
+            
+              <code>
+                api/
+                
+              </code>
+            
+              <code>
+                projects/
+                [name='project-list-create']
+              </code>
+            
+          </li>
+        
+          <li>
+            
+              <code>
+                api/
+                
+              </code>
+            
+              <code>
+                projects/deleted/
+                [name='project-deleted']
+              </code>
+            
+          </li>
+        
+          <li>
+            
+              <code>
+                api/
+                
+              </code>
+            
+              <code>
+                projects/&lt;str:pk&gt;/
+                [name='project-detail']
+              </code>
+            
+          </li>
+        
+          <li>
+            
+              <code>
+                api/
+                
+              </code>
+            
+              <code>
+                projects/&lt;str:pk&gt;/restore/
+                [name='project-restore']
+              </code>
+            
+          </li>
+        
+          <li>
+            
+              <code>
+                api/
+                
+              </code>
+            
+              <code>
+                server-info/
+                [name='server_info']
+              </code>
+            
+          </li>
+        
+          <li>
+            
+              <code>
+                ^media/(?P&lt;path&gt;.*)$
+                
+              </code>
+            
+          </li>
+        
+      </ol>
+      <p>
+        
+          The current path, <code>api/files/search/test_project</code>,
+        
+        didn’t match any of these.
+      </p>
+    
+  </main>
+
+  <footer id="explanation">
+    <p>
+      You’re seeing this error because you have <code>DEBUG = True</code> in
+      your Django settings file. Change that to <code>False</code>, and Django
+      will display a standard 404 page.
+    </p>
+  </footer>
+</body>
+</html>
+
+ステータス: 404
+---
+
+[2025-07-27 10:32:30] POST /api/files/comments/test_project
+リクエスト: --BoUnDaRyStRiNg
+Content-Disposition: form-data; name="file_path"
+
+test.txt
+--BoUnDaRyStRiNg
+Content-Disposition: form-data; name="comment"
+
+Test comment
+--BoUnDaRyStRiNg
+Content-Disposition: form-data; name="author"
+
+Test User
+--BoUnDaRyStRiNg--
+
+レスポンス: <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <title>Page not found at /api/files/comments/test_project</title>
+  <meta name="robots" content="NONE,NOARCHIVE">
+  <style>
+    html * { padding:0; margin:0; }
+    body * { padding:10px 20px; }
+    body * * { padding:0; }
+    body { font-family: sans-serif; background:#eee; color:#000; }
+    body > :where(header, main, footer) { border-bottom:1px solid #ddd; }
+    h1 { font-weight:normal; margin-bottom:.4em; }
+    h1 small { font-size:60%; color:#666; font-weight:normal; }
+    table { border:none; border-collapse: collapse; width:100%; }
+    td, th { vertical-align:top; padding:2px 3px; }
+    th { width:12em; text-align:right; color:#666; padding-right:.5em; }
+    #info { background:#f6f6f6; }
+    #info ol { margin: 0.5em 4em; }
+    #info ol li { font-family: monospace; }
+    #summary { background: #ffc; }
+    #explanation { background:#eee; border-bottom: 0px none; }
+    pre.exception_value { font-family: sans-serif; color: #575757; font-size: 1.5em; margin: 10px 0 10px 0; }
+  </style>
+</head>
+<body>
+  <header id="summary">
+    <h1>Page not found <small>(404)</small></h1>
+    
+    <table class="meta">
+      <tr>
+        <th scope="row">Request Method:</th>
+        <td>POST</td>
+      </tr>
+      <tr>
+        <th scope="row">Request URL:</th>
+        <td>http://testserver/api/files/comments/test_project</td>
+      </tr>
+      
+    </table>
+  </header>
+
+  <main id="info">
+    
+      <p>
+      Using the URLconf defined in <code>config.urls</code>,
+      Django tried these URL patterns, in this order:
+      </p>
+      <ol>
+        
+          <li>
+            
+              <code>
+                admin/
+                
+              </code>
+            
+          </li>
+        
+          <li>
+            
+              <code>
+                api/
+                
+              </code>
+            
+              <code>
+                
+                
+              </code>
+            
+              <code>
+                ^files/$
+                [name='file-list']
+              </code>
+            
+          </li>
+        
+          <li>
+            
+              <code>
+                api/
+                
+              </code>
+            
+              <code>
+                
+                
+              </code>
+            
+              <code>
+                ^files\.(?P&lt;format&gt;[a-z0-9]+)/?$
+                [name='file-list']
+              </code>
+            
+          </li>
+        
+          <li>
+            
+              <code>
+                api/
+                
+              </code>
+            
+              <code>
+                
+                
+              </code>
+            
+              <code>
+                ^files/comments/(?P&lt;project_folder&gt;[^/.]+)/(?P&lt;comment_id&gt;[^/.]+)/$
+                [name='file-comment-detail']
+              </code>
+            
+          </li>
+        
+          <li>
+            
+              <code>
+                api/
+                
+              </code>
+            
+              <code>
+                
+                
+              </code>
+            
+              <code>
+                ^files/comments/(?P&lt;project_folder&gt;[^/.]+)/(?P&lt;comment_id&gt;[^/.]+)\.(?P&lt;format&gt;[a-z0-9]+)/?$
+                [name='file-comment-detail']
+              </code>
+            
+          </li>
+        
+          <li>
+            
+              <code>
+                api/
+                
+              </code>
+            
+              <code>
+                
+                
+              </code>
+            
+              <code>
+                ^files/mkdir/(?P&lt;project_folder&gt;[^/.]+)/$
+                [name='file-create-directory']
+              </code>
+            
+          </li>
+        
+          <li>
+            
+              <code>
+                api/
+                
+              </code>
+            
+              <code>
+                
+                
+              </code>
+            
+              <code>
+                ^files/mkdir/(?P&lt;project_folder&gt;[^/.]+)\.(?P&lt;format&gt;[a-z0-9]+)/?$
+                [name='file-create-directory']
+              </code>
+            
+          </li>
+        
+          <li>
+            
+              <code>
+                api/
+                
+              </code>
+            
+              <code>
+                
+                
+              </code>
+            
+              <code>
+                ^files/delete/(?P&lt;project_folder&gt;[^/.]+)/$
+                [name='file-delete-file']
+              </code>
+            
+          </li>
+        
+          <li>
+            
+              <code>
+                api/
+                
+              </code>
+            
+              <code>
+                
+                
+              </code>
+            
+              <code>
+                ^files/delete/(?P&lt;project_folder&gt;[^/.]+)\.(?P&lt;format&gt;[a-z0-9]+)/?$
+                [name='file-delete-file']
+              </code>
+            
+          </li>
+        
+          <li>
+            
+              <code>
+                api/
+                
+              </code>
+            
+              <code>
+                
+                
+              </code>
+            
+              <code>
+                ^files/tree/(?P&lt;project_folder&gt;[^/.]+)/$
+                [name='file-directory-tree']
+              </code>
+            
+          </li>
+        
+          <li>
+            
+              <code>
+                api/
+                
+              </code>
+            
+              <code>
+                
+                
+              </code>
+            
+              <code>
+                ^files/tree/(?P&lt;project_folder&gt;[^/.]+)\.(?P&lt;format&gt;[a-z0-9]+)/?$
+                [name='file-directory-tree']
+              </code>
+            
+          </li>
+        
+          <li>
+            
+              <code>
+                api/
+                
+              </code>
+            
+              <code>
+                
+                
+              </code>
+            
+              <code>
+                ^files/comments/(?P&lt;project_folder&gt;[^/.]+)/$
+                [name='file-file-comments']
+              </code>
+            
+          </li>
+        
+          <li>
+            
+              <code>
+                api/
+                
+              </code>
+            
+              <code>
+                
+                
+              </code>
+            
+              <code>
+                ^files/comments/(?P&lt;project_folder&gt;[^/.]+)\.(?P&lt;format&gt;[a-z0-9]+)/?$
+                [name='file-file-comments']
+              </code>
+            
+          </li>
+        
+          <li>
+            
+              <code>
+                api/
+                
+              </code>
+            
+              <code>
+                
+                
+              </code>
+            
+              <code>
+                ^files/move/(?P&lt;project_folder&gt;[^/.]+)/$
+                [name='file-move-file']
+              </code>
+            
+          </li>
+        
+          <li>
+            
+              <code>
+                api/
+                
+              </code>
+            
+              <code>
+                
+                
+              </code>
+            
+              <code>
+                ^files/move/(?P&lt;project_folder&gt;[^/.]+)\.(?P&lt;format&gt;[a-z0-9]+)/?$
+                [name='file-move-file']
+              </code>
+            
+          </li>
+        
+          <li>
+            
+              <code>
+                api/
+                
+              </code>
+            
+              <code>
+                
+                
+              </code>
+            
+              <code>
+                ^files/search/(?P&lt;project_folder&gt;[^/.]+)/$
+                [name='file-search-files']
+              </code>
+            
+          </li>
+        
+          <li>
+            
+              <code>
+                api/
+                
+              </code>
+            
+              <code>
+                
+                
+              </code>
+            
+              <code>
+                ^files/search/(?P&lt;project_folder&gt;[^/.]+)\.(?P&lt;format&gt;[a-z0-9]+)/?$
+                [name='file-search-files']
+              </code>
+            
+          </li>
+        
+          <li>
+            
+              <code>
+                api/
+                
+              </code>
+            
+              <code>
+                
+                
+              </code>
+            
+              <code>
+                ^files/upload/(?P&lt;project_folder&gt;[^/.]+)/$
+                [name='file-upload']
+              </code>
+            
+          </li>
+        
+          <li>
+            
+              <code>
+                api/
+                
+              </code>
+            
+              <code>
+                
+                
+              </code>
+            
+              <code>
+                ^files/upload/(?P&lt;project_folder&gt;[^/.]+)\.(?P&lt;format&gt;[a-z0-9]+)/?$
+                [name='file-upload']
+              </code>
+            
+          </li>
+        
+          <li>
+            
+              <code>
+                api/
+                
+              </code>
+            
+              <code>
+                
+                
+              </code>
+            
+              <code>
+                ^files/(?P&lt;pk&gt;[^/.]+)/$
+                [name='file-detail']
+              </code>
+            
+          </li>
+        
+          <li>
+            
+              <code>
+                api/
+                
+              </code>
+            
+              <code>
+                
+                
+              </code>
+            
+              <code>
+                ^files/(?P&lt;pk&gt;[^/.]+)\.(?P&lt;format&gt;[a-z0-9]+)/?$
+                [name='file-detail']
+              </code>
+            
+          </li>
+        
+          <li>
+            
+              <code>
+                api/
+                
+              </code>
+            
+              <code>
+                
+                
+              </code>
+            
+              <code>
+                
+                [name='api-root']
+              </code>
+            
+          </li>
+        
+          <li>
+            
+              <code>
+                api/
+                
+              </code>
+            
+              <code>
+                
+                
+              </code>
+            
+              <code>
+                &lt;drf_format_suffix:format&gt;
+                [name='api-root']
+              </code>
+            
+          </li>
+        
+          <li>
+            
+              <code>
+                api/
+                
+              </code>
+            
+              <code>
+                projects/
+                [name='project-list-create']
+              </code>
+            
+          </li>
+        
+          <li>
+            
+              <code>
+                api/
+                
+              </code>
+            
+              <code>
+                projects/deleted/
+                [name='project-deleted']
+              </code>
+            
+          </li>
+        
+          <li>
+            
+              <code>
+                api/
+                
+              </code>
+            
+              <code>
+                projects/&lt;str:pk&gt;/
+                [name='project-detail']
+              </code>
+            
+          </li>
+        
+          <li>
+            
+              <code>
+                api/
+                
+              </code>
+            
+              <code>
+                projects/&lt;str:pk&gt;/restore/
+                [name='project-restore']
+              </code>
+            
+          </li>
+        
+          <li>
+            
+              <code>
+                api/
+                
+              </code>
+            
+              <code>
+                server-info/
+                [name='server_info']
+              </code>
+            
+          </li>
+        
+          <li>
+            
+              <code>
+                ^media/(?P&lt;path&gt;.*)$
+                
+              </code>
+            
+          </li>
+        
+      </ol>
+      <p>
+        
+          The current path, <code>api/files/comments/test_project</code>,
+        
+        didn’t match any of these.
+      </p>
+    
+  </main>
+
+  <footer id="explanation">
+    <p>
+      You’re seeing this error because you have <code>DEBUG = True</code> in
+      your Django settings file. Change that to <code>False</code>, and Django
+      will display a standard 404 page.
+    </p>
+  </footer>
+</body>
+</html>
+
+ステータス: 404
+---
+
+[2025-07-27 10:32:30] GET /api/server-info/
+リクエスト: {}
+レスポンス: {
+  "debug_mode": true,
+  "environment": "development",
+  "django_version": "5.2.4",
+  "api_version": "1.0.0"
+}
+ステータス: 200
+---
+
+[2025-07-27 10:33:12] GET /api/server-info/
+リクエスト: {}
+レスポンス: {
+  "debug_mode": true,
+  "environment": "development",
+  "django_version": "5.2.4",
+  "api_version": "1.0.0"
+}
+ステータス: 200
+---
+
+[2025-07-27 10:33:12] GET /api/projects/
+リクエスト: {}
+レスポンス: {
+  "version": "1.0.0",
+  "last_updated": "2025-07-24T23:31:44.186614",
+  "retention_months": 13,
+  "projects": [
+    {
+      "folder_name": "testProject",
+      "project_name": "テストのためのプロジェクト",
+      "description": "テストです。",
+      "tags": [],
+      "status": "active",
+      "id": "2cec431a-0416-4451-a43b-fdc85e0c5c62",
+      "created_date": "2025-07-24T23:31:44.186614",
+      "modified_date": "2025-07-24T23:31:44.186614"
+    }
+  ],
+  "archived_projects": [],
+  "reserved_folders": [
+    "node_modules",
+    "dist",
+    "build",
+    ".git",
+    "backend",
+    "frontend",
+    "trash",
+    "recycle_bin",
+    "deleted",
+    ".trash"
+  ]
+}
+ステータス: 200
+---
+
+[2025-07-27 10:33:12] GET /api/projects/deleted/
+リクエスト: {}
+レスポンス: {
+  "version": "1.0.0",
+  "last_updated": "2025-07-25T00:00:00.000000",
+  "deleted_projects": []
+}
+ステータス: 200
+---
+
+[2025-07-27 10:33:12] GET /api/files/tree/nonexistent_project/
+リクエスト: {}
+レスポンス: {
+  "error": "PROJECT_NOT_FOUND",
+  "message": "Project not found"
+}
+ステータス: 404
+---
+
+[2025-07-27 10:33:12] GET /api/files/search/test_project/
+リクエスト: {}
+レスポンス: {
+  "error": "SEARCH_QUERY_REQUIRED",
+  "message": "An unexpected error occurred. Please try again later"
+}
+ステータス: 400
+---
+
+[2025-07-27 10:33:12] GET /api/files/comments/nonexistent_project/
+リクエスト: {}
+レスポンス: {
+  "version": "1.0.0",
+  "created": "2025-07-27T10:33:12.910414",
+  "last_updated": "2025-07-27T10:33:12.910419",
+  "comments": {}
+}
+ステータス: 200
+---
+
+[2025-07-27 10:33:12] GET /api/projects/
+リクエスト: {}
+レスポンス: {
+  "version": "1.0.0",
+  "last_updated": "2025-07-24T23:31:44.186614",
+  "retention_months": 13,
+  "projects": [
+    {
+      "folder_name": "testProject",
+      "project_name": "テストのためのプロジェクト",
+      "description": "テストです。",
+      "tags": [],
+      "status": "active",
+      "id": "2cec431a-0416-4451-a43b-fdc85e0c5c62",
+      "created_date": "2025-07-24T23:31:44.186614",
+      "modified_date": "2025-07-24T23:31:44.186614"
+    }
+  ],
+  "archived_projects": [],
+  "reserved_folders": [
+    "node_modules",
+    "dist",
+    "build",
+    ".git",
+    "backend",
+    "frontend",
+    "trash",
+    "recycle_bin",
+    "deleted",
+    ".trash"
+  ]
+}
+ステータス: 200
+---
+
+[2025-07-27 10:33:12] GET /api/projects/deleted/
+リクエスト: {}
+レスポンス: {
+  "version": "1.0.0",
+  "last_updated": "2025-07-25T00:00:00.000000",
+  "deleted_projects": []
+}
+ステータス: 200
+---
+
+[2025-07-27 10:33:12] GET /api/files/tree/test/
+リクエスト: {}
+レスポンス: {
+  "error": "PROJECT_NOT_FOUND",
+  "message": "Project not found"
+}
+ステータス: 404
+---
+
+[2025-07-27 10:33:12] GET /api/files/search/test/
+リクエスト: {}
+レスポンス: {
+  "error": "SEARCH_QUERY_REQUIRED",
+  "message": "An unexpected error occurred. Please try again later"
+}
+ステータス: 400
+---
+
+[2025-07-27 10:33:12] GET /api/files/comments/test/
+リクエスト: {}
+レスポンス: {
+  "version": "1.0.0",
+  "created": "2025-07-27T10:33:12.912960",
+  "last_updated": "2025-07-27T10:33:12.912964",
+  "comments": {}
+}
+ステータス: 200
+---
+
+[2025-07-27 10:33:12] GET /api/server-info/
+リクエスト: {}
+レスポンス: {
+  "debug_mode": true,
+  "environment": "development",
+  "django_version": "5.2.4",
+  "api_version": "1.0.0"
+}
+ステータス: 200
+---
+
+[2025-07-27 10:37:20] POST /api/projects/
+リクエスト: --BoUnDaRyStRiNg
+Content-Disposition: form-data; name="folder_name"
+
+debug_test_project
+--BoUnDaRyStRiNg
+Content-Disposition: form-data; name="project_name"
+
+デバッグテストプロジェクト
+--BoUnDaRyStRiNg
+Content-Disposition: form-data; name="description"
+
+デバッグ用プロジェクト
+--BoUnDaRyStRiNg
+Content-Disposition: form-data; name="tags"
+
+debug
+--BoUnDaRyStRiNg
+Content-Disposition: form-data; name="tags"
+
+test
+--BoUnDaRyStRiNg
+Content-Disposition: form-data; name="status"
+
+active
+--BoUnDaRyStRiNg--
+
+レスポンス: {
+  "error": "FAILED_TO_CREATE_PROJECT",
+  "message": "Failed to create project"
+}
+ステータス: 500
+---
+
+[2025-07-27 10:38:36] POST /api/projects/
+リクエスト: {"folder_name":"minimal_test","project_name":"Minimal Test","description":"Minimal test project"}
+レスポンス: {
+  "folder_name": "minimal_test",
+  "project_name": "Minimal Test",
+  "description": "Minimal test project",
+  "id": "1c91b519-f4e1-428c-833d-bfbc95483b9d",
+  "created_date": "2025-07-27T10:38:36.026164",
+  "modified_date": "2025-07-27T10:38:36.026164"
+}
+ステータス: 201
+---
+
+[2025-07-27 10:38:36] DELETE /api/projects/1c91b519-f4e1-428c-833d-bfbc95483b9d/
+リクエスト: {}
+レスポンス: 
+ステータス: 204
+---
+
+[2025-07-27 10:38:36] POST /api/projects/
+リクエスト: {"folder_name": "minimal_test", "project_name": "Minimal Test", "description": "Minimal test project"}
+レスポンス: {
+  "folder_name": "minimal_test",
+  "project_name": "Minimal Test",
+  "description": "Minimal test project",
+  "id": "a908299f-f131-4f70-8b16-43fd9f01b7d2",
+  "created_date": "2025-07-27T10:38:36.031250",
+  "modified_date": "2025-07-27T10:38:36.031250"
+}
+ステータス: 201
+---
+
+[2025-07-27 10:38:36] POST /api/projects/
+リクエスト: {"folder_name":"","project_name":"Invalid Test","description":"Invalid test"}
+レスポンス: {
+  "error": "VALIDATION_ERROR",
+  "message": "Invalid input data",
+  "details": {
+    "folder_name": "This field is required"
+  }
+}
+ステータス: 400
+---
+
+[2025-07-27 10:38:36] POST /api/projects/
+リクエスト: {"folder_name":"testProject","project_name":"Duplicate Test","description":"Duplicate test"}
+レスポンス: {
+  "error": "DUPLICATE_FOLDER",
+  "message": "A project with this folder name already exists"
+}
+ステータス: 409
+---
+
+[2025-07-27 10:38:36] POST /api/projects/
+リクエスト: {"folder_name":"success_test_project","project_name":"成功テストプロジェクト","description":"正常に作成されるべきプロジェクト","tags":["success","test"],"status":"active"}
+レスポンス: {
+  "folder_name": "success_test_project",
+  "project_name": "成功テストプロジェクト",
+  "description": "正常に作成されるべきプロジェクト",
+  "tags": [
+    "success",
+    "test"
+  ],
+  "status": "active",
+  "id": "658786da-0f80-4434-bf7c-4e389df4b9b2",
+  "created_date": "2025-07-27T10:38:36.034282",
+  "modified_date": "2025-07-27T10:38:36.034282"
+}
+ステータス: 201
+---
+
+[2025-07-27 10:38:36] DELETE /api/projects/658786da-0f80-4434-bf7c-4e389df4b9b2/
+リクエスト: {}
+レスポンス: 
+ステータス: 204
+---
+
+[2025-07-27 10:44:06] GET /api/projects/
+リクエスト: {'lang': ['ja']}
+レスポンス: {
+  "version": "1.0.0",
+  "last_updated": "2025-07-27T10:38:36.035931",
+  "retention_months": 13,
+  "projects": [
+    {
+      "folder_name": "testProject",
+      "project_name": "テストのためのプロジェクト",
+      "description": "テストです。",
+      "tags": [],
+      "status": "active",
+      "id": "2cec431a-0416-4451-a43b-fdc85e0c5c62",
+      "created_date": "2025-07-24T23:31:44.186614",
+      "modified_date": "2025-07-24T23:31:44.186614"
+    },
+    {
+      "id": "bb5830e9-e13c-4960-bc25-fa8045a272e9",
+      "folder_name": "save_test",
+      "project_name": "セーブテスト",
+      "description": "セーブテスト",
+      "created_date": "2025-07-27T10:37:56.948759",
+      "modified_date": "2025-07-27T10:37:56.948769",
+      "tags": [],
+      "status": "active"
+    },
+    {
+      "folder_name": "minimal_test",
+      "project_name": "Minimal Test",
+      "description": "Minimal test project",
+      "id": "a908299f-f131-4f70-8b16-43fd9f01b7d2",
+      "created_date": "2025-07-27T10:38:36.031250",
+      "modified_date": "2025-07-27T10:38:36.031250"
+    }
+  ],
+  "archived_projects": [
+    {
+      "folder_name": "direct_test_project",
+      "project_name": "直接テストプロジェクト",
+      "description": "直接テスト用プロジェクト",
+      "tags": [
+        "test"
+      ],
+      "status": "active",
+      "id": "82886a55-fe6c-4559-9dfa-27aeb21e924e",
+      "created_date": "2025-07-27T10:37:56.949497",
+      "modified_date": "2025-07-27T10:37:56.949497",
+      "archive_filename": "direct_test_project_20250727_103756.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/direct_test_project_20250727_103756.zip",
+      "archive_size": 347,
+      "deletion_date": "2025-07-27T10:37:56.952974",
+      "reason": "ユーザー削除"
+    },
+    {
+      "folder_name": "minimal_test",
+      "project_name": "Minimal Test",
+      "description": "Minimal test project",
+      "id": "1c91b519-f4e1-428c-833d-bfbc95483b9d",
+      "created_date": "2025-07-27T10:38:36.026164",
+      "modified_date": "2025-07-27T10:38:36.026164",
+      "archive_filename": "minimal_test_20250727_103836.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/minimal_test_20250727_103836.zip",
+      "archive_size": 292,
+      "deletion_date": "2025-07-27T10:38:36.030515",
+      "reason": "ユーザー削除"
+    },
+    {
+      "folder_name": "success_test_project",
+      "project_name": "成功テストプロジェクト",
+      "description": "正常に作成されるべきプロジェクト",
+      "tags": [
+        "success",
+        "test"
+      ],
+      "status": "active",
+      "id": "658786da-0f80-4434-bf7c-4e389df4b9b2",
+      "created_date": "2025-07-27T10:38:36.034282",
+      "modified_date": "2025-07-27T10:38:36.034282",
+      "archive_filename": "success_test_project_20250727_103836.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/success_test_project_20250727_103836.zip",
+      "archive_size": 385,
+      "deletion_date": "2025-07-27T10:38:36.035929",
+      "reason": "ユーザー削除"
+    }
+  ],
+  "reserved_folders": [
+    "node_modules",
+    "dist",
+    "build",
+    ".git",
+    "backend",
+    "frontend",
+    "trash",
+    "recycle_bin",
+    "deleted",
+    ".trash"
+  ]
+}
+ステータス: 200
+---
+
+[2025-07-27 10:44:06] GET /api/projects/
+リクエスト: {'lang': ['ja']}
+レスポンス: {
+  "version": "1.0.0",
+  "last_updated": "2025-07-27T10:38:36.035931",
+  "retention_months": 13,
+  "projects": [
+    {
+      "folder_name": "testProject",
+      "project_name": "テストのためのプロジェクト",
+      "description": "テストです。",
+      "tags": [],
+      "status": "active",
+      "id": "2cec431a-0416-4451-a43b-fdc85e0c5c62",
+      "created_date": "2025-07-24T23:31:44.186614",
+      "modified_date": "2025-07-24T23:31:44.186614"
+    },
+    {
+      "id": "bb5830e9-e13c-4960-bc25-fa8045a272e9",
+      "folder_name": "save_test",
+      "project_name": "セーブテスト",
+      "description": "セーブテスト",
+      "created_date": "2025-07-27T10:37:56.948759",
+      "modified_date": "2025-07-27T10:37:56.948769",
+      "tags": [],
+      "status": "active"
+    },
+    {
+      "folder_name": "minimal_test",
+      "project_name": "Minimal Test",
+      "description": "Minimal test project",
+      "id": "a908299f-f131-4f70-8b16-43fd9f01b7d2",
+      "created_date": "2025-07-27T10:38:36.031250",
+      "modified_date": "2025-07-27T10:38:36.031250"
+    }
+  ],
+  "archived_projects": [
+    {
+      "folder_name": "direct_test_project",
+      "project_name": "直接テストプロジェクト",
+      "description": "直接テスト用プロジェクト",
+      "tags": [
+        "test"
+      ],
+      "status": "active",
+      "id": "82886a55-fe6c-4559-9dfa-27aeb21e924e",
+      "created_date": "2025-07-27T10:37:56.949497",
+      "modified_date": "2025-07-27T10:37:56.949497",
+      "archive_filename": "direct_test_project_20250727_103756.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/direct_test_project_20250727_103756.zip",
+      "archive_size": 347,
+      "deletion_date": "2025-07-27T10:37:56.952974",
+      "reason": "ユーザー削除"
+    },
+    {
+      "folder_name": "minimal_test",
+      "project_name": "Minimal Test",
+      "description": "Minimal test project",
+      "id": "1c91b519-f4e1-428c-833d-bfbc95483b9d",
+      "created_date": "2025-07-27T10:38:36.026164",
+      "modified_date": "2025-07-27T10:38:36.026164",
+      "archive_filename": "minimal_test_20250727_103836.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/minimal_test_20250727_103836.zip",
+      "archive_size": 292,
+      "deletion_date": "2025-07-27T10:38:36.030515",
+      "reason": "ユーザー削除"
+    },
+    {
+      "folder_name": "success_test_project",
+      "project_name": "成功テストプロジェクト",
+      "description": "正常に作成されるべきプロジェクト",
+      "tags": [
+        "success",
+        "test"
+      ],
+      "status": "active",
+      "id": "658786da-0f80-4434-bf7c-4e389df4b9b2",
+      "created_date": "2025-07-27T10:38:36.034282",
+      "modified_date": "2025-07-27T10:38:36.034282",
+      "archive_filename": "success_test_project_20250727_103836.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/success_test_project_20250727_103836.zip",
+      "archive_size": 385,
+      "deletion_date": "2025-07-27T10:38:36.035929",
+      "reason": "ユーザー削除"
+    }
+  ],
+  "reserved_folders": [
+    "node_modules",
+    "dist",
+    "build",
+    ".git",
+    "backend",
+    "frontend",
+    "trash",
+    "recycle_bin",
+    "deleted",
+    ".trash"
+  ]
+}
+ステータス: 200
+---
+
+[2025-07-27 13:28:13] GET /api/projects/
+リクエスト: {'lang': ['ja']}
+レスポンス: {
+  "version": "1.0.0",
+  "last_updated": "2025-07-27T10:38:36.035931",
+  "retention_months": 13,
+  "projects": [
+    {
+      "folder_name": "testProject",
+      "project_name": "テストのためのプロジェクト",
+      "description": "テストです。",
+      "tags": [],
+      "status": "active",
+      "id": "2cec431a-0416-4451-a43b-fdc85e0c5c62",
+      "created_date": "2025-07-24T23:31:44.186614",
+      "modified_date": "2025-07-24T23:31:44.186614"
+    },
+    {
+      "id": "bb5830e9-e13c-4960-bc25-fa8045a272e9",
+      "folder_name": "save_test",
+      "project_name": "セーブテスト",
+      "description": "セーブテスト",
+      "created_date": "2025-07-27T10:37:56.948759",
+      "modified_date": "2025-07-27T10:37:56.948769",
+      "tags": [],
+      "status": "active"
+    },
+    {
+      "folder_name": "minimal_test",
+      "project_name": "Minimal Test",
+      "description": "Minimal test project",
+      "id": "a908299f-f131-4f70-8b16-43fd9f01b7d2",
+      "created_date": "2025-07-27T10:38:36.031250",
+      "modified_date": "2025-07-27T10:38:36.031250"
+    }
+  ],
+  "archived_projects": [
+    {
+      "folder_name": "direct_test_project",
+      "project_name": "直接テストプロジェクト",
+      "description": "直接テスト用プロジェクト",
+      "tags": [
+        "test"
+      ],
+      "status": "active",
+      "id": "82886a55-fe6c-4559-9dfa-27aeb21e924e",
+      "created_date": "2025-07-27T10:37:56.949497",
+      "modified_date": "2025-07-27T10:37:56.949497",
+      "archive_filename": "direct_test_project_20250727_103756.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/direct_test_project_20250727_103756.zip",
+      "archive_size": 347,
+      "deletion_date": "2025-07-27T10:37:56.952974",
+      "reason": "ユーザー削除"
+    },
+    {
+      "folder_name": "minimal_test",
+      "project_name": "Minimal Test",
+      "description": "Minimal test project",
+      "id": "1c91b519-f4e1-428c-833d-bfbc95483b9d",
+      "created_date": "2025-07-27T10:38:36.026164",
+      "modified_date": "2025-07-27T10:38:36.026164",
+      "archive_filename": "minimal_test_20250727_103836.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/minimal_test_20250727_103836.zip",
+      "archive_size": 292,
+      "deletion_date": "2025-07-27T10:38:36.030515",
+      "reason": "ユーザー削除"
+    },
+    {
+      "folder_name": "success_test_project",
+      "project_name": "成功テストプロジェクト",
+      "description": "正常に作成されるべきプロジェクト",
+      "tags": [
+        "success",
+        "test"
+      ],
+      "status": "active",
+      "id": "658786da-0f80-4434-bf7c-4e389df4b9b2",
+      "created_date": "2025-07-27T10:38:36.034282",
+      "modified_date": "2025-07-27T10:38:36.034282",
+      "archive_filename": "success_test_project_20250727_103836.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/success_test_project_20250727_103836.zip",
+      "archive_size": 385,
+      "deletion_date": "2025-07-27T10:38:36.035929",
+      "reason": "ユーザー削除"
+    }
+  ],
+  "reserved_folders": [
+    "node_modules",
+    "dist",
+    "build",
+    ".git",
+    "backend",
+    "frontend",
+    "trash",
+    "recycle_bin",
+    "deleted",
+    ".trash"
+  ]
+}
+ステータス: 200
+---
+
+[2025-07-27 13:28:13] GET /api/projects/
+リクエスト: {'lang': ['ja']}
+レスポンス: {
+  "version": "1.0.0",
+  "last_updated": "2025-07-27T10:38:36.035931",
+  "retention_months": 13,
+  "projects": [
+    {
+      "folder_name": "testProject",
+      "project_name": "テストのためのプロジェクト",
+      "description": "テストです。",
+      "tags": [],
+      "status": "active",
+      "id": "2cec431a-0416-4451-a43b-fdc85e0c5c62",
+      "created_date": "2025-07-24T23:31:44.186614",
+      "modified_date": "2025-07-24T23:31:44.186614"
+    },
+    {
+      "id": "bb5830e9-e13c-4960-bc25-fa8045a272e9",
+      "folder_name": "save_test",
+      "project_name": "セーブテスト",
+      "description": "セーブテスト",
+      "created_date": "2025-07-27T10:37:56.948759",
+      "modified_date": "2025-07-27T10:37:56.948769",
+      "tags": [],
+      "status": "active"
+    },
+    {
+      "folder_name": "minimal_test",
+      "project_name": "Minimal Test",
+      "description": "Minimal test project",
+      "id": "a908299f-f131-4f70-8b16-43fd9f01b7d2",
+      "created_date": "2025-07-27T10:38:36.031250",
+      "modified_date": "2025-07-27T10:38:36.031250"
+    }
+  ],
+  "archived_projects": [
+    {
+      "folder_name": "direct_test_project",
+      "project_name": "直接テストプロジェクト",
+      "description": "直接テスト用プロジェクト",
+      "tags": [
+        "test"
+      ],
+      "status": "active",
+      "id": "82886a55-fe6c-4559-9dfa-27aeb21e924e",
+      "created_date": "2025-07-27T10:37:56.949497",
+      "modified_date": "2025-07-27T10:37:56.949497",
+      "archive_filename": "direct_test_project_20250727_103756.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/direct_test_project_20250727_103756.zip",
+      "archive_size": 347,
+      "deletion_date": "2025-07-27T10:37:56.952974",
+      "reason": "ユーザー削除"
+    },
+    {
+      "folder_name": "minimal_test",
+      "project_name": "Minimal Test",
+      "description": "Minimal test project",
+      "id": "1c91b519-f4e1-428c-833d-bfbc95483b9d",
+      "created_date": "2025-07-27T10:38:36.026164",
+      "modified_date": "2025-07-27T10:38:36.026164",
+      "archive_filename": "minimal_test_20250727_103836.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/minimal_test_20250727_103836.zip",
+      "archive_size": 292,
+      "deletion_date": "2025-07-27T10:38:36.030515",
+      "reason": "ユーザー削除"
+    },
+    {
+      "folder_name": "success_test_project",
+      "project_name": "成功テストプロジェクト",
+      "description": "正常に作成されるべきプロジェクト",
+      "tags": [
+        "success",
+        "test"
+      ],
+      "status": "active",
+      "id": "658786da-0f80-4434-bf7c-4e389df4b9b2",
+      "created_date": "2025-07-27T10:38:36.034282",
+      "modified_date": "2025-07-27T10:38:36.034282",
+      "archive_filename": "success_test_project_20250727_103836.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/success_test_project_20250727_103836.zip",
+      "archive_size": 385,
+      "deletion_date": "2025-07-27T10:38:36.035929",
+      "reason": "ユーザー削除"
+    }
+  ],
+  "reserved_folders": [
+    "node_modules",
+    "dist",
+    "build",
+    ".git",
+    "backend",
+    "frontend",
+    "trash",
+    "recycle_bin",
+    "deleted",
+    ".trash"
+  ]
+}
+ステータス: 200
+---
+
+[2025-07-27 13:30:51] GET /api/projects/
+リクエスト: {'lang': ['ja']}
+レスポンス: {
+  "version": "1.0.0",
+  "last_updated": "2025-07-27T10:38:36.035931",
+  "retention_months": 13,
+  "projects": [
+    {
+      "folder_name": "testProject",
+      "project_name": "テストのためのプロジェクト",
+      "description": "テストです。",
+      "tags": [],
+      "status": "active",
+      "id": "2cec431a-0416-4451-a43b-fdc85e0c5c62",
+      "created_date": "2025-07-24T23:31:44.186614",
+      "modified_date": "2025-07-24T23:31:44.186614"
+    },
+    {
+      "id": "bb5830e9-e13c-4960-bc25-fa8045a272e9",
+      "folder_name": "save_test",
+      "project_name": "セーブテスト",
+      "description": "セーブテスト",
+      "created_date": "2025-07-27T10:37:56.948759",
+      "modified_date": "2025-07-27T10:37:56.948769",
+      "tags": [],
+      "status": "active"
+    },
+    {
+      "folder_name": "minimal_test",
+      "project_name": "Minimal Test",
+      "description": "Minimal test project",
+      "id": "a908299f-f131-4f70-8b16-43fd9f01b7d2",
+      "created_date": "2025-07-27T10:38:36.031250",
+      "modified_date": "2025-07-27T10:38:36.031250"
+    }
+  ],
+  "archived_projects": [
+    {
+      "folder_name": "direct_test_project",
+      "project_name": "直接テストプロジェクト",
+      "description": "直接テスト用プロジェクト",
+      "tags": [
+        "test"
+      ],
+      "status": "active",
+      "id": "82886a55-fe6c-4559-9dfa-27aeb21e924e",
+      "created_date": "2025-07-27T10:37:56.949497",
+      "modified_date": "2025-07-27T10:37:56.949497",
+      "archive_filename": "direct_test_project_20250727_103756.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/direct_test_project_20250727_103756.zip",
+      "archive_size": 347,
+      "deletion_date": "2025-07-27T10:37:56.952974",
+      "reason": "ユーザー削除"
+    },
+    {
+      "folder_name": "minimal_test",
+      "project_name": "Minimal Test",
+      "description": "Minimal test project",
+      "id": "1c91b519-f4e1-428c-833d-bfbc95483b9d",
+      "created_date": "2025-07-27T10:38:36.026164",
+      "modified_date": "2025-07-27T10:38:36.026164",
+      "archive_filename": "minimal_test_20250727_103836.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/minimal_test_20250727_103836.zip",
+      "archive_size": 292,
+      "deletion_date": "2025-07-27T10:38:36.030515",
+      "reason": "ユーザー削除"
+    },
+    {
+      "folder_name": "success_test_project",
+      "project_name": "成功テストプロジェクト",
+      "description": "正常に作成されるべきプロジェクト",
+      "tags": [
+        "success",
+        "test"
+      ],
+      "status": "active",
+      "id": "658786da-0f80-4434-bf7c-4e389df4b9b2",
+      "created_date": "2025-07-27T10:38:36.034282",
+      "modified_date": "2025-07-27T10:38:36.034282",
+      "archive_filename": "success_test_project_20250727_103836.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/success_test_project_20250727_103836.zip",
+      "archive_size": 385,
+      "deletion_date": "2025-07-27T10:38:36.035929",
+      "reason": "ユーザー削除"
+    }
+  ],
+  "reserved_folders": [
+    "node_modules",
+    "dist",
+    "build",
+    ".git",
+    "backend",
+    "frontend",
+    "trash",
+    "recycle_bin",
+    "deleted",
+    ".trash"
+  ]
+}
+ステータス: 200
+---
+
+[2025-07-27 13:30:51] GET /api/projects/
+リクエスト: {'lang': ['ja']}
+レスポンス: {
+  "version": "1.0.0",
+  "last_updated": "2025-07-27T10:38:36.035931",
+  "retention_months": 13,
+  "projects": [
+    {
+      "folder_name": "testProject",
+      "project_name": "テストのためのプロジェクト",
+      "description": "テストです。",
+      "tags": [],
+      "status": "active",
+      "id": "2cec431a-0416-4451-a43b-fdc85e0c5c62",
+      "created_date": "2025-07-24T23:31:44.186614",
+      "modified_date": "2025-07-24T23:31:44.186614"
+    },
+    {
+      "id": "bb5830e9-e13c-4960-bc25-fa8045a272e9",
+      "folder_name": "save_test",
+      "project_name": "セーブテスト",
+      "description": "セーブテスト",
+      "created_date": "2025-07-27T10:37:56.948759",
+      "modified_date": "2025-07-27T10:37:56.948769",
+      "tags": [],
+      "status": "active"
+    },
+    {
+      "folder_name": "minimal_test",
+      "project_name": "Minimal Test",
+      "description": "Minimal test project",
+      "id": "a908299f-f131-4f70-8b16-43fd9f01b7d2",
+      "created_date": "2025-07-27T10:38:36.031250",
+      "modified_date": "2025-07-27T10:38:36.031250"
+    }
+  ],
+  "archived_projects": [
+    {
+      "folder_name": "direct_test_project",
+      "project_name": "直接テストプロジェクト",
+      "description": "直接テスト用プロジェクト",
+      "tags": [
+        "test"
+      ],
+      "status": "active",
+      "id": "82886a55-fe6c-4559-9dfa-27aeb21e924e",
+      "created_date": "2025-07-27T10:37:56.949497",
+      "modified_date": "2025-07-27T10:37:56.949497",
+      "archive_filename": "direct_test_project_20250727_103756.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/direct_test_project_20250727_103756.zip",
+      "archive_size": 347,
+      "deletion_date": "2025-07-27T10:37:56.952974",
+      "reason": "ユーザー削除"
+    },
+    {
+      "folder_name": "minimal_test",
+      "project_name": "Minimal Test",
+      "description": "Minimal test project",
+      "id": "1c91b519-f4e1-428c-833d-bfbc95483b9d",
+      "created_date": "2025-07-27T10:38:36.026164",
+      "modified_date": "2025-07-27T10:38:36.026164",
+      "archive_filename": "minimal_test_20250727_103836.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/minimal_test_20250727_103836.zip",
+      "archive_size": 292,
+      "deletion_date": "2025-07-27T10:38:36.030515",
+      "reason": "ユーザー削除"
+    },
+    {
+      "folder_name": "success_test_project",
+      "project_name": "成功テストプロジェクト",
+      "description": "正常に作成されるべきプロジェクト",
+      "tags": [
+        "success",
+        "test"
+      ],
+      "status": "active",
+      "id": "658786da-0f80-4434-bf7c-4e389df4b9b2",
+      "created_date": "2025-07-27T10:38:36.034282",
+      "modified_date": "2025-07-27T10:38:36.034282",
+      "archive_filename": "success_test_project_20250727_103836.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/success_test_project_20250727_103836.zip",
+      "archive_size": 385,
+      "deletion_date": "2025-07-27T10:38:36.035929",
+      "reason": "ユーザー削除"
+    }
+  ],
+  "reserved_folders": [
+    "node_modules",
+    "dist",
+    "build",
+    ".git",
+    "backend",
+    "frontend",
+    "trash",
+    "recycle_bin",
+    "deleted",
+    ".trash"
+  ]
+}
+ステータス: 200
+---
+
+[2025-07-27 13:31:01] GET /api/projects/
+リクエスト: {'lang': ['ja']}
+レスポンス: {
+  "version": "1.0.0",
+  "last_updated": "2025-07-27T10:38:36.035931",
+  "retention_months": 13,
+  "projects": [
+    {
+      "folder_name": "testProject",
+      "project_name": "テストのためのプロジェクト",
+      "description": "テストです。",
+      "tags": [],
+      "status": "active",
+      "id": "2cec431a-0416-4451-a43b-fdc85e0c5c62",
+      "created_date": "2025-07-24T23:31:44.186614",
+      "modified_date": "2025-07-24T23:31:44.186614"
+    },
+    {
+      "id": "bb5830e9-e13c-4960-bc25-fa8045a272e9",
+      "folder_name": "save_test",
+      "project_name": "セーブテスト",
+      "description": "セーブテスト",
+      "created_date": "2025-07-27T10:37:56.948759",
+      "modified_date": "2025-07-27T10:37:56.948769",
+      "tags": [],
+      "status": "active"
+    },
+    {
+      "folder_name": "minimal_test",
+      "project_name": "Minimal Test",
+      "description": "Minimal test project",
+      "id": "a908299f-f131-4f70-8b16-43fd9f01b7d2",
+      "created_date": "2025-07-27T10:38:36.031250",
+      "modified_date": "2025-07-27T10:38:36.031250"
+    }
+  ],
+  "archived_projects": [
+    {
+      "folder_name": "direct_test_project",
+      "project_name": "直接テストプロジェクト",
+      "description": "直接テスト用プロジェクト",
+      "tags": [
+        "test"
+      ],
+      "status": "active",
+      "id": "82886a55-fe6c-4559-9dfa-27aeb21e924e",
+      "created_date": "2025-07-27T10:37:56.949497",
+      "modified_date": "2025-07-27T10:37:56.949497",
+      "archive_filename": "direct_test_project_20250727_103756.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/direct_test_project_20250727_103756.zip",
+      "archive_size": 347,
+      "deletion_date": "2025-07-27T10:37:56.952974",
+      "reason": "ユーザー削除"
+    },
+    {
+      "folder_name": "minimal_test",
+      "project_name": "Minimal Test",
+      "description": "Minimal test project",
+      "id": "1c91b519-f4e1-428c-833d-bfbc95483b9d",
+      "created_date": "2025-07-27T10:38:36.026164",
+      "modified_date": "2025-07-27T10:38:36.026164",
+      "archive_filename": "minimal_test_20250727_103836.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/minimal_test_20250727_103836.zip",
+      "archive_size": 292,
+      "deletion_date": "2025-07-27T10:38:36.030515",
+      "reason": "ユーザー削除"
+    },
+    {
+      "folder_name": "success_test_project",
+      "project_name": "成功テストプロジェクト",
+      "description": "正常に作成されるべきプロジェクト",
+      "tags": [
+        "success",
+        "test"
+      ],
+      "status": "active",
+      "id": "658786da-0f80-4434-bf7c-4e389df4b9b2",
+      "created_date": "2025-07-27T10:38:36.034282",
+      "modified_date": "2025-07-27T10:38:36.034282",
+      "archive_filename": "success_test_project_20250727_103836.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/success_test_project_20250727_103836.zip",
+      "archive_size": 385,
+      "deletion_date": "2025-07-27T10:38:36.035929",
+      "reason": "ユーザー削除"
+    }
+  ],
+  "reserved_folders": [
+    "node_modules",
+    "dist",
+    "build",
+    ".git",
+    "backend",
+    "frontend",
+    "trash",
+    "recycle_bin",
+    "deleted",
+    ".trash"
+  ]
+}
+ステータス: 200
+---
+
+[2025-07-27 13:31:01] GET /api/projects/
+リクエスト: {'lang': ['ja']}
+レスポンス: {
+  "version": "1.0.0",
+  "last_updated": "2025-07-27T10:38:36.035931",
+  "retention_months": 13,
+  "projects": [
+    {
+      "folder_name": "testProject",
+      "project_name": "テストのためのプロジェクト",
+      "description": "テストです。",
+      "tags": [],
+      "status": "active",
+      "id": "2cec431a-0416-4451-a43b-fdc85e0c5c62",
+      "created_date": "2025-07-24T23:31:44.186614",
+      "modified_date": "2025-07-24T23:31:44.186614"
+    },
+    {
+      "id": "bb5830e9-e13c-4960-bc25-fa8045a272e9",
+      "folder_name": "save_test",
+      "project_name": "セーブテスト",
+      "description": "セーブテスト",
+      "created_date": "2025-07-27T10:37:56.948759",
+      "modified_date": "2025-07-27T10:37:56.948769",
+      "tags": [],
+      "status": "active"
+    },
+    {
+      "folder_name": "minimal_test",
+      "project_name": "Minimal Test",
+      "description": "Minimal test project",
+      "id": "a908299f-f131-4f70-8b16-43fd9f01b7d2",
+      "created_date": "2025-07-27T10:38:36.031250",
+      "modified_date": "2025-07-27T10:38:36.031250"
+    }
+  ],
+  "archived_projects": [
+    {
+      "folder_name": "direct_test_project",
+      "project_name": "直接テストプロジェクト",
+      "description": "直接テスト用プロジェクト",
+      "tags": [
+        "test"
+      ],
+      "status": "active",
+      "id": "82886a55-fe6c-4559-9dfa-27aeb21e924e",
+      "created_date": "2025-07-27T10:37:56.949497",
+      "modified_date": "2025-07-27T10:37:56.949497",
+      "archive_filename": "direct_test_project_20250727_103756.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/direct_test_project_20250727_103756.zip",
+      "archive_size": 347,
+      "deletion_date": "2025-07-27T10:37:56.952974",
+      "reason": "ユーザー削除"
+    },
+    {
+      "folder_name": "minimal_test",
+      "project_name": "Minimal Test",
+      "description": "Minimal test project",
+      "id": "1c91b519-f4e1-428c-833d-bfbc95483b9d",
+      "created_date": "2025-07-27T10:38:36.026164",
+      "modified_date": "2025-07-27T10:38:36.026164",
+      "archive_filename": "minimal_test_20250727_103836.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/minimal_test_20250727_103836.zip",
+      "archive_size": 292,
+      "deletion_date": "2025-07-27T10:38:36.030515",
+      "reason": "ユーザー削除"
+    },
+    {
+      "folder_name": "success_test_project",
+      "project_name": "成功テストプロジェクト",
+      "description": "正常に作成されるべきプロジェクト",
+      "tags": [
+        "success",
+        "test"
+      ],
+      "status": "active",
+      "id": "658786da-0f80-4434-bf7c-4e389df4b9b2",
+      "created_date": "2025-07-27T10:38:36.034282",
+      "modified_date": "2025-07-27T10:38:36.034282",
+      "archive_filename": "success_test_project_20250727_103836.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/success_test_project_20250727_103836.zip",
+      "archive_size": 385,
+      "deletion_date": "2025-07-27T10:38:36.035929",
+      "reason": "ユーザー削除"
+    }
+  ],
+  "reserved_folders": [
+    "node_modules",
+    "dist",
+    "build",
+    ".git",
+    "backend",
+    "frontend",
+    "trash",
+    "recycle_bin",
+    "deleted",
+    ".trash"
+  ]
+}
+ステータス: 200
+---
+
+[2025-07-27 13:31:13] GET /api/projects/
+リクエスト: {'lang': ['ja']}
+レスポンス: {
+  "version": "1.0.0",
+  "last_updated": "2025-07-27T10:38:36.035931",
+  "retention_months": 13,
+  "projects": [
+    {
+      "folder_name": "testProject",
+      "project_name": "テストのためのプロジェクト",
+      "description": "テストです。",
+      "tags": [],
+      "status": "active",
+      "id": "2cec431a-0416-4451-a43b-fdc85e0c5c62",
+      "created_date": "2025-07-24T23:31:44.186614",
+      "modified_date": "2025-07-24T23:31:44.186614"
+    },
+    {
+      "id": "bb5830e9-e13c-4960-bc25-fa8045a272e9",
+      "folder_name": "save_test",
+      "project_name": "セーブテスト",
+      "description": "セーブテスト",
+      "created_date": "2025-07-27T10:37:56.948759",
+      "modified_date": "2025-07-27T10:37:56.948769",
+      "tags": [],
+      "status": "active"
+    },
+    {
+      "folder_name": "minimal_test",
+      "project_name": "Minimal Test",
+      "description": "Minimal test project",
+      "id": "a908299f-f131-4f70-8b16-43fd9f01b7d2",
+      "created_date": "2025-07-27T10:38:36.031250",
+      "modified_date": "2025-07-27T10:38:36.031250"
+    }
+  ],
+  "archived_projects": [
+    {
+      "folder_name": "direct_test_project",
+      "project_name": "直接テストプロジェクト",
+      "description": "直接テスト用プロジェクト",
+      "tags": [
+        "test"
+      ],
+      "status": "active",
+      "id": "82886a55-fe6c-4559-9dfa-27aeb21e924e",
+      "created_date": "2025-07-27T10:37:56.949497",
+      "modified_date": "2025-07-27T10:37:56.949497",
+      "archive_filename": "direct_test_project_20250727_103756.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/direct_test_project_20250727_103756.zip",
+      "archive_size": 347,
+      "deletion_date": "2025-07-27T10:37:56.952974",
+      "reason": "ユーザー削除"
+    },
+    {
+      "folder_name": "minimal_test",
+      "project_name": "Minimal Test",
+      "description": "Minimal test project",
+      "id": "1c91b519-f4e1-428c-833d-bfbc95483b9d",
+      "created_date": "2025-07-27T10:38:36.026164",
+      "modified_date": "2025-07-27T10:38:36.026164",
+      "archive_filename": "minimal_test_20250727_103836.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/minimal_test_20250727_103836.zip",
+      "archive_size": 292,
+      "deletion_date": "2025-07-27T10:38:36.030515",
+      "reason": "ユーザー削除"
+    },
+    {
+      "folder_name": "success_test_project",
+      "project_name": "成功テストプロジェクト",
+      "description": "正常に作成されるべきプロジェクト",
+      "tags": [
+        "success",
+        "test"
+      ],
+      "status": "active",
+      "id": "658786da-0f80-4434-bf7c-4e389df4b9b2",
+      "created_date": "2025-07-27T10:38:36.034282",
+      "modified_date": "2025-07-27T10:38:36.034282",
+      "archive_filename": "success_test_project_20250727_103836.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/success_test_project_20250727_103836.zip",
+      "archive_size": 385,
+      "deletion_date": "2025-07-27T10:38:36.035929",
+      "reason": "ユーザー削除"
+    }
+  ],
+  "reserved_folders": [
+    "node_modules",
+    "dist",
+    "build",
+    ".git",
+    "backend",
+    "frontend",
+    "trash",
+    "recycle_bin",
+    "deleted",
+    ".trash"
+  ]
+}
+ステータス: 200
+---
+
+[2025-07-27 13:31:13] GET /api/projects/
+リクエスト: {'lang': ['ja']}
+レスポンス: {
+  "version": "1.0.0",
+  "last_updated": "2025-07-27T10:38:36.035931",
+  "retention_months": 13,
+  "projects": [
+    {
+      "folder_name": "testProject",
+      "project_name": "テストのためのプロジェクト",
+      "description": "テストです。",
+      "tags": [],
+      "status": "active",
+      "id": "2cec431a-0416-4451-a43b-fdc85e0c5c62",
+      "created_date": "2025-07-24T23:31:44.186614",
+      "modified_date": "2025-07-24T23:31:44.186614"
+    },
+    {
+      "id": "bb5830e9-e13c-4960-bc25-fa8045a272e9",
+      "folder_name": "save_test",
+      "project_name": "セーブテスト",
+      "description": "セーブテスト",
+      "created_date": "2025-07-27T10:37:56.948759",
+      "modified_date": "2025-07-27T10:37:56.948769",
+      "tags": [],
+      "status": "active"
+    },
+    {
+      "folder_name": "minimal_test",
+      "project_name": "Minimal Test",
+      "description": "Minimal test project",
+      "id": "a908299f-f131-4f70-8b16-43fd9f01b7d2",
+      "created_date": "2025-07-27T10:38:36.031250",
+      "modified_date": "2025-07-27T10:38:36.031250"
+    }
+  ],
+  "archived_projects": [
+    {
+      "folder_name": "direct_test_project",
+      "project_name": "直接テストプロジェクト",
+      "description": "直接テスト用プロジェクト",
+      "tags": [
+        "test"
+      ],
+      "status": "active",
+      "id": "82886a55-fe6c-4559-9dfa-27aeb21e924e",
+      "created_date": "2025-07-27T10:37:56.949497",
+      "modified_date": "2025-07-27T10:37:56.949497",
+      "archive_filename": "direct_test_project_20250727_103756.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/direct_test_project_20250727_103756.zip",
+      "archive_size": 347,
+      "deletion_date": "2025-07-27T10:37:56.952974",
+      "reason": "ユーザー削除"
+    },
+    {
+      "folder_name": "minimal_test",
+      "project_name": "Minimal Test",
+      "description": "Minimal test project",
+      "id": "1c91b519-f4e1-428c-833d-bfbc95483b9d",
+      "created_date": "2025-07-27T10:38:36.026164",
+      "modified_date": "2025-07-27T10:38:36.026164",
+      "archive_filename": "minimal_test_20250727_103836.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/minimal_test_20250727_103836.zip",
+      "archive_size": 292,
+      "deletion_date": "2025-07-27T10:38:36.030515",
+      "reason": "ユーザー削除"
+    },
+    {
+      "folder_name": "success_test_project",
+      "project_name": "成功テストプロジェクト",
+      "description": "正常に作成されるべきプロジェクト",
+      "tags": [
+        "success",
+        "test"
+      ],
+      "status": "active",
+      "id": "658786da-0f80-4434-bf7c-4e389df4b9b2",
+      "created_date": "2025-07-27T10:38:36.034282",
+      "modified_date": "2025-07-27T10:38:36.034282",
+      "archive_filename": "success_test_project_20250727_103836.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/success_test_project_20250727_103836.zip",
+      "archive_size": 385,
+      "deletion_date": "2025-07-27T10:38:36.035929",
+      "reason": "ユーザー削除"
+    }
+  ],
+  "reserved_folders": [
+    "node_modules",
+    "dist",
+    "build",
+    ".git",
+    "backend",
+    "frontend",
+    "trash",
+    "recycle_bin",
+    "deleted",
+    ".trash"
+  ]
+}
+ステータス: 200
+---
+
+[2025-07-27 13:37:24] GET /api/projects/
+リクエスト: {'lang': ['ja']}
+レスポンス: {
+  "version": "1.0.0",
+  "last_updated": "2025-07-27T10:38:36.035931",
+  "retention_months": 13,
+  "projects": [
+    {
+      "folder_name": "testProject",
+      "project_name": "テストのためのプロジェクト",
+      "description": "テストです。",
+      "tags": [],
+      "status": "active",
+      "id": "2cec431a-0416-4451-a43b-fdc85e0c5c62",
+      "created_date": "2025-07-24T23:31:44.186614",
+      "modified_date": "2025-07-24T23:31:44.186614"
+    },
+    {
+      "id": "bb5830e9-e13c-4960-bc25-fa8045a272e9",
+      "folder_name": "save_test",
+      "project_name": "セーブテスト",
+      "description": "セーブテスト",
+      "created_date": "2025-07-27T10:37:56.948759",
+      "modified_date": "2025-07-27T10:37:56.948769",
+      "tags": [],
+      "status": "active"
+    },
+    {
+      "folder_name": "minimal_test",
+      "project_name": "Minimal Test",
+      "description": "Minimal test project",
+      "id": "a908299f-f131-4f70-8b16-43fd9f01b7d2",
+      "created_date": "2025-07-27T10:38:36.031250",
+      "modified_date": "2025-07-27T10:38:36.031250"
+    }
+  ],
+  "archived_projects": [
+    {
+      "folder_name": "direct_test_project",
+      "project_name": "直接テストプロジェクト",
+      "description": "直接テスト用プロジェクト",
+      "tags": [
+        "test"
+      ],
+      "status": "active",
+      "id": "82886a55-fe6c-4559-9dfa-27aeb21e924e",
+      "created_date": "2025-07-27T10:37:56.949497",
+      "modified_date": "2025-07-27T10:37:56.949497",
+      "archive_filename": "direct_test_project_20250727_103756.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/direct_test_project_20250727_103756.zip",
+      "archive_size": 347,
+      "deletion_date": "2025-07-27T10:37:56.952974",
+      "reason": "ユーザー削除"
+    },
+    {
+      "folder_name": "minimal_test",
+      "project_name": "Minimal Test",
+      "description": "Minimal test project",
+      "id": "1c91b519-f4e1-428c-833d-bfbc95483b9d",
+      "created_date": "2025-07-27T10:38:36.026164",
+      "modified_date": "2025-07-27T10:38:36.026164",
+      "archive_filename": "minimal_test_20250727_103836.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/minimal_test_20250727_103836.zip",
+      "archive_size": 292,
+      "deletion_date": "2025-07-27T10:38:36.030515",
+      "reason": "ユーザー削除"
+    },
+    {
+      "folder_name": "success_test_project",
+      "project_name": "成功テストプロジェクト",
+      "description": "正常に作成されるべきプロジェクト",
+      "tags": [
+        "success",
+        "test"
+      ],
+      "status": "active",
+      "id": "658786da-0f80-4434-bf7c-4e389df4b9b2",
+      "created_date": "2025-07-27T10:38:36.034282",
+      "modified_date": "2025-07-27T10:38:36.034282",
+      "archive_filename": "success_test_project_20250727_103836.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/success_test_project_20250727_103836.zip",
+      "archive_size": 385,
+      "deletion_date": "2025-07-27T10:38:36.035929",
+      "reason": "ユーザー削除"
+    }
+  ],
+  "reserved_folders": [
+    "node_modules",
+    "dist",
+    "build",
+    ".git",
+    "backend",
+    "frontend",
+    "trash",
+    "recycle_bin",
+    "deleted",
+    ".trash"
+  ]
+}
+ステータス: 200
+---
+
+[2025-07-27 13:37:24] GET /api/projects/
+リクエスト: {'lang': ['ja']}
+レスポンス: {
+  "version": "1.0.0",
+  "last_updated": "2025-07-27T10:38:36.035931",
+  "retention_months": 13,
+  "projects": [
+    {
+      "folder_name": "testProject",
+      "project_name": "テストのためのプロジェクト",
+      "description": "テストです。",
+      "tags": [],
+      "status": "active",
+      "id": "2cec431a-0416-4451-a43b-fdc85e0c5c62",
+      "created_date": "2025-07-24T23:31:44.186614",
+      "modified_date": "2025-07-24T23:31:44.186614"
+    },
+    {
+      "id": "bb5830e9-e13c-4960-bc25-fa8045a272e9",
+      "folder_name": "save_test",
+      "project_name": "セーブテスト",
+      "description": "セーブテスト",
+      "created_date": "2025-07-27T10:37:56.948759",
+      "modified_date": "2025-07-27T10:37:56.948769",
+      "tags": [],
+      "status": "active"
+    },
+    {
+      "folder_name": "minimal_test",
+      "project_name": "Minimal Test",
+      "description": "Minimal test project",
+      "id": "a908299f-f131-4f70-8b16-43fd9f01b7d2",
+      "created_date": "2025-07-27T10:38:36.031250",
+      "modified_date": "2025-07-27T10:38:36.031250"
+    }
+  ],
+  "archived_projects": [
+    {
+      "folder_name": "direct_test_project",
+      "project_name": "直接テストプロジェクト",
+      "description": "直接テスト用プロジェクト",
+      "tags": [
+        "test"
+      ],
+      "status": "active",
+      "id": "82886a55-fe6c-4559-9dfa-27aeb21e924e",
+      "created_date": "2025-07-27T10:37:56.949497",
+      "modified_date": "2025-07-27T10:37:56.949497",
+      "archive_filename": "direct_test_project_20250727_103756.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/direct_test_project_20250727_103756.zip",
+      "archive_size": 347,
+      "deletion_date": "2025-07-27T10:37:56.952974",
+      "reason": "ユーザー削除"
+    },
+    {
+      "folder_name": "minimal_test",
+      "project_name": "Minimal Test",
+      "description": "Minimal test project",
+      "id": "1c91b519-f4e1-428c-833d-bfbc95483b9d",
+      "created_date": "2025-07-27T10:38:36.026164",
+      "modified_date": "2025-07-27T10:38:36.026164",
+      "archive_filename": "minimal_test_20250727_103836.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/minimal_test_20250727_103836.zip",
+      "archive_size": 292,
+      "deletion_date": "2025-07-27T10:38:36.030515",
+      "reason": "ユーザー削除"
+    },
+    {
+      "folder_name": "success_test_project",
+      "project_name": "成功テストプロジェクト",
+      "description": "正常に作成されるべきプロジェクト",
+      "tags": [
+        "success",
+        "test"
+      ],
+      "status": "active",
+      "id": "658786da-0f80-4434-bf7c-4e389df4b9b2",
+      "created_date": "2025-07-27T10:38:36.034282",
+      "modified_date": "2025-07-27T10:38:36.034282",
+      "archive_filename": "success_test_project_20250727_103836.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/success_test_project_20250727_103836.zip",
+      "archive_size": 385,
+      "deletion_date": "2025-07-27T10:38:36.035929",
+      "reason": "ユーザー削除"
+    }
+  ],
+  "reserved_folders": [
+    "node_modules",
+    "dist",
+    "build",
+    ".git",
+    "backend",
+    "frontend",
+    "trash",
+    "recycle_bin",
+    "deleted",
+    ".trash"
+  ]
+}
+ステータス: 200
+---
+
+[2025-07-27 13:37:28] GET /api/files/tree/testProject
+リクエスト: {}
+レスポンス: <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <title>Page not found at /api/files/tree/testProject</title>
+  <meta name="robots" content="NONE,NOARCHIVE">
+  <style>
+    html * { padding:0; margin:0; }
+    body * { padding:10px 20px; }
+    body * * { padding:0; }
+    body { font-family: sans-serif; background:#eee; color:#000; }
+    body > :where(header, main, footer) { border-bottom:1px solid #ddd; }
+    h1 { font-weight:normal; margin-bottom:.4em; }
+    h1 small { font-size:60%; color:#666; font-weight:normal; }
+    table { border:none; border-collapse: collapse; width:100%; }
+    td, th { vertical-align:top; padding:2px 3px; }
+    th { width:12em; text-align:right; color:#666; padding-right:.5em; }
+    #info { background:#f6f6f6; }
+    #info ol { margin: 0.5em 4em; }
+    #info ol li { font-family: monospace; }
+    #summary { background: #ffc; }
+    #explanation { background:#eee; border-bottom: 0px none; }
+    pre.exception_value { font-family: sans-serif; color: #575757; font-size: 1.5em; margin: 10px 0 10px 0; }
+  </style>
+</head>
+<body>
+  <header id="summary">
+    <h1>Page not found <small>(404)</small></h1>
+    
+    <table class="meta">
+      <tr>
+        <th scope="row">Request Method:</th>
+        <td>GET</td>
+      </tr>
+      <tr>
+        <th scope="row">Request URL:</th>
+        <td>http://172.24.67.130:8000/api/files/tree/testProject</td>
+      </tr>
+      
+    </table>
+  </header>
+
+  <main id="info">
+    
+      <p>
+      Using the URLconf defined in <code>config.urls</code>,
+      Django tried these URL patterns, in this order:
+      </p>
+      <ol>
+        
+          <li>
+            
+              <code>
+                admin/
+                
+              </code>
+            
+          </li>
+        
+          <li>
+            
+              <code>
+                api/
+                
+              </code>
+            
+              <code>
+                
+                
+              </code>
+            
+              <code>
+                ^files/$
+                [name='file-list']
+              </code>
+            
+          </li>
+        
+          <li>
+            
+              <code>
+                api/
+                
+              </code>
+            
+              <code>
+                
+                
+              </code>
+            
+              <code>
+                ^files\.(?P&lt;format&gt;[a-z0-9]+)/?$
+                [name='file-list']
+              </code>
+            
+          </li>
+        
+          <li>
+            
+              <code>
+                api/
+                
+              </code>
+            
+              <code>
+                
+                
+              </code>
+            
+              <code>
+                ^files/comments/(?P&lt;project_folder&gt;[^/.]+)/(?P&lt;comment_id&gt;[^/.]+)/$
+                [name='file-comment-detail']
+              </code>
+            
+          </li>
+        
+          <li>
+            
+              <code>
+                api/
+                
+              </code>
+            
+              <code>
+                
+                
+              </code>
+            
+              <code>
+                ^files/comments/(?P&lt;project_folder&gt;[^/.]+)/(?P&lt;comment_id&gt;[^/.]+)\.(?P&lt;format&gt;[a-z0-9]+)/?$
+                [name='file-comment-detail']
+              </code>
+            
+          </li>
+        
+          <li>
+            
+              <code>
+                api/
+                
+              </code>
+            
+              <code>
+                
+                
+              </code>
+            
+              <code>
+                ^files/mkdir/(?P&lt;project_folder&gt;[^/.]+)/$
+                [name='file-create-directory']
+              </code>
+            
+          </li>
+        
+          <li>
+            
+              <code>
+                api/
+                
+              </code>
+            
+              <code>
+                
+                
+              </code>
+            
+              <code>
+                ^files/mkdir/(?P&lt;project_folder&gt;[^/.]+)\.(?P&lt;format&gt;[a-z0-9]+)/?$
+                [name='file-create-directory']
+              </code>
+            
+          </li>
+        
+          <li>
+            
+              <code>
+                api/
+                
+              </code>
+            
+              <code>
+                
+                
+              </code>
+            
+              <code>
+                ^files/delete/(?P&lt;project_folder&gt;[^/.]+)/$
+                [name='file-delete-file']
+              </code>
+            
+          </li>
+        
+          <li>
+            
+              <code>
+                api/
+                
+              </code>
+            
+              <code>
+                
+                
+              </code>
+            
+              <code>
+                ^files/delete/(?P&lt;project_folder&gt;[^/.]+)\.(?P&lt;format&gt;[a-z0-9]+)/?$
+                [name='file-delete-file']
+              </code>
+            
+          </li>
+        
+          <li>
+            
+              <code>
+                api/
+                
+              </code>
+            
+              <code>
+                
+                
+              </code>
+            
+              <code>
+                ^files/tree/(?P&lt;project_folder&gt;[^/.]+)/$
+                [name='file-directory-tree']
+              </code>
+            
+          </li>
+        
+          <li>
+            
+              <code>
+                api/
+                
+              </code>
+            
+              <code>
+                
+                
+              </code>
+            
+              <code>
+                ^files/tree/(?P&lt;project_folder&gt;[^/.]+)\.(?P&lt;format&gt;[a-z0-9]+)/?$
+                [name='file-directory-tree']
+              </code>
+            
+          </li>
+        
+          <li>
+            
+              <code>
+                api/
+                
+              </code>
+            
+              <code>
+                
+                
+              </code>
+            
+              <code>
+                ^files/comments/(?P&lt;project_folder&gt;[^/.]+)/$
+                [name='file-file-comments']
+              </code>
+            
+          </li>
+        
+          <li>
+            
+              <code>
+                api/
+                
+              </code>
+            
+              <code>
+                
+                
+              </code>
+            
+              <code>
+                ^files/comments/(?P&lt;project_folder&gt;[^/.]+)\.(?P&lt;format&gt;[a-z0-9]+)/?$
+                [name='file-file-comments']
+              </code>
+            
+          </li>
+        
+          <li>
+            
+              <code>
+                api/
+                
+              </code>
+            
+              <code>
+                
+                
+              </code>
+            
+              <code>
+                ^files/move/(?P&lt;project_folder&gt;[^/.]+)/$
+                [name='file-move-file']
+              </code>
+            
+          </li>
+        
+          <li>
+            
+              <code>
+                api/
+                
+              </code>
+            
+              <code>
+                
+                
+              </code>
+            
+              <code>
+                ^files/move/(?P&lt;project_folder&gt;[^/.]+)\.(?P&lt;format&gt;[a-z0-9]+)/?$
+                [name='file-move-file']
+              </code>
+            
+          </li>
+        
+          <li>
+            
+              <code>
+                api/
+                
+              </code>
+            
+              <code>
+                
+                
+              </code>
+            
+              <code>
+                ^files/search/(?P&lt;project_folder&gt;[^/.]+)/$
+                [name='file-search-files']
+              </code>
+            
+          </li>
+        
+          <li>
+            
+              <code>
+                api/
+                
+              </code>
+            
+              <code>
+                
+                
+              </code>
+            
+              <code>
+                ^files/search/(?P&lt;project_folder&gt;[^/.]+)\.(?P&lt;format&gt;[a-z0-9]+)/?$
+                [name='file-search-files']
+              </code>
+            
+          </li>
+        
+          <li>
+            
+              <code>
+                api/
+                
+              </code>
+            
+              <code>
+                
+                
+              </code>
+            
+              <code>
+                ^files/upload/(?P&lt;project_folder&gt;[^/.]+)/$
+                [name='file-upload']
+              </code>
+            
+          </li>
+        
+          <li>
+            
+              <code>
+                api/
+                
+              </code>
+            
+              <code>
+                
+                
+              </code>
+            
+              <code>
+                ^files/upload/(?P&lt;project_folder&gt;[^/.]+)\.(?P&lt;format&gt;[a-z0-9]+)/?$
+                [name='file-upload']
+              </code>
+            
+          </li>
+        
+          <li>
+            
+              <code>
+                api/
+                
+              </code>
+            
+              <code>
+                
+                
+              </code>
+            
+              <code>
+                ^files/(?P&lt;pk&gt;[^/.]+)/$
+                [name='file-detail']
+              </code>
+            
+          </li>
+        
+          <li>
+            
+              <code>
+                api/
+                
+              </code>
+            
+              <code>
+                
+                
+              </code>
+            
+              <code>
+                ^files/(?P&lt;pk&gt;[^/.]+)\.(?P&lt;format&gt;[a-z0-9]+)/?$
+                [name='file-detail']
+              </code>
+            
+          </li>
+        
+          <li>
+            
+              <code>
+                api/
+                
+              </code>
+            
+              <code>
+                
+                
+              </code>
+            
+              <code>
+                
+                [name='api-root']
+              </code>
+            
+          </li>
+        
+          <li>
+            
+              <code>
+                api/
+                
+              </code>
+            
+              <code>
+                
+                
+              </code>
+            
+              <code>
+                &lt;drf_format_suffix:format&gt;
+                [name='api-root']
+              </code>
+            
+          </li>
+        
+          <li>
+            
+              <code>
+                api/
+                
+              </code>
+            
+              <code>
+                projects/
+                [name='project-list-create']
+              </code>
+            
+          </li>
+        
+          <li>
+            
+              <code>
+                api/
+                
+              </code>
+            
+              <code>
+                projects/deleted/
+                [name='project-deleted']
+              </code>
+            
+          </li>
+        
+          <li>
+            
+              <code>
+                api/
+                
+              </code>
+            
+              <code>
+                projects/&lt;str:pk&gt;/
+                [name='project-detail']
+              </code>
+            
+          </li>
+        
+          <li>
+            
+              <code>
+                api/
+                
+              </code>
+            
+              <code>
+                projects/&lt;str:pk&gt;/restore/
+                [name='project-restore']
+              </code>
+            
+          </li>
+        
+          <li>
+            
+              <code>
+                api/
+                
+              </code>
+            
+              <code>
+                server-info/
+                [name='server_info']
+              </code>
+            
+          </li>
+        
+          <li>
+            
+              <code>
+                ^media/(?P&lt;path&gt;.*)$
+                
+              </code>
+            
+          </li>
+        
+      </ol>
+      <p>
+        
+          The current path, <code>api/files/tree/testProject</code>,
+        
+        didn’t match any of these.
+      </p>
+    
+  </main>
+
+  <footer id="explanation">
+    <p>
+      You’re seeing this error because you have <code>DEBUG = True</code> in
+      your Django settings file. Change that to <code>False</code>, and Django
+      will display a standard 404 page.
+    </p>
+  </footer>
+</body>
+</html>
+
+ステータス: 404
+---
+
+[2025-07-27 13:37:28] GET /api/files/tree/testProject/
+リクエスト: {}
+レスポンス: {
+  "name": "raw",
+  "path": ".",
+  "type": "directory",
+  "size": 0,
+  "modified": "2025-07-24T23:31:44.193276",
+  "children": [],
+  "comment_count": 0,
+  "has_comments": false
+}
+ステータス: 200
+---
+
+[2025-07-27 13:37:28] GET /api/files/tree/testProject/
+リクエスト: {}
+レスポンス: {
+  "name": "raw",
+  "path": ".",
+  "type": "directory",
+  "size": 0,
+  "modified": "2025-07-24T23:31:44.193276",
+  "children": [],
+  "comment_count": 0,
+  "has_comments": false
+}
+ステータス: 200
+---
+
+[2025-07-27 13:37:59] GET /api/projects/
+リクエスト: {'lang': ['en']}
+レスポンス: {
+  "version": "1.0.0",
+  "last_updated": "2025-07-27T10:38:36.035931",
+  "retention_months": 13,
+  "projects": [
+    {
+      "folder_name": "testProject",
+      "project_name": "テストのためのプロジェクト",
+      "description": "テストです。",
+      "tags": [],
+      "status": "active",
+      "id": "2cec431a-0416-4451-a43b-fdc85e0c5c62",
+      "created_date": "2025-07-24T23:31:44.186614",
+      "modified_date": "2025-07-24T23:31:44.186614"
+    },
+    {
+      "id": "bb5830e9-e13c-4960-bc25-fa8045a272e9",
+      "folder_name": "save_test",
+      "project_name": "セーブテスト",
+      "description": "セーブテスト",
+      "created_date": "2025-07-27T10:37:56.948759",
+      "modified_date": "2025-07-27T10:37:56.948769",
+      "tags": [],
+      "status": "active"
+    },
+    {
+      "folder_name": "minimal_test",
+      "project_name": "Minimal Test",
+      "description": "Minimal test project",
+      "id": "a908299f-f131-4f70-8b16-43fd9f01b7d2",
+      "created_date": "2025-07-27T10:38:36.031250",
+      "modified_date": "2025-07-27T10:38:36.031250"
+    }
+  ],
+  "archived_projects": [
+    {
+      "folder_name": "direct_test_project",
+      "project_name": "直接テストプロジェクト",
+      "description": "直接テスト用プロジェクト",
+      "tags": [
+        "test"
+      ],
+      "status": "active",
+      "id": "82886a55-fe6c-4559-9dfa-27aeb21e924e",
+      "created_date": "2025-07-27T10:37:56.949497",
+      "modified_date": "2025-07-27T10:37:56.949497",
+      "archive_filename": "direct_test_project_20250727_103756.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/direct_test_project_20250727_103756.zip",
+      "archive_size": 347,
+      "deletion_date": "2025-07-27T10:37:56.952974",
+      "reason": "ユーザー削除"
+    },
+    {
+      "folder_name": "minimal_test",
+      "project_name": "Minimal Test",
+      "description": "Minimal test project",
+      "id": "1c91b519-f4e1-428c-833d-bfbc95483b9d",
+      "created_date": "2025-07-27T10:38:36.026164",
+      "modified_date": "2025-07-27T10:38:36.026164",
+      "archive_filename": "minimal_test_20250727_103836.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/minimal_test_20250727_103836.zip",
+      "archive_size": 292,
+      "deletion_date": "2025-07-27T10:38:36.030515",
+      "reason": "ユーザー削除"
+    },
+    {
+      "folder_name": "success_test_project",
+      "project_name": "成功テストプロジェクト",
+      "description": "正常に作成されるべきプロジェクト",
+      "tags": [
+        "success",
+        "test"
+      ],
+      "status": "active",
+      "id": "658786da-0f80-4434-bf7c-4e389df4b9b2",
+      "created_date": "2025-07-27T10:38:36.034282",
+      "modified_date": "2025-07-27T10:38:36.034282",
+      "archive_filename": "success_test_project_20250727_103836.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/success_test_project_20250727_103836.zip",
+      "archive_size": 385,
+      "deletion_date": "2025-07-27T10:38:36.035929",
+      "reason": "ユーザー削除"
+    }
+  ],
+  "reserved_folders": [
+    "node_modules",
+    "dist",
+    "build",
+    ".git",
+    "backend",
+    "frontend",
+    "trash",
+    "recycle_bin",
+    "deleted",
+    ".trash"
+  ]
+}
+ステータス: 200
+---
+
+[2025-07-27 13:37:59] GET /api/projects/
+リクエスト: {'lang': ['en']}
+レスポンス: {
+  "version": "1.0.0",
+  "last_updated": "2025-07-27T10:38:36.035931",
+  "retention_months": 13,
+  "projects": [
+    {
+      "folder_name": "testProject",
+      "project_name": "テストのためのプロジェクト",
+      "description": "テストです。",
+      "tags": [],
+      "status": "active",
+      "id": "2cec431a-0416-4451-a43b-fdc85e0c5c62",
+      "created_date": "2025-07-24T23:31:44.186614",
+      "modified_date": "2025-07-24T23:31:44.186614"
+    },
+    {
+      "id": "bb5830e9-e13c-4960-bc25-fa8045a272e9",
+      "folder_name": "save_test",
+      "project_name": "セーブテスト",
+      "description": "セーブテスト",
+      "created_date": "2025-07-27T10:37:56.948759",
+      "modified_date": "2025-07-27T10:37:56.948769",
+      "tags": [],
+      "status": "active"
+    },
+    {
+      "folder_name": "minimal_test",
+      "project_name": "Minimal Test",
+      "description": "Minimal test project",
+      "id": "a908299f-f131-4f70-8b16-43fd9f01b7d2",
+      "created_date": "2025-07-27T10:38:36.031250",
+      "modified_date": "2025-07-27T10:38:36.031250"
+    }
+  ],
+  "archived_projects": [
+    {
+      "folder_name": "direct_test_project",
+      "project_name": "直接テストプロジェクト",
+      "description": "直接テスト用プロジェクト",
+      "tags": [
+        "test"
+      ],
+      "status": "active",
+      "id": "82886a55-fe6c-4559-9dfa-27aeb21e924e",
+      "created_date": "2025-07-27T10:37:56.949497",
+      "modified_date": "2025-07-27T10:37:56.949497",
+      "archive_filename": "direct_test_project_20250727_103756.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/direct_test_project_20250727_103756.zip",
+      "archive_size": 347,
+      "deletion_date": "2025-07-27T10:37:56.952974",
+      "reason": "ユーザー削除"
+    },
+    {
+      "folder_name": "minimal_test",
+      "project_name": "Minimal Test",
+      "description": "Minimal test project",
+      "id": "1c91b519-f4e1-428c-833d-bfbc95483b9d",
+      "created_date": "2025-07-27T10:38:36.026164",
+      "modified_date": "2025-07-27T10:38:36.026164",
+      "archive_filename": "minimal_test_20250727_103836.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/minimal_test_20250727_103836.zip",
+      "archive_size": 292,
+      "deletion_date": "2025-07-27T10:38:36.030515",
+      "reason": "ユーザー削除"
+    },
+    {
+      "folder_name": "success_test_project",
+      "project_name": "成功テストプロジェクト",
+      "description": "正常に作成されるべきプロジェクト",
+      "tags": [
+        "success",
+        "test"
+      ],
+      "status": "active",
+      "id": "658786da-0f80-4434-bf7c-4e389df4b9b2",
+      "created_date": "2025-07-27T10:38:36.034282",
+      "modified_date": "2025-07-27T10:38:36.034282",
+      "archive_filename": "success_test_project_20250727_103836.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/success_test_project_20250727_103836.zip",
+      "archive_size": 385,
+      "deletion_date": "2025-07-27T10:38:36.035929",
+      "reason": "ユーザー削除"
+    }
+  ],
+  "reserved_folders": [
+    "node_modules",
+    "dist",
+    "build",
+    ".git",
+    "backend",
+    "frontend",
+    "trash",
+    "recycle_bin",
+    "deleted",
+    ".trash"
+  ]
+}
+ステータス: 200
+---
+
+[2025-07-27 13:38:02] GET /api/projects/
+リクエスト: {'lang': ['ja']}
+レスポンス: {
+  "version": "1.0.0",
+  "last_updated": "2025-07-27T10:38:36.035931",
+  "retention_months": 13,
+  "projects": [
+    {
+      "folder_name": "testProject",
+      "project_name": "テストのためのプロジェクト",
+      "description": "テストです。",
+      "tags": [],
+      "status": "active",
+      "id": "2cec431a-0416-4451-a43b-fdc85e0c5c62",
+      "created_date": "2025-07-24T23:31:44.186614",
+      "modified_date": "2025-07-24T23:31:44.186614"
+    },
+    {
+      "id": "bb5830e9-e13c-4960-bc25-fa8045a272e9",
+      "folder_name": "save_test",
+      "project_name": "セーブテスト",
+      "description": "セーブテスト",
+      "created_date": "2025-07-27T10:37:56.948759",
+      "modified_date": "2025-07-27T10:37:56.948769",
+      "tags": [],
+      "status": "active"
+    },
+    {
+      "folder_name": "minimal_test",
+      "project_name": "Minimal Test",
+      "description": "Minimal test project",
+      "id": "a908299f-f131-4f70-8b16-43fd9f01b7d2",
+      "created_date": "2025-07-27T10:38:36.031250",
+      "modified_date": "2025-07-27T10:38:36.031250"
+    }
+  ],
+  "archived_projects": [
+    {
+      "folder_name": "direct_test_project",
+      "project_name": "直接テストプロジェクト",
+      "description": "直接テスト用プロジェクト",
+      "tags": [
+        "test"
+      ],
+      "status": "active",
+      "id": "82886a55-fe6c-4559-9dfa-27aeb21e924e",
+      "created_date": "2025-07-27T10:37:56.949497",
+      "modified_date": "2025-07-27T10:37:56.949497",
+      "archive_filename": "direct_test_project_20250727_103756.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/direct_test_project_20250727_103756.zip",
+      "archive_size": 347,
+      "deletion_date": "2025-07-27T10:37:56.952974",
+      "reason": "ユーザー削除"
+    },
+    {
+      "folder_name": "minimal_test",
+      "project_name": "Minimal Test",
+      "description": "Minimal test project",
+      "id": "1c91b519-f4e1-428c-833d-bfbc95483b9d",
+      "created_date": "2025-07-27T10:38:36.026164",
+      "modified_date": "2025-07-27T10:38:36.026164",
+      "archive_filename": "minimal_test_20250727_103836.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/minimal_test_20250727_103836.zip",
+      "archive_size": 292,
+      "deletion_date": "2025-07-27T10:38:36.030515",
+      "reason": "ユーザー削除"
+    },
+    {
+      "folder_name": "success_test_project",
+      "project_name": "成功テストプロジェクト",
+      "description": "正常に作成されるべきプロジェクト",
+      "tags": [
+        "success",
+        "test"
+      ],
+      "status": "active",
+      "id": "658786da-0f80-4434-bf7c-4e389df4b9b2",
+      "created_date": "2025-07-27T10:38:36.034282",
+      "modified_date": "2025-07-27T10:38:36.034282",
+      "archive_filename": "success_test_project_20250727_103836.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/success_test_project_20250727_103836.zip",
+      "archive_size": 385,
+      "deletion_date": "2025-07-27T10:38:36.035929",
+      "reason": "ユーザー削除"
+    }
+  ],
+  "reserved_folders": [
+    "node_modules",
+    "dist",
+    "build",
+    ".git",
+    "backend",
+    "frontend",
+    "trash",
+    "recycle_bin",
+    "deleted",
+    ".trash"
+  ]
+}
+ステータス: 200
+---
+
+[2025-07-27 13:38:02] GET /api/projects/
+リクエスト: {'lang': ['ja']}
+レスポンス: {
+  "version": "1.0.0",
+  "last_updated": "2025-07-27T10:38:36.035931",
+  "retention_months": 13,
+  "projects": [
+    {
+      "folder_name": "testProject",
+      "project_name": "テストのためのプロジェクト",
+      "description": "テストです。",
+      "tags": [],
+      "status": "active",
+      "id": "2cec431a-0416-4451-a43b-fdc85e0c5c62",
+      "created_date": "2025-07-24T23:31:44.186614",
+      "modified_date": "2025-07-24T23:31:44.186614"
+    },
+    {
+      "id": "bb5830e9-e13c-4960-bc25-fa8045a272e9",
+      "folder_name": "save_test",
+      "project_name": "セーブテスト",
+      "description": "セーブテスト",
+      "created_date": "2025-07-27T10:37:56.948759",
+      "modified_date": "2025-07-27T10:37:56.948769",
+      "tags": [],
+      "status": "active"
+    },
+    {
+      "folder_name": "minimal_test",
+      "project_name": "Minimal Test",
+      "description": "Minimal test project",
+      "id": "a908299f-f131-4f70-8b16-43fd9f01b7d2",
+      "created_date": "2025-07-27T10:38:36.031250",
+      "modified_date": "2025-07-27T10:38:36.031250"
+    }
+  ],
+  "archived_projects": [
+    {
+      "folder_name": "direct_test_project",
+      "project_name": "直接テストプロジェクト",
+      "description": "直接テスト用プロジェクト",
+      "tags": [
+        "test"
+      ],
+      "status": "active",
+      "id": "82886a55-fe6c-4559-9dfa-27aeb21e924e",
+      "created_date": "2025-07-27T10:37:56.949497",
+      "modified_date": "2025-07-27T10:37:56.949497",
+      "archive_filename": "direct_test_project_20250727_103756.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/direct_test_project_20250727_103756.zip",
+      "archive_size": 347,
+      "deletion_date": "2025-07-27T10:37:56.952974",
+      "reason": "ユーザー削除"
+    },
+    {
+      "folder_name": "minimal_test",
+      "project_name": "Minimal Test",
+      "description": "Minimal test project",
+      "id": "1c91b519-f4e1-428c-833d-bfbc95483b9d",
+      "created_date": "2025-07-27T10:38:36.026164",
+      "modified_date": "2025-07-27T10:38:36.026164",
+      "archive_filename": "minimal_test_20250727_103836.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/minimal_test_20250727_103836.zip",
+      "archive_size": 292,
+      "deletion_date": "2025-07-27T10:38:36.030515",
+      "reason": "ユーザー削除"
+    },
+    {
+      "folder_name": "success_test_project",
+      "project_name": "成功テストプロジェクト",
+      "description": "正常に作成されるべきプロジェクト",
+      "tags": [
+        "success",
+        "test"
+      ],
+      "status": "active",
+      "id": "658786da-0f80-4434-bf7c-4e389df4b9b2",
+      "created_date": "2025-07-27T10:38:36.034282",
+      "modified_date": "2025-07-27T10:38:36.034282",
+      "archive_filename": "success_test_project_20250727_103836.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/success_test_project_20250727_103836.zip",
+      "archive_size": 385,
+      "deletion_date": "2025-07-27T10:38:36.035929",
+      "reason": "ユーザー削除"
+    }
+  ],
+  "reserved_folders": [
+    "node_modules",
+    "dist",
+    "build",
+    ".git",
+    "backend",
+    "frontend",
+    "trash",
+    "recycle_bin",
+    "deleted",
+    ".trash"
+  ]
+}
+ステータス: 200
+---
+
+[2025-07-27 13:38:06] GET /api/projects/
+リクエスト: {'lang': ['zh']}
+レスポンス: {
+  "version": "1.0.0",
+  "last_updated": "2025-07-27T10:38:36.035931",
+  "retention_months": 13,
+  "projects": [
+    {
+      "folder_name": "testProject",
+      "project_name": "テストのためのプロジェクト",
+      "description": "テストです。",
+      "tags": [],
+      "status": "active",
+      "id": "2cec431a-0416-4451-a43b-fdc85e0c5c62",
+      "created_date": "2025-07-24T23:31:44.186614",
+      "modified_date": "2025-07-24T23:31:44.186614"
+    },
+    {
+      "id": "bb5830e9-e13c-4960-bc25-fa8045a272e9",
+      "folder_name": "save_test",
+      "project_name": "セーブテスト",
+      "description": "セーブテスト",
+      "created_date": "2025-07-27T10:37:56.948759",
+      "modified_date": "2025-07-27T10:37:56.948769",
+      "tags": [],
+      "status": "active"
+    },
+    {
+      "folder_name": "minimal_test",
+      "project_name": "Minimal Test",
+      "description": "Minimal test project",
+      "id": "a908299f-f131-4f70-8b16-43fd9f01b7d2",
+      "created_date": "2025-07-27T10:38:36.031250",
+      "modified_date": "2025-07-27T10:38:36.031250"
+    }
+  ],
+  "archived_projects": [
+    {
+      "folder_name": "direct_test_project",
+      "project_name": "直接テストプロジェクト",
+      "description": "直接テスト用プロジェクト",
+      "tags": [
+        "test"
+      ],
+      "status": "active",
+      "id": "82886a55-fe6c-4559-9dfa-27aeb21e924e",
+      "created_date": "2025-07-27T10:37:56.949497",
+      "modified_date": "2025-07-27T10:37:56.949497",
+      "archive_filename": "direct_test_project_20250727_103756.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/direct_test_project_20250727_103756.zip",
+      "archive_size": 347,
+      "deletion_date": "2025-07-27T10:37:56.952974",
+      "reason": "ユーザー削除"
+    },
+    {
+      "folder_name": "minimal_test",
+      "project_name": "Minimal Test",
+      "description": "Minimal test project",
+      "id": "1c91b519-f4e1-428c-833d-bfbc95483b9d",
+      "created_date": "2025-07-27T10:38:36.026164",
+      "modified_date": "2025-07-27T10:38:36.026164",
+      "archive_filename": "minimal_test_20250727_103836.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/minimal_test_20250727_103836.zip",
+      "archive_size": 292,
+      "deletion_date": "2025-07-27T10:38:36.030515",
+      "reason": "ユーザー削除"
+    },
+    {
+      "folder_name": "success_test_project",
+      "project_name": "成功テストプロジェクト",
+      "description": "正常に作成されるべきプロジェクト",
+      "tags": [
+        "success",
+        "test"
+      ],
+      "status": "active",
+      "id": "658786da-0f80-4434-bf7c-4e389df4b9b2",
+      "created_date": "2025-07-27T10:38:36.034282",
+      "modified_date": "2025-07-27T10:38:36.034282",
+      "archive_filename": "success_test_project_20250727_103836.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/success_test_project_20250727_103836.zip",
+      "archive_size": 385,
+      "deletion_date": "2025-07-27T10:38:36.035929",
+      "reason": "ユーザー削除"
+    }
+  ],
+  "reserved_folders": [
+    "node_modules",
+    "dist",
+    "build",
+    ".git",
+    "backend",
+    "frontend",
+    "trash",
+    "recycle_bin",
+    "deleted",
+    ".trash"
+  ]
+}
+ステータス: 200
+---
+
+[2025-07-27 13:38:06] GET /api/projects/
+リクエスト: {'lang': ['zh']}
+レスポンス: {
+  "version": "1.0.0",
+  "last_updated": "2025-07-27T10:38:36.035931",
+  "retention_months": 13,
+  "projects": [
+    {
+      "folder_name": "testProject",
+      "project_name": "テストのためのプロジェクト",
+      "description": "テストです。",
+      "tags": [],
+      "status": "active",
+      "id": "2cec431a-0416-4451-a43b-fdc85e0c5c62",
+      "created_date": "2025-07-24T23:31:44.186614",
+      "modified_date": "2025-07-24T23:31:44.186614"
+    },
+    {
+      "id": "bb5830e9-e13c-4960-bc25-fa8045a272e9",
+      "folder_name": "save_test",
+      "project_name": "セーブテスト",
+      "description": "セーブテスト",
+      "created_date": "2025-07-27T10:37:56.948759",
+      "modified_date": "2025-07-27T10:37:56.948769",
+      "tags": [],
+      "status": "active"
+    },
+    {
+      "folder_name": "minimal_test",
+      "project_name": "Minimal Test",
+      "description": "Minimal test project",
+      "id": "a908299f-f131-4f70-8b16-43fd9f01b7d2",
+      "created_date": "2025-07-27T10:38:36.031250",
+      "modified_date": "2025-07-27T10:38:36.031250"
+    }
+  ],
+  "archived_projects": [
+    {
+      "folder_name": "direct_test_project",
+      "project_name": "直接テストプロジェクト",
+      "description": "直接テスト用プロジェクト",
+      "tags": [
+        "test"
+      ],
+      "status": "active",
+      "id": "82886a55-fe6c-4559-9dfa-27aeb21e924e",
+      "created_date": "2025-07-27T10:37:56.949497",
+      "modified_date": "2025-07-27T10:37:56.949497",
+      "archive_filename": "direct_test_project_20250727_103756.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/direct_test_project_20250727_103756.zip",
+      "archive_size": 347,
+      "deletion_date": "2025-07-27T10:37:56.952974",
+      "reason": "ユーザー削除"
+    },
+    {
+      "folder_name": "minimal_test",
+      "project_name": "Minimal Test",
+      "description": "Minimal test project",
+      "id": "1c91b519-f4e1-428c-833d-bfbc95483b9d",
+      "created_date": "2025-07-27T10:38:36.026164",
+      "modified_date": "2025-07-27T10:38:36.026164",
+      "archive_filename": "minimal_test_20250727_103836.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/minimal_test_20250727_103836.zip",
+      "archive_size": 292,
+      "deletion_date": "2025-07-27T10:38:36.030515",
+      "reason": "ユーザー削除"
+    },
+    {
+      "folder_name": "success_test_project",
+      "project_name": "成功テストプロジェクト",
+      "description": "正常に作成されるべきプロジェクト",
+      "tags": [
+        "success",
+        "test"
+      ],
+      "status": "active",
+      "id": "658786da-0f80-4434-bf7c-4e389df4b9b2",
+      "created_date": "2025-07-27T10:38:36.034282",
+      "modified_date": "2025-07-27T10:38:36.034282",
+      "archive_filename": "success_test_project_20250727_103836.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/success_test_project_20250727_103836.zip",
+      "archive_size": 385,
+      "deletion_date": "2025-07-27T10:38:36.035929",
+      "reason": "ユーザー削除"
+    }
+  ],
+  "reserved_folders": [
+    "node_modules",
+    "dist",
+    "build",
+    ".git",
+    "backend",
+    "frontend",
+    "trash",
+    "recycle_bin",
+    "deleted",
+    ".trash"
+  ]
+}
+ステータス: 200
+---
+
+[2025-07-27 13:38:17] GET /api/projects/
+リクエスト: {'lang': ['en']}
+レスポンス: {
+  "version": "1.0.0",
+  "last_updated": "2025-07-27T10:38:36.035931",
+  "retention_months": 13,
+  "projects": [
+    {
+      "folder_name": "testProject",
+      "project_name": "テストのためのプロジェクト",
+      "description": "テストです。",
+      "tags": [],
+      "status": "active",
+      "id": "2cec431a-0416-4451-a43b-fdc85e0c5c62",
+      "created_date": "2025-07-24T23:31:44.186614",
+      "modified_date": "2025-07-24T23:31:44.186614"
+    },
+    {
+      "id": "bb5830e9-e13c-4960-bc25-fa8045a272e9",
+      "folder_name": "save_test",
+      "project_name": "セーブテスト",
+      "description": "セーブテスト",
+      "created_date": "2025-07-27T10:37:56.948759",
+      "modified_date": "2025-07-27T10:37:56.948769",
+      "tags": [],
+      "status": "active"
+    },
+    {
+      "folder_name": "minimal_test",
+      "project_name": "Minimal Test",
+      "description": "Minimal test project",
+      "id": "a908299f-f131-4f70-8b16-43fd9f01b7d2",
+      "created_date": "2025-07-27T10:38:36.031250",
+      "modified_date": "2025-07-27T10:38:36.031250"
+    }
+  ],
+  "archived_projects": [
+    {
+      "folder_name": "direct_test_project",
+      "project_name": "直接テストプロジェクト",
+      "description": "直接テスト用プロジェクト",
+      "tags": [
+        "test"
+      ],
+      "status": "active",
+      "id": "82886a55-fe6c-4559-9dfa-27aeb21e924e",
+      "created_date": "2025-07-27T10:37:56.949497",
+      "modified_date": "2025-07-27T10:37:56.949497",
+      "archive_filename": "direct_test_project_20250727_103756.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/direct_test_project_20250727_103756.zip",
+      "archive_size": 347,
+      "deletion_date": "2025-07-27T10:37:56.952974",
+      "reason": "ユーザー削除"
+    },
+    {
+      "folder_name": "minimal_test",
+      "project_name": "Minimal Test",
+      "description": "Minimal test project",
+      "id": "1c91b519-f4e1-428c-833d-bfbc95483b9d",
+      "created_date": "2025-07-27T10:38:36.026164",
+      "modified_date": "2025-07-27T10:38:36.026164",
+      "archive_filename": "minimal_test_20250727_103836.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/minimal_test_20250727_103836.zip",
+      "archive_size": 292,
+      "deletion_date": "2025-07-27T10:38:36.030515",
+      "reason": "ユーザー削除"
+    },
+    {
+      "folder_name": "success_test_project",
+      "project_name": "成功テストプロジェクト",
+      "description": "正常に作成されるべきプロジェクト",
+      "tags": [
+        "success",
+        "test"
+      ],
+      "status": "active",
+      "id": "658786da-0f80-4434-bf7c-4e389df4b9b2",
+      "created_date": "2025-07-27T10:38:36.034282",
+      "modified_date": "2025-07-27T10:38:36.034282",
+      "archive_filename": "success_test_project_20250727_103836.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/success_test_project_20250727_103836.zip",
+      "archive_size": 385,
+      "deletion_date": "2025-07-27T10:38:36.035929",
+      "reason": "ユーザー削除"
+    }
+  ],
+  "reserved_folders": [
+    "node_modules",
+    "dist",
+    "build",
+    ".git",
+    "backend",
+    "frontend",
+    "trash",
+    "recycle_bin",
+    "deleted",
+    ".trash"
+  ]
+}
+ステータス: 200
+---
+
+[2025-07-27 13:38:17] GET /api/projects/
+リクエスト: {'lang': ['en']}
+レスポンス: {
+  "version": "1.0.0",
+  "last_updated": "2025-07-27T10:38:36.035931",
+  "retention_months": 13,
+  "projects": [
+    {
+      "folder_name": "testProject",
+      "project_name": "テストのためのプロジェクト",
+      "description": "テストです。",
+      "tags": [],
+      "status": "active",
+      "id": "2cec431a-0416-4451-a43b-fdc85e0c5c62",
+      "created_date": "2025-07-24T23:31:44.186614",
+      "modified_date": "2025-07-24T23:31:44.186614"
+    },
+    {
+      "id": "bb5830e9-e13c-4960-bc25-fa8045a272e9",
+      "folder_name": "save_test",
+      "project_name": "セーブテスト",
+      "description": "セーブテスト",
+      "created_date": "2025-07-27T10:37:56.948759",
+      "modified_date": "2025-07-27T10:37:56.948769",
+      "tags": [],
+      "status": "active"
+    },
+    {
+      "folder_name": "minimal_test",
+      "project_name": "Minimal Test",
+      "description": "Minimal test project",
+      "id": "a908299f-f131-4f70-8b16-43fd9f01b7d2",
+      "created_date": "2025-07-27T10:38:36.031250",
+      "modified_date": "2025-07-27T10:38:36.031250"
+    }
+  ],
+  "archived_projects": [
+    {
+      "folder_name": "direct_test_project",
+      "project_name": "直接テストプロジェクト",
+      "description": "直接テスト用プロジェクト",
+      "tags": [
+        "test"
+      ],
+      "status": "active",
+      "id": "82886a55-fe6c-4559-9dfa-27aeb21e924e",
+      "created_date": "2025-07-27T10:37:56.949497",
+      "modified_date": "2025-07-27T10:37:56.949497",
+      "archive_filename": "direct_test_project_20250727_103756.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/direct_test_project_20250727_103756.zip",
+      "archive_size": 347,
+      "deletion_date": "2025-07-27T10:37:56.952974",
+      "reason": "ユーザー削除"
+    },
+    {
+      "folder_name": "minimal_test",
+      "project_name": "Minimal Test",
+      "description": "Minimal test project",
+      "id": "1c91b519-f4e1-428c-833d-bfbc95483b9d",
+      "created_date": "2025-07-27T10:38:36.026164",
+      "modified_date": "2025-07-27T10:38:36.026164",
+      "archive_filename": "minimal_test_20250727_103836.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/minimal_test_20250727_103836.zip",
+      "archive_size": 292,
+      "deletion_date": "2025-07-27T10:38:36.030515",
+      "reason": "ユーザー削除"
+    },
+    {
+      "folder_name": "success_test_project",
+      "project_name": "成功テストプロジェクト",
+      "description": "正常に作成されるべきプロジェクト",
+      "tags": [
+        "success",
+        "test"
+      ],
+      "status": "active",
+      "id": "658786da-0f80-4434-bf7c-4e389df4b9b2",
+      "created_date": "2025-07-27T10:38:36.034282",
+      "modified_date": "2025-07-27T10:38:36.034282",
+      "archive_filename": "success_test_project_20250727_103836.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/success_test_project_20250727_103836.zip",
+      "archive_size": 385,
+      "deletion_date": "2025-07-27T10:38:36.035929",
+      "reason": "ユーザー削除"
+    }
+  ],
+  "reserved_folders": [
+    "node_modules",
+    "dist",
+    "build",
+    ".git",
+    "backend",
+    "frontend",
+    "trash",
+    "recycle_bin",
+    "deleted",
+    ".trash"
+  ]
+}
+ステータス: 200
+---
+
+[2025-07-27 13:38:21] GET /api/files/tree/testProject/
+リクエスト: {}
+レスポンス: {
+  "name": "raw",
+  "path": ".",
+  "type": "directory",
+  "size": 0,
+  "modified": "2025-07-24T23:31:44.193276",
+  "children": [],
+  "comment_count": 0,
+  "has_comments": false
+}
+ステータス: 200
+---
+
+[2025-07-27 13:38:21] GET /api/files/tree/testProject/
+リクエスト: {}
+レスポンス: {
+  "name": "raw",
+  "path": ".",
+  "type": "directory",
+  "size": 0,
+  "modified": "2025-07-24T23:31:44.193276",
+  "children": [],
+  "comment_count": 0,
+  "has_comments": false
+}
+ステータス: 200
+---
+
+[2025-07-27 13:39:09] GET /api/projects/
+リクエスト: {'lang': ['en']}
+レスポンス: {
+  "version": "1.0.0",
+  "last_updated": "2025-07-27T10:38:36.035931",
+  "retention_months": 13,
+  "projects": [
+    {
+      "folder_name": "testProject",
+      "project_name": "テストのためのプロジェクト",
+      "description": "テストです。",
+      "tags": [],
+      "status": "active",
+      "id": "2cec431a-0416-4451-a43b-fdc85e0c5c62",
+      "created_date": "2025-07-24T23:31:44.186614",
+      "modified_date": "2025-07-24T23:31:44.186614"
+    },
+    {
+      "id": "bb5830e9-e13c-4960-bc25-fa8045a272e9",
+      "folder_name": "save_test",
+      "project_name": "セーブテスト",
+      "description": "セーブテスト",
+      "created_date": "2025-07-27T10:37:56.948759",
+      "modified_date": "2025-07-27T10:37:56.948769",
+      "tags": [],
+      "status": "active"
+    },
+    {
+      "folder_name": "minimal_test",
+      "project_name": "Minimal Test",
+      "description": "Minimal test project",
+      "id": "a908299f-f131-4f70-8b16-43fd9f01b7d2",
+      "created_date": "2025-07-27T10:38:36.031250",
+      "modified_date": "2025-07-27T10:38:36.031250"
+    }
+  ],
+  "archived_projects": [
+    {
+      "folder_name": "direct_test_project",
+      "project_name": "直接テストプロジェクト",
+      "description": "直接テスト用プロジェクト",
+      "tags": [
+        "test"
+      ],
+      "status": "active",
+      "id": "82886a55-fe6c-4559-9dfa-27aeb21e924e",
+      "created_date": "2025-07-27T10:37:56.949497",
+      "modified_date": "2025-07-27T10:37:56.949497",
+      "archive_filename": "direct_test_project_20250727_103756.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/direct_test_project_20250727_103756.zip",
+      "archive_size": 347,
+      "deletion_date": "2025-07-27T10:37:56.952974",
+      "reason": "ユーザー削除"
+    },
+    {
+      "folder_name": "minimal_test",
+      "project_name": "Minimal Test",
+      "description": "Minimal test project",
+      "id": "1c91b519-f4e1-428c-833d-bfbc95483b9d",
+      "created_date": "2025-07-27T10:38:36.026164",
+      "modified_date": "2025-07-27T10:38:36.026164",
+      "archive_filename": "minimal_test_20250727_103836.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/minimal_test_20250727_103836.zip",
+      "archive_size": 292,
+      "deletion_date": "2025-07-27T10:38:36.030515",
+      "reason": "ユーザー削除"
+    },
+    {
+      "folder_name": "success_test_project",
+      "project_name": "成功テストプロジェクト",
+      "description": "正常に作成されるべきプロジェクト",
+      "tags": [
+        "success",
+        "test"
+      ],
+      "status": "active",
+      "id": "658786da-0f80-4434-bf7c-4e389df4b9b2",
+      "created_date": "2025-07-27T10:38:36.034282",
+      "modified_date": "2025-07-27T10:38:36.034282",
+      "archive_filename": "success_test_project_20250727_103836.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/success_test_project_20250727_103836.zip",
+      "archive_size": 385,
+      "deletion_date": "2025-07-27T10:38:36.035929",
+      "reason": "ユーザー削除"
+    }
+  ],
+  "reserved_folders": [
+    "node_modules",
+    "dist",
+    "build",
+    ".git",
+    "backend",
+    "frontend",
+    "trash",
+    "recycle_bin",
+    "deleted",
+    ".trash"
+  ]
+}
+ステータス: 200
+---
+
+[2025-07-27 13:39:09] GET /api/projects/
+リクエスト: {'lang': ['en']}
+レスポンス: {
+  "version": "1.0.0",
+  "last_updated": "2025-07-27T10:38:36.035931",
+  "retention_months": 13,
+  "projects": [
+    {
+      "folder_name": "testProject",
+      "project_name": "テストのためのプロジェクト",
+      "description": "テストです。",
+      "tags": [],
+      "status": "active",
+      "id": "2cec431a-0416-4451-a43b-fdc85e0c5c62",
+      "created_date": "2025-07-24T23:31:44.186614",
+      "modified_date": "2025-07-24T23:31:44.186614"
+    },
+    {
+      "id": "bb5830e9-e13c-4960-bc25-fa8045a272e9",
+      "folder_name": "save_test",
+      "project_name": "セーブテスト",
+      "description": "セーブテスト",
+      "created_date": "2025-07-27T10:37:56.948759",
+      "modified_date": "2025-07-27T10:37:56.948769",
+      "tags": [],
+      "status": "active"
+    },
+    {
+      "folder_name": "minimal_test",
+      "project_name": "Minimal Test",
+      "description": "Minimal test project",
+      "id": "a908299f-f131-4f70-8b16-43fd9f01b7d2",
+      "created_date": "2025-07-27T10:38:36.031250",
+      "modified_date": "2025-07-27T10:38:36.031250"
+    }
+  ],
+  "archived_projects": [
+    {
+      "folder_name": "direct_test_project",
+      "project_name": "直接テストプロジェクト",
+      "description": "直接テスト用プロジェクト",
+      "tags": [
+        "test"
+      ],
+      "status": "active",
+      "id": "82886a55-fe6c-4559-9dfa-27aeb21e924e",
+      "created_date": "2025-07-27T10:37:56.949497",
+      "modified_date": "2025-07-27T10:37:56.949497",
+      "archive_filename": "direct_test_project_20250727_103756.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/direct_test_project_20250727_103756.zip",
+      "archive_size": 347,
+      "deletion_date": "2025-07-27T10:37:56.952974",
+      "reason": "ユーザー削除"
+    },
+    {
+      "folder_name": "minimal_test",
+      "project_name": "Minimal Test",
+      "description": "Minimal test project",
+      "id": "1c91b519-f4e1-428c-833d-bfbc95483b9d",
+      "created_date": "2025-07-27T10:38:36.026164",
+      "modified_date": "2025-07-27T10:38:36.026164",
+      "archive_filename": "minimal_test_20250727_103836.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/minimal_test_20250727_103836.zip",
+      "archive_size": 292,
+      "deletion_date": "2025-07-27T10:38:36.030515",
+      "reason": "ユーザー削除"
+    },
+    {
+      "folder_name": "success_test_project",
+      "project_name": "成功テストプロジェクト",
+      "description": "正常に作成されるべきプロジェクト",
+      "tags": [
+        "success",
+        "test"
+      ],
+      "status": "active",
+      "id": "658786da-0f80-4434-bf7c-4e389df4b9b2",
+      "created_date": "2025-07-27T10:38:36.034282",
+      "modified_date": "2025-07-27T10:38:36.034282",
+      "archive_filename": "success_test_project_20250727_103836.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/success_test_project_20250727_103836.zip",
+      "archive_size": 385,
+      "deletion_date": "2025-07-27T10:38:36.035929",
+      "reason": "ユーザー削除"
+    }
+  ],
+  "reserved_folders": [
+    "node_modules",
+    "dist",
+    "build",
+    ".git",
+    "backend",
+    "frontend",
+    "trash",
+    "recycle_bin",
+    "deleted",
+    ".trash"
+  ]
+}
+ステータス: 200
+---
+
+[2025-07-27 13:40:04] GET /api/files/tree/testProject/
+リクエスト: {}
+レスポンス: {
+  "name": "raw",
+  "path": ".",
+  "type": "directory",
+  "size": 0,
+  "modified": "2025-07-24T23:31:44.193276",
+  "children": [],
+  "comment_count": 0,
+  "has_comments": false
+}
+ステータス: 200
+---
+
+[2025-07-27 13:40:04] GET /api/files/tree/testProject/
+リクエスト: {}
+レスポンス: {
+  "name": "raw",
+  "path": ".",
+  "type": "directory",
+  "size": 0,
+  "modified": "2025-07-24T23:31:44.193276",
+  "children": [],
+  "comment_count": 0,
+  "has_comments": false
+}
+ステータス: 200
+---
+
+[2025-07-27 13:59:08] GET /api/files/tree/testProject/
+リクエスト: {}
+レスポンス: {
+  "name": "raw",
+  "path": ".",
+  "type": "directory",
+  "size": 0,
+  "modified": "2025-07-24T23:31:44.193276",
+  "children": [],
+  "comment_count": 0,
+  "has_comments": false
+}
+ステータス: 200
+---
+
+[2025-07-27 13:59:08] GET /api/files/tree/testProject/
+リクエスト: {}
+レスポンス: {
+  "name": "raw",
+  "path": ".",
+  "type": "directory",
+  "size": 0,
+  "modified": "2025-07-24T23:31:44.193276",
+  "children": [],
+  "comment_count": 0,
+  "has_comments": false
+}
+ステータス: 200
+---
+
+[2025-07-27 14:10:19] GET /api/files/tree/testProject/
+リクエスト: {}
+レスポンス: {
+  "name": "raw",
+  "path": ".",
+  "type": "directory",
+  "size": 0,
+  "modified": "2025-07-24T23:31:44.193276",
+  "children": [],
+  "comment_count": 0,
+  "has_comments": false
+}
+ステータス: 200
+---
+
+[2025-07-27 14:10:19] GET /api/files/tree/testProject/
+リクエスト: {}
+レスポンス: {
+  "name": "raw",
+  "path": ".",
+  "type": "directory",
+  "size": 0,
+  "modified": "2025-07-24T23:31:44.193276",
+  "children": [],
+  "comment_count": 0,
+  "has_comments": false
+}
+ステータス: 200
+---
+
+[2025-07-27 14:41:24] GET /api/files/tree/testProject/
+リクエスト: {}
+レスポンス: {
+  "name": "raw",
+  "path": ".",
+  "type": "directory",
+  "size": 0,
+  "modified": "2025-07-24T23:31:44.193276",
+  "children": [],
+  "comment_count": 0,
+  "has_comments": false
+}
+ステータス: 200
+---
+
+[2025-07-27 14:41:24] GET /api/files/tree/testProject/
+リクエスト: {}
+レスポンス: {
+  "name": "raw",
+  "path": ".",
+  "type": "directory",
+  "size": 0,
+  "modified": "2025-07-24T23:31:44.193276",
+  "children": [],
+  "comment_count": 0,
+  "has_comments": false
+}
+ステータス: 200
+---
+
+[2025-07-27 14:47:55] POST /api/files/mkdir/testProject
+リクエスト: {"dir_path":"./テスト"}
+レスポンス: <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <title>Page not found at /api/files/mkdir/testProject</title>
+  <meta name="robots" content="NONE,NOARCHIVE">
+  <style>
+    html * { padding:0; margin:0; }
+    body * { padding:10px 20px; }
+    body * * { padding:0; }
+    body { font-family: sans-serif; background:#eee; color:#000; }
+    body > :where(header, main, footer) { border-bottom:1px solid #ddd; }
+    h1 { font-weight:normal; margin-bottom:.4em; }
+    h1 small { font-size:60%; color:#666; font-weight:normal; }
+    table { border:none; border-collapse: collapse; width:100%; }
+    td, th { vertical-align:top; padding:2px 3px; }
+    th { width:12em; text-align:right; color:#666; padding-right:.5em; }
+    #info { background:#f6f6f6; }
+    #info ol { margin: 0.5em 4em; }
+    #info ol li { font-family: monospace; }
+    #summary { background: #ffc; }
+    #explanation { background:#eee; border-bottom: 0px none; }
+    pre.exception_value { font-family: sans-serif; color: #575757; font-size: 1.5em; margin: 10px 0 10px 0; }
+  </style>
+</head>
+<body>
+  <header id="summary">
+    <h1>Page not found <small>(404)</small></h1>
+    
+    <table class="meta">
+      <tr>
+        <th scope="row">Request Method:</th>
+        <td>POST</td>
+      </tr>
+      <tr>
+        <th scope="row">Request URL:</th>
+        <td>http://172.24.67.130:8000/api/files/mkdir/testProject</td>
+      </tr>
+      
+    </table>
+  </header>
+
+  <main id="info">
+    
+      <p>
+      Using the URLconf defined in <code>config.urls</code>,
+      Django tried these URL patterns, in this order:
+      </p>
+      <ol>
+        
+          <li>
+            
+              <code>
+                admin/
+                
+              </code>
+            
+          </li>
+        
+          <li>
+            
+              <code>
+                api/
+                
+              </code>
+            
+              <code>
+                
+                
+              </code>
+            
+              <code>
+                ^files/$
+                [name='file-list']
+              </code>
+            
+          </li>
+        
+          <li>
+            
+              <code>
+                api/
+                
+              </code>
+            
+              <code>
+                
+                
+              </code>
+            
+              <code>
+                ^files\.(?P&lt;format&gt;[a-z0-9]+)/?$
+                [name='file-list']
+              </code>
+            
+          </li>
+        
+          <li>
+            
+              <code>
+                api/
+                
+              </code>
+            
+              <code>
+                
+                
+              </code>
+            
+              <code>
+                ^files/comments/(?P&lt;project_folder&gt;[^/.]+)/(?P&lt;comment_id&gt;[^/.]+)/$
+                [name='file-comment-detail']
+              </code>
+            
+          </li>
+        
+          <li>
+            
+              <code>
+                api/
+                
+              </code>
+            
+              <code>
+                
+                
+              </code>
+            
+              <code>
+                ^files/comments/(?P&lt;project_folder&gt;[^/.]+)/(?P&lt;comment_id&gt;[^/.]+)\.(?P&lt;format&gt;[a-z0-9]+)/?$
+                [name='file-comment-detail']
+              </code>
+            
+          </li>
+        
+          <li>
+            
+              <code>
+                api/
+                
+              </code>
+            
+              <code>
+                
+                
+              </code>
+            
+              <code>
+                ^files/mkdir/(?P&lt;project_folder&gt;[^/.]+)/$
+                [name='file-create-directory']
+              </code>
+            
+          </li>
+        
+          <li>
+            
+              <code>
+                api/
+                
+              </code>
+            
+              <code>
+                
+                
+              </code>
+            
+              <code>
+                ^files/mkdir/(?P&lt;project_folder&gt;[^/.]+)\.(?P&lt;format&gt;[a-z0-9]+)/?$
+                [name='file-create-directory']
+              </code>
+            
+          </li>
+        
+          <li>
+            
+              <code>
+                api/
+                
+              </code>
+            
+              <code>
+                
+                
+              </code>
+            
+              <code>
+                ^files/delete/(?P&lt;project_folder&gt;[^/.]+)/$
+                [name='file-delete-file']
+              </code>
+            
+          </li>
+        
+          <li>
+            
+              <code>
+                api/
+                
+              </code>
+            
+              <code>
+                
+                
+              </code>
+            
+              <code>
+                ^files/delete/(?P&lt;project_folder&gt;[^/.]+)\.(?P&lt;format&gt;[a-z0-9]+)/?$
+                [name='file-delete-file']
+              </code>
+            
+          </li>
+        
+          <li>
+            
+              <code>
+                api/
+                
+              </code>
+            
+              <code>
+                
+                
+              </code>
+            
+              <code>
+                ^files/tree/(?P&lt;project_folder&gt;[^/.]+)/$
+                [name='file-directory-tree']
+              </code>
+            
+          </li>
+        
+          <li>
+            
+              <code>
+                api/
+                
+              </code>
+            
+              <code>
+                
+                
+              </code>
+            
+              <code>
+                ^files/tree/(?P&lt;project_folder&gt;[^/.]+)\.(?P&lt;format&gt;[a-z0-9]+)/?$
+                [name='file-directory-tree']
+              </code>
+            
+          </li>
+        
+          <li>
+            
+              <code>
+                api/
+                
+              </code>
+            
+              <code>
+                
+                
+              </code>
+            
+              <code>
+                ^files/comments/(?P&lt;project_folder&gt;[^/.]+)/$
+                [name='file-file-comments']
+              </code>
+            
+          </li>
+        
+          <li>
+            
+              <code>
+                api/
+                
+              </code>
+            
+              <code>
+                
+                
+              </code>
+            
+              <code>
+                ^files/comments/(?P&lt;project_folder&gt;[^/.]+)\.(?P&lt;format&gt;[a-z0-9]+)/?$
+                [name='file-file-comments']
+              </code>
+            
+          </li>
+        
+          <li>
+            
+              <code>
+                api/
+                
+              </code>
+            
+              <code>
+                
+                
+              </code>
+            
+              <code>
+                ^files/move/(?P&lt;project_folder&gt;[^/.]+)/$
+                [name='file-move-file']
+              </code>
+            
+          </li>
+        
+          <li>
+            
+              <code>
+                api/
+                
+              </code>
+            
+              <code>
+                
+                
+              </code>
+            
+              <code>
+                ^files/move/(?P&lt;project_folder&gt;[^/.]+)\.(?P&lt;format&gt;[a-z0-9]+)/?$
+                [name='file-move-file']
+              </code>
+            
+          </li>
+        
+          <li>
+            
+              <code>
+                api/
+                
+              </code>
+            
+              <code>
+                
+                
+              </code>
+            
+              <code>
+                ^files/search/(?P&lt;project_folder&gt;[^/.]+)/$
+                [name='file-search-files']
+              </code>
+            
+          </li>
+        
+          <li>
+            
+              <code>
+                api/
+                
+              </code>
+            
+              <code>
+                
+                
+              </code>
+            
+              <code>
+                ^files/search/(?P&lt;project_folder&gt;[^/.]+)\.(?P&lt;format&gt;[a-z0-9]+)/?$
+                [name='file-search-files']
+              </code>
+            
+          </li>
+        
+          <li>
+            
+              <code>
+                api/
+                
+              </code>
+            
+              <code>
+                
+                
+              </code>
+            
+              <code>
+                ^files/upload/(?P&lt;project_folder&gt;[^/.]+)/$
+                [name='file-upload']
+              </code>
+            
+          </li>
+        
+          <li>
+            
+              <code>
+                api/
+                
+              </code>
+            
+              <code>
+                
+                
+              </code>
+            
+              <code>
+                ^files/upload/(?P&lt;project_folder&gt;[^/.]+)\.(?P&lt;format&gt;[a-z0-9]+)/?$
+                [name='file-upload']
+              </code>
+            
+          </li>
+        
+          <li>
+            
+              <code>
+                api/
+                
+              </code>
+            
+              <code>
+                
+                
+              </code>
+            
+              <code>
+                ^files/(?P&lt;pk&gt;[^/.]+)/$
+                [name='file-detail']
+              </code>
+            
+          </li>
+        
+          <li>
+            
+              <code>
+                api/
+                
+              </code>
+            
+              <code>
+                
+                
+              </code>
+            
+              <code>
+                ^files/(?P&lt;pk&gt;[^/.]+)\.(?P&lt;format&gt;[a-z0-9]+)/?$
+                [name='file-detail']
+              </code>
+            
+          </li>
+        
+          <li>
+            
+              <code>
+                api/
+                
+              </code>
+            
+              <code>
+                
+                
+              </code>
+            
+              <code>
+                
+                [name='api-root']
+              </code>
+            
+          </li>
+        
+          <li>
+            
+              <code>
+                api/
+                
+              </code>
+            
+              <code>
+                
+                
+              </code>
+            
+              <code>
+                &lt;drf_format_suffix:format&gt;
+                [name='api-root']
+              </code>
+            
+          </li>
+        
+          <li>
+            
+              <code>
+                api/
+                
+              </code>
+            
+              <code>
+                projects/
+                [name='project-list-create']
+              </code>
+            
+          </li>
+        
+          <li>
+            
+              <code>
+                api/
+                
+              </code>
+            
+              <code>
+                projects/deleted/
+                [name='project-deleted']
+              </code>
+            
+          </li>
+        
+          <li>
+            
+              <code>
+                api/
+                
+              </code>
+            
+              <code>
+                projects/&lt;str:pk&gt;/
+                [name='project-detail']
+              </code>
+            
+          </li>
+        
+          <li>
+            
+              <code>
+                api/
+                
+              </code>
+            
+              <code>
+                projects/&lt;str:pk&gt;/restore/
+                [name='project-restore']
+              </code>
+            
+          </li>
+        
+          <li>
+            
+              <code>
+                api/
+                
+              </code>
+            
+              <code>
+                server-info/
+                [name='server_info']
+              </code>
+            
+          </li>
+        
+          <li>
+            
+              <code>
+                ^media/(?P&lt;path&gt;.*)$
+                
+              </code>
+            
+          </li>
+        
+      </ol>
+      <p>
+        
+          The current path, <code>api/files/mkdir/testProject</code>,
+        
+        didn’t match any of these.
+      </p>
+    
+  </main>
+
+  <footer id="explanation">
+    <p>
+      You’re seeing this error because you have <code>DEBUG = True</code> in
+      your Django settings file. Change that to <code>False</code>, and Django
+      will display a standard 404 page.
+    </p>
+  </footer>
+</body>
+</html>
+
+ステータス: 404
+---
+
+[2025-07-27 14:48:02] POST /api/files/mkdir/testProject
+リクエスト: {"dir_path":"./Test"}
+レスポンス: <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <title>Page not found at /api/files/mkdir/testProject</title>
+  <meta name="robots" content="NONE,NOARCHIVE">
+  <style>
+    html * { padding:0; margin:0; }
+    body * { padding:10px 20px; }
+    body * * { padding:0; }
+    body { font-family: sans-serif; background:#eee; color:#000; }
+    body > :where(header, main, footer) { border-bottom:1px solid #ddd; }
+    h1 { font-weight:normal; margin-bottom:.4em; }
+    h1 small { font-size:60%; color:#666; font-weight:normal; }
+    table { border:none; border-collapse: collapse; width:100%; }
+    td, th { vertical-align:top; padding:2px 3px; }
+    th { width:12em; text-align:right; color:#666; padding-right:.5em; }
+    #info { background:#f6f6f6; }
+    #info ol { margin: 0.5em 4em; }
+    #info ol li { font-family: monospace; }
+    #summary { background: #ffc; }
+    #explanation { background:#eee; border-bottom: 0px none; }
+    pre.exception_value { font-family: sans-serif; color: #575757; font-size: 1.5em; margin: 10px 0 10px 0; }
+  </style>
+</head>
+<body>
+  <header id="summary">
+    <h1>Page not found <small>(404)</small></h1>
+    
+    <table class="meta">
+      <tr>
+        <th scope="row">Request Method:</th>
+        <td>POST</td>
+      </tr>
+      <tr>
+        <th scope="row">Request URL:</th>
+        <td>http://172.24.67.130:8000/api/files/mkdir/testProject</td>
+      </tr>
+      
+    </table>
+  </header>
+
+  <main id="info">
+    
+      <p>
+      Using the URLconf defined in <code>config.urls</code>,
+      Django tried these URL patterns, in this order:
+      </p>
+      <ol>
+        
+          <li>
+            
+              <code>
+                admin/
+                
+              </code>
+            
+          </li>
+        
+          <li>
+            
+              <code>
+                api/
+                
+              </code>
+            
+              <code>
+                
+                
+              </code>
+            
+              <code>
+                ^files/$
+                [name='file-list']
+              </code>
+            
+          </li>
+        
+          <li>
+            
+              <code>
+                api/
+                
+              </code>
+            
+              <code>
+                
+                
+              </code>
+            
+              <code>
+                ^files\.(?P&lt;format&gt;[a-z0-9]+)/?$
+                [name='file-list']
+              </code>
+            
+          </li>
+        
+          <li>
+            
+              <code>
+                api/
+                
+              </code>
+            
+              <code>
+                
+                
+              </code>
+            
+              <code>
+                ^files/comments/(?P&lt;project_folder&gt;[^/.]+)/(?P&lt;comment_id&gt;[^/.]+)/$
+                [name='file-comment-detail']
+              </code>
+            
+          </li>
+        
+          <li>
+            
+              <code>
+                api/
+                
+              </code>
+            
+              <code>
+                
+                
+              </code>
+            
+              <code>
+                ^files/comments/(?P&lt;project_folder&gt;[^/.]+)/(?P&lt;comment_id&gt;[^/.]+)\.(?P&lt;format&gt;[a-z0-9]+)/?$
+                [name='file-comment-detail']
+              </code>
+            
+          </li>
+        
+          <li>
+            
+              <code>
+                api/
+                
+              </code>
+            
+              <code>
+                
+                
+              </code>
+            
+              <code>
+                ^files/mkdir/(?P&lt;project_folder&gt;[^/.]+)/$
+                [name='file-create-directory']
+              </code>
+            
+          </li>
+        
+          <li>
+            
+              <code>
+                api/
+                
+              </code>
+            
+              <code>
+                
+                
+              </code>
+            
+              <code>
+                ^files/mkdir/(?P&lt;project_folder&gt;[^/.]+)\.(?P&lt;format&gt;[a-z0-9]+)/?$
+                [name='file-create-directory']
+              </code>
+            
+          </li>
+        
+          <li>
+            
+              <code>
+                api/
+                
+              </code>
+            
+              <code>
+                
+                
+              </code>
+            
+              <code>
+                ^files/delete/(?P&lt;project_folder&gt;[^/.]+)/$
+                [name='file-delete-file']
+              </code>
+            
+          </li>
+        
+          <li>
+            
+              <code>
+                api/
+                
+              </code>
+            
+              <code>
+                
+                
+              </code>
+            
+              <code>
+                ^files/delete/(?P&lt;project_folder&gt;[^/.]+)\.(?P&lt;format&gt;[a-z0-9]+)/?$
+                [name='file-delete-file']
+              </code>
+            
+          </li>
+        
+          <li>
+            
+              <code>
+                api/
+                
+              </code>
+            
+              <code>
+                
+                
+              </code>
+            
+              <code>
+                ^files/tree/(?P&lt;project_folder&gt;[^/.]+)/$
+                [name='file-directory-tree']
+              </code>
+            
+          </li>
+        
+          <li>
+            
+              <code>
+                api/
+                
+              </code>
+            
+              <code>
+                
+                
+              </code>
+            
+              <code>
+                ^files/tree/(?P&lt;project_folder&gt;[^/.]+)\.(?P&lt;format&gt;[a-z0-9]+)/?$
+                [name='file-directory-tree']
+              </code>
+            
+          </li>
+        
+          <li>
+            
+              <code>
+                api/
+                
+              </code>
+            
+              <code>
+                
+                
+              </code>
+            
+              <code>
+                ^files/comments/(?P&lt;project_folder&gt;[^/.]+)/$
+                [name='file-file-comments']
+              </code>
+            
+          </li>
+        
+          <li>
+            
+              <code>
+                api/
+                
+              </code>
+            
+              <code>
+                
+                
+              </code>
+            
+              <code>
+                ^files/comments/(?P&lt;project_folder&gt;[^/.]+)\.(?P&lt;format&gt;[a-z0-9]+)/?$
+                [name='file-file-comments']
+              </code>
+            
+          </li>
+        
+          <li>
+            
+              <code>
+                api/
+                
+              </code>
+            
+              <code>
+                
+                
+              </code>
+            
+              <code>
+                ^files/move/(?P&lt;project_folder&gt;[^/.]+)/$
+                [name='file-move-file']
+              </code>
+            
+          </li>
+        
+          <li>
+            
+              <code>
+                api/
+                
+              </code>
+            
+              <code>
+                
+                
+              </code>
+            
+              <code>
+                ^files/move/(?P&lt;project_folder&gt;[^/.]+)\.(?P&lt;format&gt;[a-z0-9]+)/?$
+                [name='file-move-file']
+              </code>
+            
+          </li>
+        
+          <li>
+            
+              <code>
+                api/
+                
+              </code>
+            
+              <code>
+                
+                
+              </code>
+            
+              <code>
+                ^files/search/(?P&lt;project_folder&gt;[^/.]+)/$
+                [name='file-search-files']
+              </code>
+            
+          </li>
+        
+          <li>
+            
+              <code>
+                api/
+                
+              </code>
+            
+              <code>
+                
+                
+              </code>
+            
+              <code>
+                ^files/search/(?P&lt;project_folder&gt;[^/.]+)\.(?P&lt;format&gt;[a-z0-9]+)/?$
+                [name='file-search-files']
+              </code>
+            
+          </li>
+        
+          <li>
+            
+              <code>
+                api/
+                
+              </code>
+            
+              <code>
+                
+                
+              </code>
+            
+              <code>
+                ^files/upload/(?P&lt;project_folder&gt;[^/.]+)/$
+                [name='file-upload']
+              </code>
+            
+          </li>
+        
+          <li>
+            
+              <code>
+                api/
+                
+              </code>
+            
+              <code>
+                
+                
+              </code>
+            
+              <code>
+                ^files/upload/(?P&lt;project_folder&gt;[^/.]+)\.(?P&lt;format&gt;[a-z0-9]+)/?$
+                [name='file-upload']
+              </code>
+            
+          </li>
+        
+          <li>
+            
+              <code>
+                api/
+                
+              </code>
+            
+              <code>
+                
+                
+              </code>
+            
+              <code>
+                ^files/(?P&lt;pk&gt;[^/.]+)/$
+                [name='file-detail']
+              </code>
+            
+          </li>
+        
+          <li>
+            
+              <code>
+                api/
+                
+              </code>
+            
+              <code>
+                
+                
+              </code>
+            
+              <code>
+                ^files/(?P&lt;pk&gt;[^/.]+)\.(?P&lt;format&gt;[a-z0-9]+)/?$
+                [name='file-detail']
+              </code>
+            
+          </li>
+        
+          <li>
+            
+              <code>
+                api/
+                
+              </code>
+            
+              <code>
+                
+                
+              </code>
+            
+              <code>
+                
+                [name='api-root']
+              </code>
+            
+          </li>
+        
+          <li>
+            
+              <code>
+                api/
+                
+              </code>
+            
+              <code>
+                
+                
+              </code>
+            
+              <code>
+                &lt;drf_format_suffix:format&gt;
+                [name='api-root']
+              </code>
+            
+          </li>
+        
+          <li>
+            
+              <code>
+                api/
+                
+              </code>
+            
+              <code>
+                projects/
+                [name='project-list-create']
+              </code>
+            
+          </li>
+        
+          <li>
+            
+              <code>
+                api/
+                
+              </code>
+            
+              <code>
+                projects/deleted/
+                [name='project-deleted']
+              </code>
+            
+          </li>
+        
+          <li>
+            
+              <code>
+                api/
+                
+              </code>
+            
+              <code>
+                projects/&lt;str:pk&gt;/
+                [name='project-detail']
+              </code>
+            
+          </li>
+        
+          <li>
+            
+              <code>
+                api/
+                
+              </code>
+            
+              <code>
+                projects/&lt;str:pk&gt;/restore/
+                [name='project-restore']
+              </code>
+            
+          </li>
+        
+          <li>
+            
+              <code>
+                api/
+                
+              </code>
+            
+              <code>
+                server-info/
+                [name='server_info']
+              </code>
+            
+          </li>
+        
+          <li>
+            
+              <code>
+                ^media/(?P&lt;path&gt;.*)$
+                
+              </code>
+            
+          </li>
+        
+      </ol>
+      <p>
+        
+          The current path, <code>api/files/mkdir/testProject</code>,
+        
+        didn’t match any of these.
+      </p>
+    
+  </main>
+
+  <footer id="explanation">
+    <p>
+      You’re seeing this error because you have <code>DEBUG = True</code> in
+      your Django settings file. Change that to <code>False</code>, and Django
+      will display a standard 404 page.
+    </p>
+  </footer>
+</body>
+</html>
+
+ステータス: 404
+---
+
+[2025-07-27 15:09:07] POST /api/files/mkdir/testProject
+リクエスト: {"dir_path":"./TEST"}
+レスポンス: <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <title>Page not found at /api/files/mkdir/testProject</title>
+  <meta name="robots" content="NONE,NOARCHIVE">
+  <style>
+    html * { padding:0; margin:0; }
+    body * { padding:10px 20px; }
+    body * * { padding:0; }
+    body { font-family: sans-serif; background:#eee; color:#000; }
+    body > :where(header, main, footer) { border-bottom:1px solid #ddd; }
+    h1 { font-weight:normal; margin-bottom:.4em; }
+    h1 small { font-size:60%; color:#666; font-weight:normal; }
+    table { border:none; border-collapse: collapse; width:100%; }
+    td, th { vertical-align:top; padding:2px 3px; }
+    th { width:12em; text-align:right; color:#666; padding-right:.5em; }
+    #info { background:#f6f6f6; }
+    #info ol { margin: 0.5em 4em; }
+    #info ol li { font-family: monospace; }
+    #summary { background: #ffc; }
+    #explanation { background:#eee; border-bottom: 0px none; }
+    pre.exception_value { font-family: sans-serif; color: #575757; font-size: 1.5em; margin: 10px 0 10px 0; }
+  </style>
+</head>
+<body>
+  <header id="summary">
+    <h1>Page not found <small>(404)</small></h1>
+    
+    <table class="meta">
+      <tr>
+        <th scope="row">Request Method:</th>
+        <td>POST</td>
+      </tr>
+      <tr>
+        <th scope="row">Request URL:</th>
+        <td>http://172.24.67.130:8000/api/files/mkdir/testProject</td>
+      </tr>
+      
+    </table>
+  </header>
+
+  <main id="info">
+    
+      <p>
+      Using the URLconf defined in <code>config.urls</code>,
+      Django tried these URL patterns, in this order:
+      </p>
+      <ol>
+        
+          <li>
+            
+              <code>
+                admin/
+                
+              </code>
+            
+          </li>
+        
+          <li>
+            
+              <code>
+                api/
+                
+              </code>
+            
+              <code>
+                
+                
+              </code>
+            
+              <code>
+                ^files/$
+                [name='file-list']
+              </code>
+            
+          </li>
+        
+          <li>
+            
+              <code>
+                api/
+                
+              </code>
+            
+              <code>
+                
+                
+              </code>
+            
+              <code>
+                ^files\.(?P&lt;format&gt;[a-z0-9]+)/?$
+                [name='file-list']
+              </code>
+            
+          </li>
+        
+          <li>
+            
+              <code>
+                api/
+                
+              </code>
+            
+              <code>
+                
+                
+              </code>
+            
+              <code>
+                ^files/comments/(?P&lt;project_folder&gt;[^/.]+)/(?P&lt;comment_id&gt;[^/.]+)/$
+                [name='file-comment-detail']
+              </code>
+            
+          </li>
+        
+          <li>
+            
+              <code>
+                api/
+                
+              </code>
+            
+              <code>
+                
+                
+              </code>
+            
+              <code>
+                ^files/comments/(?P&lt;project_folder&gt;[^/.]+)/(?P&lt;comment_id&gt;[^/.]+)\.(?P&lt;format&gt;[a-z0-9]+)/?$
+                [name='file-comment-detail']
+              </code>
+            
+          </li>
+        
+          <li>
+            
+              <code>
+                api/
+                
+              </code>
+            
+              <code>
+                
+                
+              </code>
+            
+              <code>
+                ^files/mkdir/(?P&lt;project_folder&gt;[^/.]+)/$
+                [name='file-create-directory']
+              </code>
+            
+          </li>
+        
+          <li>
+            
+              <code>
+                api/
+                
+              </code>
+            
+              <code>
+                
+                
+              </code>
+            
+              <code>
+                ^files/mkdir/(?P&lt;project_folder&gt;[^/.]+)\.(?P&lt;format&gt;[a-z0-9]+)/?$
+                [name='file-create-directory']
+              </code>
+            
+          </li>
+        
+          <li>
+            
+              <code>
+                api/
+                
+              </code>
+            
+              <code>
+                
+                
+              </code>
+            
+              <code>
+                ^files/delete/(?P&lt;project_folder&gt;[^/.]+)/$
+                [name='file-delete-file']
+              </code>
+            
+          </li>
+        
+          <li>
+            
+              <code>
+                api/
+                
+              </code>
+            
+              <code>
+                
+                
+              </code>
+            
+              <code>
+                ^files/delete/(?P&lt;project_folder&gt;[^/.]+)\.(?P&lt;format&gt;[a-z0-9]+)/?$
+                [name='file-delete-file']
+              </code>
+            
+          </li>
+        
+          <li>
+            
+              <code>
+                api/
+                
+              </code>
+            
+              <code>
+                
+                
+              </code>
+            
+              <code>
+                ^files/tree/(?P&lt;project_folder&gt;[^/.]+)/$
+                [name='file-directory-tree']
+              </code>
+            
+          </li>
+        
+          <li>
+            
+              <code>
+                api/
+                
+              </code>
+            
+              <code>
+                
+                
+              </code>
+            
+              <code>
+                ^files/tree/(?P&lt;project_folder&gt;[^/.]+)\.(?P&lt;format&gt;[a-z0-9]+)/?$
+                [name='file-directory-tree']
+              </code>
+            
+          </li>
+        
+          <li>
+            
+              <code>
+                api/
+                
+              </code>
+            
+              <code>
+                
+                
+              </code>
+            
+              <code>
+                ^files/comments/(?P&lt;project_folder&gt;[^/.]+)/$
+                [name='file-file-comments']
+              </code>
+            
+          </li>
+        
+          <li>
+            
+              <code>
+                api/
+                
+              </code>
+            
+              <code>
+                
+                
+              </code>
+            
+              <code>
+                ^files/comments/(?P&lt;project_folder&gt;[^/.]+)\.(?P&lt;format&gt;[a-z0-9]+)/?$
+                [name='file-file-comments']
+              </code>
+            
+          </li>
+        
+          <li>
+            
+              <code>
+                api/
+                
+              </code>
+            
+              <code>
+                
+                
+              </code>
+            
+              <code>
+                ^files/move/(?P&lt;project_folder&gt;[^/.]+)/$
+                [name='file-move-file']
+              </code>
+            
+          </li>
+        
+          <li>
+            
+              <code>
+                api/
+                
+              </code>
+            
+              <code>
+                
+                
+              </code>
+            
+              <code>
+                ^files/move/(?P&lt;project_folder&gt;[^/.]+)\.(?P&lt;format&gt;[a-z0-9]+)/?$
+                [name='file-move-file']
+              </code>
+            
+          </li>
+        
+          <li>
+            
+              <code>
+                api/
+                
+              </code>
+            
+              <code>
+                
+                
+              </code>
+            
+              <code>
+                ^files/search/(?P&lt;project_folder&gt;[^/.]+)/$
+                [name='file-search-files']
+              </code>
+            
+          </li>
+        
+          <li>
+            
+              <code>
+                api/
+                
+              </code>
+            
+              <code>
+                
+                
+              </code>
+            
+              <code>
+                ^files/search/(?P&lt;project_folder&gt;[^/.]+)\.(?P&lt;format&gt;[a-z0-9]+)/?$
+                [name='file-search-files']
+              </code>
+            
+          </li>
+        
+          <li>
+            
+              <code>
+                api/
+                
+              </code>
+            
+              <code>
+                
+                
+              </code>
+            
+              <code>
+                ^files/upload/(?P&lt;project_folder&gt;[^/.]+)/$
+                [name='file-upload']
+              </code>
+            
+          </li>
+        
+          <li>
+            
+              <code>
+                api/
+                
+              </code>
+            
+              <code>
+                
+                
+              </code>
+            
+              <code>
+                ^files/upload/(?P&lt;project_folder&gt;[^/.]+)\.(?P&lt;format&gt;[a-z0-9]+)/?$
+                [name='file-upload']
+              </code>
+            
+          </li>
+        
+          <li>
+            
+              <code>
+                api/
+                
+              </code>
+            
+              <code>
+                
+                
+              </code>
+            
+              <code>
+                ^files/(?P&lt;pk&gt;[^/.]+)/$
+                [name='file-detail']
+              </code>
+            
+          </li>
+        
+          <li>
+            
+              <code>
+                api/
+                
+              </code>
+            
+              <code>
+                
+                
+              </code>
+            
+              <code>
+                ^files/(?P&lt;pk&gt;[^/.]+)\.(?P&lt;format&gt;[a-z0-9]+)/?$
+                [name='file-detail']
+              </code>
+            
+          </li>
+        
+          <li>
+            
+              <code>
+                api/
+                
+              </code>
+            
+              <code>
+                
+                
+              </code>
+            
+              <code>
+                
+                [name='api-root']
+              </code>
+            
+          </li>
+        
+          <li>
+            
+              <code>
+                api/
+                
+              </code>
+            
+              <code>
+                
+                
+              </code>
+            
+              <code>
+                &lt;drf_format_suffix:format&gt;
+                [name='api-root']
+              </code>
+            
+          </li>
+        
+          <li>
+            
+              <code>
+                api/
+                
+              </code>
+            
+              <code>
+                projects/
+                [name='project-list-create']
+              </code>
+            
+          </li>
+        
+          <li>
+            
+              <code>
+                api/
+                
+              </code>
+            
+              <code>
+                projects/deleted/
+                [name='project-deleted']
+              </code>
+            
+          </li>
+        
+          <li>
+            
+              <code>
+                api/
+                
+              </code>
+            
+              <code>
+                projects/&lt;str:pk&gt;/
+                [name='project-detail']
+              </code>
+            
+          </li>
+        
+          <li>
+            
+              <code>
+                api/
+                
+              </code>
+            
+              <code>
+                projects/&lt;str:pk&gt;/restore/
+                [name='project-restore']
+              </code>
+            
+          </li>
+        
+          <li>
+            
+              <code>
+                api/
+                
+              </code>
+            
+              <code>
+                server-info/
+                [name='server_info']
+              </code>
+            
+          </li>
+        
+          <li>
+            
+              <code>
+                ^media/(?P&lt;path&gt;.*)$
+                
+              </code>
+            
+          </li>
+        
+      </ol>
+      <p>
+        
+          The current path, <code>api/files/mkdir/testProject</code>,
+        
+        didn’t match any of these.
+      </p>
+    
+  </main>
+
+  <footer id="explanation">
+    <p>
+      You’re seeing this error because you have <code>DEBUG = True</code> in
+      your Django settings file. Change that to <code>False</code>, and Django
+      will display a standard 404 page.
+    </p>
+  </footer>
+</body>
+</html>
+
+ステータス: 404
+---
+
+[2025-07-27 15:13:04] GET /api/projects/
+リクエスト: {'lang': ['ja']}
+レスポンス: {
+  "version": "1.0.0",
+  "last_updated": "2025-07-27T10:38:36.035931",
+  "retention_months": 13,
+  "projects": [
+    {
+      "folder_name": "testProject",
+      "project_name": "テストのためのプロジェクト",
+      "description": "テストです。",
+      "tags": [],
+      "status": "active",
+      "id": "2cec431a-0416-4451-a43b-fdc85e0c5c62",
+      "created_date": "2025-07-24T23:31:44.186614",
+      "modified_date": "2025-07-24T23:31:44.186614"
+    },
+    {
+      "id": "bb5830e9-e13c-4960-bc25-fa8045a272e9",
+      "folder_name": "save_test",
+      "project_name": "セーブテスト",
+      "description": "セーブテスト",
+      "created_date": "2025-07-27T10:37:56.948759",
+      "modified_date": "2025-07-27T10:37:56.948769",
+      "tags": [],
+      "status": "active"
+    },
+    {
+      "folder_name": "minimal_test",
+      "project_name": "Minimal Test",
+      "description": "Minimal test project",
+      "id": "a908299f-f131-4f70-8b16-43fd9f01b7d2",
+      "created_date": "2025-07-27T10:38:36.031250",
+      "modified_date": "2025-07-27T10:38:36.031250"
+    }
+  ],
+  "archived_projects": [
+    {
+      "folder_name": "direct_test_project",
+      "project_name": "直接テストプロジェクト",
+      "description": "直接テスト用プロジェクト",
+      "tags": [
+        "test"
+      ],
+      "status": "active",
+      "id": "82886a55-fe6c-4559-9dfa-27aeb21e924e",
+      "created_date": "2025-07-27T10:37:56.949497",
+      "modified_date": "2025-07-27T10:37:56.949497",
+      "archive_filename": "direct_test_project_20250727_103756.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/direct_test_project_20250727_103756.zip",
+      "archive_size": 347,
+      "deletion_date": "2025-07-27T10:37:56.952974",
+      "reason": "ユーザー削除"
+    },
+    {
+      "folder_name": "minimal_test",
+      "project_name": "Minimal Test",
+      "description": "Minimal test project",
+      "id": "1c91b519-f4e1-428c-833d-bfbc95483b9d",
+      "created_date": "2025-07-27T10:38:36.026164",
+      "modified_date": "2025-07-27T10:38:36.026164",
+      "archive_filename": "minimal_test_20250727_103836.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/minimal_test_20250727_103836.zip",
+      "archive_size": 292,
+      "deletion_date": "2025-07-27T10:38:36.030515",
+      "reason": "ユーザー削除"
+    },
+    {
+      "folder_name": "success_test_project",
+      "project_name": "成功テストプロジェクト",
+      "description": "正常に作成されるべきプロジェクト",
+      "tags": [
+        "success",
+        "test"
+      ],
+      "status": "active",
+      "id": "658786da-0f80-4434-bf7c-4e389df4b9b2",
+      "created_date": "2025-07-27T10:38:36.034282",
+      "modified_date": "2025-07-27T10:38:36.034282",
+      "archive_filename": "success_test_project_20250727_103836.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/success_test_project_20250727_103836.zip",
+      "archive_size": 385,
+      "deletion_date": "2025-07-27T10:38:36.035929",
+      "reason": "ユーザー削除"
+    }
+  ],
+  "reserved_folders": [
+    "node_modules",
+    "dist",
+    "build",
+    ".git",
+    "backend",
+    "frontend",
+    "trash",
+    "recycle_bin",
+    "deleted",
+    ".trash"
+  ]
+}
+ステータス: 200
+---
+
+[2025-07-27 15:13:04] GET /api/projects/
+リクエスト: {'lang': ['ja']}
+レスポンス: {
+  "version": "1.0.0",
+  "last_updated": "2025-07-27T10:38:36.035931",
+  "retention_months": 13,
+  "projects": [
+    {
+      "folder_name": "testProject",
+      "project_name": "テストのためのプロジェクト",
+      "description": "テストです。",
+      "tags": [],
+      "status": "active",
+      "id": "2cec431a-0416-4451-a43b-fdc85e0c5c62",
+      "created_date": "2025-07-24T23:31:44.186614",
+      "modified_date": "2025-07-24T23:31:44.186614"
+    },
+    {
+      "id": "bb5830e9-e13c-4960-bc25-fa8045a272e9",
+      "folder_name": "save_test",
+      "project_name": "セーブテスト",
+      "description": "セーブテスト",
+      "created_date": "2025-07-27T10:37:56.948759",
+      "modified_date": "2025-07-27T10:37:56.948769",
+      "tags": [],
+      "status": "active"
+    },
+    {
+      "folder_name": "minimal_test",
+      "project_name": "Minimal Test",
+      "description": "Minimal test project",
+      "id": "a908299f-f131-4f70-8b16-43fd9f01b7d2",
+      "created_date": "2025-07-27T10:38:36.031250",
+      "modified_date": "2025-07-27T10:38:36.031250"
+    }
+  ],
+  "archived_projects": [
+    {
+      "folder_name": "direct_test_project",
+      "project_name": "直接テストプロジェクト",
+      "description": "直接テスト用プロジェクト",
+      "tags": [
+        "test"
+      ],
+      "status": "active",
+      "id": "82886a55-fe6c-4559-9dfa-27aeb21e924e",
+      "created_date": "2025-07-27T10:37:56.949497",
+      "modified_date": "2025-07-27T10:37:56.949497",
+      "archive_filename": "direct_test_project_20250727_103756.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/direct_test_project_20250727_103756.zip",
+      "archive_size": 347,
+      "deletion_date": "2025-07-27T10:37:56.952974",
+      "reason": "ユーザー削除"
+    },
+    {
+      "folder_name": "minimal_test",
+      "project_name": "Minimal Test",
+      "description": "Minimal test project",
+      "id": "1c91b519-f4e1-428c-833d-bfbc95483b9d",
+      "created_date": "2025-07-27T10:38:36.026164",
+      "modified_date": "2025-07-27T10:38:36.026164",
+      "archive_filename": "minimal_test_20250727_103836.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/minimal_test_20250727_103836.zip",
+      "archive_size": 292,
+      "deletion_date": "2025-07-27T10:38:36.030515",
+      "reason": "ユーザー削除"
+    },
+    {
+      "folder_name": "success_test_project",
+      "project_name": "成功テストプロジェクト",
+      "description": "正常に作成されるべきプロジェクト",
+      "tags": [
+        "success",
+        "test"
+      ],
+      "status": "active",
+      "id": "658786da-0f80-4434-bf7c-4e389df4b9b2",
+      "created_date": "2025-07-27T10:38:36.034282",
+      "modified_date": "2025-07-27T10:38:36.034282",
+      "archive_filename": "success_test_project_20250727_103836.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/success_test_project_20250727_103836.zip",
+      "archive_size": 385,
+      "deletion_date": "2025-07-27T10:38:36.035929",
+      "reason": "ユーザー削除"
+    }
+  ],
+  "reserved_folders": [
+    "node_modules",
+    "dist",
+    "build",
+    ".git",
+    "backend",
+    "frontend",
+    "trash",
+    "recycle_bin",
+    "deleted",
+    ".trash"
+  ]
+}
+ステータス: 200
+---
+
+[2025-07-27 15:13:08] GET /api/files/tree/testProject/
+リクエスト: {}
+レスポンス: {
+  "name": "raw",
+  "path": ".",
+  "type": "directory",
+  "size": 0,
+  "modified": "2025-07-24T23:31:44.193276",
+  "children": [],
+  "comment_count": 0,
+  "has_comments": false
+}
+ステータス: 200
+---
+
+[2025-07-27 15:13:08] GET /api/files/tree/testProject/
+リクエスト: {}
+レスポンス: {
+  "name": "raw",
+  "path": ".",
+  "type": "directory",
+  "size": 0,
+  "modified": "2025-07-24T23:31:44.193276",
+  "children": [],
+  "comment_count": 0,
+  "has_comments": false
+}
+ステータス: 200
+---
+
+[2025-07-27 15:13:16] POST /api/files/mkdir/testProject
+リクエスト: {"dir_path":"./テスト"}
+レスポンス: <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <title>Page not found at /api/files/mkdir/testProject</title>
+  <meta name="robots" content="NONE,NOARCHIVE">
+  <style>
+    html * { padding:0; margin:0; }
+    body * { padding:10px 20px; }
+    body * * { padding:0; }
+    body { font-family: sans-serif; background:#eee; color:#000; }
+    body > :where(header, main, footer) { border-bottom:1px solid #ddd; }
+    h1 { font-weight:normal; margin-bottom:.4em; }
+    h1 small { font-size:60%; color:#666; font-weight:normal; }
+    table { border:none; border-collapse: collapse; width:100%; }
+    td, th { vertical-align:top; padding:2px 3px; }
+    th { width:12em; text-align:right; color:#666; padding-right:.5em; }
+    #info { background:#f6f6f6; }
+    #info ol { margin: 0.5em 4em; }
+    #info ol li { font-family: monospace; }
+    #summary { background: #ffc; }
+    #explanation { background:#eee; border-bottom: 0px none; }
+    pre.exception_value { font-family: sans-serif; color: #575757; font-size: 1.5em; margin: 10px 0 10px 0; }
+  </style>
+</head>
+<body>
+  <header id="summary">
+    <h1>Page not found <small>(404)</small></h1>
+    
+    <table class="meta">
+      <tr>
+        <th scope="row">Request Method:</th>
+        <td>POST</td>
+      </tr>
+      <tr>
+        <th scope="row">Request URL:</th>
+        <td>http://172.24.67.130:8000/api/files/mkdir/testProject</td>
+      </tr>
+      
+    </table>
+  </header>
+
+  <main id="info">
+    
+      <p>
+      Using the URLconf defined in <code>config.urls</code>,
+      Django tried these URL patterns, in this order:
+      </p>
+      <ol>
+        
+          <li>
+            
+              <code>
+                admin/
+                
+              </code>
+            
+          </li>
+        
+          <li>
+            
+              <code>
+                api/
+                
+              </code>
+            
+              <code>
+                
+                
+              </code>
+            
+              <code>
+                ^files/$
+                [name='file-list']
+              </code>
+            
+          </li>
+        
+          <li>
+            
+              <code>
+                api/
+                
+              </code>
+            
+              <code>
+                
+                
+              </code>
+            
+              <code>
+                ^files\.(?P&lt;format&gt;[a-z0-9]+)/?$
+                [name='file-list']
+              </code>
+            
+          </li>
+        
+          <li>
+            
+              <code>
+                api/
+                
+              </code>
+            
+              <code>
+                
+                
+              </code>
+            
+              <code>
+                ^files/comments/(?P&lt;project_folder&gt;[^/.]+)/(?P&lt;comment_id&gt;[^/.]+)/$
+                [name='file-comment-detail']
+              </code>
+            
+          </li>
+        
+          <li>
+            
+              <code>
+                api/
+                
+              </code>
+            
+              <code>
+                
+                
+              </code>
+            
+              <code>
+                ^files/comments/(?P&lt;project_folder&gt;[^/.]+)/(?P&lt;comment_id&gt;[^/.]+)\.(?P&lt;format&gt;[a-z0-9]+)/?$
+                [name='file-comment-detail']
+              </code>
+            
+          </li>
+        
+          <li>
+            
+              <code>
+                api/
+                
+              </code>
+            
+              <code>
+                
+                
+              </code>
+            
+              <code>
+                ^files/mkdir/(?P&lt;project_folder&gt;[^/.]+)/$
+                [name='file-create-directory']
+              </code>
+            
+          </li>
+        
+          <li>
+            
+              <code>
+                api/
+                
+              </code>
+            
+              <code>
+                
+                
+              </code>
+            
+              <code>
+                ^files/mkdir/(?P&lt;project_folder&gt;[^/.]+)\.(?P&lt;format&gt;[a-z0-9]+)/?$
+                [name='file-create-directory']
+              </code>
+            
+          </li>
+        
+          <li>
+            
+              <code>
+                api/
+                
+              </code>
+            
+              <code>
+                
+                
+              </code>
+            
+              <code>
+                ^files/delete/(?P&lt;project_folder&gt;[^/.]+)/$
+                [name='file-delete-file']
+              </code>
+            
+          </li>
+        
+          <li>
+            
+              <code>
+                api/
+                
+              </code>
+            
+              <code>
+                
+                
+              </code>
+            
+              <code>
+                ^files/delete/(?P&lt;project_folder&gt;[^/.]+)\.(?P&lt;format&gt;[a-z0-9]+)/?$
+                [name='file-delete-file']
+              </code>
+            
+          </li>
+        
+          <li>
+            
+              <code>
+                api/
+                
+              </code>
+            
+              <code>
+                
+                
+              </code>
+            
+              <code>
+                ^files/tree/(?P&lt;project_folder&gt;[^/.]+)/$
+                [name='file-directory-tree']
+              </code>
+            
+          </li>
+        
+          <li>
+            
+              <code>
+                api/
+                
+              </code>
+            
+              <code>
+                
+                
+              </code>
+            
+              <code>
+                ^files/tree/(?P&lt;project_folder&gt;[^/.]+)\.(?P&lt;format&gt;[a-z0-9]+)/?$
+                [name='file-directory-tree']
+              </code>
+            
+          </li>
+        
+          <li>
+            
+              <code>
+                api/
+                
+              </code>
+            
+              <code>
+                
+                
+              </code>
+            
+              <code>
+                ^files/comments/(?P&lt;project_folder&gt;[^/.]+)/$
+                [name='file-file-comments']
+              </code>
+            
+          </li>
+        
+          <li>
+            
+              <code>
+                api/
+                
+              </code>
+            
+              <code>
+                
+                
+              </code>
+            
+              <code>
+                ^files/comments/(?P&lt;project_folder&gt;[^/.]+)\.(?P&lt;format&gt;[a-z0-9]+)/?$
+                [name='file-file-comments']
+              </code>
+            
+          </li>
+        
+          <li>
+            
+              <code>
+                api/
+                
+              </code>
+            
+              <code>
+                
+                
+              </code>
+            
+              <code>
+                ^files/move/(?P&lt;project_folder&gt;[^/.]+)/$
+                [name='file-move-file']
+              </code>
+            
+          </li>
+        
+          <li>
+            
+              <code>
+                api/
+                
+              </code>
+            
+              <code>
+                
+                
+              </code>
+            
+              <code>
+                ^files/move/(?P&lt;project_folder&gt;[^/.]+)\.(?P&lt;format&gt;[a-z0-9]+)/?$
+                [name='file-move-file']
+              </code>
+            
+          </li>
+        
+          <li>
+            
+              <code>
+                api/
+                
+              </code>
+            
+              <code>
+                
+                
+              </code>
+            
+              <code>
+                ^files/search/(?P&lt;project_folder&gt;[^/.]+)/$
+                [name='file-search-files']
+              </code>
+            
+          </li>
+        
+          <li>
+            
+              <code>
+                api/
+                
+              </code>
+            
+              <code>
+                
+                
+              </code>
+            
+              <code>
+                ^files/search/(?P&lt;project_folder&gt;[^/.]+)\.(?P&lt;format&gt;[a-z0-9]+)/?$
+                [name='file-search-files']
+              </code>
+            
+          </li>
+        
+          <li>
+            
+              <code>
+                api/
+                
+              </code>
+            
+              <code>
+                
+                
+              </code>
+            
+              <code>
+                ^files/upload/(?P&lt;project_folder&gt;[^/.]+)/$
+                [name='file-upload']
+              </code>
+            
+          </li>
+        
+          <li>
+            
+              <code>
+                api/
+                
+              </code>
+            
+              <code>
+                
+                
+              </code>
+            
+              <code>
+                ^files/upload/(?P&lt;project_folder&gt;[^/.]+)\.(?P&lt;format&gt;[a-z0-9]+)/?$
+                [name='file-upload']
+              </code>
+            
+          </li>
+        
+          <li>
+            
+              <code>
+                api/
+                
+              </code>
+            
+              <code>
+                
+                
+              </code>
+            
+              <code>
+                ^files/(?P&lt;pk&gt;[^/.]+)/$
+                [name='file-detail']
+              </code>
+            
+          </li>
+        
+          <li>
+            
+              <code>
+                api/
+                
+              </code>
+            
+              <code>
+                
+                
+              </code>
+            
+              <code>
+                ^files/(?P&lt;pk&gt;[^/.]+)\.(?P&lt;format&gt;[a-z0-9]+)/?$
+                [name='file-detail']
+              </code>
+            
+          </li>
+        
+          <li>
+            
+              <code>
+                api/
+                
+              </code>
+            
+              <code>
+                
+                
+              </code>
+            
+              <code>
+                
+                [name='api-root']
+              </code>
+            
+          </li>
+        
+          <li>
+            
+              <code>
+                api/
+                
+              </code>
+            
+              <code>
+                
+                
+              </code>
+            
+              <code>
+                &lt;drf_format_suffix:format&gt;
+                [name='api-root']
+              </code>
+            
+          </li>
+        
+          <li>
+            
+              <code>
+                api/
+                
+              </code>
+            
+              <code>
+                projects/
+                [name='project-list-create']
+              </code>
+            
+          </li>
+        
+          <li>
+            
+              <code>
+                api/
+                
+              </code>
+            
+              <code>
+                projects/deleted/
+                [name='project-deleted']
+              </code>
+            
+          </li>
+        
+          <li>
+            
+              <code>
+                api/
+                
+              </code>
+            
+              <code>
+                projects/&lt;str:pk&gt;/
+                [name='project-detail']
+              </code>
+            
+          </li>
+        
+          <li>
+            
+              <code>
+                api/
+                
+              </code>
+            
+              <code>
+                projects/&lt;str:pk&gt;/restore/
+                [name='project-restore']
+              </code>
+            
+          </li>
+        
+          <li>
+            
+              <code>
+                api/
+                
+              </code>
+            
+              <code>
+                server-info/
+                [name='server_info']
+              </code>
+            
+          </li>
+        
+          <li>
+            
+              <code>
+                ^media/(?P&lt;path&gt;.*)$
+                
+              </code>
+            
+          </li>
+        
+      </ol>
+      <p>
+        
+          The current path, <code>api/files/mkdir/testProject</code>,
+        
+        didn’t match any of these.
+      </p>
+    
+  </main>
+
+  <footer id="explanation">
+    <p>
+      You’re seeing this error because you have <code>DEBUG = True</code> in
+      your Django settings file. Change that to <code>False</code>, and Django
+      will display a standard 404 page.
+    </p>
+  </footer>
+</body>
+</html>
+
+ステータス: 404
+---
+
+[2025-07-27 15:13:21] POST /api/files/mkdir/testProject
+リクエスト: {"dir_path":"./Test"}
+レスポンス: <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <title>Page not found at /api/files/mkdir/testProject</title>
+  <meta name="robots" content="NONE,NOARCHIVE">
+  <style>
+    html * { padding:0; margin:0; }
+    body * { padding:10px 20px; }
+    body * * { padding:0; }
+    body { font-family: sans-serif; background:#eee; color:#000; }
+    body > :where(header, main, footer) { border-bottom:1px solid #ddd; }
+    h1 { font-weight:normal; margin-bottom:.4em; }
+    h1 small { font-size:60%; color:#666; font-weight:normal; }
+    table { border:none; border-collapse: collapse; width:100%; }
+    td, th { vertical-align:top; padding:2px 3px; }
+    th { width:12em; text-align:right; color:#666; padding-right:.5em; }
+    #info { background:#f6f6f6; }
+    #info ol { margin: 0.5em 4em; }
+    #info ol li { font-family: monospace; }
+    #summary { background: #ffc; }
+    #explanation { background:#eee; border-bottom: 0px none; }
+    pre.exception_value { font-family: sans-serif; color: #575757; font-size: 1.5em; margin: 10px 0 10px 0; }
+  </style>
+</head>
+<body>
+  <header id="summary">
+    <h1>Page not found <small>(404)</small></h1>
+    
+    <table class="meta">
+      <tr>
+        <th scope="row">Request Method:</th>
+        <td>POST</td>
+      </tr>
+      <tr>
+        <th scope="row">Request URL:</th>
+        <td>http://172.24.67.130:8000/api/files/mkdir/testProject</td>
+      </tr>
+      
+    </table>
+  </header>
+
+  <main id="info">
+    
+      <p>
+      Using the URLconf defined in <code>config.urls</code>,
+      Django tried these URL patterns, in this order:
+      </p>
+      <ol>
+        
+          <li>
+            
+              <code>
+                admin/
+                
+              </code>
+            
+          </li>
+        
+          <li>
+            
+              <code>
+                api/
+                
+              </code>
+            
+              <code>
+                
+                
+              </code>
+            
+              <code>
+                ^files/$
+                [name='file-list']
+              </code>
+            
+          </li>
+        
+          <li>
+            
+              <code>
+                api/
+                
+              </code>
+            
+              <code>
+                
+                
+              </code>
+            
+              <code>
+                ^files\.(?P&lt;format&gt;[a-z0-9]+)/?$
+                [name='file-list']
+              </code>
+            
+          </li>
+        
+          <li>
+            
+              <code>
+                api/
+                
+              </code>
+            
+              <code>
+                
+                
+              </code>
+            
+              <code>
+                ^files/comments/(?P&lt;project_folder&gt;[^/.]+)/(?P&lt;comment_id&gt;[^/.]+)/$
+                [name='file-comment-detail']
+              </code>
+            
+          </li>
+        
+          <li>
+            
+              <code>
+                api/
+                
+              </code>
+            
+              <code>
+                
+                
+              </code>
+            
+              <code>
+                ^files/comments/(?P&lt;project_folder&gt;[^/.]+)/(?P&lt;comment_id&gt;[^/.]+)\.(?P&lt;format&gt;[a-z0-9]+)/?$
+                [name='file-comment-detail']
+              </code>
+            
+          </li>
+        
+          <li>
+            
+              <code>
+                api/
+                
+              </code>
+            
+              <code>
+                
+                
+              </code>
+            
+              <code>
+                ^files/mkdir/(?P&lt;project_folder&gt;[^/.]+)/$
+                [name='file-create-directory']
+              </code>
+            
+          </li>
+        
+          <li>
+            
+              <code>
+                api/
+                
+              </code>
+            
+              <code>
+                
+                
+              </code>
+            
+              <code>
+                ^files/mkdir/(?P&lt;project_folder&gt;[^/.]+)\.(?P&lt;format&gt;[a-z0-9]+)/?$
+                [name='file-create-directory']
+              </code>
+            
+          </li>
+        
+          <li>
+            
+              <code>
+                api/
+                
+              </code>
+            
+              <code>
+                
+                
+              </code>
+            
+              <code>
+                ^files/delete/(?P&lt;project_folder&gt;[^/.]+)/$
+                [name='file-delete-file']
+              </code>
+            
+          </li>
+        
+          <li>
+            
+              <code>
+                api/
+                
+              </code>
+            
+              <code>
+                
+                
+              </code>
+            
+              <code>
+                ^files/delete/(?P&lt;project_folder&gt;[^/.]+)\.(?P&lt;format&gt;[a-z0-9]+)/?$
+                [name='file-delete-file']
+              </code>
+            
+          </li>
+        
+          <li>
+            
+              <code>
+                api/
+                
+              </code>
+            
+              <code>
+                
+                
+              </code>
+            
+              <code>
+                ^files/tree/(?P&lt;project_folder&gt;[^/.]+)/$
+                [name='file-directory-tree']
+              </code>
+            
+          </li>
+        
+          <li>
+            
+              <code>
+                api/
+                
+              </code>
+            
+              <code>
+                
+                
+              </code>
+            
+              <code>
+                ^files/tree/(?P&lt;project_folder&gt;[^/.]+)\.(?P&lt;format&gt;[a-z0-9]+)/?$
+                [name='file-directory-tree']
+              </code>
+            
+          </li>
+        
+          <li>
+            
+              <code>
+                api/
+                
+              </code>
+            
+              <code>
+                
+                
+              </code>
+            
+              <code>
+                ^files/comments/(?P&lt;project_folder&gt;[^/.]+)/$
+                [name='file-file-comments']
+              </code>
+            
+          </li>
+        
+          <li>
+            
+              <code>
+                api/
+                
+              </code>
+            
+              <code>
+                
+                
+              </code>
+            
+              <code>
+                ^files/comments/(?P&lt;project_folder&gt;[^/.]+)\.(?P&lt;format&gt;[a-z0-9]+)/?$
+                [name='file-file-comments']
+              </code>
+            
+          </li>
+        
+          <li>
+            
+              <code>
+                api/
+                
+              </code>
+            
+              <code>
+                
+                
+              </code>
+            
+              <code>
+                ^files/move/(?P&lt;project_folder&gt;[^/.]+)/$
+                [name='file-move-file']
+              </code>
+            
+          </li>
+        
+          <li>
+            
+              <code>
+                api/
+                
+              </code>
+            
+              <code>
+                
+                
+              </code>
+            
+              <code>
+                ^files/move/(?P&lt;project_folder&gt;[^/.]+)\.(?P&lt;format&gt;[a-z0-9]+)/?$
+                [name='file-move-file']
+              </code>
+            
+          </li>
+        
+          <li>
+            
+              <code>
+                api/
+                
+              </code>
+            
+              <code>
+                
+                
+              </code>
+            
+              <code>
+                ^files/search/(?P&lt;project_folder&gt;[^/.]+)/$
+                [name='file-search-files']
+              </code>
+            
+          </li>
+        
+          <li>
+            
+              <code>
+                api/
+                
+              </code>
+            
+              <code>
+                
+                
+              </code>
+            
+              <code>
+                ^files/search/(?P&lt;project_folder&gt;[^/.]+)\.(?P&lt;format&gt;[a-z0-9]+)/?$
+                [name='file-search-files']
+              </code>
+            
+          </li>
+        
+          <li>
+            
+              <code>
+                api/
+                
+              </code>
+            
+              <code>
+                
+                
+              </code>
+            
+              <code>
+                ^files/upload/(?P&lt;project_folder&gt;[^/.]+)/$
+                [name='file-upload']
+              </code>
+            
+          </li>
+        
+          <li>
+            
+              <code>
+                api/
+                
+              </code>
+            
+              <code>
+                
+                
+              </code>
+            
+              <code>
+                ^files/upload/(?P&lt;project_folder&gt;[^/.]+)\.(?P&lt;format&gt;[a-z0-9]+)/?$
+                [name='file-upload']
+              </code>
+            
+          </li>
+        
+          <li>
+            
+              <code>
+                api/
+                
+              </code>
+            
+              <code>
+                
+                
+              </code>
+            
+              <code>
+                ^files/(?P&lt;pk&gt;[^/.]+)/$
+                [name='file-detail']
+              </code>
+            
+          </li>
+        
+          <li>
+            
+              <code>
+                api/
+                
+              </code>
+            
+              <code>
+                
+                
+              </code>
+            
+              <code>
+                ^files/(?P&lt;pk&gt;[^/.]+)\.(?P&lt;format&gt;[a-z0-9]+)/?$
+                [name='file-detail']
+              </code>
+            
+          </li>
+        
+          <li>
+            
+              <code>
+                api/
+                
+              </code>
+            
+              <code>
+                
+                
+              </code>
+            
+              <code>
+                
+                [name='api-root']
+              </code>
+            
+          </li>
+        
+          <li>
+            
+              <code>
+                api/
+                
+              </code>
+            
+              <code>
+                
+                
+              </code>
+            
+              <code>
+                &lt;drf_format_suffix:format&gt;
+                [name='api-root']
+              </code>
+            
+          </li>
+        
+          <li>
+            
+              <code>
+                api/
+                
+              </code>
+            
+              <code>
+                projects/
+                [name='project-list-create']
+              </code>
+            
+          </li>
+        
+          <li>
+            
+              <code>
+                api/
+                
+              </code>
+            
+              <code>
+                projects/deleted/
+                [name='project-deleted']
+              </code>
+            
+          </li>
+        
+          <li>
+            
+              <code>
+                api/
+                
+              </code>
+            
+              <code>
+                projects/&lt;str:pk&gt;/
+                [name='project-detail']
+              </code>
+            
+          </li>
+        
+          <li>
+            
+              <code>
+                api/
+                
+              </code>
+            
+              <code>
+                projects/&lt;str:pk&gt;/restore/
+                [name='project-restore']
+              </code>
+            
+          </li>
+        
+          <li>
+            
+              <code>
+                api/
+                
+              </code>
+            
+              <code>
+                server-info/
+                [name='server_info']
+              </code>
+            
+          </li>
+        
+          <li>
+            
+              <code>
+                ^media/(?P&lt;path&gt;.*)$
+                
+              </code>
+            
+          </li>
+        
+      </ol>
+      <p>
+        
+          The current path, <code>api/files/mkdir/testProject</code>,
+        
+        didn’t match any of these.
+      </p>
+    
+  </main>
+
+  <footer id="explanation">
+    <p>
+      You’re seeing this error because you have <code>DEBUG = True</code> in
+      your Django settings file. Change that to <code>False</code>, and Django
+      will display a standard 404 page.
+    </p>
+  </footer>
+</body>
+</html>
+
+ステータス: 404
+---
+
+[2025-07-27 15:13:25] POST /api/files/mkdir/testProject
+リクエスト: {"dir_path":"./Test"}
+レスポンス: <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <title>Page not found at /api/files/mkdir/testProject</title>
+  <meta name="robots" content="NONE,NOARCHIVE">
+  <style>
+    html * { padding:0; margin:0; }
+    body * { padding:10px 20px; }
+    body * * { padding:0; }
+    body { font-family: sans-serif; background:#eee; color:#000; }
+    body > :where(header, main, footer) { border-bottom:1px solid #ddd; }
+    h1 { font-weight:normal; margin-bottom:.4em; }
+    h1 small { font-size:60%; color:#666; font-weight:normal; }
+    table { border:none; border-collapse: collapse; width:100%; }
+    td, th { vertical-align:top; padding:2px 3px; }
+    th { width:12em; text-align:right; color:#666; padding-right:.5em; }
+    #info { background:#f6f6f6; }
+    #info ol { margin: 0.5em 4em; }
+    #info ol li { font-family: monospace; }
+    #summary { background: #ffc; }
+    #explanation { background:#eee; border-bottom: 0px none; }
+    pre.exception_value { font-family: sans-serif; color: #575757; font-size: 1.5em; margin: 10px 0 10px 0; }
+  </style>
+</head>
+<body>
+  <header id="summary">
+    <h1>Page not found <small>(404)</small></h1>
+    
+    <table class="meta">
+      <tr>
+        <th scope="row">Request Method:</th>
+        <td>POST</td>
+      </tr>
+      <tr>
+        <th scope="row">Request URL:</th>
+        <td>http://172.24.67.130:8000/api/files/mkdir/testProject</td>
+      </tr>
+      
+    </table>
+  </header>
+
+  <main id="info">
+    
+      <p>
+      Using the URLconf defined in <code>config.urls</code>,
+      Django tried these URL patterns, in this order:
+      </p>
+      <ol>
+        
+          <li>
+            
+              <code>
+                admin/
+                
+              </code>
+            
+          </li>
+        
+          <li>
+            
+              <code>
+                api/
+                
+              </code>
+            
+              <code>
+                
+                
+              </code>
+            
+              <code>
+                ^files/$
+                [name='file-list']
+              </code>
+            
+          </li>
+        
+          <li>
+            
+              <code>
+                api/
+                
+              </code>
+            
+              <code>
+                
+                
+              </code>
+            
+              <code>
+                ^files\.(?P&lt;format&gt;[a-z0-9]+)/?$
+                [name='file-list']
+              </code>
+            
+          </li>
+        
+          <li>
+            
+              <code>
+                api/
+                
+              </code>
+            
+              <code>
+                
+                
+              </code>
+            
+              <code>
+                ^files/comments/(?P&lt;project_folder&gt;[^/.]+)/(?P&lt;comment_id&gt;[^/.]+)/$
+                [name='file-comment-detail']
+              </code>
+            
+          </li>
+        
+          <li>
+            
+              <code>
+                api/
+                
+              </code>
+            
+              <code>
+                
+                
+              </code>
+            
+              <code>
+                ^files/comments/(?P&lt;project_folder&gt;[^/.]+)/(?P&lt;comment_id&gt;[^/.]+)\.(?P&lt;format&gt;[a-z0-9]+)/?$
+                [name='file-comment-detail']
+              </code>
+            
+          </li>
+        
+          <li>
+            
+              <code>
+                api/
+                
+              </code>
+            
+              <code>
+                
+                
+              </code>
+            
+              <code>
+                ^files/mkdir/(?P&lt;project_folder&gt;[^/.]+)/$
+                [name='file-create-directory']
+              </code>
+            
+          </li>
+        
+          <li>
+            
+              <code>
+                api/
+                
+              </code>
+            
+              <code>
+                
+                
+              </code>
+            
+              <code>
+                ^files/mkdir/(?P&lt;project_folder&gt;[^/.]+)\.(?P&lt;format&gt;[a-z0-9]+)/?$
+                [name='file-create-directory']
+              </code>
+            
+          </li>
+        
+          <li>
+            
+              <code>
+                api/
+                
+              </code>
+            
+              <code>
+                
+                
+              </code>
+            
+              <code>
+                ^files/delete/(?P&lt;project_folder&gt;[^/.]+)/$
+                [name='file-delete-file']
+              </code>
+            
+          </li>
+        
+          <li>
+            
+              <code>
+                api/
+                
+              </code>
+            
+              <code>
+                
+                
+              </code>
+            
+              <code>
+                ^files/delete/(?P&lt;project_folder&gt;[^/.]+)\.(?P&lt;format&gt;[a-z0-9]+)/?$
+                [name='file-delete-file']
+              </code>
+            
+          </li>
+        
+          <li>
+            
+              <code>
+                api/
+                
+              </code>
+            
+              <code>
+                
+                
+              </code>
+            
+              <code>
+                ^files/tree/(?P&lt;project_folder&gt;[^/.]+)/$
+                [name='file-directory-tree']
+              </code>
+            
+          </li>
+        
+          <li>
+            
+              <code>
+                api/
+                
+              </code>
+            
+              <code>
+                
+                
+              </code>
+            
+              <code>
+                ^files/tree/(?P&lt;project_folder&gt;[^/.]+)\.(?P&lt;format&gt;[a-z0-9]+)/?$
+                [name='file-directory-tree']
+              </code>
+            
+          </li>
+        
+          <li>
+            
+              <code>
+                api/
+                
+              </code>
+            
+              <code>
+                
+                
+              </code>
+            
+              <code>
+                ^files/comments/(?P&lt;project_folder&gt;[^/.]+)/$
+                [name='file-file-comments']
+              </code>
+            
+          </li>
+        
+          <li>
+            
+              <code>
+                api/
+                
+              </code>
+            
+              <code>
+                
+                
+              </code>
+            
+              <code>
+                ^files/comments/(?P&lt;project_folder&gt;[^/.]+)\.(?P&lt;format&gt;[a-z0-9]+)/?$
+                [name='file-file-comments']
+              </code>
+            
+          </li>
+        
+          <li>
+            
+              <code>
+                api/
+                
+              </code>
+            
+              <code>
+                
+                
+              </code>
+            
+              <code>
+                ^files/move/(?P&lt;project_folder&gt;[^/.]+)/$
+                [name='file-move-file']
+              </code>
+            
+          </li>
+        
+          <li>
+            
+              <code>
+                api/
+                
+              </code>
+            
+              <code>
+                
+                
+              </code>
+            
+              <code>
+                ^files/move/(?P&lt;project_folder&gt;[^/.]+)\.(?P&lt;format&gt;[a-z0-9]+)/?$
+                [name='file-move-file']
+              </code>
+            
+          </li>
+        
+          <li>
+            
+              <code>
+                api/
+                
+              </code>
+            
+              <code>
+                
+                
+              </code>
+            
+              <code>
+                ^files/search/(?P&lt;project_folder&gt;[^/.]+)/$
+                [name='file-search-files']
+              </code>
+            
+          </li>
+        
+          <li>
+            
+              <code>
+                api/
+                
+              </code>
+            
+              <code>
+                
+                
+              </code>
+            
+              <code>
+                ^files/search/(?P&lt;project_folder&gt;[^/.]+)\.(?P&lt;format&gt;[a-z0-9]+)/?$
+                [name='file-search-files']
+              </code>
+            
+          </li>
+        
+          <li>
+            
+              <code>
+                api/
+                
+              </code>
+            
+              <code>
+                
+                
+              </code>
+            
+              <code>
+                ^files/upload/(?P&lt;project_folder&gt;[^/.]+)/$
+                [name='file-upload']
+              </code>
+            
+          </li>
+        
+          <li>
+            
+              <code>
+                api/
+                
+              </code>
+            
+              <code>
+                
+                
+              </code>
+            
+              <code>
+                ^files/upload/(?P&lt;project_folder&gt;[^/.]+)\.(?P&lt;format&gt;[a-z0-9]+)/?$
+                [name='file-upload']
+              </code>
+            
+          </li>
+        
+          <li>
+            
+              <code>
+                api/
+                
+              </code>
+            
+              <code>
+                
+                
+              </code>
+            
+              <code>
+                ^files/(?P&lt;pk&gt;[^/.]+)/$
+                [name='file-detail']
+              </code>
+            
+          </li>
+        
+          <li>
+            
+              <code>
+                api/
+                
+              </code>
+            
+              <code>
+                
+                
+              </code>
+            
+              <code>
+                ^files/(?P&lt;pk&gt;[^/.]+)\.(?P&lt;format&gt;[a-z0-9]+)/?$
+                [name='file-detail']
+              </code>
+            
+          </li>
+        
+          <li>
+            
+              <code>
+                api/
+                
+              </code>
+            
+              <code>
+                
+                
+              </code>
+            
+              <code>
+                
+                [name='api-root']
+              </code>
+            
+          </li>
+        
+          <li>
+            
+              <code>
+                api/
+                
+              </code>
+            
+              <code>
+                
+                
+              </code>
+            
+              <code>
+                &lt;drf_format_suffix:format&gt;
+                [name='api-root']
+              </code>
+            
+          </li>
+        
+          <li>
+            
+              <code>
+                api/
+                
+              </code>
+            
+              <code>
+                projects/
+                [name='project-list-create']
+              </code>
+            
+          </li>
+        
+          <li>
+            
+              <code>
+                api/
+                
+              </code>
+            
+              <code>
+                projects/deleted/
+                [name='project-deleted']
+              </code>
+            
+          </li>
+        
+          <li>
+            
+              <code>
+                api/
+                
+              </code>
+            
+              <code>
+                projects/&lt;str:pk&gt;/
+                [name='project-detail']
+              </code>
+            
+          </li>
+        
+          <li>
+            
+              <code>
+                api/
+                
+              </code>
+            
+              <code>
+                projects/&lt;str:pk&gt;/restore/
+                [name='project-restore']
+              </code>
+            
+          </li>
+        
+          <li>
+            
+              <code>
+                api/
+                
+              </code>
+            
+              <code>
+                server-info/
+                [name='server_info']
+              </code>
+            
+          </li>
+        
+          <li>
+            
+              <code>
+                ^media/(?P&lt;path&gt;.*)$
+                
+              </code>
+            
+          </li>
+        
+      </ol>
+      <p>
+        
+          The current path, <code>api/files/mkdir/testProject</code>,
+        
+        didn’t match any of these.
+      </p>
+    
+  </main>
+
+  <footer id="explanation">
+    <p>
+      You’re seeing this error because you have <code>DEBUG = True</code> in
+      your Django settings file. Change that to <code>False</code>, and Django
+      will display a standard 404 page.
+    </p>
+  </footer>
+</body>
+</html>
+
+ステータス: 404
+---
+
+[2025-07-27 15:21:12] POST /api/files/mkdir/testProject
+リクエスト: {"dir_path":"./テスト"}
+レスポンス: <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <title>Page not found at /api/files/mkdir/testProject</title>
+  <meta name="robots" content="NONE,NOARCHIVE">
+  <style>
+    html * { padding:0; margin:0; }
+    body * { padding:10px 20px; }
+    body * * { padding:0; }
+    body { font-family: sans-serif; background:#eee; color:#000; }
+    body > :where(header, main, footer) { border-bottom:1px solid #ddd; }
+    h1 { font-weight:normal; margin-bottom:.4em; }
+    h1 small { font-size:60%; color:#666; font-weight:normal; }
+    table { border:none; border-collapse: collapse; width:100%; }
+    td, th { vertical-align:top; padding:2px 3px; }
+    th { width:12em; text-align:right; color:#666; padding-right:.5em; }
+    #info { background:#f6f6f6; }
+    #info ol { margin: 0.5em 4em; }
+    #info ol li { font-family: monospace; }
+    #summary { background: #ffc; }
+    #explanation { background:#eee; border-bottom: 0px none; }
+    pre.exception_value { font-family: sans-serif; color: #575757; font-size: 1.5em; margin: 10px 0 10px 0; }
+  </style>
+</head>
+<body>
+  <header id="summary">
+    <h1>Page not found <small>(404)</small></h1>
+    
+    <table class="meta">
+      <tr>
+        <th scope="row">Request Method:</th>
+        <td>POST</td>
+      </tr>
+      <tr>
+        <th scope="row">Request URL:</th>
+        <td>http://172.24.67.130:8000/api/files/mkdir/testProject</td>
+      </tr>
+      
+    </table>
+  </header>
+
+  <main id="info">
+    
+      <p>
+      Using the URLconf defined in <code>config.urls</code>,
+      Django tried these URL patterns, in this order:
+      </p>
+      <ol>
+        
+          <li>
+            
+              <code>
+                admin/
+                
+              </code>
+            
+          </li>
+        
+          <li>
+            
+              <code>
+                api/
+                
+              </code>
+            
+              <code>
+                
+                
+              </code>
+            
+              <code>
+                ^files/$
+                [name='file-list']
+              </code>
+            
+          </li>
+        
+          <li>
+            
+              <code>
+                api/
+                
+              </code>
+            
+              <code>
+                
+                
+              </code>
+            
+              <code>
+                ^files\.(?P&lt;format&gt;[a-z0-9]+)/?$
+                [name='file-list']
+              </code>
+            
+          </li>
+        
+          <li>
+            
+              <code>
+                api/
+                
+              </code>
+            
+              <code>
+                
+                
+              </code>
+            
+              <code>
+                ^files/comments/(?P&lt;project_folder&gt;[^/.]+)/(?P&lt;comment_id&gt;[^/.]+)/$
+                [name='file-comment-detail']
+              </code>
+            
+          </li>
+        
+          <li>
+            
+              <code>
+                api/
+                
+              </code>
+            
+              <code>
+                
+                
+              </code>
+            
+              <code>
+                ^files/comments/(?P&lt;project_folder&gt;[^/.]+)/(?P&lt;comment_id&gt;[^/.]+)\.(?P&lt;format&gt;[a-z0-9]+)/?$
+                [name='file-comment-detail']
+              </code>
+            
+          </li>
+        
+          <li>
+            
+              <code>
+                api/
+                
+              </code>
+            
+              <code>
+                
+                
+              </code>
+            
+              <code>
+                ^files/mkdir/(?P&lt;project_folder&gt;[^/.]+)/$
+                [name='file-create-directory']
+              </code>
+            
+          </li>
+        
+          <li>
+            
+              <code>
+                api/
+                
+              </code>
+            
+              <code>
+                
+                
+              </code>
+            
+              <code>
+                ^files/mkdir/(?P&lt;project_folder&gt;[^/.]+)\.(?P&lt;format&gt;[a-z0-9]+)/?$
+                [name='file-create-directory']
+              </code>
+            
+          </li>
+        
+          <li>
+            
+              <code>
+                api/
+                
+              </code>
+            
+              <code>
+                
+                
+              </code>
+            
+              <code>
+                ^files/delete/(?P&lt;project_folder&gt;[^/.]+)/$
+                [name='file-delete-file']
+              </code>
+            
+          </li>
+        
+          <li>
+            
+              <code>
+                api/
+                
+              </code>
+            
+              <code>
+                
+                
+              </code>
+            
+              <code>
+                ^files/delete/(?P&lt;project_folder&gt;[^/.]+)\.(?P&lt;format&gt;[a-z0-9]+)/?$
+                [name='file-delete-file']
+              </code>
+            
+          </li>
+        
+          <li>
+            
+              <code>
+                api/
+                
+              </code>
+            
+              <code>
+                
+                
+              </code>
+            
+              <code>
+                ^files/tree/(?P&lt;project_folder&gt;[^/.]+)/$
+                [name='file-directory-tree']
+              </code>
+            
+          </li>
+        
+          <li>
+            
+              <code>
+                api/
+                
+              </code>
+            
+              <code>
+                
+                
+              </code>
+            
+              <code>
+                ^files/tree/(?P&lt;project_folder&gt;[^/.]+)\.(?P&lt;format&gt;[a-z0-9]+)/?$
+                [name='file-directory-tree']
+              </code>
+            
+          </li>
+        
+          <li>
+            
+              <code>
+                api/
+                
+              </code>
+            
+              <code>
+                
+                
+              </code>
+            
+              <code>
+                ^files/comments/(?P&lt;project_folder&gt;[^/.]+)/$
+                [name='file-file-comments']
+              </code>
+            
+          </li>
+        
+          <li>
+            
+              <code>
+                api/
+                
+              </code>
+            
+              <code>
+                
+                
+              </code>
+            
+              <code>
+                ^files/comments/(?P&lt;project_folder&gt;[^/.]+)\.(?P&lt;format&gt;[a-z0-9]+)/?$
+                [name='file-file-comments']
+              </code>
+            
+          </li>
+        
+          <li>
+            
+              <code>
+                api/
+                
+              </code>
+            
+              <code>
+                
+                
+              </code>
+            
+              <code>
+                ^files/move/(?P&lt;project_folder&gt;[^/.]+)/$
+                [name='file-move-file']
+              </code>
+            
+          </li>
+        
+          <li>
+            
+              <code>
+                api/
+                
+              </code>
+            
+              <code>
+                
+                
+              </code>
+            
+              <code>
+                ^files/move/(?P&lt;project_folder&gt;[^/.]+)\.(?P&lt;format&gt;[a-z0-9]+)/?$
+                [name='file-move-file']
+              </code>
+            
+          </li>
+        
+          <li>
+            
+              <code>
+                api/
+                
+              </code>
+            
+              <code>
+                
+                
+              </code>
+            
+              <code>
+                ^files/search/(?P&lt;project_folder&gt;[^/.]+)/$
+                [name='file-search-files']
+              </code>
+            
+          </li>
+        
+          <li>
+            
+              <code>
+                api/
+                
+              </code>
+            
+              <code>
+                
+                
+              </code>
+            
+              <code>
+                ^files/search/(?P&lt;project_folder&gt;[^/.]+)\.(?P&lt;format&gt;[a-z0-9]+)/?$
+                [name='file-search-files']
+              </code>
+            
+          </li>
+        
+          <li>
+            
+              <code>
+                api/
+                
+              </code>
+            
+              <code>
+                
+                
+              </code>
+            
+              <code>
+                ^files/upload/(?P&lt;project_folder&gt;[^/.]+)/$
+                [name='file-upload']
+              </code>
+            
+          </li>
+        
+          <li>
+            
+              <code>
+                api/
+                
+              </code>
+            
+              <code>
+                
+                
+              </code>
+            
+              <code>
+                ^files/upload/(?P&lt;project_folder&gt;[^/.]+)\.(?P&lt;format&gt;[a-z0-9]+)/?$
+                [name='file-upload']
+              </code>
+            
+          </li>
+        
+          <li>
+            
+              <code>
+                api/
+                
+              </code>
+            
+              <code>
+                
+                
+              </code>
+            
+              <code>
+                ^files/(?P&lt;pk&gt;[^/.]+)/$
+                [name='file-detail']
+              </code>
+            
+          </li>
+        
+          <li>
+            
+              <code>
+                api/
+                
+              </code>
+            
+              <code>
+                
+                
+              </code>
+            
+              <code>
+                ^files/(?P&lt;pk&gt;[^/.]+)\.(?P&lt;format&gt;[a-z0-9]+)/?$
+                [name='file-detail']
+              </code>
+            
+          </li>
+        
+          <li>
+            
+              <code>
+                api/
+                
+              </code>
+            
+              <code>
+                
+                
+              </code>
+            
+              <code>
+                
+                [name='api-root']
+              </code>
+            
+          </li>
+        
+          <li>
+            
+              <code>
+                api/
+                
+              </code>
+            
+              <code>
+                
+                
+              </code>
+            
+              <code>
+                &lt;drf_format_suffix:format&gt;
+                [name='api-root']
+              </code>
+            
+          </li>
+        
+          <li>
+            
+              <code>
+                api/
+                
+              </code>
+            
+              <code>
+                projects/
+                [name='project-list-create']
+              </code>
+            
+          </li>
+        
+          <li>
+            
+              <code>
+                api/
+                
+              </code>
+            
+              <code>
+                projects/deleted/
+                [name='project-deleted']
+              </code>
+            
+          </li>
+        
+          <li>
+            
+              <code>
+                api/
+                
+              </code>
+            
+              <code>
+                projects/&lt;str:pk&gt;/
+                [name='project-detail']
+              </code>
+            
+          </li>
+        
+          <li>
+            
+              <code>
+                api/
+                
+              </code>
+            
+              <code>
+                projects/&lt;str:pk&gt;/restore/
+                [name='project-restore']
+              </code>
+            
+          </li>
+        
+          <li>
+            
+              <code>
+                api/
+                
+              </code>
+            
+              <code>
+                server-info/
+                [name='server_info']
+              </code>
+            
+          </li>
+        
+          <li>
+            
+              <code>
+                ^media/(?P&lt;path&gt;.*)$
+                
+              </code>
+            
+          </li>
+        
+      </ol>
+      <p>
+        
+          The current path, <code>api/files/mkdir/testProject</code>,
+        
+        didn’t match any of these.
+      </p>
+    
+  </main>
+
+  <footer id="explanation">
+    <p>
+      You’re seeing this error because you have <code>DEBUG = True</code> in
+      your Django settings file. Change that to <code>False</code>, and Django
+      will display a standard 404 page.
+    </p>
+  </footer>
+</body>
+</html>
+
+ステータス: 404
+---
+
+[2025-07-27 15:21:17] POST /api/files/mkdir/testProject
+リクエスト: {"dir_path":"./テスト"}
+レスポンス: <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <title>Page not found at /api/files/mkdir/testProject</title>
+  <meta name="robots" content="NONE,NOARCHIVE">
+  <style>
+    html * { padding:0; margin:0; }
+    body * { padding:10px 20px; }
+    body * * { padding:0; }
+    body { font-family: sans-serif; background:#eee; color:#000; }
+    body > :where(header, main, footer) { border-bottom:1px solid #ddd; }
+    h1 { font-weight:normal; margin-bottom:.4em; }
+    h1 small { font-size:60%; color:#666; font-weight:normal; }
+    table { border:none; border-collapse: collapse; width:100%; }
+    td, th { vertical-align:top; padding:2px 3px; }
+    th { width:12em; text-align:right; color:#666; padding-right:.5em; }
+    #info { background:#f6f6f6; }
+    #info ol { margin: 0.5em 4em; }
+    #info ol li { font-family: monospace; }
+    #summary { background: #ffc; }
+    #explanation { background:#eee; border-bottom: 0px none; }
+    pre.exception_value { font-family: sans-serif; color: #575757; font-size: 1.5em; margin: 10px 0 10px 0; }
+  </style>
+</head>
+<body>
+  <header id="summary">
+    <h1>Page not found <small>(404)</small></h1>
+    
+    <table class="meta">
+      <tr>
+        <th scope="row">Request Method:</th>
+        <td>POST</td>
+      </tr>
+      <tr>
+        <th scope="row">Request URL:</th>
+        <td>http://172.24.67.130:8000/api/files/mkdir/testProject</td>
+      </tr>
+      
+    </table>
+  </header>
+
+  <main id="info">
+    
+      <p>
+      Using the URLconf defined in <code>config.urls</code>,
+      Django tried these URL patterns, in this order:
+      </p>
+      <ol>
+        
+          <li>
+            
+              <code>
+                admin/
+                
+              </code>
+            
+          </li>
+        
+          <li>
+            
+              <code>
+                api/
+                
+              </code>
+            
+              <code>
+                
+                
+              </code>
+            
+              <code>
+                ^files/$
+                [name='file-list']
+              </code>
+            
+          </li>
+        
+          <li>
+            
+              <code>
+                api/
+                
+              </code>
+            
+              <code>
+                
+                
+              </code>
+            
+              <code>
+                ^files\.(?P&lt;format&gt;[a-z0-9]+)/?$
+                [name='file-list']
+              </code>
+            
+          </li>
+        
+          <li>
+            
+              <code>
+                api/
+                
+              </code>
+            
+              <code>
+                
+                
+              </code>
+            
+              <code>
+                ^files/comments/(?P&lt;project_folder&gt;[^/.]+)/(?P&lt;comment_id&gt;[^/.]+)/$
+                [name='file-comment-detail']
+              </code>
+            
+          </li>
+        
+          <li>
+            
+              <code>
+                api/
+                
+              </code>
+            
+              <code>
+                
+                
+              </code>
+            
+              <code>
+                ^files/comments/(?P&lt;project_folder&gt;[^/.]+)/(?P&lt;comment_id&gt;[^/.]+)\.(?P&lt;format&gt;[a-z0-9]+)/?$
+                [name='file-comment-detail']
+              </code>
+            
+          </li>
+        
+          <li>
+            
+              <code>
+                api/
+                
+              </code>
+            
+              <code>
+                
+                
+              </code>
+            
+              <code>
+                ^files/mkdir/(?P&lt;project_folder&gt;[^/.]+)/$
+                [name='file-create-directory']
+              </code>
+            
+          </li>
+        
+          <li>
+            
+              <code>
+                api/
+                
+              </code>
+            
+              <code>
+                
+                
+              </code>
+            
+              <code>
+                ^files/mkdir/(?P&lt;project_folder&gt;[^/.]+)\.(?P&lt;format&gt;[a-z0-9]+)/?$
+                [name='file-create-directory']
+              </code>
+            
+          </li>
+        
+          <li>
+            
+              <code>
+                api/
+                
+              </code>
+            
+              <code>
+                
+                
+              </code>
+            
+              <code>
+                ^files/delete/(?P&lt;project_folder&gt;[^/.]+)/$
+                [name='file-delete-file']
+              </code>
+            
+          </li>
+        
+          <li>
+            
+              <code>
+                api/
+                
+              </code>
+            
+              <code>
+                
+                
+              </code>
+            
+              <code>
+                ^files/delete/(?P&lt;project_folder&gt;[^/.]+)\.(?P&lt;format&gt;[a-z0-9]+)/?$
+                [name='file-delete-file']
+              </code>
+            
+          </li>
+        
+          <li>
+            
+              <code>
+                api/
+                
+              </code>
+            
+              <code>
+                
+                
+              </code>
+            
+              <code>
+                ^files/tree/(?P&lt;project_folder&gt;[^/.]+)/$
+                [name='file-directory-tree']
+              </code>
+            
+          </li>
+        
+          <li>
+            
+              <code>
+                api/
+                
+              </code>
+            
+              <code>
+                
+                
+              </code>
+            
+              <code>
+                ^files/tree/(?P&lt;project_folder&gt;[^/.]+)\.(?P&lt;format&gt;[a-z0-9]+)/?$
+                [name='file-directory-tree']
+              </code>
+            
+          </li>
+        
+          <li>
+            
+              <code>
+                api/
+                
+              </code>
+            
+              <code>
+                
+                
+              </code>
+            
+              <code>
+                ^files/comments/(?P&lt;project_folder&gt;[^/.]+)/$
+                [name='file-file-comments']
+              </code>
+            
+          </li>
+        
+          <li>
+            
+              <code>
+                api/
+                
+              </code>
+            
+              <code>
+                
+                
+              </code>
+            
+              <code>
+                ^files/comments/(?P&lt;project_folder&gt;[^/.]+)\.(?P&lt;format&gt;[a-z0-9]+)/?$
+                [name='file-file-comments']
+              </code>
+            
+          </li>
+        
+          <li>
+            
+              <code>
+                api/
+                
+              </code>
+            
+              <code>
+                
+                
+              </code>
+            
+              <code>
+                ^files/move/(?P&lt;project_folder&gt;[^/.]+)/$
+                [name='file-move-file']
+              </code>
+            
+          </li>
+        
+          <li>
+            
+              <code>
+                api/
+                
+              </code>
+            
+              <code>
+                
+                
+              </code>
+            
+              <code>
+                ^files/move/(?P&lt;project_folder&gt;[^/.]+)\.(?P&lt;format&gt;[a-z0-9]+)/?$
+                [name='file-move-file']
+              </code>
+            
+          </li>
+        
+          <li>
+            
+              <code>
+                api/
+                
+              </code>
+            
+              <code>
+                
+                
+              </code>
+            
+              <code>
+                ^files/search/(?P&lt;project_folder&gt;[^/.]+)/$
+                [name='file-search-files']
+              </code>
+            
+          </li>
+        
+          <li>
+            
+              <code>
+                api/
+                
+              </code>
+            
+              <code>
+                
+                
+              </code>
+            
+              <code>
+                ^files/search/(?P&lt;project_folder&gt;[^/.]+)\.(?P&lt;format&gt;[a-z0-9]+)/?$
+                [name='file-search-files']
+              </code>
+            
+          </li>
+        
+          <li>
+            
+              <code>
+                api/
+                
+              </code>
+            
+              <code>
+                
+                
+              </code>
+            
+              <code>
+                ^files/upload/(?P&lt;project_folder&gt;[^/.]+)/$
+                [name='file-upload']
+              </code>
+            
+          </li>
+        
+          <li>
+            
+              <code>
+                api/
+                
+              </code>
+            
+              <code>
+                
+                
+              </code>
+            
+              <code>
+                ^files/upload/(?P&lt;project_folder&gt;[^/.]+)\.(?P&lt;format&gt;[a-z0-9]+)/?$
+                [name='file-upload']
+              </code>
+            
+          </li>
+        
+          <li>
+            
+              <code>
+                api/
+                
+              </code>
+            
+              <code>
+                
+                
+              </code>
+            
+              <code>
+                ^files/(?P&lt;pk&gt;[^/.]+)/$
+                [name='file-detail']
+              </code>
+            
+          </li>
+        
+          <li>
+            
+              <code>
+                api/
+                
+              </code>
+            
+              <code>
+                
+                
+              </code>
+            
+              <code>
+                ^files/(?P&lt;pk&gt;[^/.]+)\.(?P&lt;format&gt;[a-z0-9]+)/?$
+                [name='file-detail']
+              </code>
+            
+          </li>
+        
+          <li>
+            
+              <code>
+                api/
+                
+              </code>
+            
+              <code>
+                
+                
+              </code>
+            
+              <code>
+                
+                [name='api-root']
+              </code>
+            
+          </li>
+        
+          <li>
+            
+              <code>
+                api/
+                
+              </code>
+            
+              <code>
+                
+                
+              </code>
+            
+              <code>
+                &lt;drf_format_suffix:format&gt;
+                [name='api-root']
+              </code>
+            
+          </li>
+        
+          <li>
+            
+              <code>
+                api/
+                
+              </code>
+            
+              <code>
+                projects/
+                [name='project-list-create']
+              </code>
+            
+          </li>
+        
+          <li>
+            
+              <code>
+                api/
+                
+              </code>
+            
+              <code>
+                projects/deleted/
+                [name='project-deleted']
+              </code>
+            
+          </li>
+        
+          <li>
+            
+              <code>
+                api/
+                
+              </code>
+            
+              <code>
+                projects/&lt;str:pk&gt;/
+                [name='project-detail']
+              </code>
+            
+          </li>
+        
+          <li>
+            
+              <code>
+                api/
+                
+              </code>
+            
+              <code>
+                projects/&lt;str:pk&gt;/restore/
+                [name='project-restore']
+              </code>
+            
+          </li>
+        
+          <li>
+            
+              <code>
+                api/
+                
+              </code>
+            
+              <code>
+                server-info/
+                [name='server_info']
+              </code>
+            
+          </li>
+        
+          <li>
+            
+              <code>
+                ^media/(?P&lt;path&gt;.*)$
+                
+              </code>
+            
+          </li>
+        
+      </ol>
+      <p>
+        
+          The current path, <code>api/files/mkdir/testProject</code>,
+        
+        didn’t match any of these.
+      </p>
+    
+  </main>
+
+  <footer id="explanation">
+    <p>
+      You’re seeing this error because you have <code>DEBUG = True</code> in
+      your Django settings file. Change that to <code>False</code>, and Django
+      will display a standard 404 page.
+    </p>
+  </footer>
+</body>
+</html>
+
+ステータス: 404
+---
+
+[2025-07-27 15:23:21] GET /api/server-info/
+リクエスト: {}
+レスポンス: {
+  "debug_mode": true,
+  "environment": "development",
+  "django_version": "5.2.4",
+  "api_version": "1.0.0"
+}
+ステータス: 200
+---
+
+[2025-07-27 15:23:25] POST /api/files/mkdir/testProject/
+リクエスト: {"dir_path": "test_folder"}
+レスポンス: {
+  "detail": "リクエストのメディアタイプ \"application/json\" はサポートされていません。"
+}
+ステータス: 415
+---
+
+[2025-07-27 15:23:36] POST /api/files/mkdir/testProject/
+リクエスト: dir_path=test_folder
+レスポンス: {
+  "success": true,
+  "message": "Directory created successfully",
+  "path": "test_folder"
+}
+ステータス: 200
+---
+
+[2025-07-27 15:39:38] GET /api/projects/
+リクエスト: {'lang': ['ja']}
+レスポンス: {
+  "version": "1.0.0",
+  "last_updated": "2025-07-27T10:38:36.035931",
+  "retention_months": 13,
+  "projects": [
+    {
+      "folder_name": "testProject",
+      "project_name": "テストのためのプロジェクト",
+      "description": "テストです。",
+      "tags": [],
+      "status": "active",
+      "id": "2cec431a-0416-4451-a43b-fdc85e0c5c62",
+      "created_date": "2025-07-24T23:31:44.186614",
+      "modified_date": "2025-07-24T23:31:44.186614"
+    },
+    {
+      "id": "bb5830e9-e13c-4960-bc25-fa8045a272e9",
+      "folder_name": "save_test",
+      "project_name": "セーブテスト",
+      "description": "セーブテスト",
+      "created_date": "2025-07-27T10:37:56.948759",
+      "modified_date": "2025-07-27T10:37:56.948769",
+      "tags": [],
+      "status": "active"
+    },
+    {
+      "folder_name": "minimal_test",
+      "project_name": "Minimal Test",
+      "description": "Minimal test project",
+      "id": "a908299f-f131-4f70-8b16-43fd9f01b7d2",
+      "created_date": "2025-07-27T10:38:36.031250",
+      "modified_date": "2025-07-27T10:38:36.031250"
+    }
+  ],
+  "archived_projects": [
+    {
+      "folder_name": "direct_test_project",
+      "project_name": "直接テストプロジェクト",
+      "description": "直接テスト用プロジェクト",
+      "tags": [
+        "test"
+      ],
+      "status": "active",
+      "id": "82886a55-fe6c-4559-9dfa-27aeb21e924e",
+      "created_date": "2025-07-27T10:37:56.949497",
+      "modified_date": "2025-07-27T10:37:56.949497",
+      "archive_filename": "direct_test_project_20250727_103756.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/direct_test_project_20250727_103756.zip",
+      "archive_size": 347,
+      "deletion_date": "2025-07-27T10:37:56.952974",
+      "reason": "ユーザー削除"
+    },
+    {
+      "folder_name": "minimal_test",
+      "project_name": "Minimal Test",
+      "description": "Minimal test project",
+      "id": "1c91b519-f4e1-428c-833d-bfbc95483b9d",
+      "created_date": "2025-07-27T10:38:36.026164",
+      "modified_date": "2025-07-27T10:38:36.026164",
+      "archive_filename": "minimal_test_20250727_103836.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/minimal_test_20250727_103836.zip",
+      "archive_size": 292,
+      "deletion_date": "2025-07-27T10:38:36.030515",
+      "reason": "ユーザー削除"
+    },
+    {
+      "folder_name": "success_test_project",
+      "project_name": "成功テストプロジェクト",
+      "description": "正常に作成されるべきプロジェクト",
+      "tags": [
+        "success",
+        "test"
+      ],
+      "status": "active",
+      "id": "658786da-0f80-4434-bf7c-4e389df4b9b2",
+      "created_date": "2025-07-27T10:38:36.034282",
+      "modified_date": "2025-07-27T10:38:36.034282",
+      "archive_filename": "success_test_project_20250727_103836.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/success_test_project_20250727_103836.zip",
+      "archive_size": 385,
+      "deletion_date": "2025-07-27T10:38:36.035929",
+      "reason": "ユーザー削除"
+    }
+  ],
+  "reserved_folders": [
+    "node_modules",
+    "dist",
+    "build",
+    ".git",
+    "backend",
+    "frontend",
+    "trash",
+    "recycle_bin",
+    "deleted",
+    ".trash"
+  ]
+}
+ステータス: 200
+---
+
+[2025-07-27 15:39:38] GET /api/projects/
+リクエスト: {'lang': ['ja']}
+レスポンス: {
+  "version": "1.0.0",
+  "last_updated": "2025-07-27T10:38:36.035931",
+  "retention_months": 13,
+  "projects": [
+    {
+      "folder_name": "testProject",
+      "project_name": "テストのためのプロジェクト",
+      "description": "テストです。",
+      "tags": [],
+      "status": "active",
+      "id": "2cec431a-0416-4451-a43b-fdc85e0c5c62",
+      "created_date": "2025-07-24T23:31:44.186614",
+      "modified_date": "2025-07-24T23:31:44.186614"
+    },
+    {
+      "id": "bb5830e9-e13c-4960-bc25-fa8045a272e9",
+      "folder_name": "save_test",
+      "project_name": "セーブテスト",
+      "description": "セーブテスト",
+      "created_date": "2025-07-27T10:37:56.948759",
+      "modified_date": "2025-07-27T10:37:56.948769",
+      "tags": [],
+      "status": "active"
+    },
+    {
+      "folder_name": "minimal_test",
+      "project_name": "Minimal Test",
+      "description": "Minimal test project",
+      "id": "a908299f-f131-4f70-8b16-43fd9f01b7d2",
+      "created_date": "2025-07-27T10:38:36.031250",
+      "modified_date": "2025-07-27T10:38:36.031250"
+    }
+  ],
+  "archived_projects": [
+    {
+      "folder_name": "direct_test_project",
+      "project_name": "直接テストプロジェクト",
+      "description": "直接テスト用プロジェクト",
+      "tags": [
+        "test"
+      ],
+      "status": "active",
+      "id": "82886a55-fe6c-4559-9dfa-27aeb21e924e",
+      "created_date": "2025-07-27T10:37:56.949497",
+      "modified_date": "2025-07-27T10:37:56.949497",
+      "archive_filename": "direct_test_project_20250727_103756.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/direct_test_project_20250727_103756.zip",
+      "archive_size": 347,
+      "deletion_date": "2025-07-27T10:37:56.952974",
+      "reason": "ユーザー削除"
+    },
+    {
+      "folder_name": "minimal_test",
+      "project_name": "Minimal Test",
+      "description": "Minimal test project",
+      "id": "1c91b519-f4e1-428c-833d-bfbc95483b9d",
+      "created_date": "2025-07-27T10:38:36.026164",
+      "modified_date": "2025-07-27T10:38:36.026164",
+      "archive_filename": "minimal_test_20250727_103836.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/minimal_test_20250727_103836.zip",
+      "archive_size": 292,
+      "deletion_date": "2025-07-27T10:38:36.030515",
+      "reason": "ユーザー削除"
+    },
+    {
+      "folder_name": "success_test_project",
+      "project_name": "成功テストプロジェクト",
+      "description": "正常に作成されるべきプロジェクト",
+      "tags": [
+        "success",
+        "test"
+      ],
+      "status": "active",
+      "id": "658786da-0f80-4434-bf7c-4e389df4b9b2",
+      "created_date": "2025-07-27T10:38:36.034282",
+      "modified_date": "2025-07-27T10:38:36.034282",
+      "archive_filename": "success_test_project_20250727_103836.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/success_test_project_20250727_103836.zip",
+      "archive_size": 385,
+      "deletion_date": "2025-07-27T10:38:36.035929",
+      "reason": "ユーザー削除"
+    }
+  ],
+  "reserved_folders": [
+    "node_modules",
+    "dist",
+    "build",
+    ".git",
+    "backend",
+    "frontend",
+    "trash",
+    "recycle_bin",
+    "deleted",
+    ".trash"
+  ]
+}
+ステータス: 200
+---
+
+[2025-07-27 15:39:43] GET /api/files/tree/testProject/
+リクエスト: {}
+レスポンス: {
+  "name": "raw",
+  "path": ".",
+  "type": "directory",
+  "size": 0,
+  "modified": "2025-07-24T23:31:44.193276",
+  "children": [],
+  "comment_count": 0,
+  "has_comments": false
+}
+ステータス: 200
+---
+
+[2025-07-27 15:39:43] GET /api/files/tree/testProject/
+リクエスト: {}
+レスポンス: {
+  "name": "raw",
+  "path": ".",
+  "type": "directory",
+  "size": 0,
+  "modified": "2025-07-24T23:31:44.193276",
+  "children": [],
+  "comment_count": 0,
+  "has_comments": false
+}
+ステータス: 200
+---
+
+[2025-07-27 15:39:50] POST /api/files/mkdir/testProject/
+リクエスト: ------WebKitFormBoundaryAkY7TgW8fDWItRf2
+Content-Disposition: form-data; name="dir_path"
+
+./test
+------WebKitFormBoundaryAkY7TgW8fDWItRf2--
+
+レスポンス: {
+  "success": true,
+  "message": "Directory created successfully",
+  "path": "./test"
+}
+ステータス: 200
+---
+
+[2025-07-27 15:39:50] GET /api/files/tree/testProject/
+リクエスト: {}
+レスポンス: {
+  "name": "raw",
+  "path": ".",
+  "type": "directory",
+  "size": 0,
+  "modified": "2025-07-24T23:31:44.193276",
+  "children": [],
+  "comment_count": 0,
+  "has_comments": false
+}
+ステータス: 200
+---
+
+[2025-07-27 15:39:59] POST /api/files/mkdir/testProject/
+リクエスト: ------WebKitFormBoundaryxuVUhKp7ocOH4RIj
+Content-Disposition: form-data; name="dir_path"
+
+./test
+------WebKitFormBoundaryxuVUhKp7ocOH4RIj--
+
+レスポンス: {
+  "success": true,
+  "message": "Directory created successfully",
+  "path": "./test"
+}
+ステータス: 200
+---
+
+[2025-07-27 15:39:59] GET /api/files/tree/testProject/
+リクエスト: {}
+レスポンス: {
+  "name": "raw",
+  "path": ".",
+  "type": "directory",
+  "size": 0,
+  "modified": "2025-07-24T23:31:44.193276",
+  "children": [],
+  "comment_count": 0,
+  "has_comments": false
+}
+ステータス: 200
+---
+
+[2025-07-27 15:46:34] GET /api/server-info/
+リクエスト: {}
+レスポンス: {
+  "debug_mode": true,
+  "environment": "development",
+  "django_version": "5.2.4",
+  "api_version": "1.0.0"
+}
+ステータス: 200
+---
+
+[2025-07-27 15:46:34] GET /api/projects/
+リクエスト: {}
+レスポンス: {
+  "version": "1.0.0",
+  "last_updated": "2025-07-27T10:38:36.035931",
+  "retention_months": 13,
+  "projects": [
+    {
+      "folder_name": "testProject",
+      "project_name": "テストのためのプロジェクト",
+      "description": "テストです。",
+      "tags": [],
+      "status": "active",
+      "id": "2cec431a-0416-4451-a43b-fdc85e0c5c62",
+      "created_date": "2025-07-24T23:31:44.186614",
+      "modified_date": "2025-07-24T23:31:44.186614"
+    },
+    {
+      "id": "bb5830e9-e13c-4960-bc25-fa8045a272e9",
+      "folder_name": "save_test",
+      "project_name": "セーブテスト",
+      "description": "セーブテスト",
+      "created_date": "2025-07-27T10:37:56.948759",
+      "modified_date": "2025-07-27T10:37:56.948769",
+      "tags": [],
+      "status": "active"
+    },
+    {
+      "folder_name": "minimal_test",
+      "project_name": "Minimal Test",
+      "description": "Minimal test project",
+      "id": "a908299f-f131-4f70-8b16-43fd9f01b7d2",
+      "created_date": "2025-07-27T10:38:36.031250",
+      "modified_date": "2025-07-27T10:38:36.031250"
+    }
+  ],
+  "archived_projects": [
+    {
+      "folder_name": "direct_test_project",
+      "project_name": "直接テストプロジェクト",
+      "description": "直接テスト用プロジェクト",
+      "tags": [
+        "test"
+      ],
+      "status": "active",
+      "id": "82886a55-fe6c-4559-9dfa-27aeb21e924e",
+      "created_date": "2025-07-27T10:37:56.949497",
+      "modified_date": "2025-07-27T10:37:56.949497",
+      "archive_filename": "direct_test_project_20250727_103756.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/direct_test_project_20250727_103756.zip",
+      "archive_size": 347,
+      "deletion_date": "2025-07-27T10:37:56.952974",
+      "reason": "ユーザー削除"
+    },
+    {
+      "folder_name": "minimal_test",
+      "project_name": "Minimal Test",
+      "description": "Minimal test project",
+      "id": "1c91b519-f4e1-428c-833d-bfbc95483b9d",
+      "created_date": "2025-07-27T10:38:36.026164",
+      "modified_date": "2025-07-27T10:38:36.026164",
+      "archive_filename": "minimal_test_20250727_103836.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/minimal_test_20250727_103836.zip",
+      "archive_size": 292,
+      "deletion_date": "2025-07-27T10:38:36.030515",
+      "reason": "ユーザー削除"
+    },
+    {
+      "folder_name": "success_test_project",
+      "project_name": "成功テストプロジェクト",
+      "description": "正常に作成されるべきプロジェクト",
+      "tags": [
+        "success",
+        "test"
+      ],
+      "status": "active",
+      "id": "658786da-0f80-4434-bf7c-4e389df4b9b2",
+      "created_date": "2025-07-27T10:38:36.034282",
+      "modified_date": "2025-07-27T10:38:36.034282",
+      "archive_filename": "success_test_project_20250727_103836.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/success_test_project_20250727_103836.zip",
+      "archive_size": 385,
+      "deletion_date": "2025-07-27T10:38:36.035929",
+      "reason": "ユーザー削除"
+    }
+  ],
+  "reserved_folders": [
+    "node_modules",
+    "dist",
+    "build",
+    ".git",
+    "backend",
+    "frontend",
+    "trash",
+    "recycle_bin",
+    "deleted",
+    ".trash"
+  ]
+}
+ステータス: 200
+---
+
+[2025-07-27 15:46:34] GET /api/projects/deleted/
+リクエスト: {}
+レスポンス: {
+  "version": "1.0.0",
+  "last_updated": "2025-07-27T10:38:36.035743",
+  "deleted_projects": [
+    {
+      "id": "82886a55-fe6c-4559-9dfa-27aeb21e924e",
+      "folder_name": "direct_test_project",
+      "project_name": "直接テストプロジェクト",
+      "archive_filename": "direct_test_project_20250727_103756.zip",
+      "archive_size": 347,
+      "deletion_date": "2025-07-27T10:37:56.952598",
+      "original_created_date": "2025-07-27T10:37:56.949497",
+      "tags": [
+        "test"
+      ],
+      "description": "直接テスト用プロジェクト"
+    },
+    {
+      "id": "1c91b519-f4e1-428c-833d-bfbc95483b9d",
+      "folder_name": "minimal_test",
+      "project_name": "Minimal Test",
+      "archive_filename": "minimal_test_20250727_103836.zip",
+      "archive_size": 292,
+      "deletion_date": "2025-07-27T10:38:36.029972",
+      "original_created_date": "2025-07-27T10:38:36.026164",
+      "tags": [],
+      "description": "Minimal test project"
+    },
+    {
+      "id": "658786da-0f80-4434-bf7c-4e389df4b9b2",
+      "folder_name": "success_test_project",
+      "project_name": "成功テストプロジェクト",
+      "archive_filename": "success_test_project_20250727_103836.zip",
+      "archive_size": 385,
+      "deletion_date": "2025-07-27T10:38:36.035740",
+      "original_created_date": "2025-07-27T10:38:36.034282",
+      "tags": [
+        "success",
+        "test"
+      ],
+      "description": "正常に作成されるべきプロジェクト"
+    }
+  ]
+}
+ステータス: 200
+---
+
+[2025-07-27 15:46:34] GET /api/files/tree/nonexistent_project/
+リクエスト: {}
+レスポンス: {
+  "error": "PROJECT_NOT_FOUND",
+  "message": "Project not found"
+}
+ステータス: 404
+---
+
+[2025-07-27 15:46:34] GET /api/files/search/test_project/
+リクエスト: {}
+レスポンス: {
+  "error": "SEARCH_QUERY_REQUIRED",
+  "message": "An unexpected error occurred. Please try again later"
+}
+ステータス: 400
+---
+
+[2025-07-27 15:46:34] GET /api/files/comments/nonexistent_project/
+リクエスト: {}
+レスポンス: {
+  "version": "1.0.0",
+  "created": "2025-07-27T15:46:34.765182",
+  "last_updated": "2025-07-27T15:46:34.765187",
+  "comments": {}
+}
+ステータス: 200
+---
+
+[2025-07-27 15:46:34] GET /api/projects/
+リクエスト: {}
+レスポンス: {
+  "version": "1.0.0",
+  "last_updated": "2025-07-27T10:38:36.035931",
+  "retention_months": 13,
+  "projects": [
+    {
+      "folder_name": "testProject",
+      "project_name": "テストのためのプロジェクト",
+      "description": "テストです。",
+      "tags": [],
+      "status": "active",
+      "id": "2cec431a-0416-4451-a43b-fdc85e0c5c62",
+      "created_date": "2025-07-24T23:31:44.186614",
+      "modified_date": "2025-07-24T23:31:44.186614"
+    },
+    {
+      "id": "bb5830e9-e13c-4960-bc25-fa8045a272e9",
+      "folder_name": "save_test",
+      "project_name": "セーブテスト",
+      "description": "セーブテスト",
+      "created_date": "2025-07-27T10:37:56.948759",
+      "modified_date": "2025-07-27T10:37:56.948769",
+      "tags": [],
+      "status": "active"
+    },
+    {
+      "folder_name": "minimal_test",
+      "project_name": "Minimal Test",
+      "description": "Minimal test project",
+      "id": "a908299f-f131-4f70-8b16-43fd9f01b7d2",
+      "created_date": "2025-07-27T10:38:36.031250",
+      "modified_date": "2025-07-27T10:38:36.031250"
+    }
+  ],
+  "archived_projects": [
+    {
+      "folder_name": "direct_test_project",
+      "project_name": "直接テストプロジェクト",
+      "description": "直接テスト用プロジェクト",
+      "tags": [
+        "test"
+      ],
+      "status": "active",
+      "id": "82886a55-fe6c-4559-9dfa-27aeb21e924e",
+      "created_date": "2025-07-27T10:37:56.949497",
+      "modified_date": "2025-07-27T10:37:56.949497",
+      "archive_filename": "direct_test_project_20250727_103756.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/direct_test_project_20250727_103756.zip",
+      "archive_size": 347,
+      "deletion_date": "2025-07-27T10:37:56.952974",
+      "reason": "ユーザー削除"
+    },
+    {
+      "folder_name": "minimal_test",
+      "project_name": "Minimal Test",
+      "description": "Minimal test project",
+      "id": "1c91b519-f4e1-428c-833d-bfbc95483b9d",
+      "created_date": "2025-07-27T10:38:36.026164",
+      "modified_date": "2025-07-27T10:38:36.026164",
+      "archive_filename": "minimal_test_20250727_103836.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/minimal_test_20250727_103836.zip",
+      "archive_size": 292,
+      "deletion_date": "2025-07-27T10:38:36.030515",
+      "reason": "ユーザー削除"
+    },
+    {
+      "folder_name": "success_test_project",
+      "project_name": "成功テストプロジェクト",
+      "description": "正常に作成されるべきプロジェクト",
+      "tags": [
+        "success",
+        "test"
+      ],
+      "status": "active",
+      "id": "658786da-0f80-4434-bf7c-4e389df4b9b2",
+      "created_date": "2025-07-27T10:38:36.034282",
+      "modified_date": "2025-07-27T10:38:36.034282",
+      "archive_filename": "success_test_project_20250727_103836.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/success_test_project_20250727_103836.zip",
+      "archive_size": 385,
+      "deletion_date": "2025-07-27T10:38:36.035929",
+      "reason": "ユーザー削除"
+    }
+  ],
+  "reserved_folders": [
+    "node_modules",
+    "dist",
+    "build",
+    ".git",
+    "backend",
+    "frontend",
+    "trash",
+    "recycle_bin",
+    "deleted",
+    ".trash"
+  ]
+}
+ステータス: 200
+---
+
+[2025-07-27 15:46:34] GET /api/projects/deleted/
+リクエスト: {}
+レスポンス: {
+  "version": "1.0.0",
+  "last_updated": "2025-07-27T10:38:36.035743",
+  "deleted_projects": [
+    {
+      "id": "82886a55-fe6c-4559-9dfa-27aeb21e924e",
+      "folder_name": "direct_test_project",
+      "project_name": "直接テストプロジェクト",
+      "archive_filename": "direct_test_project_20250727_103756.zip",
+      "archive_size": 347,
+      "deletion_date": "2025-07-27T10:37:56.952598",
+      "original_created_date": "2025-07-27T10:37:56.949497",
+      "tags": [
+        "test"
+      ],
+      "description": "直接テスト用プロジェクト"
+    },
+    {
+      "id": "1c91b519-f4e1-428c-833d-bfbc95483b9d",
+      "folder_name": "minimal_test",
+      "project_name": "Minimal Test",
+      "archive_filename": "minimal_test_20250727_103836.zip",
+      "archive_size": 292,
+      "deletion_date": "2025-07-27T10:38:36.029972",
+      "original_created_date": "2025-07-27T10:38:36.026164",
+      "tags": [],
+      "description": "Minimal test project"
+    },
+    {
+      "id": "658786da-0f80-4434-bf7c-4e389df4b9b2",
+      "folder_name": "success_test_project",
+      "project_name": "成功テストプロジェクト",
+      "archive_filename": "success_test_project_20250727_103836.zip",
+      "archive_size": 385,
+      "deletion_date": "2025-07-27T10:38:36.035740",
+      "original_created_date": "2025-07-27T10:38:36.034282",
+      "tags": [
+        "success",
+        "test"
+      ],
+      "description": "正常に作成されるべきプロジェクト"
+    }
+  ]
+}
+ステータス: 200
+---
+
+[2025-07-27 15:46:34] GET /api/files/tree/test/
+リクエスト: {}
+レスポンス: {
+  "error": "PROJECT_NOT_FOUND",
+  "message": "Project not found"
+}
+ステータス: 404
+---
+
+[2025-07-27 15:46:34] GET /api/files/search/test/
+リクエスト: {}
+レスポンス: {
+  "error": "SEARCH_QUERY_REQUIRED",
+  "message": "An unexpected error occurred. Please try again later"
+}
+ステータス: 400
+---
+
+[2025-07-27 15:46:34] GET /api/files/comments/test/
+リクエスト: {}
+レスポンス: {
+  "version": "1.0.0",
+  "created": "2025-07-27T15:46:34.767943",
+  "last_updated": "2025-07-27T15:46:34.767947",
+  "comments": {}
+}
+ステータス: 200
+---
+
+[2025-07-27 15:46:34] GET /api/server-info/
+リクエスト: {}
+レスポンス: {
+  "debug_mode": true,
+  "environment": "development",
+  "django_version": "5.2.4",
+  "api_version": "1.0.0"
+}
+ステータス: 200
+---
+
+[2025-07-27 15:47:02] POST /api/projects/
+リクエスト: --BoUnDaRyStRiNg
+Content-Disposition: form-data; name="folder_name"
+
+test_project_simple
+--BoUnDaRyStRiNg
+Content-Disposition: form-data; name="project_name"
+
+Simple Test Project
+--BoUnDaRyStRiNg
+Content-Disposition: form-data; name="description"
+
+A simple test project
+--BoUnDaRyStRiNg
+Content-Disposition: form-data; name="tags"
+
+test
+--BoUnDaRyStRiNg
+Content-Disposition: form-data; name="status"
+
+active
+--BoUnDaRyStRiNg--
+
+レスポンス: {
+  "error": "FAILED_TO_CREATE_PROJECT",
+  "message": "Failed to create project"
+}
+ステータス: 500
+---
+
+[2025-07-27 15:47:02] GET /api/files/tree/test_project
+リクエスト: {}
+レスポンス: <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <title>Page not found at /api/files/tree/test_project</title>
+  <meta name="robots" content="NONE,NOARCHIVE">
+  <style>
+    html * { padding:0; margin:0; }
+    body * { padding:10px 20px; }
+    body * * { padding:0; }
+    body { font-family: sans-serif; background:#eee; color:#000; }
+    body > :where(header, main, footer) { border-bottom:1px solid #ddd; }
+    h1 { font-weight:normal; margin-bottom:.4em; }
+    h1 small { font-size:60%; color:#666; font-weight:normal; }
+    table { border:none; border-collapse: collapse; width:100%; }
+    td, th { vertical-align:top; padding:2px 3px; }
+    th { width:12em; text-align:right; color:#666; padding-right:.5em; }
+    #info { background:#f6f6f6; }
+    #info ol { margin: 0.5em 4em; }
+    #info ol li { font-family: monospace; }
+    #summary { background: #ffc; }
+    #explanation { background:#eee; border-bottom: 0px none; }
+    pre.exception_value { font-family: sans-serif; color: #575757; font-size: 1.5em; margin: 10px 0 10px 0; }
+  </style>
+</head>
+<body>
+  <header id="summary">
+    <h1>Page not found <small>(404)</small></h1>
+    
+    <table class="meta">
+      <tr>
+        <th scope="row">Request Method:</th>
+        <td>GET</td>
+      </tr>
+      <tr>
+        <th scope="row">Request URL:</th>
+        <td>http://testserver/api/files/tree/test_project</td>
+      </tr>
+      
+    </table>
+  </header>
+
+  <main id="info">
+    
+      <p>
+      Using the URLconf defined in <code>config.urls</code>,
+      Django tried these URL patterns, in this order:
+      </p>
+      <ol>
+        
+          <li>
+            
+              <code>
+                admin/
+                
+              </code>
+            
+          </li>
+        
+          <li>
+            
+              <code>
+                api/
+                
+              </code>
+            
+              <code>
+                
+                
+              </code>
+            
+              <code>
+                ^files/$
+                [name='file-list']
+              </code>
+            
+          </li>
+        
+          <li>
+            
+              <code>
+                api/
+                
+              </code>
+            
+              <code>
+                
+                
+              </code>
+            
+              <code>
+                ^files\.(?P&lt;format&gt;[a-z0-9]+)/?$
+                [name='file-list']
+              </code>
+            
+          </li>
+        
+          <li>
+            
+              <code>
+                api/
+                
+              </code>
+            
+              <code>
+                
+                
+              </code>
+            
+              <code>
+                ^files/comments/(?P&lt;project_folder&gt;[^/.]+)/(?P&lt;comment_id&gt;[^/.]+)/$
+                [name='file-comment-detail']
+              </code>
+            
+          </li>
+        
+          <li>
+            
+              <code>
+                api/
+                
+              </code>
+            
+              <code>
+                
+                
+              </code>
+            
+              <code>
+                ^files/comments/(?P&lt;project_folder&gt;[^/.]+)/(?P&lt;comment_id&gt;[^/.]+)\.(?P&lt;format&gt;[a-z0-9]+)/?$
+                [name='file-comment-detail']
+              </code>
+            
+          </li>
+        
+          <li>
+            
+              <code>
+                api/
+                
+              </code>
+            
+              <code>
+                
+                
+              </code>
+            
+              <code>
+                ^files/mkdir/(?P&lt;project_folder&gt;[^/.]+)/$
+                [name='file-create-directory']
+              </code>
+            
+          </li>
+        
+          <li>
+            
+              <code>
+                api/
+                
+              </code>
+            
+              <code>
+                
+                
+              </code>
+            
+              <code>
+                ^files/mkdir/(?P&lt;project_folder&gt;[^/.]+)\.(?P&lt;format&gt;[a-z0-9]+)/?$
+                [name='file-create-directory']
+              </code>
+            
+          </li>
+        
+          <li>
+            
+              <code>
+                api/
+                
+              </code>
+            
+              <code>
+                
+                
+              </code>
+            
+              <code>
+                ^files/delete/(?P&lt;project_folder&gt;[^/.]+)/$
+                [name='file-delete-file']
+              </code>
+            
+          </li>
+        
+          <li>
+            
+              <code>
+                api/
+                
+              </code>
+            
+              <code>
+                
+                
+              </code>
+            
+              <code>
+                ^files/delete/(?P&lt;project_folder&gt;[^/.]+)\.(?P&lt;format&gt;[a-z0-9]+)/?$
+                [name='file-delete-file']
+              </code>
+            
+          </li>
+        
+          <li>
+            
+              <code>
+                api/
+                
+              </code>
+            
+              <code>
+                
+                
+              </code>
+            
+              <code>
+                ^files/tree/(?P&lt;project_folder&gt;[^/.]+)/$
+                [name='file-directory-tree']
+              </code>
+            
+          </li>
+        
+          <li>
+            
+              <code>
+                api/
+                
+              </code>
+            
+              <code>
+                
+                
+              </code>
+            
+              <code>
+                ^files/tree/(?P&lt;project_folder&gt;[^/.]+)\.(?P&lt;format&gt;[a-z0-9]+)/?$
+                [name='file-directory-tree']
+              </code>
+            
+          </li>
+        
+          <li>
+            
+              <code>
+                api/
+                
+              </code>
+            
+              <code>
+                
+                
+              </code>
+            
+              <code>
+                ^files/comments/(?P&lt;project_folder&gt;[^/.]+)/$
+                [name='file-file-comments']
+              </code>
+            
+          </li>
+        
+          <li>
+            
+              <code>
+                api/
+                
+              </code>
+            
+              <code>
+                
+                
+              </code>
+            
+              <code>
+                ^files/comments/(?P&lt;project_folder&gt;[^/.]+)\.(?P&lt;format&gt;[a-z0-9]+)/?$
+                [name='file-file-comments']
+              </code>
+            
+          </li>
+        
+          <li>
+            
+              <code>
+                api/
+                
+              </code>
+            
+              <code>
+                
+                
+              </code>
+            
+              <code>
+                ^files/move/(?P&lt;project_folder&gt;[^/.]+)/$
+                [name='file-move-file']
+              </code>
+            
+          </li>
+        
+          <li>
+            
+              <code>
+                api/
+                
+              </code>
+            
+              <code>
+                
+                
+              </code>
+            
+              <code>
+                ^files/move/(?P&lt;project_folder&gt;[^/.]+)\.(?P&lt;format&gt;[a-z0-9]+)/?$
+                [name='file-move-file']
+              </code>
+            
+          </li>
+        
+          <li>
+            
+              <code>
+                api/
+                
+              </code>
+            
+              <code>
+                
+                
+              </code>
+            
+              <code>
+                ^files/search/(?P&lt;project_folder&gt;[^/.]+)/$
+                [name='file-search-files']
+              </code>
+            
+          </li>
+        
+          <li>
+            
+              <code>
+                api/
+                
+              </code>
+            
+              <code>
+                
+                
+              </code>
+            
+              <code>
+                ^files/search/(?P&lt;project_folder&gt;[^/.]+)\.(?P&lt;format&gt;[a-z0-9]+)/?$
+                [name='file-search-files']
+              </code>
+            
+          </li>
+        
+          <li>
+            
+              <code>
+                api/
+                
+              </code>
+            
+              <code>
+                
+                
+              </code>
+            
+              <code>
+                ^files/upload/(?P&lt;project_folder&gt;[^/.]+)/$
+                [name='file-upload']
+              </code>
+            
+          </li>
+        
+          <li>
+            
+              <code>
+                api/
+                
+              </code>
+            
+              <code>
+                
+                
+              </code>
+            
+              <code>
+                ^files/upload/(?P&lt;project_folder&gt;[^/.]+)\.(?P&lt;format&gt;[a-z0-9]+)/?$
+                [name='file-upload']
+              </code>
+            
+          </li>
+        
+          <li>
+            
+              <code>
+                api/
+                
+              </code>
+            
+              <code>
+                
+                
+              </code>
+            
+              <code>
+                ^files/(?P&lt;pk&gt;[^/.]+)/$
+                [name='file-detail']
+              </code>
+            
+          </li>
+        
+          <li>
+            
+              <code>
+                api/
+                
+              </code>
+            
+              <code>
+                
+                
+              </code>
+            
+              <code>
+                ^files/(?P&lt;pk&gt;[^/.]+)\.(?P&lt;format&gt;[a-z0-9]+)/?$
+                [name='file-detail']
+              </code>
+            
+          </li>
+        
+          <li>
+            
+              <code>
+                api/
+                
+              </code>
+            
+              <code>
+                
+                
+              </code>
+            
+              <code>
+                
+                [name='api-root']
+              </code>
+            
+          </li>
+        
+          <li>
+            
+              <code>
+                api/
+                
+              </code>
+            
+              <code>
+                
+                
+              </code>
+            
+              <code>
+                &lt;drf_format_suffix:format&gt;
+                [name='api-root']
+              </code>
+            
+          </li>
+        
+          <li>
+            
+              <code>
+                api/
+                
+              </code>
+            
+              <code>
+                projects/
+                [name='project-list-create']
+              </code>
+            
+          </li>
+        
+          <li>
+            
+              <code>
+                api/
+                
+              </code>
+            
+              <code>
+                projects/deleted/
+                [name='project-deleted']
+              </code>
+            
+          </li>
+        
+          <li>
+            
+              <code>
+                api/
+                
+              </code>
+            
+              <code>
+                projects/&lt;str:pk&gt;/
+                [name='project-detail']
+              </code>
+            
+          </li>
+        
+          <li>
+            
+              <code>
+                api/
+                
+              </code>
+            
+              <code>
+                projects/&lt;str:pk&gt;/restore/
+                [name='project-restore']
+              </code>
+            
+          </li>
+        
+          <li>
+            
+              <code>
+                api/
+                
+              </code>
+            
+              <code>
+                server-info/
+                [name='server_info']
+              </code>
+            
+          </li>
+        
+          <li>
+            
+              <code>
+                ^media/(?P&lt;path&gt;.*)$
+                
+              </code>
+            
+          </li>
+        
+      </ol>
+      <p>
+        
+          The current path, <code>api/files/tree/test_project</code>,
+        
+        didn’t match any of these.
+      </p>
+    
+  </main>
+
+  <footer id="explanation">
+    <p>
+      You’re seeing this error because you have <code>DEBUG = True</code> in
+      your Django settings file. Change that to <code>False</code>, and Django
+      will display a standard 404 page.
+    </p>
+  </footer>
+</body>
+</html>
+
+ステータス: 404
+---
+
+[2025-07-27 15:47:02] GET /api/files/search/test_project
+リクエスト: {'q': ['test'], 'type': ['name']}
+レスポンス: <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <title>Page not found at /api/files/search/test_project</title>
+  <meta name="robots" content="NONE,NOARCHIVE">
+  <style>
+    html * { padding:0; margin:0; }
+    body * { padding:10px 20px; }
+    body * * { padding:0; }
+    body { font-family: sans-serif; background:#eee; color:#000; }
+    body > :where(header, main, footer) { border-bottom:1px solid #ddd; }
+    h1 { font-weight:normal; margin-bottom:.4em; }
+    h1 small { font-size:60%; color:#666; font-weight:normal; }
+    table { border:none; border-collapse: collapse; width:100%; }
+    td, th { vertical-align:top; padding:2px 3px; }
+    th { width:12em; text-align:right; color:#666; padding-right:.5em; }
+    #info { background:#f6f6f6; }
+    #info ol { margin: 0.5em 4em; }
+    #info ol li { font-family: monospace; }
+    #summary { background: #ffc; }
+    #explanation { background:#eee; border-bottom: 0px none; }
+    pre.exception_value { font-family: sans-serif; color: #575757; font-size: 1.5em; margin: 10px 0 10px 0; }
+  </style>
+</head>
+<body>
+  <header id="summary">
+    <h1>Page not found <small>(404)</small></h1>
+    
+    <table class="meta">
+      <tr>
+        <th scope="row">Request Method:</th>
+        <td>GET</td>
+      </tr>
+      <tr>
+        <th scope="row">Request URL:</th>
+        <td>http://testserver/api/files/search/test_project?q=test&amp;type=name</td>
+      </tr>
+      
+    </table>
+  </header>
+
+  <main id="info">
+    
+      <p>
+      Using the URLconf defined in <code>config.urls</code>,
+      Django tried these URL patterns, in this order:
+      </p>
+      <ol>
+        
+          <li>
+            
+              <code>
+                admin/
+                
+              </code>
+            
+          </li>
+        
+          <li>
+            
+              <code>
+                api/
+                
+              </code>
+            
+              <code>
+                
+                
+              </code>
+            
+              <code>
+                ^files/$
+                [name='file-list']
+              </code>
+            
+          </li>
+        
+          <li>
+            
+              <code>
+                api/
+                
+              </code>
+            
+              <code>
+                
+                
+              </code>
+            
+              <code>
+                ^files\.(?P&lt;format&gt;[a-z0-9]+)/?$
+                [name='file-list']
+              </code>
+            
+          </li>
+        
+          <li>
+            
+              <code>
+                api/
+                
+              </code>
+            
+              <code>
+                
+                
+              </code>
+            
+              <code>
+                ^files/comments/(?P&lt;project_folder&gt;[^/.]+)/(?P&lt;comment_id&gt;[^/.]+)/$
+                [name='file-comment-detail']
+              </code>
+            
+          </li>
+        
+          <li>
+            
+              <code>
+                api/
+                
+              </code>
+            
+              <code>
+                
+                
+              </code>
+            
+              <code>
+                ^files/comments/(?P&lt;project_folder&gt;[^/.]+)/(?P&lt;comment_id&gt;[^/.]+)\.(?P&lt;format&gt;[a-z0-9]+)/?$
+                [name='file-comment-detail']
+              </code>
+            
+          </li>
+        
+          <li>
+            
+              <code>
+                api/
+                
+              </code>
+            
+              <code>
+                
+                
+              </code>
+            
+              <code>
+                ^files/mkdir/(?P&lt;project_folder&gt;[^/.]+)/$
+                [name='file-create-directory']
+              </code>
+            
+          </li>
+        
+          <li>
+            
+              <code>
+                api/
+                
+              </code>
+            
+              <code>
+                
+                
+              </code>
+            
+              <code>
+                ^files/mkdir/(?P&lt;project_folder&gt;[^/.]+)\.(?P&lt;format&gt;[a-z0-9]+)/?$
+                [name='file-create-directory']
+              </code>
+            
+          </li>
+        
+          <li>
+            
+              <code>
+                api/
+                
+              </code>
+            
+              <code>
+                
+                
+              </code>
+            
+              <code>
+                ^files/delete/(?P&lt;project_folder&gt;[^/.]+)/$
+                [name='file-delete-file']
+              </code>
+            
+          </li>
+        
+          <li>
+            
+              <code>
+                api/
+                
+              </code>
+            
+              <code>
+                
+                
+              </code>
+            
+              <code>
+                ^files/delete/(?P&lt;project_folder&gt;[^/.]+)\.(?P&lt;format&gt;[a-z0-9]+)/?$
+                [name='file-delete-file']
+              </code>
+            
+          </li>
+        
+          <li>
+            
+              <code>
+                api/
+                
+              </code>
+            
+              <code>
+                
+                
+              </code>
+            
+              <code>
+                ^files/tree/(?P&lt;project_folder&gt;[^/.]+)/$
+                [name='file-directory-tree']
+              </code>
+            
+          </li>
+        
+          <li>
+            
+              <code>
+                api/
+                
+              </code>
+            
+              <code>
+                
+                
+              </code>
+            
+              <code>
+                ^files/tree/(?P&lt;project_folder&gt;[^/.]+)\.(?P&lt;format&gt;[a-z0-9]+)/?$
+                [name='file-directory-tree']
+              </code>
+            
+          </li>
+        
+          <li>
+            
+              <code>
+                api/
+                
+              </code>
+            
+              <code>
+                
+                
+              </code>
+            
+              <code>
+                ^files/comments/(?P&lt;project_folder&gt;[^/.]+)/$
+                [name='file-file-comments']
+              </code>
+            
+          </li>
+        
+          <li>
+            
+              <code>
+                api/
+                
+              </code>
+            
+              <code>
+                
+                
+              </code>
+            
+              <code>
+                ^files/comments/(?P&lt;project_folder&gt;[^/.]+)\.(?P&lt;format&gt;[a-z0-9]+)/?$
+                [name='file-file-comments']
+              </code>
+            
+          </li>
+        
+          <li>
+            
+              <code>
+                api/
+                
+              </code>
+            
+              <code>
+                
+                
+              </code>
+            
+              <code>
+                ^files/move/(?P&lt;project_folder&gt;[^/.]+)/$
+                [name='file-move-file']
+              </code>
+            
+          </li>
+        
+          <li>
+            
+              <code>
+                api/
+                
+              </code>
+            
+              <code>
+                
+                
+              </code>
+            
+              <code>
+                ^files/move/(?P&lt;project_folder&gt;[^/.]+)\.(?P&lt;format&gt;[a-z0-9]+)/?$
+                [name='file-move-file']
+              </code>
+            
+          </li>
+        
+          <li>
+            
+              <code>
+                api/
+                
+              </code>
+            
+              <code>
+                
+                
+              </code>
+            
+              <code>
+                ^files/search/(?P&lt;project_folder&gt;[^/.]+)/$
+                [name='file-search-files']
+              </code>
+            
+          </li>
+        
+          <li>
+            
+              <code>
+                api/
+                
+              </code>
+            
+              <code>
+                
+                
+              </code>
+            
+              <code>
+                ^files/search/(?P&lt;project_folder&gt;[^/.]+)\.(?P&lt;format&gt;[a-z0-9]+)/?$
+                [name='file-search-files']
+              </code>
+            
+          </li>
+        
+          <li>
+            
+              <code>
+                api/
+                
+              </code>
+            
+              <code>
+                
+                
+              </code>
+            
+              <code>
+                ^files/upload/(?P&lt;project_folder&gt;[^/.]+)/$
+                [name='file-upload']
+              </code>
+            
+          </li>
+        
+          <li>
+            
+              <code>
+                api/
+                
+              </code>
+            
+              <code>
+                
+                
+              </code>
+            
+              <code>
+                ^files/upload/(?P&lt;project_folder&gt;[^/.]+)\.(?P&lt;format&gt;[a-z0-9]+)/?$
+                [name='file-upload']
+              </code>
+            
+          </li>
+        
+          <li>
+            
+              <code>
+                api/
+                
+              </code>
+            
+              <code>
+                
+                
+              </code>
+            
+              <code>
+                ^files/(?P&lt;pk&gt;[^/.]+)/$
+                [name='file-detail']
+              </code>
+            
+          </li>
+        
+          <li>
+            
+              <code>
+                api/
+                
+              </code>
+            
+              <code>
+                
+                
+              </code>
+            
+              <code>
+                ^files/(?P&lt;pk&gt;[^/.]+)\.(?P&lt;format&gt;[a-z0-9]+)/?$
+                [name='file-detail']
+              </code>
+            
+          </li>
+        
+          <li>
+            
+              <code>
+                api/
+                
+              </code>
+            
+              <code>
+                
+                
+              </code>
+            
+              <code>
+                
+                [name='api-root']
+              </code>
+            
+          </li>
+        
+          <li>
+            
+              <code>
+                api/
+                
+              </code>
+            
+              <code>
+                
+                
+              </code>
+            
+              <code>
+                &lt;drf_format_suffix:format&gt;
+                [name='api-root']
+              </code>
+            
+          </li>
+        
+          <li>
+            
+              <code>
+                api/
+                
+              </code>
+            
+              <code>
+                projects/
+                [name='project-list-create']
+              </code>
+            
+          </li>
+        
+          <li>
+            
+              <code>
+                api/
+                
+              </code>
+            
+              <code>
+                projects/deleted/
+                [name='project-deleted']
+              </code>
+            
+          </li>
+        
+          <li>
+            
+              <code>
+                api/
+                
+              </code>
+            
+              <code>
+                projects/&lt;str:pk&gt;/
+                [name='project-detail']
+              </code>
+            
+          </li>
+        
+          <li>
+            
+              <code>
+                api/
+                
+              </code>
+            
+              <code>
+                projects/&lt;str:pk&gt;/restore/
+                [name='project-restore']
+              </code>
+            
+          </li>
+        
+          <li>
+            
+              <code>
+                api/
+                
+              </code>
+            
+              <code>
+                server-info/
+                [name='server_info']
+              </code>
+            
+          </li>
+        
+          <li>
+            
+              <code>
+                ^media/(?P&lt;path&gt;.*)$
+                
+              </code>
+            
+          </li>
+        
+      </ol>
+      <p>
+        
+          The current path, <code>api/files/search/test_project</code>,
+        
+        didn’t match any of these.
+      </p>
+    
+  </main>
+
+  <footer id="explanation">
+    <p>
+      You’re seeing this error because you have <code>DEBUG = True</code> in
+      your Django settings file. Change that to <code>False</code>, and Django
+      will display a standard 404 page.
+    </p>
+  </footer>
+</body>
+</html>
+
+ステータス: 404
+---
+
+[2025-07-27 15:47:02] POST /api/files/comments/test_project
+リクエスト: --BoUnDaRyStRiNg
+Content-Disposition: form-data; name="file_path"
+
+test.txt
+--BoUnDaRyStRiNg
+Content-Disposition: form-data; name="comment"
+
+Test comment
+--BoUnDaRyStRiNg
+Content-Disposition: form-data; name="author"
+
+Test User
+--BoUnDaRyStRiNg--
+
+レスポンス: <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <title>Page not found at /api/files/comments/test_project</title>
+  <meta name="robots" content="NONE,NOARCHIVE">
+  <style>
+    html * { padding:0; margin:0; }
+    body * { padding:10px 20px; }
+    body * * { padding:0; }
+    body { font-family: sans-serif; background:#eee; color:#000; }
+    body > :where(header, main, footer) { border-bottom:1px solid #ddd; }
+    h1 { font-weight:normal; margin-bottom:.4em; }
+    h1 small { font-size:60%; color:#666; font-weight:normal; }
+    table { border:none; border-collapse: collapse; width:100%; }
+    td, th { vertical-align:top; padding:2px 3px; }
+    th { width:12em; text-align:right; color:#666; padding-right:.5em; }
+    #info { background:#f6f6f6; }
+    #info ol { margin: 0.5em 4em; }
+    #info ol li { font-family: monospace; }
+    #summary { background: #ffc; }
+    #explanation { background:#eee; border-bottom: 0px none; }
+    pre.exception_value { font-family: sans-serif; color: #575757; font-size: 1.5em; margin: 10px 0 10px 0; }
+  </style>
+</head>
+<body>
+  <header id="summary">
+    <h1>Page not found <small>(404)</small></h1>
+    
+    <table class="meta">
+      <tr>
+        <th scope="row">Request Method:</th>
+        <td>POST</td>
+      </tr>
+      <tr>
+        <th scope="row">Request URL:</th>
+        <td>http://testserver/api/files/comments/test_project</td>
+      </tr>
+      
+    </table>
+  </header>
+
+  <main id="info">
+    
+      <p>
+      Using the URLconf defined in <code>config.urls</code>,
+      Django tried these URL patterns, in this order:
+      </p>
+      <ol>
+        
+          <li>
+            
+              <code>
+                admin/
+                
+              </code>
+            
+          </li>
+        
+          <li>
+            
+              <code>
+                api/
+                
+              </code>
+            
+              <code>
+                
+                
+              </code>
+            
+              <code>
+                ^files/$
+                [name='file-list']
+              </code>
+            
+          </li>
+        
+          <li>
+            
+              <code>
+                api/
+                
+              </code>
+            
+              <code>
+                
+                
+              </code>
+            
+              <code>
+                ^files\.(?P&lt;format&gt;[a-z0-9]+)/?$
+                [name='file-list']
+              </code>
+            
+          </li>
+        
+          <li>
+            
+              <code>
+                api/
+                
+              </code>
+            
+              <code>
+                
+                
+              </code>
+            
+              <code>
+                ^files/comments/(?P&lt;project_folder&gt;[^/.]+)/(?P&lt;comment_id&gt;[^/.]+)/$
+                [name='file-comment-detail']
+              </code>
+            
+          </li>
+        
+          <li>
+            
+              <code>
+                api/
+                
+              </code>
+            
+              <code>
+                
+                
+              </code>
+            
+              <code>
+                ^files/comments/(?P&lt;project_folder&gt;[^/.]+)/(?P&lt;comment_id&gt;[^/.]+)\.(?P&lt;format&gt;[a-z0-9]+)/?$
+                [name='file-comment-detail']
+              </code>
+            
+          </li>
+        
+          <li>
+            
+              <code>
+                api/
+                
+              </code>
+            
+              <code>
+                
+                
+              </code>
+            
+              <code>
+                ^files/mkdir/(?P&lt;project_folder&gt;[^/.]+)/$
+                [name='file-create-directory']
+              </code>
+            
+          </li>
+        
+          <li>
+            
+              <code>
+                api/
+                
+              </code>
+            
+              <code>
+                
+                
+              </code>
+            
+              <code>
+                ^files/mkdir/(?P&lt;project_folder&gt;[^/.]+)\.(?P&lt;format&gt;[a-z0-9]+)/?$
+                [name='file-create-directory']
+              </code>
+            
+          </li>
+        
+          <li>
+            
+              <code>
+                api/
+                
+              </code>
+            
+              <code>
+                
+                
+              </code>
+            
+              <code>
+                ^files/delete/(?P&lt;project_folder&gt;[^/.]+)/$
+                [name='file-delete-file']
+              </code>
+            
+          </li>
+        
+          <li>
+            
+              <code>
+                api/
+                
+              </code>
+            
+              <code>
+                
+                
+              </code>
+            
+              <code>
+                ^files/delete/(?P&lt;project_folder&gt;[^/.]+)\.(?P&lt;format&gt;[a-z0-9]+)/?$
+                [name='file-delete-file']
+              </code>
+            
+          </li>
+        
+          <li>
+            
+              <code>
+                api/
+                
+              </code>
+            
+              <code>
+                
+                
+              </code>
+            
+              <code>
+                ^files/tree/(?P&lt;project_folder&gt;[^/.]+)/$
+                [name='file-directory-tree']
+              </code>
+            
+          </li>
+        
+          <li>
+            
+              <code>
+                api/
+                
+              </code>
+            
+              <code>
+                
+                
+              </code>
+            
+              <code>
+                ^files/tree/(?P&lt;project_folder&gt;[^/.]+)\.(?P&lt;format&gt;[a-z0-9]+)/?$
+                [name='file-directory-tree']
+              </code>
+            
+          </li>
+        
+          <li>
+            
+              <code>
+                api/
+                
+              </code>
+            
+              <code>
+                
+                
+              </code>
+            
+              <code>
+                ^files/comments/(?P&lt;project_folder&gt;[^/.]+)/$
+                [name='file-file-comments']
+              </code>
+            
+          </li>
+        
+          <li>
+            
+              <code>
+                api/
+                
+              </code>
+            
+              <code>
+                
+                
+              </code>
+            
+              <code>
+                ^files/comments/(?P&lt;project_folder&gt;[^/.]+)\.(?P&lt;format&gt;[a-z0-9]+)/?$
+                [name='file-file-comments']
+              </code>
+            
+          </li>
+        
+          <li>
+            
+              <code>
+                api/
+                
+              </code>
+            
+              <code>
+                
+                
+              </code>
+            
+              <code>
+                ^files/move/(?P&lt;project_folder&gt;[^/.]+)/$
+                [name='file-move-file']
+              </code>
+            
+          </li>
+        
+          <li>
+            
+              <code>
+                api/
+                
+              </code>
+            
+              <code>
+                
+                
+              </code>
+            
+              <code>
+                ^files/move/(?P&lt;project_folder&gt;[^/.]+)\.(?P&lt;format&gt;[a-z0-9]+)/?$
+                [name='file-move-file']
+              </code>
+            
+          </li>
+        
+          <li>
+            
+              <code>
+                api/
+                
+              </code>
+            
+              <code>
+                
+                
+              </code>
+            
+              <code>
+                ^files/search/(?P&lt;project_folder&gt;[^/.]+)/$
+                [name='file-search-files']
+              </code>
+            
+          </li>
+        
+          <li>
+            
+              <code>
+                api/
+                
+              </code>
+            
+              <code>
+                
+                
+              </code>
+            
+              <code>
+                ^files/search/(?P&lt;project_folder&gt;[^/.]+)\.(?P&lt;format&gt;[a-z0-9]+)/?$
+                [name='file-search-files']
+              </code>
+            
+          </li>
+        
+          <li>
+            
+              <code>
+                api/
+                
+              </code>
+            
+              <code>
+                
+                
+              </code>
+            
+              <code>
+                ^files/upload/(?P&lt;project_folder&gt;[^/.]+)/$
+                [name='file-upload']
+              </code>
+            
+          </li>
+        
+          <li>
+            
+              <code>
+                api/
+                
+              </code>
+            
+              <code>
+                
+                
+              </code>
+            
+              <code>
+                ^files/upload/(?P&lt;project_folder&gt;[^/.]+)\.(?P&lt;format&gt;[a-z0-9]+)/?$
+                [name='file-upload']
+              </code>
+            
+          </li>
+        
+          <li>
+            
+              <code>
+                api/
+                
+              </code>
+            
+              <code>
+                
+                
+              </code>
+            
+              <code>
+                ^files/(?P&lt;pk&gt;[^/.]+)/$
+                [name='file-detail']
+              </code>
+            
+          </li>
+        
+          <li>
+            
+              <code>
+                api/
+                
+              </code>
+            
+              <code>
+                
+                
+              </code>
+            
+              <code>
+                ^files/(?P&lt;pk&gt;[^/.]+)\.(?P&lt;format&gt;[a-z0-9]+)/?$
+                [name='file-detail']
+              </code>
+            
+          </li>
+        
+          <li>
+            
+              <code>
+                api/
+                
+              </code>
+            
+              <code>
+                
+                
+              </code>
+            
+              <code>
+                
+                [name='api-root']
+              </code>
+            
+          </li>
+        
+          <li>
+            
+              <code>
+                api/
+                
+              </code>
+            
+              <code>
+                
+                
+              </code>
+            
+              <code>
+                &lt;drf_format_suffix:format&gt;
+                [name='api-root']
+              </code>
+            
+          </li>
+        
+          <li>
+            
+              <code>
+                api/
+                
+              </code>
+            
+              <code>
+                projects/
+                [name='project-list-create']
+              </code>
+            
+          </li>
+        
+          <li>
+            
+              <code>
+                api/
+                
+              </code>
+            
+              <code>
+                projects/deleted/
+                [name='project-deleted']
+              </code>
+            
+          </li>
+        
+          <li>
+            
+              <code>
+                api/
+                
+              </code>
+            
+              <code>
+                projects/&lt;str:pk&gt;/
+                [name='project-detail']
+              </code>
+            
+          </li>
+        
+          <li>
+            
+              <code>
+                api/
+                
+              </code>
+            
+              <code>
+                projects/&lt;str:pk&gt;/restore/
+                [name='project-restore']
+              </code>
+            
+          </li>
+        
+          <li>
+            
+              <code>
+                api/
+                
+              </code>
+            
+              <code>
+                server-info/
+                [name='server_info']
+              </code>
+            
+          </li>
+        
+          <li>
+            
+              <code>
+                ^media/(?P&lt;path&gt;.*)$
+                
+              </code>
+            
+          </li>
+        
+      </ol>
+      <p>
+        
+          The current path, <code>api/files/comments/test_project</code>,
+        
+        didn’t match any of these.
+      </p>
+    
+  </main>
+
+  <footer id="explanation">
+    <p>
+      You’re seeing this error because you have <code>DEBUG = True</code> in
+      your Django settings file. Change that to <code>False</code>, and Django
+      will display a standard 404 page.
+    </p>
+  </footer>
+</body>
+</html>
+
+ステータス: 404
+---
+
+[2025-07-27 15:47:02] GET /api/server-info/
+リクエスト: {}
+レスポンス: {
+  "debug_mode": true,
+  "environment": "development",
+  "django_version": "5.2.4",
+  "api_version": "1.0.0"
+}
+ステータス: 200
+---
