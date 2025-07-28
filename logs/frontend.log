@@ -104,3 +104,8 @@ MSW disabled - using real backend API
  ✓ Compiled in 193ms (426 modules)
  ✓ Compiled in 150ms (425 modules)
  ✓ Compiled in 175ms (425 modules)
+ ✓ Compiled in 212ms (425 modules)
+ ✓ Compiled in 149ms (425 modules)
+ ✓ Compiled in 177ms (425 modules)
+<w> [webpack.cache.PackFileCacheStrategy] Caching failed for pack: Error: ENOENT: no such file or directory, rename '/home/futaro/project/StatVizForge_JikkenPy/app/frontend/.next/cache/webpack/client-development/0.pack.gz_' -> '/home/futaro/project/StatVizForge_JikkenPy/app/frontend/.next/cache/webpack/client-development/0.pack.gz'
+ ✓ Compiled in 203ms (425 modules)
