@@ -4,10 +4,58 @@
 
   ▲ Next.js 13.5.1
   - Local:        http://localhost:3000
+  - Environments: .env.local
 
- ✓ Ready in 1049ms
-Browserslist: caniuse-lite is outdated. Please run:
-  npx update-browserslist-db@latest
-  Why you should do it regularly: https://github.com/browserslist/update-db#readme
- ✓ Compiled /page in 2.5s (714 modules)
- ✓ Compiled in 212ms (363 modules)
+ ✓ Ready in 1158ms
+ ✓ Compiled /page in 1233ms (781 modules)
+MSW disabled - using real backend API
+Dashboard component rendered
+ ✓ Compiled in 284ms (401 modules)
+ ✓ Compiled /test/page in 232ms (771 modules)
+MSW disabled - using real backend API
+MSW disabled - using real backend API
+Dashboard component rendered
+ X ./components/DynamicTabs.tsx
+Error: 
+  [31mx[0m Unexpected token `ProjectList`. Expected jsx identifier
+    ,-[[36;1;4m/home/futaro/project/StatVizForge_JikkenPy/app/frontend/components/DynamicTabs.tsx[0m:38:1]
+ [2m38[0m |   
+ [2m39[0m |   switch (contentType) {
+ [2m40[0m |     case 'project':
+ [2m41[0m |       return <ProjectList 
+    : [31;1m              ^^^^^^^^^^^[0m
+ [2m42[0m |         language={language} 
+ [2m43[0m |         onProjectOpen={onProjectOpen}
+ [2m44[0m |         onProjectRun={onProjectOpen} // 実行ボタンでもファイルエクスプローラーを開く
+    `----
+
+Caused by:
+    Syntax Error
+
+Import trace for requested module:
+./components/DynamicTabs.tsx
+./app/page.tsx
+ ✓ Compiled in 260ms (418 modules)
+ ✓ Compiled /page in 249ms (397 modules)
+MSW disabled - using real backend API
+Dashboard component rendered
+MSW disabled - using real backend API
+Dashboard component rendered
+ ✓ Compiled in 227ms (418 modules)
+ ✓ Compiled in 147ms (418 modules)
+ ✓ Compiled in 293ms (418 modules)
+ ✓ Compiled in 145ms (418 modules)
+ ✓ Compiled in 193ms (403 modules)
+ ✓ Compiled /page in 107ms (381 modules)
+MSW disabled - using real backend API
+Dashboard component rendered
+ ✓ Compiled in 232ms (403 modules)
+ ✓ Compiled in 168ms (403 modules)
+ ✓ Compiled in 137ms (403 modules)
+ ✓ Compiled /page in 130ms (381 modules)
+ ✓ Compiled /not-found in 362ms (789 modules)
+MSW disabled - using real backend API
+ ✓ Compiled in 714ms (820 modules)
+ ✓ Compiled in 329ms (819 modules)
+ ✓ Compiled in 194ms (418 modules)
+ ✓ Compiled in 175ms (418 modules)

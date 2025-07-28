@@ -1,2 +1,38 @@
 Watching for file changes with StatReloader
-[23/Jul/2025 23:14:31] "GET /api/projects/list HTTP/1.1" 200 71
+Not Found: /api/projects/list
+[28/Jul/2025 13:09:54] "GET /api/projects/list HTTP/1.1" 404 7015
+[28/Jul/2025 13:23:00] "GET /api/projects/ HTTP/1.1" 200 4263
+[28/Jul/2025 14:17:00] "GET /api/server-info/ HTTP/1.1" 200 94
+[28/Jul/2025 14:17:07] "GET /api/projects/ HTTP/1.1" 200 4263
+[28/Jul/2025 14:17:07] "GET /api/projects/ HTTP/1.1" 200 4263
+[28/Jul/2025 14:17:53] "GET /api/projects/?lang=ja HTTP/1.1" 200 4263
+[28/Jul/2025 14:17:53] "GET /api/projects/?lang=ja HTTP/1.1" 200 4263
+Not Found: /api/files/tree/minimal_test
+[28/Jul/2025 14:17:58] "GET /api/files/tree/minimal_test HTTP/1.1" 404 7045
+[28/Jul/2025 14:18:06] "GET /api/projects/?lang=ja HTTP/1.1" 200 4263
+[28/Jul/2025 14:18:06] "GET /api/projects/?lang=ja HTTP/1.1" 200 4263
+Not Found: /api/files/tree/testProject
+[28/Jul/2025 14:18:13] "GET /api/files/tree/testProject HTTP/1.1" 404 7042
+Not Found: /api/files/tree/testProject
+[28/Jul/2025 14:18:13] "GET /api/files/tree/testProject HTTP/1.1" 404 7042
+Not Found: /api/files/tree/testProject
+[28/Jul/2025 14:18:15] "GET /api/files/tree/testProject HTTP/1.1" 404 7042
+Not Found: /api/files/tree/minimal_test
+[28/Jul/2025 14:18:25] "GET /api/files/tree/minimal_test HTTP/1.1" 404 7045
+Not Found: /api/files/tree/minimal_test
+[28/Jul/2025 14:18:25] "GET /api/files/tree/minimal_test HTTP/1.1" 404 7045
+[28/Jul/2025 14:18:25] "GET /api/projects/?lang=ja HTTP/1.1" 200 4263
+[28/Jul/2025 14:18:25] "GET /api/projects/?lang=ja HTTP/1.1" 200 4263
+Not Found: /api/files/tree/minimal_test
+[28/Jul/2025 14:18:50] "GET /api/files/tree/minimal_test HTTP/1.1" 404 7045
+Not Found: /api/files/tree/minimal_test
+[28/Jul/2025 14:18:50] "GET /api/files/tree/minimal_test HTTP/1.1" 404 7045
+[28/Jul/2025 14:19:47] "GET /api/files/tree/minimal_test/ HTTP/1.1" 200 459
+[28/Jul/2025 14:24:23] "GET /api/projects/?lang=ja HTTP/1.1" 200 4263
+[28/Jul/2025 14:24:23] "GET /api/projects/?lang=ja HTTP/1.1" 200 4263
+[28/Jul/2025 14:24:24] "GET /api/files/tree/testProject/ HTTP/1.1" 200 643
+[28/Jul/2025 14:24:24] "GET /api/files/tree/testProject/ HTTP/1.1" 200 643
+[28/Jul/2025 14:24:25] "GET /api/projects/?lang=ja HTTP/1.1" 200 4263
+[28/Jul/2025 14:24:25] "GET /api/projects/?lang=ja HTTP/1.1" 200 4263
+[28/Jul/2025 14:24:30] "GET /api/files/tree/minimal_test/ HTTP/1.1" 200 459
+[28/Jul/2025 14:24:30] "GET /api/files/tree/minimal_test/ HTTP/1.1" 200 459
