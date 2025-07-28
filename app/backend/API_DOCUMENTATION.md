@@ -4,14 +4,26 @@
 StatVizForge APIは、プロジェクト管理とファイル操作を提供するRESTful APIです。
 クリーンアップされ、一貫性のある設計により、プロジェクトライフサイクル全体をサポートします。
 
+## ⚠️ 重要な注意事項
+**この仕様書は理想的なAPI設計を示しています。現在の実装とは一部異なる場合があります。**
+
+- 実装コードとの差異は段階的に修正予定
+- フロントエンドAPIプロキシ経由でのアクセスを推奨
+- 現在の実装状況は「実装状況と今後の予定」セクションを参照
+
 ## ベースURL
 ```
-# バックエンド直接アクセス
-http://localhost:8000/api/
-
 # フロントエンドAPIプロキシ経由（推奨）
 http://localhost:3000/api/
+
+# バックエンド直接アクセス（非推奨）
+http://localhost:8000/api/
 ```
+
+## API命名規則
+- **RESTful設計**: リソース名は複数形の名詞を使用
+- **一貫性**: 全エンドポイントでパターンを統一
+- **アクセス方法**: フロントエンドAPIプロキシ経由を推奨
 
 ## フロントエンドAPIプロキシ
 フロントエンドはNext.js APIルートを使用してバックエンドAPIへのプロキシを提供します：
@@ -21,14 +33,18 @@ http://localhost:3000/api/
 - `/api/files/[...slug]` - ファイル管理（動的ルーティング）
 - `/api/server-info/` - サーバー情報
 
+### 未実装のプロキシエンドポイント:
+- `/api/jupyter/[...slug]` - JupyterLab管理 ❌ **未実装**
+
 ### プロキシの特徴:
 - 自動的なタイムアウト処理（8秒）
 - エラーレスポンスの正規化
 - FormDataとJSONの両方をサポート
 - バックエンド接続失敗時のフォールバック
 
-### JupyterLab APIプロキシ ❌ **未実装**
-JupyterLab関係のAPIは現在プロキシ経由でアクセスできません。
+### 現在の制限事項:
+- JupyterLab APIは直接バックエンドアクセスが必要
+- タグAPIはバックエンド未実装のため利用不可
 
 ## 認証
 現在は認証不要（開発環境）
@@ -125,7 +141,7 @@ POST /api/projects/{id}/restore/
 
 ### 1. ディレクトリツリー取得
 ```http
-GET /api/files/tree/{project_folder}
+GET /api/files/trees/{project_folder}
 ```
 
 **レスポンス例:**
@@ -153,7 +169,7 @@ GET /api/files/tree/{project_folder}
 
 ### 2. ファイルアップロード
 ```http
-POST /api/files/upload/{project_folder}
+POST /api/files/uploads/{project_folder}
 ```
 
 **リクエスト:** `multipart/form-data`
@@ -180,7 +196,7 @@ POST /api/files/upload/{project_folder}
 
 ### 3. ファイル検索
 ```http
-GET /api/files/search/{project_folder}?q={query}&type={search_type}
+GET /api/files/searches/{project_folder}?q={query}&type={search_type}
 ```
 
 **パラメータ:**
@@ -218,7 +234,7 @@ GET /api/files/search/{project_folder}?q={query}&type={search_type}
 
 ### 4. ファイル/ディレクトリ削除
 ```http
-DELETE /api/files/delete/{project_folder}
+DELETE /api/files/deletions/{project_folder}
 ```
 
 **リクエスト例:**
@@ -230,7 +246,7 @@ DELETE /api/files/delete/{project_folder}
 
 ### 5. ファイル/ディレクトリ移動
 ```http
-POST /api/files/move/{project_folder}
+POST /api/files/movements/{project_folder}
 ```
 
 **リクエスト例:**
@@ -243,7 +259,7 @@ POST /api/files/move/{project_folder}
 
 ### 6. ディレクトリ作成
 ```http
-POST /api/files/mkdir/{project_folder}
+POST /api/files/directories/{project_folder}
 ```
 
 **リクエスト例:**
@@ -257,9 +273,9 @@ POST /api/files/mkdir/{project_folder}
 
 ## JupyterLab 管理 API
 
-### 1. JupyterLab起動
+### 1. JupyterLabインスタンス作成（起動）
 ```http
-POST /api/jupyter/start/
+POST /api/jupyter/instances/
 ```
 
 **リクエスト例:**
@@ -281,16 +297,9 @@ POST /api/jupyter/start/
 }
 ```
 
-### 2. JupyterLab停止
+### 2. JupyterLabインスタンス削除（停止）
 ```http
-POST /api/jupyter/stop/
-```
-
-**リクエスト例:**
-```json
-{
-  "project_folder": "my_project"
-}
+DELETE /api/jupyter/instances/{project_folder}
 ```
 
 **レスポンス例:**
@@ -302,9 +311,10 @@ POST /api/jupyter/stop/
 }
 ```
 
-### 3. JupyterLab状態確認
+### 3. JupyterLabインスタンス状態取得
 ```http
-GET /api/jupyter/status/
+GET /api/jupyter/instances/
+GET /api/jupyter/instances/{project_folder}
 ```
 
 **クエリパラメータ:**
@@ -515,7 +525,10 @@ python manage.py test api.tests.FileCommentsTestCase
 
 ### ❌ フロントエンド実装済み・バックエンド未実装
 - ファイルタグAPI（保存、取得、検索）
-- ファイル説明保存API（現在は comment として実装）
+
+### ⚠️ 命名不整合（要修正）
+- ファイル説明保存API: フロントエンド `/files/comment/`, バックエンド `/files/comments/`
+- API呼び出し混在: 一部直接バックエンド、一部プロキシ経由
 
 ### ❌ 今後の実装予定
 - JupyterLab APIプロキシ（フロントエンド）
