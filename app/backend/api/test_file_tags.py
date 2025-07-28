@@ -10,9 +10,15 @@ from unittest.mock import patch, mock_open, MagicMock
 import json
 import tempfile
 import os
+import sys
+from pathlib import Path
+
+# プロジェクトルートを追加
+sys.path.append(str(Path(__file__).parent.parent))
+from test_utils.project_backup import DjangoTestCaseMixin
 
 
-class FileTagsAPITestCase(APITestCase):
+class FileTagsAPITestCase(DjangoTestCaseMixin, APITestCase):
     """ファイルタグAPI テストケース"""
     
     def setUp(self):

@@ -109,3 +109,8 @@ MSW disabled - using real backend API
  ✓ Compiled in 177ms (425 modules)
 <w> [webpack.cache.PackFileCacheStrategy] Caching failed for pack: Error: ENOENT: no such file or directory, rename '/home/futaro/project/StatVizForge_JikkenPy/app/frontend/.next/cache/webpack/client-development/0.pack.gz_' -> '/home/futaro/project/StatVizForge_JikkenPy/app/frontend/.next/cache/webpack/client-development/0.pack.gz'
  ✓ Compiled in 203ms (425 modules)
+ ✓ Compiled in 199ms (425 modules)
+ ✓ Compiled in 176ms (425 modules)
+ ✓ Compiled in 142ms (425 modules)
+ ✓ Compiled in 159ms (425 modules)
+<w> [webpack.cache.PackFileCacheStrategy] Caching failed for pack: Error: invalid code lengths set

@@ -7,9 +7,15 @@ from rest_framework.test import APITestCase
 from rest_framework import status
 from unittest.mock import patch, MagicMock
 import json
+import sys
+from pathlib import Path
+
+# プロジェクトルートを追加
+sys.path.append(str(Path(__file__).parent.parent))
+from test_utils.project_backup import DjangoTestCaseMixin
 
 
-class JupyterLabAPITestCase(APITestCase):
+class JupyterLabAPITestCase(DjangoTestCaseMixin, APITestCase):
     """JupyterLab API テストケース"""
     
     def setUp(self):
