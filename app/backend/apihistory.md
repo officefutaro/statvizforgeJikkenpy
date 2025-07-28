@@ -4,6 +4,22 @@
 
 ---
 
+## 最新の追加機能 (2025-07-28)
+
+### ファイルタグ API エンドポイント
+```
+POST /api/files/tags/{project_folder}
+GET /api/files/tags/{project_folder}
+GET /api/files/search-by-tags/{project_folder}
+```
+
+**特徴:**
+- 条件付きタグ選択機能（分析データ→項目データ）
+- タグ重複防止
+- リアルタイムタグ保存・取得
+
+---
+
 ## 履歴フォーマット
 ```
 [日時] [メソッド] [エンドポイント]
@@ -33280,4 +33296,3975 @@ Test User
   "has_comments": false
 }
 ステータス: 200
+---
+
+[2025-07-28 14:30:32] GET /api/projects/
+リクエスト: {'lang': ['ja']}
+レスポンス: {
+  "version": "1.0.0",
+  "last_updated": "2025-07-27T20:40:00.000000",
+  "retention_months": 13,
+  "projects": [
+    {
+      "folder_name": "testProject",
+      "project_name": "テストのためのプロジェクト",
+      "description": "テストです。サンプルファイルとサブフォルダが追加されました。",
+      "tags": [
+        "sample"
+      ],
+      "status": "active",
+      "id": "2cec431a-0416-4451-a43b-fdc85e0c5c62",
+      "created_date": "2025-07-24T23:31:44.186614",
+      "modified_date": "2025-07-27T20:33:51.353635"
+    },
+    {
+      "folder_name": "minimal_test",
+      "project_name": "Minimal Test",
+      "description": "Minimal test project with README and CSV data",
+      "tags": [
+        "test",
+        "data"
+      ],
+      "status": "active",
+      "id": "a908299f-f131-4f70-8b16-43fd9f01b7d2",
+      "created_date": "2025-07-27T10:38:36.031250",
+      "modified_date": "2025-07-27T20:34:11.205509"
+    },
+    {
+      "folder_name": "debug_test_project",
+      "project_name": "デバッグテストプロジェクト",
+      "description": "デバッグのためのテストプロジェクト（JSONデータファイル付き）",
+      "tags": [
+        "debug",
+        "test",
+        "json"
+      ],
+      "status": "active",
+      "id": "c51050dc-a2c0-418f-9e1f-e65e42c6516a",
+      "created_date": "2025-07-27T16:03:20.315824",
+      "modified_date": "2025-07-27T20:34:00.984380"
+    }
+  ],
+  "archived_projects": [
+    {
+      "folder_name": "direct_test_project",
+      "project_name": "直接テストプロジェクト",
+      "description": "直接テスト用プロジェクト",
+      "tags": [
+        "test"
+      ],
+      "status": "active",
+      "id": "82886a55-fe6c-4559-9dfa-27aeb21e924e",
+      "created_date": "2025-07-27T10:37:56.949497",
+      "modified_date": "2025-07-27T10:37:56.949497",
+      "archive_filename": "direct_test_project_20250727_103756.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/direct_test_project_20250727_103756.zip",
+      "archive_size": 347,
+      "deletion_date": "2025-07-27T10:37:56.952974",
+      "reason": "ユーザー削除"
+    },
+    {
+      "folder_name": "success_test_project",
+      "project_name": "成功テストプロジェクト",
+      "description": "正常に作成されるべきプロジェクト",
+      "tags": [
+        "success",
+        "test"
+      ],
+      "status": "active",
+      "id": "658786da-0f80-4434-bf7c-4e389df4b9b2",
+      "created_date": "2025-07-27T10:38:36.034282",
+      "modified_date": "2025-07-27T10:38:36.034282",
+      "archive_filename": "success_test_project_20250727_103836.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/success_test_project_20250727_103836.zip",
+      "archive_size": 385,
+      "deletion_date": "2025-07-27T10:38:36.035929",
+      "reason": "ユーザー削除"
+    },
+    {
+      "folder_name": "save_test",
+      "project_name": "セーブテスト",
+      "description": "セーブテスト（フォルダが存在しないため移動）",
+      "tags": [],
+      "status": "active",
+      "id": "bb5830e9-e13c-4960-bc25-fa8045a272e9",
+      "created_date": "2025-07-27T10:37:56.948759",
+      "modified_date": "2025-07-27T10:37:56.948769",
+      "archive_filename": "save_test_auto_archived.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/save_test_auto_archived.zip",
+      "archive_size": 0,
+      "deletion_date": "2025-07-27T17:30:00.000000",
+      "reason": "フォルダが存在しないため自動アーカイブ"
+    },
+    {
+      "folder_name": "test_project_simple",
+      "project_name": "Simple Test Project",
+      "description": "A simple test project（不正データのため移動）",
+      "tags": [
+        "test"
+      ],
+      "status": "active",
+      "id": "bd7e7a94-fce7-471b-9dce-7e4c1bcb8255",
+      "created_date": "2025-07-27T16:08:14.889746",
+      "modified_date": "2025-07-27T16:08:14.889746",
+      "archive_filename": "test_project_simple_invalid_data.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/test_project_simple_invalid_data.zip",
+      "archive_size": 0,
+      "deletion_date": "2025-07-27T17:30:00.000000",
+      "reason": "不正な配列データのため自動アーカイブ"
+    },
+    {
+      "folder_name": "test_project_simple",
+      "project_name": "Simple Test Project",
+      "description": "A simple test project（重複データのため移動）",
+      "tags": [
+        "test"
+      ],
+      "status": "active",
+      "id": "7e7be177-9396-4e40-baf3-0b15c2310500",
+      "created_date": "2025-07-27T16:42:31.526622",
+      "modified_date": "2025-07-27T16:42:31.526622",
+      "archive_filename": "test_project_simple_duplicate.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/test_project_simple_duplicate.zip",
+      "archive_size": 0,
+      "deletion_date": "2025-07-27T17:30:00.000000",
+      "reason": "重複データのため自動アーカイブ"
+    }
+  ],
+  "reserved_folders": [
+    "node_modules",
+    "dist",
+    "build",
+    ".git",
+    "backend",
+    "frontend",
+    "trash",
+    "recycle_bin",
+    "deleted",
+    ".trash"
+  ]
+}
+ステータス: 200
+---
+
+[2025-07-28 14:30:32] GET /api/projects/
+リクエスト: {'lang': ['ja']}
+レスポンス: {
+  "version": "1.0.0",
+  "last_updated": "2025-07-27T20:40:00.000000",
+  "retention_months": 13,
+  "projects": [
+    {
+      "folder_name": "testProject",
+      "project_name": "テストのためのプロジェクト",
+      "description": "テストです。サンプルファイルとサブフォルダが追加されました。",
+      "tags": [
+        "sample"
+      ],
+      "status": "active",
+      "id": "2cec431a-0416-4451-a43b-fdc85e0c5c62",
+      "created_date": "2025-07-24T23:31:44.186614",
+      "modified_date": "2025-07-27T20:33:51.353635"
+    },
+    {
+      "folder_name": "minimal_test",
+      "project_name": "Minimal Test",
+      "description": "Minimal test project with README and CSV data",
+      "tags": [
+        "test",
+        "data"
+      ],
+      "status": "active",
+      "id": "a908299f-f131-4f70-8b16-43fd9f01b7d2",
+      "created_date": "2025-07-27T10:38:36.031250",
+      "modified_date": "2025-07-27T20:34:11.205509"
+    },
+    {
+      "folder_name": "debug_test_project",
+      "project_name": "デバッグテストプロジェクト",
+      "description": "デバッグのためのテストプロジェクト（JSONデータファイル付き）",
+      "tags": [
+        "debug",
+        "test",
+        "json"
+      ],
+      "status": "active",
+      "id": "c51050dc-a2c0-418f-9e1f-e65e42c6516a",
+      "created_date": "2025-07-27T16:03:20.315824",
+      "modified_date": "2025-07-27T20:34:00.984380"
+    }
+  ],
+  "archived_projects": [
+    {
+      "folder_name": "direct_test_project",
+      "project_name": "直接テストプロジェクト",
+      "description": "直接テスト用プロジェクト",
+      "tags": [
+        "test"
+      ],
+      "status": "active",
+      "id": "82886a55-fe6c-4559-9dfa-27aeb21e924e",
+      "created_date": "2025-07-27T10:37:56.949497",
+      "modified_date": "2025-07-27T10:37:56.949497",
+      "archive_filename": "direct_test_project_20250727_103756.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/direct_test_project_20250727_103756.zip",
+      "archive_size": 347,
+      "deletion_date": "2025-07-27T10:37:56.952974",
+      "reason": "ユーザー削除"
+    },
+    {
+      "folder_name": "success_test_project",
+      "project_name": "成功テストプロジェクト",
+      "description": "正常に作成されるべきプロジェクト",
+      "tags": [
+        "success",
+        "test"
+      ],
+      "status": "active",
+      "id": "658786da-0f80-4434-bf7c-4e389df4b9b2",
+      "created_date": "2025-07-27T10:38:36.034282",
+      "modified_date": "2025-07-27T10:38:36.034282",
+      "archive_filename": "success_test_project_20250727_103836.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/success_test_project_20250727_103836.zip",
+      "archive_size": 385,
+      "deletion_date": "2025-07-27T10:38:36.035929",
+      "reason": "ユーザー削除"
+    },
+    {
+      "folder_name": "save_test",
+      "project_name": "セーブテスト",
+      "description": "セーブテスト（フォルダが存在しないため移動）",
+      "tags": [],
+      "status": "active",
+      "id": "bb5830e9-e13c-4960-bc25-fa8045a272e9",
+      "created_date": "2025-07-27T10:37:56.948759",
+      "modified_date": "2025-07-27T10:37:56.948769",
+      "archive_filename": "save_test_auto_archived.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/save_test_auto_archived.zip",
+      "archive_size": 0,
+      "deletion_date": "2025-07-27T17:30:00.000000",
+      "reason": "フォルダが存在しないため自動アーカイブ"
+    },
+    {
+      "folder_name": "test_project_simple",
+      "project_name": "Simple Test Project",
+      "description": "A simple test project（不正データのため移動）",
+      "tags": [
+        "test"
+      ],
+      "status": "active",
+      "id": "bd7e7a94-fce7-471b-9dce-7e4c1bcb8255",
+      "created_date": "2025-07-27T16:08:14.889746",
+      "modified_date": "2025-07-27T16:08:14.889746",
+      "archive_filename": "test_project_simple_invalid_data.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/test_project_simple_invalid_data.zip",
+      "archive_size": 0,
+      "deletion_date": "2025-07-27T17:30:00.000000",
+      "reason": "不正な配列データのため自動アーカイブ"
+    },
+    {
+      "folder_name": "test_project_simple",
+      "project_name": "Simple Test Project",
+      "description": "A simple test project（重複データのため移動）",
+      "tags": [
+        "test"
+      ],
+      "status": "active",
+      "id": "7e7be177-9396-4e40-baf3-0b15c2310500",
+      "created_date": "2025-07-27T16:42:31.526622",
+      "modified_date": "2025-07-27T16:42:31.526622",
+      "archive_filename": "test_project_simple_duplicate.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/test_project_simple_duplicate.zip",
+      "archive_size": 0,
+      "deletion_date": "2025-07-27T17:30:00.000000",
+      "reason": "重複データのため自動アーカイブ"
+    }
+  ],
+  "reserved_folders": [
+    "node_modules",
+    "dist",
+    "build",
+    ".git",
+    "backend",
+    "frontend",
+    "trash",
+    "recycle_bin",
+    "deleted",
+    ".trash"
+  ]
+}
+ステータス: 200
+---
+
+[2025-07-28 14:30:32] GET /api/projects/
+リクエスト: {'lang': ['ja']}
+レスポンス: {
+  "version": "1.0.0",
+  "last_updated": "2025-07-27T20:40:00.000000",
+  "retention_months": 13,
+  "projects": [
+    {
+      "folder_name": "testProject",
+      "project_name": "テストのためのプロジェクト",
+      "description": "テストです。サンプルファイルとサブフォルダが追加されました。",
+      "tags": [
+        "sample"
+      ],
+      "status": "active",
+      "id": "2cec431a-0416-4451-a43b-fdc85e0c5c62",
+      "created_date": "2025-07-24T23:31:44.186614",
+      "modified_date": "2025-07-27T20:33:51.353635"
+    },
+    {
+      "folder_name": "minimal_test",
+      "project_name": "Minimal Test",
+      "description": "Minimal test project with README and CSV data",
+      "tags": [
+        "test",
+        "data"
+      ],
+      "status": "active",
+      "id": "a908299f-f131-4f70-8b16-43fd9f01b7d2",
+      "created_date": "2025-07-27T10:38:36.031250",
+      "modified_date": "2025-07-27T20:34:11.205509"
+    },
+    {
+      "folder_name": "debug_test_project",
+      "project_name": "デバッグテストプロジェクト",
+      "description": "デバッグのためのテストプロジェクト（JSONデータファイル付き）",
+      "tags": [
+        "debug",
+        "test",
+        "json"
+      ],
+      "status": "active",
+      "id": "c51050dc-a2c0-418f-9e1f-e65e42c6516a",
+      "created_date": "2025-07-27T16:03:20.315824",
+      "modified_date": "2025-07-27T20:34:00.984380"
+    }
+  ],
+  "archived_projects": [
+    {
+      "folder_name": "direct_test_project",
+      "project_name": "直接テストプロジェクト",
+      "description": "直接テスト用プロジェクト",
+      "tags": [
+        "test"
+      ],
+      "status": "active",
+      "id": "82886a55-fe6c-4559-9dfa-27aeb21e924e",
+      "created_date": "2025-07-27T10:37:56.949497",
+      "modified_date": "2025-07-27T10:37:56.949497",
+      "archive_filename": "direct_test_project_20250727_103756.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/direct_test_project_20250727_103756.zip",
+      "archive_size": 347,
+      "deletion_date": "2025-07-27T10:37:56.952974",
+      "reason": "ユーザー削除"
+    },
+    {
+      "folder_name": "success_test_project",
+      "project_name": "成功テストプロジェクト",
+      "description": "正常に作成されるべきプロジェクト",
+      "tags": [
+        "success",
+        "test"
+      ],
+      "status": "active",
+      "id": "658786da-0f80-4434-bf7c-4e389df4b9b2",
+      "created_date": "2025-07-27T10:38:36.034282",
+      "modified_date": "2025-07-27T10:38:36.034282",
+      "archive_filename": "success_test_project_20250727_103836.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/success_test_project_20250727_103836.zip",
+      "archive_size": 385,
+      "deletion_date": "2025-07-27T10:38:36.035929",
+      "reason": "ユーザー削除"
+    },
+    {
+      "folder_name": "save_test",
+      "project_name": "セーブテスト",
+      "description": "セーブテスト（フォルダが存在しないため移動）",
+      "tags": [],
+      "status": "active",
+      "id": "bb5830e9-e13c-4960-bc25-fa8045a272e9",
+      "created_date": "2025-07-27T10:37:56.948759",
+      "modified_date": "2025-07-27T10:37:56.948769",
+      "archive_filename": "save_test_auto_archived.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/save_test_auto_archived.zip",
+      "archive_size": 0,
+      "deletion_date": "2025-07-27T17:30:00.000000",
+      "reason": "フォルダが存在しないため自動アーカイブ"
+    },
+    {
+      "folder_name": "test_project_simple",
+      "project_name": "Simple Test Project",
+      "description": "A simple test project（不正データのため移動）",
+      "tags": [
+        "test"
+      ],
+      "status": "active",
+      "id": "bd7e7a94-fce7-471b-9dce-7e4c1bcb8255",
+      "created_date": "2025-07-27T16:08:14.889746",
+      "modified_date": "2025-07-27T16:08:14.889746",
+      "archive_filename": "test_project_simple_invalid_data.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/test_project_simple_invalid_data.zip",
+      "archive_size": 0,
+      "deletion_date": "2025-07-27T17:30:00.000000",
+      "reason": "不正な配列データのため自動アーカイブ"
+    },
+    {
+      "folder_name": "test_project_simple",
+      "project_name": "Simple Test Project",
+      "description": "A simple test project（重複データのため移動）",
+      "tags": [
+        "test"
+      ],
+      "status": "active",
+      "id": "7e7be177-9396-4e40-baf3-0b15c2310500",
+      "created_date": "2025-07-27T16:42:31.526622",
+      "modified_date": "2025-07-27T16:42:31.526622",
+      "archive_filename": "test_project_simple_duplicate.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/test_project_simple_duplicate.zip",
+      "archive_size": 0,
+      "deletion_date": "2025-07-27T17:30:00.000000",
+      "reason": "重複データのため自動アーカイブ"
+    }
+  ],
+  "reserved_folders": [
+    "node_modules",
+    "dist",
+    "build",
+    ".git",
+    "backend",
+    "frontend",
+    "trash",
+    "recycle_bin",
+    "deleted",
+    ".trash"
+  ]
+}
+ステータス: 200
+---
+
+[2025-07-28 14:30:32] GET /api/projects/
+リクエスト: {'lang': ['ja']}
+レスポンス: {
+  "version": "1.0.0",
+  "last_updated": "2025-07-27T20:40:00.000000",
+  "retention_months": 13,
+  "projects": [
+    {
+      "folder_name": "testProject",
+      "project_name": "テストのためのプロジェクト",
+      "description": "テストです。サンプルファイルとサブフォルダが追加されました。",
+      "tags": [
+        "sample"
+      ],
+      "status": "active",
+      "id": "2cec431a-0416-4451-a43b-fdc85e0c5c62",
+      "created_date": "2025-07-24T23:31:44.186614",
+      "modified_date": "2025-07-27T20:33:51.353635"
+    },
+    {
+      "folder_name": "minimal_test",
+      "project_name": "Minimal Test",
+      "description": "Minimal test project with README and CSV data",
+      "tags": [
+        "test",
+        "data"
+      ],
+      "status": "active",
+      "id": "a908299f-f131-4f70-8b16-43fd9f01b7d2",
+      "created_date": "2025-07-27T10:38:36.031250",
+      "modified_date": "2025-07-27T20:34:11.205509"
+    },
+    {
+      "folder_name": "debug_test_project",
+      "project_name": "デバッグテストプロジェクト",
+      "description": "デバッグのためのテストプロジェクト（JSONデータファイル付き）",
+      "tags": [
+        "debug",
+        "test",
+        "json"
+      ],
+      "status": "active",
+      "id": "c51050dc-a2c0-418f-9e1f-e65e42c6516a",
+      "created_date": "2025-07-27T16:03:20.315824",
+      "modified_date": "2025-07-27T20:34:00.984380"
+    }
+  ],
+  "archived_projects": [
+    {
+      "folder_name": "direct_test_project",
+      "project_name": "直接テストプロジェクト",
+      "description": "直接テスト用プロジェクト",
+      "tags": [
+        "test"
+      ],
+      "status": "active",
+      "id": "82886a55-fe6c-4559-9dfa-27aeb21e924e",
+      "created_date": "2025-07-27T10:37:56.949497",
+      "modified_date": "2025-07-27T10:37:56.949497",
+      "archive_filename": "direct_test_project_20250727_103756.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/direct_test_project_20250727_103756.zip",
+      "archive_size": 347,
+      "deletion_date": "2025-07-27T10:37:56.952974",
+      "reason": "ユーザー削除"
+    },
+    {
+      "folder_name": "success_test_project",
+      "project_name": "成功テストプロジェクト",
+      "description": "正常に作成されるべきプロジェクト",
+      "tags": [
+        "success",
+        "test"
+      ],
+      "status": "active",
+      "id": "658786da-0f80-4434-bf7c-4e389df4b9b2",
+      "created_date": "2025-07-27T10:38:36.034282",
+      "modified_date": "2025-07-27T10:38:36.034282",
+      "archive_filename": "success_test_project_20250727_103836.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/success_test_project_20250727_103836.zip",
+      "archive_size": 385,
+      "deletion_date": "2025-07-27T10:38:36.035929",
+      "reason": "ユーザー削除"
+    },
+    {
+      "folder_name": "save_test",
+      "project_name": "セーブテスト",
+      "description": "セーブテスト（フォルダが存在しないため移動）",
+      "tags": [],
+      "status": "active",
+      "id": "bb5830e9-e13c-4960-bc25-fa8045a272e9",
+      "created_date": "2025-07-27T10:37:56.948759",
+      "modified_date": "2025-07-27T10:37:56.948769",
+      "archive_filename": "save_test_auto_archived.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/save_test_auto_archived.zip",
+      "archive_size": 0,
+      "deletion_date": "2025-07-27T17:30:00.000000",
+      "reason": "フォルダが存在しないため自動アーカイブ"
+    },
+    {
+      "folder_name": "test_project_simple",
+      "project_name": "Simple Test Project",
+      "description": "A simple test project（不正データのため移動）",
+      "tags": [
+        "test"
+      ],
+      "status": "active",
+      "id": "bd7e7a94-fce7-471b-9dce-7e4c1bcb8255",
+      "created_date": "2025-07-27T16:08:14.889746",
+      "modified_date": "2025-07-27T16:08:14.889746",
+      "archive_filename": "test_project_simple_invalid_data.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/test_project_simple_invalid_data.zip",
+      "archive_size": 0,
+      "deletion_date": "2025-07-27T17:30:00.000000",
+      "reason": "不正な配列データのため自動アーカイブ"
+    },
+    {
+      "folder_name": "test_project_simple",
+      "project_name": "Simple Test Project",
+      "description": "A simple test project（重複データのため移動）",
+      "tags": [
+        "test"
+      ],
+      "status": "active",
+      "id": "7e7be177-9396-4e40-baf3-0b15c2310500",
+      "created_date": "2025-07-27T16:42:31.526622",
+      "modified_date": "2025-07-27T16:42:31.526622",
+      "archive_filename": "test_project_simple_duplicate.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/test_project_simple_duplicate.zip",
+      "archive_size": 0,
+      "deletion_date": "2025-07-27T17:30:00.000000",
+      "reason": "重複データのため自動アーカイブ"
+    }
+  ],
+  "reserved_folders": [
+    "node_modules",
+    "dist",
+    "build",
+    ".git",
+    "backend",
+    "frontend",
+    "trash",
+    "recycle_bin",
+    "deleted",
+    ".trash"
+  ]
+}
+ステータス: 200
+---
+
+[2025-07-28 14:30:37] GET /api/projects/
+リクエスト: {'lang': ['ja']}
+レスポンス: {
+  "version": "1.0.0",
+  "last_updated": "2025-07-27T20:40:00.000000",
+  "retention_months": 13,
+  "projects": [
+    {
+      "folder_name": "testProject",
+      "project_name": "テストのためのプロジェクト",
+      "description": "テストです。サンプルファイルとサブフォルダが追加されました。",
+      "tags": [
+        "sample"
+      ],
+      "status": "active",
+      "id": "2cec431a-0416-4451-a43b-fdc85e0c5c62",
+      "created_date": "2025-07-24T23:31:44.186614",
+      "modified_date": "2025-07-27T20:33:51.353635"
+    },
+    {
+      "folder_name": "minimal_test",
+      "project_name": "Minimal Test",
+      "description": "Minimal test project with README and CSV data",
+      "tags": [
+        "test",
+        "data"
+      ],
+      "status": "active",
+      "id": "a908299f-f131-4f70-8b16-43fd9f01b7d2",
+      "created_date": "2025-07-27T10:38:36.031250",
+      "modified_date": "2025-07-27T20:34:11.205509"
+    },
+    {
+      "folder_name": "debug_test_project",
+      "project_name": "デバッグテストプロジェクト",
+      "description": "デバッグのためのテストプロジェクト（JSONデータファイル付き）",
+      "tags": [
+        "debug",
+        "test",
+        "json"
+      ],
+      "status": "active",
+      "id": "c51050dc-a2c0-418f-9e1f-e65e42c6516a",
+      "created_date": "2025-07-27T16:03:20.315824",
+      "modified_date": "2025-07-27T20:34:00.984380"
+    }
+  ],
+  "archived_projects": [
+    {
+      "folder_name": "direct_test_project",
+      "project_name": "直接テストプロジェクト",
+      "description": "直接テスト用プロジェクト",
+      "tags": [
+        "test"
+      ],
+      "status": "active",
+      "id": "82886a55-fe6c-4559-9dfa-27aeb21e924e",
+      "created_date": "2025-07-27T10:37:56.949497",
+      "modified_date": "2025-07-27T10:37:56.949497",
+      "archive_filename": "direct_test_project_20250727_103756.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/direct_test_project_20250727_103756.zip",
+      "archive_size": 347,
+      "deletion_date": "2025-07-27T10:37:56.952974",
+      "reason": "ユーザー削除"
+    },
+    {
+      "folder_name": "success_test_project",
+      "project_name": "成功テストプロジェクト",
+      "description": "正常に作成されるべきプロジェクト",
+      "tags": [
+        "success",
+        "test"
+      ],
+      "status": "active",
+      "id": "658786da-0f80-4434-bf7c-4e389df4b9b2",
+      "created_date": "2025-07-27T10:38:36.034282",
+      "modified_date": "2025-07-27T10:38:36.034282",
+      "archive_filename": "success_test_project_20250727_103836.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/success_test_project_20250727_103836.zip",
+      "archive_size": 385,
+      "deletion_date": "2025-07-27T10:38:36.035929",
+      "reason": "ユーザー削除"
+    },
+    {
+      "folder_name": "save_test",
+      "project_name": "セーブテスト",
+      "description": "セーブテスト（フォルダが存在しないため移動）",
+      "tags": [],
+      "status": "active",
+      "id": "bb5830e9-e13c-4960-bc25-fa8045a272e9",
+      "created_date": "2025-07-27T10:37:56.948759",
+      "modified_date": "2025-07-27T10:37:56.948769",
+      "archive_filename": "save_test_auto_archived.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/save_test_auto_archived.zip",
+      "archive_size": 0,
+      "deletion_date": "2025-07-27T17:30:00.000000",
+      "reason": "フォルダが存在しないため自動アーカイブ"
+    },
+    {
+      "folder_name": "test_project_simple",
+      "project_name": "Simple Test Project",
+      "description": "A simple test project（不正データのため移動）",
+      "tags": [
+        "test"
+      ],
+      "status": "active",
+      "id": "bd7e7a94-fce7-471b-9dce-7e4c1bcb8255",
+      "created_date": "2025-07-27T16:08:14.889746",
+      "modified_date": "2025-07-27T16:08:14.889746",
+      "archive_filename": "test_project_simple_invalid_data.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/test_project_simple_invalid_data.zip",
+      "archive_size": 0,
+      "deletion_date": "2025-07-27T17:30:00.000000",
+      "reason": "不正な配列データのため自動アーカイブ"
+    },
+    {
+      "folder_name": "test_project_simple",
+      "project_name": "Simple Test Project",
+      "description": "A simple test project（重複データのため移動）",
+      "tags": [
+        "test"
+      ],
+      "status": "active",
+      "id": "7e7be177-9396-4e40-baf3-0b15c2310500",
+      "created_date": "2025-07-27T16:42:31.526622",
+      "modified_date": "2025-07-27T16:42:31.526622",
+      "archive_filename": "test_project_simple_duplicate.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/test_project_simple_duplicate.zip",
+      "archive_size": 0,
+      "deletion_date": "2025-07-27T17:30:00.000000",
+      "reason": "重複データのため自動アーカイブ"
+    }
+  ],
+  "reserved_folders": [
+    "node_modules",
+    "dist",
+    "build",
+    ".git",
+    "backend",
+    "frontend",
+    "trash",
+    "recycle_bin",
+    "deleted",
+    ".trash"
+  ]
+}
+ステータス: 200
+---
+
+[2025-07-28 14:30:37] GET /api/projects/
+リクエスト: {'lang': ['ja']}
+レスポンス: {
+  "version": "1.0.0",
+  "last_updated": "2025-07-27T20:40:00.000000",
+  "retention_months": 13,
+  "projects": [
+    {
+      "folder_name": "testProject",
+      "project_name": "テストのためのプロジェクト",
+      "description": "テストです。サンプルファイルとサブフォルダが追加されました。",
+      "tags": [
+        "sample"
+      ],
+      "status": "active",
+      "id": "2cec431a-0416-4451-a43b-fdc85e0c5c62",
+      "created_date": "2025-07-24T23:31:44.186614",
+      "modified_date": "2025-07-27T20:33:51.353635"
+    },
+    {
+      "folder_name": "minimal_test",
+      "project_name": "Minimal Test",
+      "description": "Minimal test project with README and CSV data",
+      "tags": [
+        "test",
+        "data"
+      ],
+      "status": "active",
+      "id": "a908299f-f131-4f70-8b16-43fd9f01b7d2",
+      "created_date": "2025-07-27T10:38:36.031250",
+      "modified_date": "2025-07-27T20:34:11.205509"
+    },
+    {
+      "folder_name": "debug_test_project",
+      "project_name": "デバッグテストプロジェクト",
+      "description": "デバッグのためのテストプロジェクト（JSONデータファイル付き）",
+      "tags": [
+        "debug",
+        "test",
+        "json"
+      ],
+      "status": "active",
+      "id": "c51050dc-a2c0-418f-9e1f-e65e42c6516a",
+      "created_date": "2025-07-27T16:03:20.315824",
+      "modified_date": "2025-07-27T20:34:00.984380"
+    }
+  ],
+  "archived_projects": [
+    {
+      "folder_name": "direct_test_project",
+      "project_name": "直接テストプロジェクト",
+      "description": "直接テスト用プロジェクト",
+      "tags": [
+        "test"
+      ],
+      "status": "active",
+      "id": "82886a55-fe6c-4559-9dfa-27aeb21e924e",
+      "created_date": "2025-07-27T10:37:56.949497",
+      "modified_date": "2025-07-27T10:37:56.949497",
+      "archive_filename": "direct_test_project_20250727_103756.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/direct_test_project_20250727_103756.zip",
+      "archive_size": 347,
+      "deletion_date": "2025-07-27T10:37:56.952974",
+      "reason": "ユーザー削除"
+    },
+    {
+      "folder_name": "success_test_project",
+      "project_name": "成功テストプロジェクト",
+      "description": "正常に作成されるべきプロジェクト",
+      "tags": [
+        "success",
+        "test"
+      ],
+      "status": "active",
+      "id": "658786da-0f80-4434-bf7c-4e389df4b9b2",
+      "created_date": "2025-07-27T10:38:36.034282",
+      "modified_date": "2025-07-27T10:38:36.034282",
+      "archive_filename": "success_test_project_20250727_103836.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/success_test_project_20250727_103836.zip",
+      "archive_size": 385,
+      "deletion_date": "2025-07-27T10:38:36.035929",
+      "reason": "ユーザー削除"
+    },
+    {
+      "folder_name": "save_test",
+      "project_name": "セーブテスト",
+      "description": "セーブテスト（フォルダが存在しないため移動）",
+      "tags": [],
+      "status": "active",
+      "id": "bb5830e9-e13c-4960-bc25-fa8045a272e9",
+      "created_date": "2025-07-27T10:37:56.948759",
+      "modified_date": "2025-07-27T10:37:56.948769",
+      "archive_filename": "save_test_auto_archived.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/save_test_auto_archived.zip",
+      "archive_size": 0,
+      "deletion_date": "2025-07-27T17:30:00.000000",
+      "reason": "フォルダが存在しないため自動アーカイブ"
+    },
+    {
+      "folder_name": "test_project_simple",
+      "project_name": "Simple Test Project",
+      "description": "A simple test project（不正データのため移動）",
+      "tags": [
+        "test"
+      ],
+      "status": "active",
+      "id": "bd7e7a94-fce7-471b-9dce-7e4c1bcb8255",
+      "created_date": "2025-07-27T16:08:14.889746",
+      "modified_date": "2025-07-27T16:08:14.889746",
+      "archive_filename": "test_project_simple_invalid_data.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/test_project_simple_invalid_data.zip",
+      "archive_size": 0,
+      "deletion_date": "2025-07-27T17:30:00.000000",
+      "reason": "不正な配列データのため自動アーカイブ"
+    },
+    {
+      "folder_name": "test_project_simple",
+      "project_name": "Simple Test Project",
+      "description": "A simple test project（重複データのため移動）",
+      "tags": [
+        "test"
+      ],
+      "status": "active",
+      "id": "7e7be177-9396-4e40-baf3-0b15c2310500",
+      "created_date": "2025-07-27T16:42:31.526622",
+      "modified_date": "2025-07-27T16:42:31.526622",
+      "archive_filename": "test_project_simple_duplicate.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/test_project_simple_duplicate.zip",
+      "archive_size": 0,
+      "deletion_date": "2025-07-27T17:30:00.000000",
+      "reason": "重複データのため自動アーカイブ"
+    }
+  ],
+  "reserved_folders": [
+    "node_modules",
+    "dist",
+    "build",
+    ".git",
+    "backend",
+    "frontend",
+    "trash",
+    "recycle_bin",
+    "deleted",
+    ".trash"
+  ]
+}
+ステータス: 200
+---
+
+[2025-07-28 14:30:41] GET /api/projects/
+リクエスト: {'lang': ['ja']}
+レスポンス: {
+  "version": "1.0.0",
+  "last_updated": "2025-07-27T20:40:00.000000",
+  "retention_months": 13,
+  "projects": [
+    {
+      "folder_name": "testProject",
+      "project_name": "テストのためのプロジェクト",
+      "description": "テストです。サンプルファイルとサブフォルダが追加されました。",
+      "tags": [
+        "sample"
+      ],
+      "status": "active",
+      "id": "2cec431a-0416-4451-a43b-fdc85e0c5c62",
+      "created_date": "2025-07-24T23:31:44.186614",
+      "modified_date": "2025-07-27T20:33:51.353635"
+    },
+    {
+      "folder_name": "minimal_test",
+      "project_name": "Minimal Test",
+      "description": "Minimal test project with README and CSV data",
+      "tags": [
+        "test",
+        "data"
+      ],
+      "status": "active",
+      "id": "a908299f-f131-4f70-8b16-43fd9f01b7d2",
+      "created_date": "2025-07-27T10:38:36.031250",
+      "modified_date": "2025-07-27T20:34:11.205509"
+    },
+    {
+      "folder_name": "debug_test_project",
+      "project_name": "デバッグテストプロジェクト",
+      "description": "デバッグのためのテストプロジェクト（JSONデータファイル付き）",
+      "tags": [
+        "debug",
+        "test",
+        "json"
+      ],
+      "status": "active",
+      "id": "c51050dc-a2c0-418f-9e1f-e65e42c6516a",
+      "created_date": "2025-07-27T16:03:20.315824",
+      "modified_date": "2025-07-27T20:34:00.984380"
+    }
+  ],
+  "archived_projects": [
+    {
+      "folder_name": "direct_test_project",
+      "project_name": "直接テストプロジェクト",
+      "description": "直接テスト用プロジェクト",
+      "tags": [
+        "test"
+      ],
+      "status": "active",
+      "id": "82886a55-fe6c-4559-9dfa-27aeb21e924e",
+      "created_date": "2025-07-27T10:37:56.949497",
+      "modified_date": "2025-07-27T10:37:56.949497",
+      "archive_filename": "direct_test_project_20250727_103756.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/direct_test_project_20250727_103756.zip",
+      "archive_size": 347,
+      "deletion_date": "2025-07-27T10:37:56.952974",
+      "reason": "ユーザー削除"
+    },
+    {
+      "folder_name": "success_test_project",
+      "project_name": "成功テストプロジェクト",
+      "description": "正常に作成されるべきプロジェクト",
+      "tags": [
+        "success",
+        "test"
+      ],
+      "status": "active",
+      "id": "658786da-0f80-4434-bf7c-4e389df4b9b2",
+      "created_date": "2025-07-27T10:38:36.034282",
+      "modified_date": "2025-07-27T10:38:36.034282",
+      "archive_filename": "success_test_project_20250727_103836.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/success_test_project_20250727_103836.zip",
+      "archive_size": 385,
+      "deletion_date": "2025-07-27T10:38:36.035929",
+      "reason": "ユーザー削除"
+    },
+    {
+      "folder_name": "save_test",
+      "project_name": "セーブテスト",
+      "description": "セーブテスト（フォルダが存在しないため移動）",
+      "tags": [],
+      "status": "active",
+      "id": "bb5830e9-e13c-4960-bc25-fa8045a272e9",
+      "created_date": "2025-07-27T10:37:56.948759",
+      "modified_date": "2025-07-27T10:37:56.948769",
+      "archive_filename": "save_test_auto_archived.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/save_test_auto_archived.zip",
+      "archive_size": 0,
+      "deletion_date": "2025-07-27T17:30:00.000000",
+      "reason": "フォルダが存在しないため自動アーカイブ"
+    },
+    {
+      "folder_name": "test_project_simple",
+      "project_name": "Simple Test Project",
+      "description": "A simple test project（不正データのため移動）",
+      "tags": [
+        "test"
+      ],
+      "status": "active",
+      "id": "bd7e7a94-fce7-471b-9dce-7e4c1bcb8255",
+      "created_date": "2025-07-27T16:08:14.889746",
+      "modified_date": "2025-07-27T16:08:14.889746",
+      "archive_filename": "test_project_simple_invalid_data.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/test_project_simple_invalid_data.zip",
+      "archive_size": 0,
+      "deletion_date": "2025-07-27T17:30:00.000000",
+      "reason": "不正な配列データのため自動アーカイブ"
+    },
+    {
+      "folder_name": "test_project_simple",
+      "project_name": "Simple Test Project",
+      "description": "A simple test project（重複データのため移動）",
+      "tags": [
+        "test"
+      ],
+      "status": "active",
+      "id": "7e7be177-9396-4e40-baf3-0b15c2310500",
+      "created_date": "2025-07-27T16:42:31.526622",
+      "modified_date": "2025-07-27T16:42:31.526622",
+      "archive_filename": "test_project_simple_duplicate.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/test_project_simple_duplicate.zip",
+      "archive_size": 0,
+      "deletion_date": "2025-07-27T17:30:00.000000",
+      "reason": "重複データのため自動アーカイブ"
+    }
+  ],
+  "reserved_folders": [
+    "node_modules",
+    "dist",
+    "build",
+    ".git",
+    "backend",
+    "frontend",
+    "trash",
+    "recycle_bin",
+    "deleted",
+    ".trash"
+  ]
+}
+ステータス: 200
+---
+
+[2025-07-28 14:30:41] GET /api/projects/
+リクエスト: {'lang': ['ja']}
+レスポンス: {
+  "version": "1.0.0",
+  "last_updated": "2025-07-27T20:40:00.000000",
+  "retention_months": 13,
+  "projects": [
+    {
+      "folder_name": "testProject",
+      "project_name": "テストのためのプロジェクト",
+      "description": "テストです。サンプルファイルとサブフォルダが追加されました。",
+      "tags": [
+        "sample"
+      ],
+      "status": "active",
+      "id": "2cec431a-0416-4451-a43b-fdc85e0c5c62",
+      "created_date": "2025-07-24T23:31:44.186614",
+      "modified_date": "2025-07-27T20:33:51.353635"
+    },
+    {
+      "folder_name": "minimal_test",
+      "project_name": "Minimal Test",
+      "description": "Minimal test project with README and CSV data",
+      "tags": [
+        "test",
+        "data"
+      ],
+      "status": "active",
+      "id": "a908299f-f131-4f70-8b16-43fd9f01b7d2",
+      "created_date": "2025-07-27T10:38:36.031250",
+      "modified_date": "2025-07-27T20:34:11.205509"
+    },
+    {
+      "folder_name": "debug_test_project",
+      "project_name": "デバッグテストプロジェクト",
+      "description": "デバッグのためのテストプロジェクト（JSONデータファイル付き）",
+      "tags": [
+        "debug",
+        "test",
+        "json"
+      ],
+      "status": "active",
+      "id": "c51050dc-a2c0-418f-9e1f-e65e42c6516a",
+      "created_date": "2025-07-27T16:03:20.315824",
+      "modified_date": "2025-07-27T20:34:00.984380"
+    }
+  ],
+  "archived_projects": [
+    {
+      "folder_name": "direct_test_project",
+      "project_name": "直接テストプロジェクト",
+      "description": "直接テスト用プロジェクト",
+      "tags": [
+        "test"
+      ],
+      "status": "active",
+      "id": "82886a55-fe6c-4559-9dfa-27aeb21e924e",
+      "created_date": "2025-07-27T10:37:56.949497",
+      "modified_date": "2025-07-27T10:37:56.949497",
+      "archive_filename": "direct_test_project_20250727_103756.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/direct_test_project_20250727_103756.zip",
+      "archive_size": 347,
+      "deletion_date": "2025-07-27T10:37:56.952974",
+      "reason": "ユーザー削除"
+    },
+    {
+      "folder_name": "success_test_project",
+      "project_name": "成功テストプロジェクト",
+      "description": "正常に作成されるべきプロジェクト",
+      "tags": [
+        "success",
+        "test"
+      ],
+      "status": "active",
+      "id": "658786da-0f80-4434-bf7c-4e389df4b9b2",
+      "created_date": "2025-07-27T10:38:36.034282",
+      "modified_date": "2025-07-27T10:38:36.034282",
+      "archive_filename": "success_test_project_20250727_103836.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/success_test_project_20250727_103836.zip",
+      "archive_size": 385,
+      "deletion_date": "2025-07-27T10:38:36.035929",
+      "reason": "ユーザー削除"
+    },
+    {
+      "folder_name": "save_test",
+      "project_name": "セーブテスト",
+      "description": "セーブテスト（フォルダが存在しないため移動）",
+      "tags": [],
+      "status": "active",
+      "id": "bb5830e9-e13c-4960-bc25-fa8045a272e9",
+      "created_date": "2025-07-27T10:37:56.948759",
+      "modified_date": "2025-07-27T10:37:56.948769",
+      "archive_filename": "save_test_auto_archived.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/save_test_auto_archived.zip",
+      "archive_size": 0,
+      "deletion_date": "2025-07-27T17:30:00.000000",
+      "reason": "フォルダが存在しないため自動アーカイブ"
+    },
+    {
+      "folder_name": "test_project_simple",
+      "project_name": "Simple Test Project",
+      "description": "A simple test project（不正データのため移動）",
+      "tags": [
+        "test"
+      ],
+      "status": "active",
+      "id": "bd7e7a94-fce7-471b-9dce-7e4c1bcb8255",
+      "created_date": "2025-07-27T16:08:14.889746",
+      "modified_date": "2025-07-27T16:08:14.889746",
+      "archive_filename": "test_project_simple_invalid_data.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/test_project_simple_invalid_data.zip",
+      "archive_size": 0,
+      "deletion_date": "2025-07-27T17:30:00.000000",
+      "reason": "不正な配列データのため自動アーカイブ"
+    },
+    {
+      "folder_name": "test_project_simple",
+      "project_name": "Simple Test Project",
+      "description": "A simple test project（重複データのため移動）",
+      "tags": [
+        "test"
+      ],
+      "status": "active",
+      "id": "7e7be177-9396-4e40-baf3-0b15c2310500",
+      "created_date": "2025-07-27T16:42:31.526622",
+      "modified_date": "2025-07-27T16:42:31.526622",
+      "archive_filename": "test_project_simple_duplicate.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/test_project_simple_duplicate.zip",
+      "archive_size": 0,
+      "deletion_date": "2025-07-27T17:30:00.000000",
+      "reason": "重複データのため自動アーカイブ"
+    }
+  ],
+  "reserved_folders": [
+    "node_modules",
+    "dist",
+    "build",
+    ".git",
+    "backend",
+    "frontend",
+    "trash",
+    "recycle_bin",
+    "deleted",
+    ".trash"
+  ]
+}
+ステータス: 200
+---
+
+[2025-07-28 14:30:44] GET /api/files/tree/testProject/
+リクエスト: {}
+レスポンス: {
+  "name": "raw",
+  "path": ".",
+  "type": "directory",
+  "size": 0,
+  "modified": "2025-07-27T20:33:51.353635",
+  "children": [
+    {
+      "name": "sample.txt",
+      "path": "sample.txt",
+      "type": "file",
+      "size": 123,
+      "modified": "2025-07-27T20:33:46.000352",
+      "children": [],
+      "comment_count": 0,
+      "has_comments": false
+    },
+    {
+      "name": "subfolder",
+      "path": "subfolder",
+      "type": "directory",
+      "size": 0,
+      "modified": "2025-07-27T20:33:56.074794",
+      "children": [
+        {
+          "name": "nested_file.py",
+          "path": "subfolder/nested_file.py",
+          "type": "file",
+          "size": 185,
+          "modified": "2025-07-27T20:33:56.067116",
+          "children": [],
+          "comment_count": 0,
+          "has_comments": false
+        }
+      ],
+      "comment_count": 0,
+      "has_comments": false
+    }
+  ],
+  "comment_count": 0,
+  "has_comments": false
+}
+ステータス: 200
+---
+
+[2025-07-28 14:30:44] GET /api/files/tree/testProject/
+リクエスト: {}
+レスポンス: {
+  "name": "raw",
+  "path": ".",
+  "type": "directory",
+  "size": 0,
+  "modified": "2025-07-27T20:33:51.353635",
+  "children": [
+    {
+      "name": "sample.txt",
+      "path": "sample.txt",
+      "type": "file",
+      "size": 123,
+      "modified": "2025-07-27T20:33:46.000352",
+      "children": [],
+      "comment_count": 0,
+      "has_comments": false
+    },
+    {
+      "name": "subfolder",
+      "path": "subfolder",
+      "type": "directory",
+      "size": 0,
+      "modified": "2025-07-27T20:33:56.074794",
+      "children": [
+        {
+          "name": "nested_file.py",
+          "path": "subfolder/nested_file.py",
+          "type": "file",
+          "size": 185,
+          "modified": "2025-07-27T20:33:56.067116",
+          "children": [],
+          "comment_count": 0,
+          "has_comments": false
+        }
+      ],
+      "comment_count": 0,
+      "has_comments": false
+    }
+  ],
+  "comment_count": 0,
+  "has_comments": false
+}
+ステータス: 200
+---
+
+[2025-07-28 14:30:50] GET /api/projects/
+リクエスト: {'lang': ['ja']}
+レスポンス: {
+  "version": "1.0.0",
+  "last_updated": "2025-07-27T20:40:00.000000",
+  "retention_months": 13,
+  "projects": [
+    {
+      "folder_name": "testProject",
+      "project_name": "テストのためのプロジェクト",
+      "description": "テストです。サンプルファイルとサブフォルダが追加されました。",
+      "tags": [
+        "sample"
+      ],
+      "status": "active",
+      "id": "2cec431a-0416-4451-a43b-fdc85e0c5c62",
+      "created_date": "2025-07-24T23:31:44.186614",
+      "modified_date": "2025-07-27T20:33:51.353635"
+    },
+    {
+      "folder_name": "minimal_test",
+      "project_name": "Minimal Test",
+      "description": "Minimal test project with README and CSV data",
+      "tags": [
+        "test",
+        "data"
+      ],
+      "status": "active",
+      "id": "a908299f-f131-4f70-8b16-43fd9f01b7d2",
+      "created_date": "2025-07-27T10:38:36.031250",
+      "modified_date": "2025-07-27T20:34:11.205509"
+    },
+    {
+      "folder_name": "debug_test_project",
+      "project_name": "デバッグテストプロジェクト",
+      "description": "デバッグのためのテストプロジェクト（JSONデータファイル付き）",
+      "tags": [
+        "debug",
+        "test",
+        "json"
+      ],
+      "status": "active",
+      "id": "c51050dc-a2c0-418f-9e1f-e65e42c6516a",
+      "created_date": "2025-07-27T16:03:20.315824",
+      "modified_date": "2025-07-27T20:34:00.984380"
+    }
+  ],
+  "archived_projects": [
+    {
+      "folder_name": "direct_test_project",
+      "project_name": "直接テストプロジェクト",
+      "description": "直接テスト用プロジェクト",
+      "tags": [
+        "test"
+      ],
+      "status": "active",
+      "id": "82886a55-fe6c-4559-9dfa-27aeb21e924e",
+      "created_date": "2025-07-27T10:37:56.949497",
+      "modified_date": "2025-07-27T10:37:56.949497",
+      "archive_filename": "direct_test_project_20250727_103756.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/direct_test_project_20250727_103756.zip",
+      "archive_size": 347,
+      "deletion_date": "2025-07-27T10:37:56.952974",
+      "reason": "ユーザー削除"
+    },
+    {
+      "folder_name": "success_test_project",
+      "project_name": "成功テストプロジェクト",
+      "description": "正常に作成されるべきプロジェクト",
+      "tags": [
+        "success",
+        "test"
+      ],
+      "status": "active",
+      "id": "658786da-0f80-4434-bf7c-4e389df4b9b2",
+      "created_date": "2025-07-27T10:38:36.034282",
+      "modified_date": "2025-07-27T10:38:36.034282",
+      "archive_filename": "success_test_project_20250727_103836.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/success_test_project_20250727_103836.zip",
+      "archive_size": 385,
+      "deletion_date": "2025-07-27T10:38:36.035929",
+      "reason": "ユーザー削除"
+    },
+    {
+      "folder_name": "save_test",
+      "project_name": "セーブテスト",
+      "description": "セーブテスト（フォルダが存在しないため移動）",
+      "tags": [],
+      "status": "active",
+      "id": "bb5830e9-e13c-4960-bc25-fa8045a272e9",
+      "created_date": "2025-07-27T10:37:56.948759",
+      "modified_date": "2025-07-27T10:37:56.948769",
+      "archive_filename": "save_test_auto_archived.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/save_test_auto_archived.zip",
+      "archive_size": 0,
+      "deletion_date": "2025-07-27T17:30:00.000000",
+      "reason": "フォルダが存在しないため自動アーカイブ"
+    },
+    {
+      "folder_name": "test_project_simple",
+      "project_name": "Simple Test Project",
+      "description": "A simple test project（不正データのため移動）",
+      "tags": [
+        "test"
+      ],
+      "status": "active",
+      "id": "bd7e7a94-fce7-471b-9dce-7e4c1bcb8255",
+      "created_date": "2025-07-27T16:08:14.889746",
+      "modified_date": "2025-07-27T16:08:14.889746",
+      "archive_filename": "test_project_simple_invalid_data.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/test_project_simple_invalid_data.zip",
+      "archive_size": 0,
+      "deletion_date": "2025-07-27T17:30:00.000000",
+      "reason": "不正な配列データのため自動アーカイブ"
+    },
+    {
+      "folder_name": "test_project_simple",
+      "project_name": "Simple Test Project",
+      "description": "A simple test project（重複データのため移動）",
+      "tags": [
+        "test"
+      ],
+      "status": "active",
+      "id": "7e7be177-9396-4e40-baf3-0b15c2310500",
+      "created_date": "2025-07-27T16:42:31.526622",
+      "modified_date": "2025-07-27T16:42:31.526622",
+      "archive_filename": "test_project_simple_duplicate.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/test_project_simple_duplicate.zip",
+      "archive_size": 0,
+      "deletion_date": "2025-07-27T17:30:00.000000",
+      "reason": "重複データのため自動アーカイブ"
+    }
+  ],
+  "reserved_folders": [
+    "node_modules",
+    "dist",
+    "build",
+    ".git",
+    "backend",
+    "frontend",
+    "trash",
+    "recycle_bin",
+    "deleted",
+    ".trash"
+  ]
+}
+ステータス: 200
+---
+
+[2025-07-28 14:30:50] GET /api/projects/
+リクエスト: {'lang': ['ja']}
+レスポンス: {
+  "version": "1.0.0",
+  "last_updated": "2025-07-27T20:40:00.000000",
+  "retention_months": 13,
+  "projects": [
+    {
+      "folder_name": "testProject",
+      "project_name": "テストのためのプロジェクト",
+      "description": "テストです。サンプルファイルとサブフォルダが追加されました。",
+      "tags": [
+        "sample"
+      ],
+      "status": "active",
+      "id": "2cec431a-0416-4451-a43b-fdc85e0c5c62",
+      "created_date": "2025-07-24T23:31:44.186614",
+      "modified_date": "2025-07-27T20:33:51.353635"
+    },
+    {
+      "folder_name": "minimal_test",
+      "project_name": "Minimal Test",
+      "description": "Minimal test project with README and CSV data",
+      "tags": [
+        "test",
+        "data"
+      ],
+      "status": "active",
+      "id": "a908299f-f131-4f70-8b16-43fd9f01b7d2",
+      "created_date": "2025-07-27T10:38:36.031250",
+      "modified_date": "2025-07-27T20:34:11.205509"
+    },
+    {
+      "folder_name": "debug_test_project",
+      "project_name": "デバッグテストプロジェクト",
+      "description": "デバッグのためのテストプロジェクト（JSONデータファイル付き）",
+      "tags": [
+        "debug",
+        "test",
+        "json"
+      ],
+      "status": "active",
+      "id": "c51050dc-a2c0-418f-9e1f-e65e42c6516a",
+      "created_date": "2025-07-27T16:03:20.315824",
+      "modified_date": "2025-07-27T20:34:00.984380"
+    }
+  ],
+  "archived_projects": [
+    {
+      "folder_name": "direct_test_project",
+      "project_name": "直接テストプロジェクト",
+      "description": "直接テスト用プロジェクト",
+      "tags": [
+        "test"
+      ],
+      "status": "active",
+      "id": "82886a55-fe6c-4559-9dfa-27aeb21e924e",
+      "created_date": "2025-07-27T10:37:56.949497",
+      "modified_date": "2025-07-27T10:37:56.949497",
+      "archive_filename": "direct_test_project_20250727_103756.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/direct_test_project_20250727_103756.zip",
+      "archive_size": 347,
+      "deletion_date": "2025-07-27T10:37:56.952974",
+      "reason": "ユーザー削除"
+    },
+    {
+      "folder_name": "success_test_project",
+      "project_name": "成功テストプロジェクト",
+      "description": "正常に作成されるべきプロジェクト",
+      "tags": [
+        "success",
+        "test"
+      ],
+      "status": "active",
+      "id": "658786da-0f80-4434-bf7c-4e389df4b9b2",
+      "created_date": "2025-07-27T10:38:36.034282",
+      "modified_date": "2025-07-27T10:38:36.034282",
+      "archive_filename": "success_test_project_20250727_103836.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/success_test_project_20250727_103836.zip",
+      "archive_size": 385,
+      "deletion_date": "2025-07-27T10:38:36.035929",
+      "reason": "ユーザー削除"
+    },
+    {
+      "folder_name": "save_test",
+      "project_name": "セーブテスト",
+      "description": "セーブテスト（フォルダが存在しないため移動）",
+      "tags": [],
+      "status": "active",
+      "id": "bb5830e9-e13c-4960-bc25-fa8045a272e9",
+      "created_date": "2025-07-27T10:37:56.948759",
+      "modified_date": "2025-07-27T10:37:56.948769",
+      "archive_filename": "save_test_auto_archived.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/save_test_auto_archived.zip",
+      "archive_size": 0,
+      "deletion_date": "2025-07-27T17:30:00.000000",
+      "reason": "フォルダが存在しないため自動アーカイブ"
+    },
+    {
+      "folder_name": "test_project_simple",
+      "project_name": "Simple Test Project",
+      "description": "A simple test project（不正データのため移動）",
+      "tags": [
+        "test"
+      ],
+      "status": "active",
+      "id": "bd7e7a94-fce7-471b-9dce-7e4c1bcb8255",
+      "created_date": "2025-07-27T16:08:14.889746",
+      "modified_date": "2025-07-27T16:08:14.889746",
+      "archive_filename": "test_project_simple_invalid_data.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/test_project_simple_invalid_data.zip",
+      "archive_size": 0,
+      "deletion_date": "2025-07-27T17:30:00.000000",
+      "reason": "不正な配列データのため自動アーカイブ"
+    },
+    {
+      "folder_name": "test_project_simple",
+      "project_name": "Simple Test Project",
+      "description": "A simple test project（重複データのため移動）",
+      "tags": [
+        "test"
+      ],
+      "status": "active",
+      "id": "7e7be177-9396-4e40-baf3-0b15c2310500",
+      "created_date": "2025-07-27T16:42:31.526622",
+      "modified_date": "2025-07-27T16:42:31.526622",
+      "archive_filename": "test_project_simple_duplicate.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/test_project_simple_duplicate.zip",
+      "archive_size": 0,
+      "deletion_date": "2025-07-27T17:30:00.000000",
+      "reason": "重複データのため自動アーカイブ"
+    }
+  ],
+  "reserved_folders": [
+    "node_modules",
+    "dist",
+    "build",
+    ".git",
+    "backend",
+    "frontend",
+    "trash",
+    "recycle_bin",
+    "deleted",
+    ".trash"
+  ]
+}
+ステータス: 200
+---
+
+[2025-07-28 14:30:50] GET /api/projects/
+リクエスト: {'lang': ['ja']}
+レスポンス: {
+  "version": "1.0.0",
+  "last_updated": "2025-07-27T20:40:00.000000",
+  "retention_months": 13,
+  "projects": [
+    {
+      "folder_name": "testProject",
+      "project_name": "テストのためのプロジェクト",
+      "description": "テストです。サンプルファイルとサブフォルダが追加されました。",
+      "tags": [
+        "sample"
+      ],
+      "status": "active",
+      "id": "2cec431a-0416-4451-a43b-fdc85e0c5c62",
+      "created_date": "2025-07-24T23:31:44.186614",
+      "modified_date": "2025-07-27T20:33:51.353635"
+    },
+    {
+      "folder_name": "minimal_test",
+      "project_name": "Minimal Test",
+      "description": "Minimal test project with README and CSV data",
+      "tags": [
+        "test",
+        "data"
+      ],
+      "status": "active",
+      "id": "a908299f-f131-4f70-8b16-43fd9f01b7d2",
+      "created_date": "2025-07-27T10:38:36.031250",
+      "modified_date": "2025-07-27T20:34:11.205509"
+    },
+    {
+      "folder_name": "debug_test_project",
+      "project_name": "デバッグテストプロジェクト",
+      "description": "デバッグのためのテストプロジェクト（JSONデータファイル付き）",
+      "tags": [
+        "debug",
+        "test",
+        "json"
+      ],
+      "status": "active",
+      "id": "c51050dc-a2c0-418f-9e1f-e65e42c6516a",
+      "created_date": "2025-07-27T16:03:20.315824",
+      "modified_date": "2025-07-27T20:34:00.984380"
+    }
+  ],
+  "archived_projects": [
+    {
+      "folder_name": "direct_test_project",
+      "project_name": "直接テストプロジェクト",
+      "description": "直接テスト用プロジェクト",
+      "tags": [
+        "test"
+      ],
+      "status": "active",
+      "id": "82886a55-fe6c-4559-9dfa-27aeb21e924e",
+      "created_date": "2025-07-27T10:37:56.949497",
+      "modified_date": "2025-07-27T10:37:56.949497",
+      "archive_filename": "direct_test_project_20250727_103756.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/direct_test_project_20250727_103756.zip",
+      "archive_size": 347,
+      "deletion_date": "2025-07-27T10:37:56.952974",
+      "reason": "ユーザー削除"
+    },
+    {
+      "folder_name": "success_test_project",
+      "project_name": "成功テストプロジェクト",
+      "description": "正常に作成されるべきプロジェクト",
+      "tags": [
+        "success",
+        "test"
+      ],
+      "status": "active",
+      "id": "658786da-0f80-4434-bf7c-4e389df4b9b2",
+      "created_date": "2025-07-27T10:38:36.034282",
+      "modified_date": "2025-07-27T10:38:36.034282",
+      "archive_filename": "success_test_project_20250727_103836.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/success_test_project_20250727_103836.zip",
+      "archive_size": 385,
+      "deletion_date": "2025-07-27T10:38:36.035929",
+      "reason": "ユーザー削除"
+    },
+    {
+      "folder_name": "save_test",
+      "project_name": "セーブテスト",
+      "description": "セーブテスト（フォルダが存在しないため移動）",
+      "tags": [],
+      "status": "active",
+      "id": "bb5830e9-e13c-4960-bc25-fa8045a272e9",
+      "created_date": "2025-07-27T10:37:56.948759",
+      "modified_date": "2025-07-27T10:37:56.948769",
+      "archive_filename": "save_test_auto_archived.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/save_test_auto_archived.zip",
+      "archive_size": 0,
+      "deletion_date": "2025-07-27T17:30:00.000000",
+      "reason": "フォルダが存在しないため自動アーカイブ"
+    },
+    {
+      "folder_name": "test_project_simple",
+      "project_name": "Simple Test Project",
+      "description": "A simple test project（不正データのため移動）",
+      "tags": [
+        "test"
+      ],
+      "status": "active",
+      "id": "bd7e7a94-fce7-471b-9dce-7e4c1bcb8255",
+      "created_date": "2025-07-27T16:08:14.889746",
+      "modified_date": "2025-07-27T16:08:14.889746",
+      "archive_filename": "test_project_simple_invalid_data.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/test_project_simple_invalid_data.zip",
+      "archive_size": 0,
+      "deletion_date": "2025-07-27T17:30:00.000000",
+      "reason": "不正な配列データのため自動アーカイブ"
+    },
+    {
+      "folder_name": "test_project_simple",
+      "project_name": "Simple Test Project",
+      "description": "A simple test project（重複データのため移動）",
+      "tags": [
+        "test"
+      ],
+      "status": "active",
+      "id": "7e7be177-9396-4e40-baf3-0b15c2310500",
+      "created_date": "2025-07-27T16:42:31.526622",
+      "modified_date": "2025-07-27T16:42:31.526622",
+      "archive_filename": "test_project_simple_duplicate.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/test_project_simple_duplicate.zip",
+      "archive_size": 0,
+      "deletion_date": "2025-07-27T17:30:00.000000",
+      "reason": "重複データのため自動アーカイブ"
+    }
+  ],
+  "reserved_folders": [
+    "node_modules",
+    "dist",
+    "build",
+    ".git",
+    "backend",
+    "frontend",
+    "trash",
+    "recycle_bin",
+    "deleted",
+    ".trash"
+  ]
+}
+ステータス: 200
+---
+
+[2025-07-28 14:30:50] GET /api/projects/
+リクエスト: {'lang': ['ja']}
+レスポンス: {
+  "version": "1.0.0",
+  "last_updated": "2025-07-27T20:40:00.000000",
+  "retention_months": 13,
+  "projects": [
+    {
+      "folder_name": "testProject",
+      "project_name": "テストのためのプロジェクト",
+      "description": "テストです。サンプルファイルとサブフォルダが追加されました。",
+      "tags": [
+        "sample"
+      ],
+      "status": "active",
+      "id": "2cec431a-0416-4451-a43b-fdc85e0c5c62",
+      "created_date": "2025-07-24T23:31:44.186614",
+      "modified_date": "2025-07-27T20:33:51.353635"
+    },
+    {
+      "folder_name": "minimal_test",
+      "project_name": "Minimal Test",
+      "description": "Minimal test project with README and CSV data",
+      "tags": [
+        "test",
+        "data"
+      ],
+      "status": "active",
+      "id": "a908299f-f131-4f70-8b16-43fd9f01b7d2",
+      "created_date": "2025-07-27T10:38:36.031250",
+      "modified_date": "2025-07-27T20:34:11.205509"
+    },
+    {
+      "folder_name": "debug_test_project",
+      "project_name": "デバッグテストプロジェクト",
+      "description": "デバッグのためのテストプロジェクト（JSONデータファイル付き）",
+      "tags": [
+        "debug",
+        "test",
+        "json"
+      ],
+      "status": "active",
+      "id": "c51050dc-a2c0-418f-9e1f-e65e42c6516a",
+      "created_date": "2025-07-27T16:03:20.315824",
+      "modified_date": "2025-07-27T20:34:00.984380"
+    }
+  ],
+  "archived_projects": [
+    {
+      "folder_name": "direct_test_project",
+      "project_name": "直接テストプロジェクト",
+      "description": "直接テスト用プロジェクト",
+      "tags": [
+        "test"
+      ],
+      "status": "active",
+      "id": "82886a55-fe6c-4559-9dfa-27aeb21e924e",
+      "created_date": "2025-07-27T10:37:56.949497",
+      "modified_date": "2025-07-27T10:37:56.949497",
+      "archive_filename": "direct_test_project_20250727_103756.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/direct_test_project_20250727_103756.zip",
+      "archive_size": 347,
+      "deletion_date": "2025-07-27T10:37:56.952974",
+      "reason": "ユーザー削除"
+    },
+    {
+      "folder_name": "success_test_project",
+      "project_name": "成功テストプロジェクト",
+      "description": "正常に作成されるべきプロジェクト",
+      "tags": [
+        "success",
+        "test"
+      ],
+      "status": "active",
+      "id": "658786da-0f80-4434-bf7c-4e389df4b9b2",
+      "created_date": "2025-07-27T10:38:36.034282",
+      "modified_date": "2025-07-27T10:38:36.034282",
+      "archive_filename": "success_test_project_20250727_103836.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/success_test_project_20250727_103836.zip",
+      "archive_size": 385,
+      "deletion_date": "2025-07-27T10:38:36.035929",
+      "reason": "ユーザー削除"
+    },
+    {
+      "folder_name": "save_test",
+      "project_name": "セーブテスト",
+      "description": "セーブテスト（フォルダが存在しないため移動）",
+      "tags": [],
+      "status": "active",
+      "id": "bb5830e9-e13c-4960-bc25-fa8045a272e9",
+      "created_date": "2025-07-27T10:37:56.948759",
+      "modified_date": "2025-07-27T10:37:56.948769",
+      "archive_filename": "save_test_auto_archived.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/save_test_auto_archived.zip",
+      "archive_size": 0,
+      "deletion_date": "2025-07-27T17:30:00.000000",
+      "reason": "フォルダが存在しないため自動アーカイブ"
+    },
+    {
+      "folder_name": "test_project_simple",
+      "project_name": "Simple Test Project",
+      "description": "A simple test project（不正データのため移動）",
+      "tags": [
+        "test"
+      ],
+      "status": "active",
+      "id": "bd7e7a94-fce7-471b-9dce-7e4c1bcb8255",
+      "created_date": "2025-07-27T16:08:14.889746",
+      "modified_date": "2025-07-27T16:08:14.889746",
+      "archive_filename": "test_project_simple_invalid_data.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/test_project_simple_invalid_data.zip",
+      "archive_size": 0,
+      "deletion_date": "2025-07-27T17:30:00.000000",
+      "reason": "不正な配列データのため自動アーカイブ"
+    },
+    {
+      "folder_name": "test_project_simple",
+      "project_name": "Simple Test Project",
+      "description": "A simple test project（重複データのため移動）",
+      "tags": [
+        "test"
+      ],
+      "status": "active",
+      "id": "7e7be177-9396-4e40-baf3-0b15c2310500",
+      "created_date": "2025-07-27T16:42:31.526622",
+      "modified_date": "2025-07-27T16:42:31.526622",
+      "archive_filename": "test_project_simple_duplicate.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/test_project_simple_duplicate.zip",
+      "archive_size": 0,
+      "deletion_date": "2025-07-27T17:30:00.000000",
+      "reason": "重複データのため自動アーカイブ"
+    }
+  ],
+  "reserved_folders": [
+    "node_modules",
+    "dist",
+    "build",
+    ".git",
+    "backend",
+    "frontend",
+    "trash",
+    "recycle_bin",
+    "deleted",
+    ".trash"
+  ]
+}
+ステータス: 200
+---
+
+[2025-07-28 14:30:55] GET /api/projects/
+リクエスト: {'lang': ['ja']}
+レスポンス: {
+  "version": "1.0.0",
+  "last_updated": "2025-07-27T20:40:00.000000",
+  "retention_months": 13,
+  "projects": [
+    {
+      "folder_name": "testProject",
+      "project_name": "テストのためのプロジェクト",
+      "description": "テストです。サンプルファイルとサブフォルダが追加されました。",
+      "tags": [
+        "sample"
+      ],
+      "status": "active",
+      "id": "2cec431a-0416-4451-a43b-fdc85e0c5c62",
+      "created_date": "2025-07-24T23:31:44.186614",
+      "modified_date": "2025-07-27T20:33:51.353635"
+    },
+    {
+      "folder_name": "minimal_test",
+      "project_name": "Minimal Test",
+      "description": "Minimal test project with README and CSV data",
+      "tags": [
+        "test",
+        "data"
+      ],
+      "status": "active",
+      "id": "a908299f-f131-4f70-8b16-43fd9f01b7d2",
+      "created_date": "2025-07-27T10:38:36.031250",
+      "modified_date": "2025-07-27T20:34:11.205509"
+    },
+    {
+      "folder_name": "debug_test_project",
+      "project_name": "デバッグテストプロジェクト",
+      "description": "デバッグのためのテストプロジェクト（JSONデータファイル付き）",
+      "tags": [
+        "debug",
+        "test",
+        "json"
+      ],
+      "status": "active",
+      "id": "c51050dc-a2c0-418f-9e1f-e65e42c6516a",
+      "created_date": "2025-07-27T16:03:20.315824",
+      "modified_date": "2025-07-27T20:34:00.984380"
+    }
+  ],
+  "archived_projects": [
+    {
+      "folder_name": "direct_test_project",
+      "project_name": "直接テストプロジェクト",
+      "description": "直接テスト用プロジェクト",
+      "tags": [
+        "test"
+      ],
+      "status": "active",
+      "id": "82886a55-fe6c-4559-9dfa-27aeb21e924e",
+      "created_date": "2025-07-27T10:37:56.949497",
+      "modified_date": "2025-07-27T10:37:56.949497",
+      "archive_filename": "direct_test_project_20250727_103756.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/direct_test_project_20250727_103756.zip",
+      "archive_size": 347,
+      "deletion_date": "2025-07-27T10:37:56.952974",
+      "reason": "ユーザー削除"
+    },
+    {
+      "folder_name": "success_test_project",
+      "project_name": "成功テストプロジェクト",
+      "description": "正常に作成されるべきプロジェクト",
+      "tags": [
+        "success",
+        "test"
+      ],
+      "status": "active",
+      "id": "658786da-0f80-4434-bf7c-4e389df4b9b2",
+      "created_date": "2025-07-27T10:38:36.034282",
+      "modified_date": "2025-07-27T10:38:36.034282",
+      "archive_filename": "success_test_project_20250727_103836.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/success_test_project_20250727_103836.zip",
+      "archive_size": 385,
+      "deletion_date": "2025-07-27T10:38:36.035929",
+      "reason": "ユーザー削除"
+    },
+    {
+      "folder_name": "save_test",
+      "project_name": "セーブテスト",
+      "description": "セーブテスト（フォルダが存在しないため移動）",
+      "tags": [],
+      "status": "active",
+      "id": "bb5830e9-e13c-4960-bc25-fa8045a272e9",
+      "created_date": "2025-07-27T10:37:56.948759",
+      "modified_date": "2025-07-27T10:37:56.948769",
+      "archive_filename": "save_test_auto_archived.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/save_test_auto_archived.zip",
+      "archive_size": 0,
+      "deletion_date": "2025-07-27T17:30:00.000000",
+      "reason": "フォルダが存在しないため自動アーカイブ"
+    },
+    {
+      "folder_name": "test_project_simple",
+      "project_name": "Simple Test Project",
+      "description": "A simple test project（不正データのため移動）",
+      "tags": [
+        "test"
+      ],
+      "status": "active",
+      "id": "bd7e7a94-fce7-471b-9dce-7e4c1bcb8255",
+      "created_date": "2025-07-27T16:08:14.889746",
+      "modified_date": "2025-07-27T16:08:14.889746",
+      "archive_filename": "test_project_simple_invalid_data.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/test_project_simple_invalid_data.zip",
+      "archive_size": 0,
+      "deletion_date": "2025-07-27T17:30:00.000000",
+      "reason": "不正な配列データのため自動アーカイブ"
+    },
+    {
+      "folder_name": "test_project_simple",
+      "project_name": "Simple Test Project",
+      "description": "A simple test project（重複データのため移動）",
+      "tags": [
+        "test"
+      ],
+      "status": "active",
+      "id": "7e7be177-9396-4e40-baf3-0b15c2310500",
+      "created_date": "2025-07-27T16:42:31.526622",
+      "modified_date": "2025-07-27T16:42:31.526622",
+      "archive_filename": "test_project_simple_duplicate.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/test_project_simple_duplicate.zip",
+      "archive_size": 0,
+      "deletion_date": "2025-07-27T17:30:00.000000",
+      "reason": "重複データのため自動アーカイブ"
+    }
+  ],
+  "reserved_folders": [
+    "node_modules",
+    "dist",
+    "build",
+    ".git",
+    "backend",
+    "frontend",
+    "trash",
+    "recycle_bin",
+    "deleted",
+    ".trash"
+  ]
+}
+ステータス: 200
+---
+
+[2025-07-28 14:30:55] GET /api/projects/
+リクエスト: {'lang': ['ja']}
+レスポンス: {
+  "version": "1.0.0",
+  "last_updated": "2025-07-27T20:40:00.000000",
+  "retention_months": 13,
+  "projects": [
+    {
+      "folder_name": "testProject",
+      "project_name": "テストのためのプロジェクト",
+      "description": "テストです。サンプルファイルとサブフォルダが追加されました。",
+      "tags": [
+        "sample"
+      ],
+      "status": "active",
+      "id": "2cec431a-0416-4451-a43b-fdc85e0c5c62",
+      "created_date": "2025-07-24T23:31:44.186614",
+      "modified_date": "2025-07-27T20:33:51.353635"
+    },
+    {
+      "folder_name": "minimal_test",
+      "project_name": "Minimal Test",
+      "description": "Minimal test project with README and CSV data",
+      "tags": [
+        "test",
+        "data"
+      ],
+      "status": "active",
+      "id": "a908299f-f131-4f70-8b16-43fd9f01b7d2",
+      "created_date": "2025-07-27T10:38:36.031250",
+      "modified_date": "2025-07-27T20:34:11.205509"
+    },
+    {
+      "folder_name": "debug_test_project",
+      "project_name": "デバッグテストプロジェクト",
+      "description": "デバッグのためのテストプロジェクト（JSONデータファイル付き）",
+      "tags": [
+        "debug",
+        "test",
+        "json"
+      ],
+      "status": "active",
+      "id": "c51050dc-a2c0-418f-9e1f-e65e42c6516a",
+      "created_date": "2025-07-27T16:03:20.315824",
+      "modified_date": "2025-07-27T20:34:00.984380"
+    }
+  ],
+  "archived_projects": [
+    {
+      "folder_name": "direct_test_project",
+      "project_name": "直接テストプロジェクト",
+      "description": "直接テスト用プロジェクト",
+      "tags": [
+        "test"
+      ],
+      "status": "active",
+      "id": "82886a55-fe6c-4559-9dfa-27aeb21e924e",
+      "created_date": "2025-07-27T10:37:56.949497",
+      "modified_date": "2025-07-27T10:37:56.949497",
+      "archive_filename": "direct_test_project_20250727_103756.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/direct_test_project_20250727_103756.zip",
+      "archive_size": 347,
+      "deletion_date": "2025-07-27T10:37:56.952974",
+      "reason": "ユーザー削除"
+    },
+    {
+      "folder_name": "success_test_project",
+      "project_name": "成功テストプロジェクト",
+      "description": "正常に作成されるべきプロジェクト",
+      "tags": [
+        "success",
+        "test"
+      ],
+      "status": "active",
+      "id": "658786da-0f80-4434-bf7c-4e389df4b9b2",
+      "created_date": "2025-07-27T10:38:36.034282",
+      "modified_date": "2025-07-27T10:38:36.034282",
+      "archive_filename": "success_test_project_20250727_103836.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/success_test_project_20250727_103836.zip",
+      "archive_size": 385,
+      "deletion_date": "2025-07-27T10:38:36.035929",
+      "reason": "ユーザー削除"
+    },
+    {
+      "folder_name": "save_test",
+      "project_name": "セーブテスト",
+      "description": "セーブテスト（フォルダが存在しないため移動）",
+      "tags": [],
+      "status": "active",
+      "id": "bb5830e9-e13c-4960-bc25-fa8045a272e9",
+      "created_date": "2025-07-27T10:37:56.948759",
+      "modified_date": "2025-07-27T10:37:56.948769",
+      "archive_filename": "save_test_auto_archived.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/save_test_auto_archived.zip",
+      "archive_size": 0,
+      "deletion_date": "2025-07-27T17:30:00.000000",
+      "reason": "フォルダが存在しないため自動アーカイブ"
+    },
+    {
+      "folder_name": "test_project_simple",
+      "project_name": "Simple Test Project",
+      "description": "A simple test project（不正データのため移動）",
+      "tags": [
+        "test"
+      ],
+      "status": "active",
+      "id": "bd7e7a94-fce7-471b-9dce-7e4c1bcb8255",
+      "created_date": "2025-07-27T16:08:14.889746",
+      "modified_date": "2025-07-27T16:08:14.889746",
+      "archive_filename": "test_project_simple_invalid_data.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/test_project_simple_invalid_data.zip",
+      "archive_size": 0,
+      "deletion_date": "2025-07-27T17:30:00.000000",
+      "reason": "不正な配列データのため自動アーカイブ"
+    },
+    {
+      "folder_name": "test_project_simple",
+      "project_name": "Simple Test Project",
+      "description": "A simple test project（重複データのため移動）",
+      "tags": [
+        "test"
+      ],
+      "status": "active",
+      "id": "7e7be177-9396-4e40-baf3-0b15c2310500",
+      "created_date": "2025-07-27T16:42:31.526622",
+      "modified_date": "2025-07-27T16:42:31.526622",
+      "archive_filename": "test_project_simple_duplicate.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/test_project_simple_duplicate.zip",
+      "archive_size": 0,
+      "deletion_date": "2025-07-27T17:30:00.000000",
+      "reason": "重複データのため自動アーカイブ"
+    }
+  ],
+  "reserved_folders": [
+    "node_modules",
+    "dist",
+    "build",
+    ".git",
+    "backend",
+    "frontend",
+    "trash",
+    "recycle_bin",
+    "deleted",
+    ".trash"
+  ]
+}
+ステータス: 200
+---
+
+[2025-07-28 14:31:07] GET /api/projects/
+リクエスト: {'lang': ['ja']}
+レスポンス: {
+  "version": "1.0.0",
+  "last_updated": "2025-07-27T20:40:00.000000",
+  "retention_months": 13,
+  "projects": [
+    {
+      "folder_name": "testProject",
+      "project_name": "テストのためのプロジェクト",
+      "description": "テストです。サンプルファイルとサブフォルダが追加されました。",
+      "tags": [
+        "sample"
+      ],
+      "status": "active",
+      "id": "2cec431a-0416-4451-a43b-fdc85e0c5c62",
+      "created_date": "2025-07-24T23:31:44.186614",
+      "modified_date": "2025-07-27T20:33:51.353635"
+    },
+    {
+      "folder_name": "minimal_test",
+      "project_name": "Minimal Test",
+      "description": "Minimal test project with README and CSV data",
+      "tags": [
+        "test",
+        "data"
+      ],
+      "status": "active",
+      "id": "a908299f-f131-4f70-8b16-43fd9f01b7d2",
+      "created_date": "2025-07-27T10:38:36.031250",
+      "modified_date": "2025-07-27T20:34:11.205509"
+    },
+    {
+      "folder_name": "debug_test_project",
+      "project_name": "デバッグテストプロジェクト",
+      "description": "デバッグのためのテストプロジェクト（JSONデータファイル付き）",
+      "tags": [
+        "debug",
+        "test",
+        "json"
+      ],
+      "status": "active",
+      "id": "c51050dc-a2c0-418f-9e1f-e65e42c6516a",
+      "created_date": "2025-07-27T16:03:20.315824",
+      "modified_date": "2025-07-27T20:34:00.984380"
+    }
+  ],
+  "archived_projects": [
+    {
+      "folder_name": "direct_test_project",
+      "project_name": "直接テストプロジェクト",
+      "description": "直接テスト用プロジェクト",
+      "tags": [
+        "test"
+      ],
+      "status": "active",
+      "id": "82886a55-fe6c-4559-9dfa-27aeb21e924e",
+      "created_date": "2025-07-27T10:37:56.949497",
+      "modified_date": "2025-07-27T10:37:56.949497",
+      "archive_filename": "direct_test_project_20250727_103756.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/direct_test_project_20250727_103756.zip",
+      "archive_size": 347,
+      "deletion_date": "2025-07-27T10:37:56.952974",
+      "reason": "ユーザー削除"
+    },
+    {
+      "folder_name": "success_test_project",
+      "project_name": "成功テストプロジェクト",
+      "description": "正常に作成されるべきプロジェクト",
+      "tags": [
+        "success",
+        "test"
+      ],
+      "status": "active",
+      "id": "658786da-0f80-4434-bf7c-4e389df4b9b2",
+      "created_date": "2025-07-27T10:38:36.034282",
+      "modified_date": "2025-07-27T10:38:36.034282",
+      "archive_filename": "success_test_project_20250727_103836.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/success_test_project_20250727_103836.zip",
+      "archive_size": 385,
+      "deletion_date": "2025-07-27T10:38:36.035929",
+      "reason": "ユーザー削除"
+    },
+    {
+      "folder_name": "save_test",
+      "project_name": "セーブテスト",
+      "description": "セーブテスト（フォルダが存在しないため移動）",
+      "tags": [],
+      "status": "active",
+      "id": "bb5830e9-e13c-4960-bc25-fa8045a272e9",
+      "created_date": "2025-07-27T10:37:56.948759",
+      "modified_date": "2025-07-27T10:37:56.948769",
+      "archive_filename": "save_test_auto_archived.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/save_test_auto_archived.zip",
+      "archive_size": 0,
+      "deletion_date": "2025-07-27T17:30:00.000000",
+      "reason": "フォルダが存在しないため自動アーカイブ"
+    },
+    {
+      "folder_name": "test_project_simple",
+      "project_name": "Simple Test Project",
+      "description": "A simple test project（不正データのため移動）",
+      "tags": [
+        "test"
+      ],
+      "status": "active",
+      "id": "bd7e7a94-fce7-471b-9dce-7e4c1bcb8255",
+      "created_date": "2025-07-27T16:08:14.889746",
+      "modified_date": "2025-07-27T16:08:14.889746",
+      "archive_filename": "test_project_simple_invalid_data.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/test_project_simple_invalid_data.zip",
+      "archive_size": 0,
+      "deletion_date": "2025-07-27T17:30:00.000000",
+      "reason": "不正な配列データのため自動アーカイブ"
+    },
+    {
+      "folder_name": "test_project_simple",
+      "project_name": "Simple Test Project",
+      "description": "A simple test project（重複データのため移動）",
+      "tags": [
+        "test"
+      ],
+      "status": "active",
+      "id": "7e7be177-9396-4e40-baf3-0b15c2310500",
+      "created_date": "2025-07-27T16:42:31.526622",
+      "modified_date": "2025-07-27T16:42:31.526622",
+      "archive_filename": "test_project_simple_duplicate.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/test_project_simple_duplicate.zip",
+      "archive_size": 0,
+      "deletion_date": "2025-07-27T17:30:00.000000",
+      "reason": "重複データのため自動アーカイブ"
+    }
+  ],
+  "reserved_folders": [
+    "node_modules",
+    "dist",
+    "build",
+    ".git",
+    "backend",
+    "frontend",
+    "trash",
+    "recycle_bin",
+    "deleted",
+    ".trash"
+  ]
+}
+ステータス: 200
+---
+
+[2025-07-28 14:31:07] GET /api/projects/
+リクエスト: {'lang': ['ja']}
+レスポンス: {
+  "version": "1.0.0",
+  "last_updated": "2025-07-27T20:40:00.000000",
+  "retention_months": 13,
+  "projects": [
+    {
+      "folder_name": "testProject",
+      "project_name": "テストのためのプロジェクト",
+      "description": "テストです。サンプルファイルとサブフォルダが追加されました。",
+      "tags": [
+        "sample"
+      ],
+      "status": "active",
+      "id": "2cec431a-0416-4451-a43b-fdc85e0c5c62",
+      "created_date": "2025-07-24T23:31:44.186614",
+      "modified_date": "2025-07-27T20:33:51.353635"
+    },
+    {
+      "folder_name": "minimal_test",
+      "project_name": "Minimal Test",
+      "description": "Minimal test project with README and CSV data",
+      "tags": [
+        "test",
+        "data"
+      ],
+      "status": "active",
+      "id": "a908299f-f131-4f70-8b16-43fd9f01b7d2",
+      "created_date": "2025-07-27T10:38:36.031250",
+      "modified_date": "2025-07-27T20:34:11.205509"
+    },
+    {
+      "folder_name": "debug_test_project",
+      "project_name": "デバッグテストプロジェクト",
+      "description": "デバッグのためのテストプロジェクト（JSONデータファイル付き）",
+      "tags": [
+        "debug",
+        "test",
+        "json"
+      ],
+      "status": "active",
+      "id": "c51050dc-a2c0-418f-9e1f-e65e42c6516a",
+      "created_date": "2025-07-27T16:03:20.315824",
+      "modified_date": "2025-07-27T20:34:00.984380"
+    }
+  ],
+  "archived_projects": [
+    {
+      "folder_name": "direct_test_project",
+      "project_name": "直接テストプロジェクト",
+      "description": "直接テスト用プロジェクト",
+      "tags": [
+        "test"
+      ],
+      "status": "active",
+      "id": "82886a55-fe6c-4559-9dfa-27aeb21e924e",
+      "created_date": "2025-07-27T10:37:56.949497",
+      "modified_date": "2025-07-27T10:37:56.949497",
+      "archive_filename": "direct_test_project_20250727_103756.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/direct_test_project_20250727_103756.zip",
+      "archive_size": 347,
+      "deletion_date": "2025-07-27T10:37:56.952974",
+      "reason": "ユーザー削除"
+    },
+    {
+      "folder_name": "success_test_project",
+      "project_name": "成功テストプロジェクト",
+      "description": "正常に作成されるべきプロジェクト",
+      "tags": [
+        "success",
+        "test"
+      ],
+      "status": "active",
+      "id": "658786da-0f80-4434-bf7c-4e389df4b9b2",
+      "created_date": "2025-07-27T10:38:36.034282",
+      "modified_date": "2025-07-27T10:38:36.034282",
+      "archive_filename": "success_test_project_20250727_103836.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/success_test_project_20250727_103836.zip",
+      "archive_size": 385,
+      "deletion_date": "2025-07-27T10:38:36.035929",
+      "reason": "ユーザー削除"
+    },
+    {
+      "folder_name": "save_test",
+      "project_name": "セーブテスト",
+      "description": "セーブテスト（フォルダが存在しないため移動）",
+      "tags": [],
+      "status": "active",
+      "id": "bb5830e9-e13c-4960-bc25-fa8045a272e9",
+      "created_date": "2025-07-27T10:37:56.948759",
+      "modified_date": "2025-07-27T10:37:56.948769",
+      "archive_filename": "save_test_auto_archived.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/save_test_auto_archived.zip",
+      "archive_size": 0,
+      "deletion_date": "2025-07-27T17:30:00.000000",
+      "reason": "フォルダが存在しないため自動アーカイブ"
+    },
+    {
+      "folder_name": "test_project_simple",
+      "project_name": "Simple Test Project",
+      "description": "A simple test project（不正データのため移動）",
+      "tags": [
+        "test"
+      ],
+      "status": "active",
+      "id": "bd7e7a94-fce7-471b-9dce-7e4c1bcb8255",
+      "created_date": "2025-07-27T16:08:14.889746",
+      "modified_date": "2025-07-27T16:08:14.889746",
+      "archive_filename": "test_project_simple_invalid_data.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/test_project_simple_invalid_data.zip",
+      "archive_size": 0,
+      "deletion_date": "2025-07-27T17:30:00.000000",
+      "reason": "不正な配列データのため自動アーカイブ"
+    },
+    {
+      "folder_name": "test_project_simple",
+      "project_name": "Simple Test Project",
+      "description": "A simple test project（重複データのため移動）",
+      "tags": [
+        "test"
+      ],
+      "status": "active",
+      "id": "7e7be177-9396-4e40-baf3-0b15c2310500",
+      "created_date": "2025-07-27T16:42:31.526622",
+      "modified_date": "2025-07-27T16:42:31.526622",
+      "archive_filename": "test_project_simple_duplicate.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/test_project_simple_duplicate.zip",
+      "archive_size": 0,
+      "deletion_date": "2025-07-27T17:30:00.000000",
+      "reason": "重複データのため自動アーカイブ"
+    }
+  ],
+  "reserved_folders": [
+    "node_modules",
+    "dist",
+    "build",
+    ".git",
+    "backend",
+    "frontend",
+    "trash",
+    "recycle_bin",
+    "deleted",
+    ".trash"
+  ]
+}
+ステータス: 200
+---
+
+[2025-07-28 14:31:12] GET /api/projects/
+リクエスト: {'lang': ['ja']}
+レスポンス: {
+  "version": "1.0.0",
+  "last_updated": "2025-07-27T20:40:00.000000",
+  "retention_months": 13,
+  "projects": [
+    {
+      "folder_name": "testProject",
+      "project_name": "テストのためのプロジェクト",
+      "description": "テストです。サンプルファイルとサブフォルダが追加されました。",
+      "tags": [
+        "sample"
+      ],
+      "status": "active",
+      "id": "2cec431a-0416-4451-a43b-fdc85e0c5c62",
+      "created_date": "2025-07-24T23:31:44.186614",
+      "modified_date": "2025-07-27T20:33:51.353635"
+    },
+    {
+      "folder_name": "minimal_test",
+      "project_name": "Minimal Test",
+      "description": "Minimal test project with README and CSV data",
+      "tags": [
+        "test",
+        "data"
+      ],
+      "status": "active",
+      "id": "a908299f-f131-4f70-8b16-43fd9f01b7d2",
+      "created_date": "2025-07-27T10:38:36.031250",
+      "modified_date": "2025-07-27T20:34:11.205509"
+    },
+    {
+      "folder_name": "debug_test_project",
+      "project_name": "デバッグテストプロジェクト",
+      "description": "デバッグのためのテストプロジェクト（JSONデータファイル付き）",
+      "tags": [
+        "debug",
+        "test",
+        "json"
+      ],
+      "status": "active",
+      "id": "c51050dc-a2c0-418f-9e1f-e65e42c6516a",
+      "created_date": "2025-07-27T16:03:20.315824",
+      "modified_date": "2025-07-27T20:34:00.984380"
+    }
+  ],
+  "archived_projects": [
+    {
+      "folder_name": "direct_test_project",
+      "project_name": "直接テストプロジェクト",
+      "description": "直接テスト用プロジェクト",
+      "tags": [
+        "test"
+      ],
+      "status": "active",
+      "id": "82886a55-fe6c-4559-9dfa-27aeb21e924e",
+      "created_date": "2025-07-27T10:37:56.949497",
+      "modified_date": "2025-07-27T10:37:56.949497",
+      "archive_filename": "direct_test_project_20250727_103756.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/direct_test_project_20250727_103756.zip",
+      "archive_size": 347,
+      "deletion_date": "2025-07-27T10:37:56.952974",
+      "reason": "ユーザー削除"
+    },
+    {
+      "folder_name": "success_test_project",
+      "project_name": "成功テストプロジェクト",
+      "description": "正常に作成されるべきプロジェクト",
+      "tags": [
+        "success",
+        "test"
+      ],
+      "status": "active",
+      "id": "658786da-0f80-4434-bf7c-4e389df4b9b2",
+      "created_date": "2025-07-27T10:38:36.034282",
+      "modified_date": "2025-07-27T10:38:36.034282",
+      "archive_filename": "success_test_project_20250727_103836.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/success_test_project_20250727_103836.zip",
+      "archive_size": 385,
+      "deletion_date": "2025-07-27T10:38:36.035929",
+      "reason": "ユーザー削除"
+    },
+    {
+      "folder_name": "save_test",
+      "project_name": "セーブテスト",
+      "description": "セーブテスト（フォルダが存在しないため移動）",
+      "tags": [],
+      "status": "active",
+      "id": "bb5830e9-e13c-4960-bc25-fa8045a272e9",
+      "created_date": "2025-07-27T10:37:56.948759",
+      "modified_date": "2025-07-27T10:37:56.948769",
+      "archive_filename": "save_test_auto_archived.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/save_test_auto_archived.zip",
+      "archive_size": 0,
+      "deletion_date": "2025-07-27T17:30:00.000000",
+      "reason": "フォルダが存在しないため自動アーカイブ"
+    },
+    {
+      "folder_name": "test_project_simple",
+      "project_name": "Simple Test Project",
+      "description": "A simple test project（不正データのため移動）",
+      "tags": [
+        "test"
+      ],
+      "status": "active",
+      "id": "bd7e7a94-fce7-471b-9dce-7e4c1bcb8255",
+      "created_date": "2025-07-27T16:08:14.889746",
+      "modified_date": "2025-07-27T16:08:14.889746",
+      "archive_filename": "test_project_simple_invalid_data.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/test_project_simple_invalid_data.zip",
+      "archive_size": 0,
+      "deletion_date": "2025-07-27T17:30:00.000000",
+      "reason": "不正な配列データのため自動アーカイブ"
+    },
+    {
+      "folder_name": "test_project_simple",
+      "project_name": "Simple Test Project",
+      "description": "A simple test project（重複データのため移動）",
+      "tags": [
+        "test"
+      ],
+      "status": "active",
+      "id": "7e7be177-9396-4e40-baf3-0b15c2310500",
+      "created_date": "2025-07-27T16:42:31.526622",
+      "modified_date": "2025-07-27T16:42:31.526622",
+      "archive_filename": "test_project_simple_duplicate.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/test_project_simple_duplicate.zip",
+      "archive_size": 0,
+      "deletion_date": "2025-07-27T17:30:00.000000",
+      "reason": "重複データのため自動アーカイブ"
+    }
+  ],
+  "reserved_folders": [
+    "node_modules",
+    "dist",
+    "build",
+    ".git",
+    "backend",
+    "frontend",
+    "trash",
+    "recycle_bin",
+    "deleted",
+    ".trash"
+  ]
+}
+ステータス: 200
+---
+
+[2025-07-28 14:31:12] GET /api/projects/
+リクエスト: {'lang': ['ja']}
+レスポンス: {
+  "version": "1.0.0",
+  "last_updated": "2025-07-27T20:40:00.000000",
+  "retention_months": 13,
+  "projects": [
+    {
+      "folder_name": "testProject",
+      "project_name": "テストのためのプロジェクト",
+      "description": "テストです。サンプルファイルとサブフォルダが追加されました。",
+      "tags": [
+        "sample"
+      ],
+      "status": "active",
+      "id": "2cec431a-0416-4451-a43b-fdc85e0c5c62",
+      "created_date": "2025-07-24T23:31:44.186614",
+      "modified_date": "2025-07-27T20:33:51.353635"
+    },
+    {
+      "folder_name": "minimal_test",
+      "project_name": "Minimal Test",
+      "description": "Minimal test project with README and CSV data",
+      "tags": [
+        "test",
+        "data"
+      ],
+      "status": "active",
+      "id": "a908299f-f131-4f70-8b16-43fd9f01b7d2",
+      "created_date": "2025-07-27T10:38:36.031250",
+      "modified_date": "2025-07-27T20:34:11.205509"
+    },
+    {
+      "folder_name": "debug_test_project",
+      "project_name": "デバッグテストプロジェクト",
+      "description": "デバッグのためのテストプロジェクト（JSONデータファイル付き）",
+      "tags": [
+        "debug",
+        "test",
+        "json"
+      ],
+      "status": "active",
+      "id": "c51050dc-a2c0-418f-9e1f-e65e42c6516a",
+      "created_date": "2025-07-27T16:03:20.315824",
+      "modified_date": "2025-07-27T20:34:00.984380"
+    }
+  ],
+  "archived_projects": [
+    {
+      "folder_name": "direct_test_project",
+      "project_name": "直接テストプロジェクト",
+      "description": "直接テスト用プロジェクト",
+      "tags": [
+        "test"
+      ],
+      "status": "active",
+      "id": "82886a55-fe6c-4559-9dfa-27aeb21e924e",
+      "created_date": "2025-07-27T10:37:56.949497",
+      "modified_date": "2025-07-27T10:37:56.949497",
+      "archive_filename": "direct_test_project_20250727_103756.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/direct_test_project_20250727_103756.zip",
+      "archive_size": 347,
+      "deletion_date": "2025-07-27T10:37:56.952974",
+      "reason": "ユーザー削除"
+    },
+    {
+      "folder_name": "success_test_project",
+      "project_name": "成功テストプロジェクト",
+      "description": "正常に作成されるべきプロジェクト",
+      "tags": [
+        "success",
+        "test"
+      ],
+      "status": "active",
+      "id": "658786da-0f80-4434-bf7c-4e389df4b9b2",
+      "created_date": "2025-07-27T10:38:36.034282",
+      "modified_date": "2025-07-27T10:38:36.034282",
+      "archive_filename": "success_test_project_20250727_103836.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/success_test_project_20250727_103836.zip",
+      "archive_size": 385,
+      "deletion_date": "2025-07-27T10:38:36.035929",
+      "reason": "ユーザー削除"
+    },
+    {
+      "folder_name": "save_test",
+      "project_name": "セーブテスト",
+      "description": "セーブテスト（フォルダが存在しないため移動）",
+      "tags": [],
+      "status": "active",
+      "id": "bb5830e9-e13c-4960-bc25-fa8045a272e9",
+      "created_date": "2025-07-27T10:37:56.948759",
+      "modified_date": "2025-07-27T10:37:56.948769",
+      "archive_filename": "save_test_auto_archived.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/save_test_auto_archived.zip",
+      "archive_size": 0,
+      "deletion_date": "2025-07-27T17:30:00.000000",
+      "reason": "フォルダが存在しないため自動アーカイブ"
+    },
+    {
+      "folder_name": "test_project_simple",
+      "project_name": "Simple Test Project",
+      "description": "A simple test project（不正データのため移動）",
+      "tags": [
+        "test"
+      ],
+      "status": "active",
+      "id": "bd7e7a94-fce7-471b-9dce-7e4c1bcb8255",
+      "created_date": "2025-07-27T16:08:14.889746",
+      "modified_date": "2025-07-27T16:08:14.889746",
+      "archive_filename": "test_project_simple_invalid_data.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/test_project_simple_invalid_data.zip",
+      "archive_size": 0,
+      "deletion_date": "2025-07-27T17:30:00.000000",
+      "reason": "不正な配列データのため自動アーカイブ"
+    },
+    {
+      "folder_name": "test_project_simple",
+      "project_name": "Simple Test Project",
+      "description": "A simple test project（重複データのため移動）",
+      "tags": [
+        "test"
+      ],
+      "status": "active",
+      "id": "7e7be177-9396-4e40-baf3-0b15c2310500",
+      "created_date": "2025-07-27T16:42:31.526622",
+      "modified_date": "2025-07-27T16:42:31.526622",
+      "archive_filename": "test_project_simple_duplicate.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/test_project_simple_duplicate.zip",
+      "archive_size": 0,
+      "deletion_date": "2025-07-27T17:30:00.000000",
+      "reason": "重複データのため自動アーカイブ"
+    }
+  ],
+  "reserved_folders": [
+    "node_modules",
+    "dist",
+    "build",
+    ".git",
+    "backend",
+    "frontend",
+    "trash",
+    "recycle_bin",
+    "deleted",
+    ".trash"
+  ]
+}
+ステータス: 200
+---
+
+[2025-07-28 14:31:37] GET /api/projects/
+リクエスト: {'lang': ['ja']}
+レスポンス: {
+  "version": "1.0.0",
+  "last_updated": "2025-07-27T20:40:00.000000",
+  "retention_months": 13,
+  "projects": [
+    {
+      "folder_name": "testProject",
+      "project_name": "テストのためのプロジェクト",
+      "description": "テストです。サンプルファイルとサブフォルダが追加されました。",
+      "tags": [
+        "sample"
+      ],
+      "status": "active",
+      "id": "2cec431a-0416-4451-a43b-fdc85e0c5c62",
+      "created_date": "2025-07-24T23:31:44.186614",
+      "modified_date": "2025-07-27T20:33:51.353635"
+    },
+    {
+      "folder_name": "minimal_test",
+      "project_name": "Minimal Test",
+      "description": "Minimal test project with README and CSV data",
+      "tags": [
+        "test",
+        "data"
+      ],
+      "status": "active",
+      "id": "a908299f-f131-4f70-8b16-43fd9f01b7d2",
+      "created_date": "2025-07-27T10:38:36.031250",
+      "modified_date": "2025-07-27T20:34:11.205509"
+    },
+    {
+      "folder_name": "debug_test_project",
+      "project_name": "デバッグテストプロジェクト",
+      "description": "デバッグのためのテストプロジェクト（JSONデータファイル付き）",
+      "tags": [
+        "debug",
+        "test",
+        "json"
+      ],
+      "status": "active",
+      "id": "c51050dc-a2c0-418f-9e1f-e65e42c6516a",
+      "created_date": "2025-07-27T16:03:20.315824",
+      "modified_date": "2025-07-27T20:34:00.984380"
+    }
+  ],
+  "archived_projects": [
+    {
+      "folder_name": "direct_test_project",
+      "project_name": "直接テストプロジェクト",
+      "description": "直接テスト用プロジェクト",
+      "tags": [
+        "test"
+      ],
+      "status": "active",
+      "id": "82886a55-fe6c-4559-9dfa-27aeb21e924e",
+      "created_date": "2025-07-27T10:37:56.949497",
+      "modified_date": "2025-07-27T10:37:56.949497",
+      "archive_filename": "direct_test_project_20250727_103756.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/direct_test_project_20250727_103756.zip",
+      "archive_size": 347,
+      "deletion_date": "2025-07-27T10:37:56.952974",
+      "reason": "ユーザー削除"
+    },
+    {
+      "folder_name": "success_test_project",
+      "project_name": "成功テストプロジェクト",
+      "description": "正常に作成されるべきプロジェクト",
+      "tags": [
+        "success",
+        "test"
+      ],
+      "status": "active",
+      "id": "658786da-0f80-4434-bf7c-4e389df4b9b2",
+      "created_date": "2025-07-27T10:38:36.034282",
+      "modified_date": "2025-07-27T10:38:36.034282",
+      "archive_filename": "success_test_project_20250727_103836.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/success_test_project_20250727_103836.zip",
+      "archive_size": 385,
+      "deletion_date": "2025-07-27T10:38:36.035929",
+      "reason": "ユーザー削除"
+    },
+    {
+      "folder_name": "save_test",
+      "project_name": "セーブテスト",
+      "description": "セーブテスト（フォルダが存在しないため移動）",
+      "tags": [],
+      "status": "active",
+      "id": "bb5830e9-e13c-4960-bc25-fa8045a272e9",
+      "created_date": "2025-07-27T10:37:56.948759",
+      "modified_date": "2025-07-27T10:37:56.948769",
+      "archive_filename": "save_test_auto_archived.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/save_test_auto_archived.zip",
+      "archive_size": 0,
+      "deletion_date": "2025-07-27T17:30:00.000000",
+      "reason": "フォルダが存在しないため自動アーカイブ"
+    },
+    {
+      "folder_name": "test_project_simple",
+      "project_name": "Simple Test Project",
+      "description": "A simple test project（不正データのため移動）",
+      "tags": [
+        "test"
+      ],
+      "status": "active",
+      "id": "bd7e7a94-fce7-471b-9dce-7e4c1bcb8255",
+      "created_date": "2025-07-27T16:08:14.889746",
+      "modified_date": "2025-07-27T16:08:14.889746",
+      "archive_filename": "test_project_simple_invalid_data.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/test_project_simple_invalid_data.zip",
+      "archive_size": 0,
+      "deletion_date": "2025-07-27T17:30:00.000000",
+      "reason": "不正な配列データのため自動アーカイブ"
+    },
+    {
+      "folder_name": "test_project_simple",
+      "project_name": "Simple Test Project",
+      "description": "A simple test project（重複データのため移動）",
+      "tags": [
+        "test"
+      ],
+      "status": "active",
+      "id": "7e7be177-9396-4e40-baf3-0b15c2310500",
+      "created_date": "2025-07-27T16:42:31.526622",
+      "modified_date": "2025-07-27T16:42:31.526622",
+      "archive_filename": "test_project_simple_duplicate.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/test_project_simple_duplicate.zip",
+      "archive_size": 0,
+      "deletion_date": "2025-07-27T17:30:00.000000",
+      "reason": "重複データのため自動アーカイブ"
+    }
+  ],
+  "reserved_folders": [
+    "node_modules",
+    "dist",
+    "build",
+    ".git",
+    "backend",
+    "frontend",
+    "trash",
+    "recycle_bin",
+    "deleted",
+    ".trash"
+  ]
+}
+ステータス: 200
+---
+
+[2025-07-28 14:31:37] GET /api/projects/
+リクエスト: {'lang': ['ja']}
+レスポンス: {
+  "version": "1.0.0",
+  "last_updated": "2025-07-27T20:40:00.000000",
+  "retention_months": 13,
+  "projects": [
+    {
+      "folder_name": "testProject",
+      "project_name": "テストのためのプロジェクト",
+      "description": "テストです。サンプルファイルとサブフォルダが追加されました。",
+      "tags": [
+        "sample"
+      ],
+      "status": "active",
+      "id": "2cec431a-0416-4451-a43b-fdc85e0c5c62",
+      "created_date": "2025-07-24T23:31:44.186614",
+      "modified_date": "2025-07-27T20:33:51.353635"
+    },
+    {
+      "folder_name": "minimal_test",
+      "project_name": "Minimal Test",
+      "description": "Minimal test project with README and CSV data",
+      "tags": [
+        "test",
+        "data"
+      ],
+      "status": "active",
+      "id": "a908299f-f131-4f70-8b16-43fd9f01b7d2",
+      "created_date": "2025-07-27T10:38:36.031250",
+      "modified_date": "2025-07-27T20:34:11.205509"
+    },
+    {
+      "folder_name": "debug_test_project",
+      "project_name": "デバッグテストプロジェクト",
+      "description": "デバッグのためのテストプロジェクト（JSONデータファイル付き）",
+      "tags": [
+        "debug",
+        "test",
+        "json"
+      ],
+      "status": "active",
+      "id": "c51050dc-a2c0-418f-9e1f-e65e42c6516a",
+      "created_date": "2025-07-27T16:03:20.315824",
+      "modified_date": "2025-07-27T20:34:00.984380"
+    }
+  ],
+  "archived_projects": [
+    {
+      "folder_name": "direct_test_project",
+      "project_name": "直接テストプロジェクト",
+      "description": "直接テスト用プロジェクト",
+      "tags": [
+        "test"
+      ],
+      "status": "active",
+      "id": "82886a55-fe6c-4559-9dfa-27aeb21e924e",
+      "created_date": "2025-07-27T10:37:56.949497",
+      "modified_date": "2025-07-27T10:37:56.949497",
+      "archive_filename": "direct_test_project_20250727_103756.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/direct_test_project_20250727_103756.zip",
+      "archive_size": 347,
+      "deletion_date": "2025-07-27T10:37:56.952974",
+      "reason": "ユーザー削除"
+    },
+    {
+      "folder_name": "success_test_project",
+      "project_name": "成功テストプロジェクト",
+      "description": "正常に作成されるべきプロジェクト",
+      "tags": [
+        "success",
+        "test"
+      ],
+      "status": "active",
+      "id": "658786da-0f80-4434-bf7c-4e389df4b9b2",
+      "created_date": "2025-07-27T10:38:36.034282",
+      "modified_date": "2025-07-27T10:38:36.034282",
+      "archive_filename": "success_test_project_20250727_103836.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/success_test_project_20250727_103836.zip",
+      "archive_size": 385,
+      "deletion_date": "2025-07-27T10:38:36.035929",
+      "reason": "ユーザー削除"
+    },
+    {
+      "folder_name": "save_test",
+      "project_name": "セーブテスト",
+      "description": "セーブテスト（フォルダが存在しないため移動）",
+      "tags": [],
+      "status": "active",
+      "id": "bb5830e9-e13c-4960-bc25-fa8045a272e9",
+      "created_date": "2025-07-27T10:37:56.948759",
+      "modified_date": "2025-07-27T10:37:56.948769",
+      "archive_filename": "save_test_auto_archived.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/save_test_auto_archived.zip",
+      "archive_size": 0,
+      "deletion_date": "2025-07-27T17:30:00.000000",
+      "reason": "フォルダが存在しないため自動アーカイブ"
+    },
+    {
+      "folder_name": "test_project_simple",
+      "project_name": "Simple Test Project",
+      "description": "A simple test project（不正データのため移動）",
+      "tags": [
+        "test"
+      ],
+      "status": "active",
+      "id": "bd7e7a94-fce7-471b-9dce-7e4c1bcb8255",
+      "created_date": "2025-07-27T16:08:14.889746",
+      "modified_date": "2025-07-27T16:08:14.889746",
+      "archive_filename": "test_project_simple_invalid_data.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/test_project_simple_invalid_data.zip",
+      "archive_size": 0,
+      "deletion_date": "2025-07-27T17:30:00.000000",
+      "reason": "不正な配列データのため自動アーカイブ"
+    },
+    {
+      "folder_name": "test_project_simple",
+      "project_name": "Simple Test Project",
+      "description": "A simple test project（重複データのため移動）",
+      "tags": [
+        "test"
+      ],
+      "status": "active",
+      "id": "7e7be177-9396-4e40-baf3-0b15c2310500",
+      "created_date": "2025-07-27T16:42:31.526622",
+      "modified_date": "2025-07-27T16:42:31.526622",
+      "archive_filename": "test_project_simple_duplicate.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/test_project_simple_duplicate.zip",
+      "archive_size": 0,
+      "deletion_date": "2025-07-27T17:30:00.000000",
+      "reason": "重複データのため自動アーカイブ"
+    }
+  ],
+  "reserved_folders": [
+    "node_modules",
+    "dist",
+    "build",
+    ".git",
+    "backend",
+    "frontend",
+    "trash",
+    "recycle_bin",
+    "deleted",
+    ".trash"
+  ]
+}
+ステータス: 200
+---
+
+[2025-07-28 14:36:03] GET /api/files/tree/testProject/
+リクエスト: {}
+レスポンス: {
+  "name": "raw",
+  "path": ".",
+  "type": "directory",
+  "size": 0,
+  "modified": "2025-07-27T20:33:51.353635",
+  "children": [
+    {
+      "name": "sample.txt",
+      "path": "sample.txt",
+      "type": "file",
+      "size": 123,
+      "modified": "2025-07-27T20:33:46.000352",
+      "children": [],
+      "comment_count": 0,
+      "has_comments": false
+    },
+    {
+      "name": "subfolder",
+      "path": "subfolder",
+      "type": "directory",
+      "size": 0,
+      "modified": "2025-07-27T20:33:56.074794",
+      "children": [
+        {
+          "name": "nested_file.py",
+          "path": "subfolder/nested_file.py",
+          "type": "file",
+          "size": 185,
+          "modified": "2025-07-27T20:33:56.067116",
+          "children": [],
+          "comment_count": 0,
+          "has_comments": false
+        }
+      ],
+      "comment_count": 0,
+      "has_comments": false
+    }
+  ],
+  "comment_count": 0,
+  "has_comments": false
+}
+ステータス: 200
+---
+
+[2025-07-28 14:36:03] GET /api/files/tree/testProject/
+リクエスト: {}
+レスポンス: {
+  "name": "raw",
+  "path": ".",
+  "type": "directory",
+  "size": 0,
+  "modified": "2025-07-27T20:33:51.353635",
+  "children": [
+    {
+      "name": "sample.txt",
+      "path": "sample.txt",
+      "type": "file",
+      "size": 123,
+      "modified": "2025-07-27T20:33:46.000352",
+      "children": [],
+      "comment_count": 0,
+      "has_comments": false
+    },
+    {
+      "name": "subfolder",
+      "path": "subfolder",
+      "type": "directory",
+      "size": 0,
+      "modified": "2025-07-27T20:33:56.074794",
+      "children": [
+        {
+          "name": "nested_file.py",
+          "path": "subfolder/nested_file.py",
+          "type": "file",
+          "size": 185,
+          "modified": "2025-07-27T20:33:56.067116",
+          "children": [],
+          "comment_count": 0,
+          "has_comments": false
+        }
+      ],
+      "comment_count": 0,
+      "has_comments": false
+    }
+  ],
+  "comment_count": 0,
+  "has_comments": false
+}
+ステータス: 200
+---
+
+[2025-07-28 14:39:35] GET /api/files/tree/testProject/
+リクエスト: {}
+レスポンス: {
+  "name": "raw",
+  "path": ".",
+  "type": "directory",
+  "size": 0,
+  "modified": "2025-07-27T20:33:51.353635",
+  "children": [
+    {
+      "name": "sample.txt",
+      "path": "sample.txt",
+      "type": "file",
+      "size": 123,
+      "modified": "2025-07-27T20:33:46.000352",
+      "children": [],
+      "comment_count": 0,
+      "has_comments": false
+    },
+    {
+      "name": "subfolder",
+      "path": "subfolder",
+      "type": "directory",
+      "size": 0,
+      "modified": "2025-07-27T20:33:56.074794",
+      "children": [
+        {
+          "name": "nested_file.py",
+          "path": "subfolder/nested_file.py",
+          "type": "file",
+          "size": 185,
+          "modified": "2025-07-27T20:33:56.067116",
+          "children": [],
+          "comment_count": 0,
+          "has_comments": false
+        }
+      ],
+      "comment_count": 0,
+      "has_comments": false
+    }
+  ],
+  "comment_count": 0,
+  "has_comments": false
+}
+ステータス: 200
+---
+
+[2025-07-28 14:39:35] GET /api/files/tree/testProject/
+リクエスト: {}
+レスポンス: {
+  "name": "raw",
+  "path": ".",
+  "type": "directory",
+  "size": 0,
+  "modified": "2025-07-27T20:33:51.353635",
+  "children": [
+    {
+      "name": "sample.txt",
+      "path": "sample.txt",
+      "type": "file",
+      "size": 123,
+      "modified": "2025-07-27T20:33:46.000352",
+      "children": [],
+      "comment_count": 0,
+      "has_comments": false
+    },
+    {
+      "name": "subfolder",
+      "path": "subfolder",
+      "type": "directory",
+      "size": 0,
+      "modified": "2025-07-27T20:33:56.074794",
+      "children": [
+        {
+          "name": "nested_file.py",
+          "path": "subfolder/nested_file.py",
+          "type": "file",
+          "size": 185,
+          "modified": "2025-07-27T20:33:56.067116",
+          "children": [],
+          "comment_count": 0,
+          "has_comments": false
+        }
+      ],
+      "comment_count": 0,
+      "has_comments": false
+    }
+  ],
+  "comment_count": 0,
+  "has_comments": false
+}
+ステータス: 200
+---
+
+[2025-07-28 14:39:59] GET /api/files/tree/testProject/
+リクエスト: {}
+レスポンス: {
+  "name": "raw",
+  "path": ".",
+  "type": "directory",
+  "size": 0,
+  "modified": "2025-07-27T20:33:51.353635",
+  "children": [
+    {
+      "name": "sample.txt",
+      "path": "sample.txt",
+      "type": "file",
+      "size": 123,
+      "modified": "2025-07-27T20:33:46.000352",
+      "children": [],
+      "comment_count": 0,
+      "has_comments": false
+    },
+    {
+      "name": "subfolder",
+      "path": "subfolder",
+      "type": "directory",
+      "size": 0,
+      "modified": "2025-07-27T20:33:56.074794",
+      "children": [
+        {
+          "name": "nested_file.py",
+          "path": "subfolder/nested_file.py",
+          "type": "file",
+          "size": 185,
+          "modified": "2025-07-27T20:33:56.067116",
+          "children": [],
+          "comment_count": 0,
+          "has_comments": false
+        }
+      ],
+      "comment_count": 0,
+      "has_comments": false
+    }
+  ],
+  "comment_count": 0,
+  "has_comments": false
+}
+ステータス: 200
+---
+
+[2025-07-28 14:39:59] GET /api/projects/
+リクエスト: {}
+レスポンス: {
+  "version": "1.0.0",
+  "last_updated": "2025-07-27T20:40:00.000000",
+  "retention_months": 13,
+  "projects": [
+    {
+      "folder_name": "testProject",
+      "project_name": "テストのためのプロジェクト",
+      "description": "テストです。サンプルファイルとサブフォルダが追加されました。",
+      "tags": [
+        "sample"
+      ],
+      "status": "active",
+      "id": "2cec431a-0416-4451-a43b-fdc85e0c5c62",
+      "created_date": "2025-07-24T23:31:44.186614",
+      "modified_date": "2025-07-27T20:33:51.353635"
+    },
+    {
+      "folder_name": "minimal_test",
+      "project_name": "Minimal Test",
+      "description": "Minimal test project with README and CSV data",
+      "tags": [
+        "test",
+        "data"
+      ],
+      "status": "active",
+      "id": "a908299f-f131-4f70-8b16-43fd9f01b7d2",
+      "created_date": "2025-07-27T10:38:36.031250",
+      "modified_date": "2025-07-27T20:34:11.205509"
+    },
+    {
+      "folder_name": "debug_test_project",
+      "project_name": "デバッグテストプロジェクト",
+      "description": "デバッグのためのテストプロジェクト（JSONデータファイル付き）",
+      "tags": [
+        "debug",
+        "test",
+        "json"
+      ],
+      "status": "active",
+      "id": "c51050dc-a2c0-418f-9e1f-e65e42c6516a",
+      "created_date": "2025-07-27T16:03:20.315824",
+      "modified_date": "2025-07-27T20:34:00.984380"
+    }
+  ],
+  "archived_projects": [
+    {
+      "folder_name": "direct_test_project",
+      "project_name": "直接テストプロジェクト",
+      "description": "直接テスト用プロジェクト",
+      "tags": [
+        "test"
+      ],
+      "status": "active",
+      "id": "82886a55-fe6c-4559-9dfa-27aeb21e924e",
+      "created_date": "2025-07-27T10:37:56.949497",
+      "modified_date": "2025-07-27T10:37:56.949497",
+      "archive_filename": "direct_test_project_20250727_103756.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/direct_test_project_20250727_103756.zip",
+      "archive_size": 347,
+      "deletion_date": "2025-07-27T10:37:56.952974",
+      "reason": "ユーザー削除"
+    },
+    {
+      "folder_name": "success_test_project",
+      "project_name": "成功テストプロジェクト",
+      "description": "正常に作成されるべきプロジェクト",
+      "tags": [
+        "success",
+        "test"
+      ],
+      "status": "active",
+      "id": "658786da-0f80-4434-bf7c-4e389df4b9b2",
+      "created_date": "2025-07-27T10:38:36.034282",
+      "modified_date": "2025-07-27T10:38:36.034282",
+      "archive_filename": "success_test_project_20250727_103836.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/success_test_project_20250727_103836.zip",
+      "archive_size": 385,
+      "deletion_date": "2025-07-27T10:38:36.035929",
+      "reason": "ユーザー削除"
+    },
+    {
+      "folder_name": "save_test",
+      "project_name": "セーブテスト",
+      "description": "セーブテスト（フォルダが存在しないため移動）",
+      "tags": [],
+      "status": "active",
+      "id": "bb5830e9-e13c-4960-bc25-fa8045a272e9",
+      "created_date": "2025-07-27T10:37:56.948759",
+      "modified_date": "2025-07-27T10:37:56.948769",
+      "archive_filename": "save_test_auto_archived.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/save_test_auto_archived.zip",
+      "archive_size": 0,
+      "deletion_date": "2025-07-27T17:30:00.000000",
+      "reason": "フォルダが存在しないため自動アーカイブ"
+    },
+    {
+      "folder_name": "test_project_simple",
+      "project_name": "Simple Test Project",
+      "description": "A simple test project（不正データのため移動）",
+      "tags": [
+        "test"
+      ],
+      "status": "active",
+      "id": "bd7e7a94-fce7-471b-9dce-7e4c1bcb8255",
+      "created_date": "2025-07-27T16:08:14.889746",
+      "modified_date": "2025-07-27T16:08:14.889746",
+      "archive_filename": "test_project_simple_invalid_data.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/test_project_simple_invalid_data.zip",
+      "archive_size": 0,
+      "deletion_date": "2025-07-27T17:30:00.000000",
+      "reason": "不正な配列データのため自動アーカイブ"
+    },
+    {
+      "folder_name": "test_project_simple",
+      "project_name": "Simple Test Project",
+      "description": "A simple test project（重複データのため移動）",
+      "tags": [
+        "test"
+      ],
+      "status": "active",
+      "id": "7e7be177-9396-4e40-baf3-0b15c2310500",
+      "created_date": "2025-07-27T16:42:31.526622",
+      "modified_date": "2025-07-27T16:42:31.526622",
+      "archive_filename": "test_project_simple_duplicate.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/test_project_simple_duplicate.zip",
+      "archive_size": 0,
+      "deletion_date": "2025-07-27T17:30:00.000000",
+      "reason": "重複データのため自動アーカイブ"
+    }
+  ],
+  "reserved_folders": [
+    "node_modules",
+    "dist",
+    "build",
+    ".git",
+    "backend",
+    "frontend",
+    "trash",
+    "recycle_bin",
+    "deleted",
+    ".trash"
+  ]
+}
+ステータス: 200
+---
+
+[2025-07-28 14:39:59] GET /api/files/tree/testProject/
+リクエスト: {}
+レスポンス: {
+  "name": "raw",
+  "path": ".",
+  "type": "directory",
+  "size": 0,
+  "modified": "2025-07-27T20:33:51.353635",
+  "children": [
+    {
+      "name": "sample.txt",
+      "path": "sample.txt",
+      "type": "file",
+      "size": 123,
+      "modified": "2025-07-27T20:33:46.000352",
+      "children": [],
+      "comment_count": 0,
+      "has_comments": false
+    },
+    {
+      "name": "subfolder",
+      "path": "subfolder",
+      "type": "directory",
+      "size": 0,
+      "modified": "2025-07-27T20:33:56.074794",
+      "children": [
+        {
+          "name": "nested_file.py",
+          "path": "subfolder/nested_file.py",
+          "type": "file",
+          "size": 185,
+          "modified": "2025-07-27T20:33:56.067116",
+          "children": [],
+          "comment_count": 0,
+          "has_comments": false
+        }
+      ],
+      "comment_count": 0,
+      "has_comments": false
+    }
+  ],
+  "comment_count": 0,
+  "has_comments": false
+}
+ステータス: 200
+---
+
+[2025-07-28 14:39:59] GET /api/projects/
+リクエスト: {}
+レスポンス: {
+  "version": "1.0.0",
+  "last_updated": "2025-07-27T20:40:00.000000",
+  "retention_months": 13,
+  "projects": [
+    {
+      "folder_name": "testProject",
+      "project_name": "テストのためのプロジェクト",
+      "description": "テストです。サンプルファイルとサブフォルダが追加されました。",
+      "tags": [
+        "sample"
+      ],
+      "status": "active",
+      "id": "2cec431a-0416-4451-a43b-fdc85e0c5c62",
+      "created_date": "2025-07-24T23:31:44.186614",
+      "modified_date": "2025-07-27T20:33:51.353635"
+    },
+    {
+      "folder_name": "minimal_test",
+      "project_name": "Minimal Test",
+      "description": "Minimal test project with README and CSV data",
+      "tags": [
+        "test",
+        "data"
+      ],
+      "status": "active",
+      "id": "a908299f-f131-4f70-8b16-43fd9f01b7d2",
+      "created_date": "2025-07-27T10:38:36.031250",
+      "modified_date": "2025-07-27T20:34:11.205509"
+    },
+    {
+      "folder_name": "debug_test_project",
+      "project_name": "デバッグテストプロジェクト",
+      "description": "デバッグのためのテストプロジェクト（JSONデータファイル付き）",
+      "tags": [
+        "debug",
+        "test",
+        "json"
+      ],
+      "status": "active",
+      "id": "c51050dc-a2c0-418f-9e1f-e65e42c6516a",
+      "created_date": "2025-07-27T16:03:20.315824",
+      "modified_date": "2025-07-27T20:34:00.984380"
+    }
+  ],
+  "archived_projects": [
+    {
+      "folder_name": "direct_test_project",
+      "project_name": "直接テストプロジェクト",
+      "description": "直接テスト用プロジェクト",
+      "tags": [
+        "test"
+      ],
+      "status": "active",
+      "id": "82886a55-fe6c-4559-9dfa-27aeb21e924e",
+      "created_date": "2025-07-27T10:37:56.949497",
+      "modified_date": "2025-07-27T10:37:56.949497",
+      "archive_filename": "direct_test_project_20250727_103756.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/direct_test_project_20250727_103756.zip",
+      "archive_size": 347,
+      "deletion_date": "2025-07-27T10:37:56.952974",
+      "reason": "ユーザー削除"
+    },
+    {
+      "folder_name": "success_test_project",
+      "project_name": "成功テストプロジェクト",
+      "description": "正常に作成されるべきプロジェクト",
+      "tags": [
+        "success",
+        "test"
+      ],
+      "status": "active",
+      "id": "658786da-0f80-4434-bf7c-4e389df4b9b2",
+      "created_date": "2025-07-27T10:38:36.034282",
+      "modified_date": "2025-07-27T10:38:36.034282",
+      "archive_filename": "success_test_project_20250727_103836.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/success_test_project_20250727_103836.zip",
+      "archive_size": 385,
+      "deletion_date": "2025-07-27T10:38:36.035929",
+      "reason": "ユーザー削除"
+    },
+    {
+      "folder_name": "save_test",
+      "project_name": "セーブテスト",
+      "description": "セーブテスト（フォルダが存在しないため移動）",
+      "tags": [],
+      "status": "active",
+      "id": "bb5830e9-e13c-4960-bc25-fa8045a272e9",
+      "created_date": "2025-07-27T10:37:56.948759",
+      "modified_date": "2025-07-27T10:37:56.948769",
+      "archive_filename": "save_test_auto_archived.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/save_test_auto_archived.zip",
+      "archive_size": 0,
+      "deletion_date": "2025-07-27T17:30:00.000000",
+      "reason": "フォルダが存在しないため自動アーカイブ"
+    },
+    {
+      "folder_name": "test_project_simple",
+      "project_name": "Simple Test Project",
+      "description": "A simple test project（不正データのため移動）",
+      "tags": [
+        "test"
+      ],
+      "status": "active",
+      "id": "bd7e7a94-fce7-471b-9dce-7e4c1bcb8255",
+      "created_date": "2025-07-27T16:08:14.889746",
+      "modified_date": "2025-07-27T16:08:14.889746",
+      "archive_filename": "test_project_simple_invalid_data.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/test_project_simple_invalid_data.zip",
+      "archive_size": 0,
+      "deletion_date": "2025-07-27T17:30:00.000000",
+      "reason": "不正な配列データのため自動アーカイブ"
+    },
+    {
+      "folder_name": "test_project_simple",
+      "project_name": "Simple Test Project",
+      "description": "A simple test project（重複データのため移動）",
+      "tags": [
+        "test"
+      ],
+      "status": "active",
+      "id": "7e7be177-9396-4e40-baf3-0b15c2310500",
+      "created_date": "2025-07-27T16:42:31.526622",
+      "modified_date": "2025-07-27T16:42:31.526622",
+      "archive_filename": "test_project_simple_duplicate.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/test_project_simple_duplicate.zip",
+      "archive_size": 0,
+      "deletion_date": "2025-07-27T17:30:00.000000",
+      "reason": "重複データのため自動アーカイブ"
+    }
+  ],
+  "reserved_folders": [
+    "node_modules",
+    "dist",
+    "build",
+    ".git",
+    "backend",
+    "frontend",
+    "trash",
+    "recycle_bin",
+    "deleted",
+    ".trash"
+  ]
+}
+ステータス: 200
+---
+
+[2025-07-28 14:45:03] POST /api/files/tags/testProject/
+リクエスト: {"file_path":"sample.txt","tags":["分析データ"]}
+レスポンス: <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <title>Page not found at /api/files/tags/testProject/</title>
+  <meta name="robots" content="NONE,NOARCHIVE">
+  <style>
+    html * { padding:0; margin:0; }
+    body * { padding:10px 20px; }
+    body * * { padding:0; }
+    body { font-family: sans-serif; background:#eee; color:#000; }
+    body > :where(header, main, footer) { border-bottom:1px solid #ddd; }
+    h1 { font-weight:normal; margin-bottom:.4em; }
+    h1 small { font-size:60%; color:#666; font-weight:normal; }
+    table { border:none; border-collapse: collapse; width:100%; }
+    td, th { vertical-align:top; padding:2px 3px; }
+    th { width:12em; text-align:right; color:#666; padding-right:.5em; }
+    #info { background:#f6f6f6; }
+    #info ol { margin: 0.5em 4em; }
+    #info ol li { font-family: monospace; }
+    #summary { background: #ffc; }
+    #explanation { background:#eee; border-bottom: 0px none; }
+    pre.exception_value { font-family: sans-serif; color: #575757; font-size: 1.5em; margin: 10px 0 10px 0; }
+  </style>
+</head>
+<body>
+  <header id="summary">
+    <h1>Page not found <small>(404)</small></h1>
+    
+    <table class="meta">
+      <tr>
+        <th scope="row">Request Method:</th>
+        <td>POST</td>
+      </tr>
+      <tr>
+        <th scope="row">Request URL:</th>
+        <td>http://localhost:8000/api/files/tags/testProject/</td>
+      </tr>
+      
+    </table>
+  </header>
+
+  <main id="info">
+    
+      <p>
+      Using the URLconf defined in <code>config.urls</code>,
+      Django tried these URL patterns, in this order:
+      </p>
+      <ol>
+        
+          <li>
+            
+              <code>
+                admin/
+                
+              </code>
+            
+          </li>
+        
+          <li>
+            
+              <code>
+                api/
+                
+              </code>
+            
+              <code>
+                files/tree/&lt;str:project_folder&gt;/
+                [name='file-tree']
+              </code>
+            
+          </li>
+        
+          <li>
+            
+              <code>
+                api/
+                
+              </code>
+            
+              <code>
+                files/upload/&lt;str:project_folder&gt;/
+                [name='file-upload']
+              </code>
+            
+          </li>
+        
+          <li>
+            
+              <code>
+                api/
+                
+              </code>
+            
+              <code>
+                files/search/&lt;str:project_folder&gt;/
+                [name='file-search']
+              </code>
+            
+          </li>
+        
+          <li>
+            
+              <code>
+                api/
+                
+              </code>
+            
+              <code>
+                files/delete/&lt;str:project_folder&gt;/
+                [name='file-delete']
+              </code>
+            
+          </li>
+        
+          <li>
+            
+              <code>
+                api/
+                
+              </code>
+            
+              <code>
+                files/move/&lt;str:project_folder&gt;/
+                [name='file-move']
+              </code>
+            
+          </li>
+        
+          <li>
+            
+              <code>
+                api/
+                
+              </code>
+            
+              <code>
+                files/mkdir/&lt;str:project_folder&gt;/
+                [name='file-mkdir']
+              </code>
+            
+          </li>
+        
+          <li>
+            
+              <code>
+                api/
+                
+              </code>
+            
+              <code>
+                files/comments/&lt;str:project_folder&gt;/
+                [name='file-comments']
+              </code>
+            
+          </li>
+        
+          <li>
+            
+              <code>
+                api/
+                
+              </code>
+            
+              <code>
+                files/comments/&lt;str:project_folder&gt;/&lt;str:comment_id&gt;/
+                [name='file-comment-detail']
+              </code>
+            
+          </li>
+        
+          <li>
+            
+              <code>
+                api/
+                
+              </code>
+            
+              <code>
+                projects/
+                [name='project-list-create']
+              </code>
+            
+          </li>
+        
+          <li>
+            
+              <code>
+                api/
+                
+              </code>
+            
+              <code>
+                projects/deleted/
+                [name='project-deleted']
+              </code>
+            
+          </li>
+        
+          <li>
+            
+              <code>
+                api/
+                
+              </code>
+            
+              <code>
+                projects/&lt;str:pk&gt;/
+                [name='project-detail']
+              </code>
+            
+          </li>
+        
+          <li>
+            
+              <code>
+                api/
+                
+              </code>
+            
+              <code>
+                projects/&lt;str:pk&gt;/restore/
+                [name='project-restore']
+              </code>
+            
+          </li>
+        
+          <li>
+            
+              <code>
+                api/
+                
+              </code>
+            
+              <code>
+                jupyter/start/
+                [name='jupyter-start']
+              </code>
+            
+          </li>
+        
+          <li>
+            
+              <code>
+                api/
+                
+              </code>
+            
+              <code>
+                jupyter/stop/
+                [name='jupyter-stop']
+              </code>
+            
+          </li>
+        
+          <li>
+            
+              <code>
+                api/
+                
+              </code>
+            
+              <code>
+                jupyter/status/
+                [name='jupyter-status']
+              </code>
+            
+          </li>
+        
+          <li>
+            
+              <code>
+                api/
+                
+              </code>
+            
+              <code>
+                server-info/
+                [name='server_info']
+              </code>
+            
+          </li>
+        
+          <li>
+            
+              <code>
+                ^media/(?P&lt;path&gt;.*)$
+                
+              </code>
+            
+          </li>
+        
+      </ol>
+      <p>
+        
+          The current path, <code>api/files/tags/testProject/</code>,
+        
+        didn’t match any of these.
+      </p>
+    
+  </main>
+
+  <footer id="explanation">
+    <p>
+      You’re seeing this error because you have <code>DEBUG = True</code> in
+      your Django settings file. Change that to <code>False</code>, and Django
+      will display a standard 404 page.
+    </p>
+  </footer>
+</body>
+</html>
+
+ステータス: 404
 ---
