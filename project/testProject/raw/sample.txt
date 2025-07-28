@@ -1,0 +1,8 @@
+This is a sample file for testing the file explorer functionality.
+
+Sample data:
+- Line 1
+- Line 2  
+- Line 3
+
+End of file.

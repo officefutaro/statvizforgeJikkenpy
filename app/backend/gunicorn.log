@@ -1,0 +1,6 @@
+[2025-07-28 00:24:46 +0900] [22130] [INFO] Starting gunicorn 23.0.0
+[2025-07-28 00:24:46 +0900] [22130] [INFO] Listening at: http://0.0.0.0:8000 (22130)
+[2025-07-28 00:24:46 +0900] [22130] [INFO] Using worker: sync
+[2025-07-28 00:24:46 +0900] [22131] [INFO] Booting worker with pid: 22131
+[2025-07-28 00:24:46 +0900] [22133] [INFO] Booting worker with pid: 22133
+127.0.0.1 - - [28/Jul/2025:00:26:53 +0900] "HEAD /api/projects/ HTTP/1.1" 200 4263 "-" "curl/8.5.0"

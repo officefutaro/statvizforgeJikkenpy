@@ -6,6 +6,8 @@
 import os
 import django
 from django.conf import settings
+import shutil
+from datetime import datetime
 
 os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'config.settings')
 django.setup()
@@ -15,6 +17,39 @@ from rest_framework import status
 from unittest.mock import patch
 import tempfile
 import json
+
+def backup_registry():
+    """プロジェクトレジストリのバックアップを作成"""
+    registry_path = '/home/futaro/project/StatVizForge_JikkenPy/project/projects-registry.json'
+    backup_path = f'{registry_path}.backup_{datetime.now().strftime("%Y%m%d_%H%M%S")}'
+    
+    try:
+        shutil.copy2(registry_path, backup_path)
+        print(f"📁 バックアップ作成: {backup_path}")
+        return backup_path
+    except Exception as e:
+        print(f"❌ バックアップ作成失敗: {e}")
+        return None
+
+def restore_registry(backup_path):
+    """プロジェクトレジストリを復元"""
+    if not backup_path or not os.path.exists(backup_path):
+        print("❌ バックアップファイルが見つかりません")
+        return False
+    
+    registry_path = '/home/futaro/project/StatVizForge_JikkenPy/project/projects-registry.json'
+    
+    try:
+        shutil.copy2(backup_path, registry_path)
+        print(f"🔄 レジストリ復元完了: {registry_path}")
+        
+        # バックアップファイルを削除
+        os.remove(backup_path)
+        print(f"🗑️  バックアップファイル削除: {backup_path}")
+        return True
+    except Exception as e:
+        print(f"❌ レジストリ復元失敗: {e}")
+        return False
 
 class SimpleAPITest(APITestCase):
     def setUp(self):
@@ -68,7 +103,7 @@ class SimpleAPITest(APITestCase):
         }
         mock_comments.return_value = {}
         
-        response = self.client.get('/api/files/tree/test_project')
+        response = self.client.get('/api/files/tree/test_project/')
         
         print(f"Status Code: {response.status_code}")
         if response.status_code == status.HTTP_200_OK:
@@ -105,7 +140,7 @@ class SimpleAPITest(APITestCase):
         }
         mock_comments.return_value = {}
         
-        response = self.client.get('/api/files/search/test_project?q=test&type=name')
+        response = self.client.get('/api/files/search/test_project/?query=test&type=name')
         
         print(f"Status Code: {response.status_code}")
         if response.status_code == status.HTTP_200_OK:
@@ -138,7 +173,7 @@ class SimpleAPITest(APITestCase):
             'author': 'Test User'
         }
         
-        response = self.client.post('/api/files/comments/test_project', comment_data)
+        response = self.client.post('/api/files/comments/test_project/', comment_data)
         
         print(f"Status Code: {response.status_code}")
         if response.status_code == status.HTTP_201_CREATED:
@@ -216,4 +251,19 @@ def run_simple_tests():
     return results
 
 if __name__ == '__main__':
-    results = run_simple_tests()
+    # プロジェクトレジストリのバックアップを作成
+    backup_path = backup_registry()
+    
+    try:
+        # テスト実行
+        results = run_simple_tests()
+    
+    finally:
+        # 必ずレジストリを元の状態に復元
+        print("\n" + "=" * 60)
+        print("テスト終了処理")
+        print("=" * 60)
+        if backup_path:
+            restore_registry(backup_path)
+        else:
+            print("❌ バックアップが存在しないため復元をスキップ")

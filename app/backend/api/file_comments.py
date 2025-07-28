@@ -18,6 +18,11 @@ class FileCommentManager:
     
     def load_comments(self, project_folder: str) -> Dict:
         """プロジェクトのコメント情報を読み込み"""
+        # プロジェクトフォルダが存在するかチェック
+        project_path = self.projects_root / project_folder
+        if not project_path.exists():
+            raise FileNotFoundError(f"Project folder '{project_folder}' not found")
+        
         comments_file = self.get_comments_file_path(project_folder)
         
         if not comments_file.exists():

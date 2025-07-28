@@ -47,6 +47,9 @@ MIDDLEWARE = [
     'api.middleware.api_logger.APILoggerMiddleware',  # API履歴記録（開発モードのみ）
 ]
 
+# URLスラッシュの自動追加を無効化
+APPEND_SLASH = False
+
 ROOT_URLCONF = 'config.urls'
 
 TEMPLATES = [

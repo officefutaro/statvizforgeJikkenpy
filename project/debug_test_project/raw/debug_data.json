@@ -1,0 +1,14 @@
+{
+  "test_data": {
+    "numbers": [1, 2, 3, 4, 5],
+    "strings": ["hello", "world", "test"],
+    "nested": {
+      "value": 42,
+      "status": "active"
+    }
+  },
+  "metadata": {
+    "created": "2025-07-27",
+    "version": "1.0"
+  }
+}

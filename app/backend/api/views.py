@@ -15,6 +15,11 @@ from .localization import (
 from .file_explorer import FileExplorer
 from .file_comments import FileCommentManager
 import uuid
+import subprocess
+import os
+import threading
+import time
+import socket
 
 
 class ProjectViewSet(viewsets.ModelViewSet):
@@ -41,7 +46,18 @@ class ProjectViewSet(viewsets.ModelViewSet):
         
         # バリデーション
         validation_errors = {}
-        new_project = request.data
+        # リクエストデータの統一的な取得（値を文字列として正規化）
+        if hasattr(request, 'data') and request.data:
+            new_project = {}
+            for key, value in request.data.items():
+                if isinstance(value, list):
+                    new_project[key] = value[0] if value else ''
+                else:
+                    new_project[key] = value
+        elif hasattr(request, 'POST') and request.POST:
+            new_project = request.POST.dict()
+        else:
+            new_project = {}
         
         # 必須フィールドチェック
         required_fields = ['folder_name', 'project_name', 'description']
@@ -86,8 +102,22 @@ class ProjectViewSet(viewsets.ModelViewSet):
             new_project['created_date'] = now
             new_project['modified_date'] = now
             
+            # デフォルト値の設定
+            if 'status' not in new_project:
+                new_project['status'] = 'active'
+            if 'tags' not in new_project:
+                new_project['tags'] = []
+            
             # プロジェクトフォルダ構造を作成
-            self._create_project_folder_structure(new_project['folder_name'], new_project)
+            try:
+                self._create_project_folder_structure(new_project['folder_name'], new_project)
+            except Exception as folder_error:
+                return create_error_response(
+                    'FAILED_TO_CREATE_FOLDER_STRUCTURE',
+                    language,
+                    details={'error': str(folder_error)},
+                    status_code=status.HTTP_500_INTERNAL_SERVER_ERROR
+                )
             
             # projects-registry.jsonを更新
             registry_data['projects'].append(new_project)
@@ -96,9 +126,15 @@ class ProjectViewSet(viewsets.ModelViewSet):
             
             return Response(new_project, status=status.HTTP_201_CREATED)
         except Exception as e:
+            import traceback
+            error_details = {
+                'error_message': str(e),
+                'traceback': traceback.format_exc()
+            }
             return create_error_response(
                 'FAILED_TO_CREATE_PROJECT',
                 language,
+                details=error_details,
                 status_code=status.HTTP_500_INTERNAL_SERVER_ERROR
             )
     
@@ -483,8 +519,7 @@ class FileViewSet(viewsets.ModelViewSet):
         self.file_explorer = FileExplorer()
         self.comment_manager = FileCommentManager()
     
-    @action(detail=False, methods=['get'], url_path='tree/(?P<project_folder>[^/.]+)')
-    def directory_tree(self, request, project_folder=None):
+    def tree(self, request, project_folder=None):
         """プロジェクトのディレクトリツリーを取得"""
         language = get_language_from_request(request)
         path = request.query_params.get('path', '')
@@ -510,7 +545,6 @@ class FileViewSet(viewsets.ModelViewSet):
                 status_code=status.HTTP_500_INTERNAL_SERVER_ERROR
             )
     
-    @action(detail=False, methods=['post'], url_path='upload/(?P<project_folder>[^/.]+)')
     def upload(self, request, project_folder=None):
         """ファイルアップロード"""
         language = get_language_from_request(request)
@@ -556,6 +590,237 @@ class FileViewSet(viewsets.ModelViewSet):
                 status_code=status.HTTP_500_INTERNAL_SERVER_ERROR
             )
     
+    def search(self, request, project_folder=None):
+        """ファイル検索"""
+        language = get_language_from_request(request)
+        
+        query = request.query_params.get('query')
+        if not query:
+            return create_error_response(
+                'QUERY_REQUIRED',
+                language,
+                status_code=status.HTTP_400_BAD_REQUEST
+            )
+        
+        search_type = request.query_params.get('type', 'both')  # name, content, both
+        
+        try:
+            results = self.file_explorer.search_files(project_folder, query, search_type)
+            return Response(results)
+        except Exception as e:
+            return create_error_response(
+                'SEARCH_FAILED',
+                language,
+                status_code=status.HTTP_500_INTERNAL_SERVER_ERROR
+            )
+    
+    def delete(self, request, project_folder=None):
+        """ファイル・ディレクトリ削除"""
+        language = get_language_from_request(request)
+        
+        file_path = request.data.get('file_path')
+        if not file_path:
+            return create_error_response(
+                'FILE_PATH_REQUIRED',
+                language,
+                status_code=status.HTTP_400_BAD_REQUEST
+            )
+        
+        try:
+            result = self.file_explorer.delete_file_or_directory(project_folder, file_path)
+            if result.get('success'):
+                # 関連コメントも削除
+                self.comment_manager.delete_file_comments(project_folder, file_path)
+                return Response(result)
+            else:
+                return create_error_response(
+                    'DELETE_FAILED',
+                    language,
+                    details=result,
+                    status_code=status.HTTP_400_BAD_REQUEST
+                )
+        except Exception as e:
+            return create_error_response(
+                'DELETE_ERROR',
+                language,
+                status_code=status.HTTP_500_INTERNAL_SERVER_ERROR
+            )
+    
+    def move(self, request, project_folder=None):
+        """ファイル・ディレクトリ移動"""
+        language = get_language_from_request(request)
+        
+        source_path = request.data.get('source_path')
+        target_path = request.data.get('target_path')
+        
+        if not source_path or not target_path:
+            return create_error_response(
+                'SOURCE_AND_TARGET_REQUIRED',
+                language,
+                status_code=status.HTTP_400_BAD_REQUEST
+            )
+        
+        try:
+            result = self.file_explorer.move_file_or_directory(project_folder, source_path, target_path)
+            if result.get('success'):
+                # コメントも移動
+                self.comment_manager.move_file_comments(project_folder, source_path, target_path)
+                return Response(result)
+            else:
+                return create_error_response(
+                    'MOVE_FAILED',
+                    language,
+                    details=result,
+                    status_code=status.HTTP_400_BAD_REQUEST
+                )
+        except Exception as e:
+            return create_error_response(
+                'MOVE_ERROR',
+                language,
+                status_code=status.HTTP_500_INTERNAL_SERVER_ERROR
+            )
+    
+    def mkdir(self, request, project_folder=None):
+        """ディレクトリ作成"""
+        language = get_language_from_request(request)
+        
+        dir_path = request.data.get('dir_path')
+        if not dir_path:
+            return create_error_response(
+                'DIR_PATH_REQUIRED',
+                language,
+                status_code=status.HTTP_400_BAD_REQUEST
+            )
+        
+        try:
+            result = self.file_explorer.create_directory(project_folder, dir_path)
+            if result.get('success'):
+                return Response(result)
+            else:
+                return create_error_response(
+                    'MKDIR_FAILED',
+                    language,
+                    details=result,
+                    status_code=status.HTTP_400_BAD_REQUEST
+                )
+        except Exception as e:
+            return create_error_response(
+                'MKDIR_ERROR',
+                language,
+                status_code=status.HTTP_500_INTERNAL_SERVER_ERROR
+            )
+    
+    def comments(self, request, project_folder=None):
+        """ファイルコメント取得"""
+        language = get_language_from_request(request)
+        
+        try:
+            file_path = request.query_params.get('file_path')
+            if file_path:
+                # 特定ファイルのコメント取得
+                comments = self.comment_manager.get_file_comments(project_folder, file_path)
+                return Response({'comments': comments})
+            else:
+                # 全コメント情報取得
+                all_comments = self.comment_manager.get_all_comments(project_folder)
+                return Response(all_comments)
+        except FileNotFoundError:
+            return create_error_response(
+                'PROJECT_NOT_FOUND',
+                language,
+                status_code=status.HTTP_404_NOT_FOUND
+            )
+        except Exception as e:
+            return create_error_response(
+                'FAILED_TO_GET_COMMENTS',
+                language,
+                status_code=status.HTTP_500_INTERNAL_SERVER_ERROR
+            )
+    
+    def add_comment(self, request, project_folder=None):
+        """コメント追加"""
+        language = get_language_from_request(request)
+        
+        file_path = request.data.get('file_path')
+        comment_text = request.data.get('comment')
+        author = request.data.get('author', 'Anonymous')
+        
+        if not file_path or not comment_text:
+            return create_error_response(
+                'FILE_PATH_AND_COMMENT_REQUIRED',
+                language,
+                status_code=status.HTTP_400_BAD_REQUEST
+            )
+        
+        try:
+            result = self.comment_manager.add_comment(project_folder, file_path, comment_text, author)
+            if result.get('success'):
+                return Response(result, status=status.HTTP_201_CREATED)
+            else:
+                return create_error_response(
+                    'ADD_COMMENT_FAILED',
+                    language,
+                    details=result,
+                    status_code=status.HTTP_400_BAD_REQUEST
+                )
+        except Exception as e:
+            return create_error_response(
+                'ADD_COMMENT_ERROR',
+                language,
+                status_code=status.HTTP_500_INTERNAL_SERVER_ERROR
+            )
+    
+    def update_comment(self, request, project_folder=None, comment_id=None):
+        """コメント更新"""
+        language = get_language_from_request(request)
+        
+        comment_text = request.data.get('comment')
+        if not comment_text:
+            return create_error_response(
+                'COMMENT_TEXT_REQUIRED',
+                language,
+                status_code=status.HTTP_400_BAD_REQUEST
+            )
+        
+        try:
+            result = self.comment_manager.update_comment(project_folder, comment_id, comment_text)
+            if result.get('success'):
+                return Response(result)
+            else:
+                return create_error_response(
+                    'UPDATE_COMMENT_FAILED',
+                    language,
+                    details=result,
+                    status_code=status.HTTP_400_BAD_REQUEST
+                )
+        except Exception as e:
+            return create_error_response(
+                'UPDATE_COMMENT_ERROR',
+                language,
+                status_code=status.HTTP_500_INTERNAL_SERVER_ERROR
+            )
+    
+    def delete_comment(self, request, project_folder=None, comment_id=None):
+        """コメント削除"""
+        language = get_language_from_request(request)
+        
+        try:
+            result = self.comment_manager.delete_comment(project_folder, comment_id)
+            if result.get('success'):
+                return Response(result)
+            else:
+                return create_error_response(
+                    'DELETE_COMMENT_FAILED',
+                    language,
+                    details=result,
+                    status_code=status.HTTP_400_BAD_REQUEST
+                )
+        except Exception as e:
+            return create_error_response(
+                'DELETE_COMMENT_ERROR',
+                language,
+                status_code=status.HTTP_500_INTERNAL_SERVER_ERROR
+            )
     
     def _add_comments_to_tree(self, node: dict, comment_summary: dict, current_path: str = ''):
         """ツリーノードにコメント情報を追加する再帰関数"""
@@ -574,47 +839,6 @@ class FileViewSet(viewsets.ModelViewSet):
         if 'children' in node:
             for child in node['children']:
                 self._add_comments_to_tree(child, comment_summary, node_path)
-
-    @action(detail=False, methods=['get', 'post'], url_path='comments/(?P<project_folder>[^/.]+)')
-    def file_comments(self, request, project_folder=None):
-        """ファイルコメント管理"""
-        language = get_language_from_request(request)
-        
-        if request.method == 'GET':
-            file_path = request.query_params.get('file_path')
-            if file_path:
-                # 特定ファイルのコメント取得
-                comments = self.comment_manager.get_file_comments(project_folder, file_path)
-                return Response({'comments': comments})
-            else:
-                # 全コメント情報取得
-                all_comments = self.comment_manager.get_all_comments(project_folder)
-                return Response(all_comments)
-        
-        elif request.method == 'POST':
-            # 新しいコメント追加
-            file_path = request.data.get('file_path')
-            comment_text = request.data.get('comment')
-            author = request.data.get('author', 'Anonymous')
-            
-            if not file_path or not comment_text:
-                return create_error_response(
-                    'MISSING_REQUIRED_FIELDS',
-                    language,
-                    status_code=status.HTTP_400_BAD_REQUEST
-                )
-            
-            result = self.comment_manager.add_comment(project_folder, file_path, comment_text, author)
-            
-            if result['success']:
-                return Response(result, status=status.HTTP_201_CREATED)
-            else:
-                return create_error_response(
-                    'FAILED_TO_ADD_COMMENT',
-                    language,
-                    details=result,
-                    status_code=status.HTTP_500_INTERNAL_SERVER_ERROR
-                )
 
     @action(detail=False, methods=['put', 'delete'], url_path='comments/(?P<project_folder>[^/.]+)/(?P<comment_id>[^/.]+)')
     def comment_detail(self, request, project_folder=None, comment_id=None):
@@ -872,6 +1096,205 @@ class FileViewSet(viewsets.ModelViewSet):
 
 
 
+
+# JupyterLab インスタンス管理
+jupyter_instances = {}
+
+def get_wsl_ip():
+    """WSLのIPアドレスを取得する"""
+    try:
+        # WSLのIPアドレスを取得
+        result = subprocess.run(['hostname', '-I'], capture_output=True, text=True)
+        if result.returncode == 0:
+            # 最初のIPアドレスを取得（通常はeth0のアドレス）
+            ip = result.stdout.strip().split()[0]
+            return ip
+    except:
+        pass
+    # フォールバック
+    return "localhost"
+
+def find_free_port(start_port=8888):
+    """利用可能なポートを探す"""
+    for port in range(start_port, start_port + 100):
+        with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
+            if s.connect_ex(('localhost', port)) != 0:
+                return port
+    return None
+
+def start_jupyter_lab(project_folder, working_dir):
+    """JupyterLabを起動する"""
+    port = find_free_port()
+    if not port:
+        return None, "No available port found"
+    
+    try:
+        # バックエンドの仮想環境を使用
+        venv_path = "/home/futaro/project/StatVizForge_JikkenPy/backend_env"
+        jupyter_cmd = f"{venv_path}/bin/jupyter-lab"
+        
+        cmd = [
+            jupyter_cmd,
+            "--no-browser",
+            "--port", str(port),
+            "--ip", "0.0.0.0",
+            "--NotebookApp.token=''",
+            "--NotebookApp.password=''",
+            "--allow-root",
+            f"--notebook-dir={working_dir}"
+        ]
+        
+        process = subprocess.Popen(
+            cmd,
+            stdout=subprocess.PIPE,
+            stderr=subprocess.PIPE,
+            cwd=working_dir
+        )
+        
+        # JupyterLabの起動を待つ
+        time.sleep(3)
+        
+        # プロセスが正常に動作しているかチェック
+        if process.poll() is None:
+            wsl_ip = get_wsl_ip()
+            instance_info = {
+                'process': process,
+                'port': port,
+                'url': f"http://{wsl_ip}:{port}",
+                'project_folder': project_folder,
+                'working_dir': working_dir,
+                'started_at': time.time()
+            }
+            jupyter_instances[project_folder] = instance_info
+            return instance_info, None
+        else:
+            stdout, stderr = process.communicate()
+            return None, f"Failed to start JupyterLab: {stderr.decode()}"
+            
+    except Exception as e:
+        return None, str(e)
+
+class JupyterLabViewSet(viewsets.ViewSet):
+    """JupyterLab管理API"""
+    
+    @action(detail=False, methods=['post'])
+    def start(self, request):
+        """JupyterLabを起動"""
+        language = get_language_from_request(request)
+        project_folder = request.data.get('project_folder')
+        
+        if not project_folder:
+            return create_error_response(
+                'MISSING_PROJECT_FOLDER',
+                language,
+                status_code=status.HTTP_400_BAD_REQUEST
+            )
+        
+        # プロジェクトディレクトリのパスを構築
+        project_base_path = os.path.join(settings.BASE_DIR, '../../project')
+        working_dir = os.path.join(project_base_path, project_folder, 'raw')
+        
+        if not os.path.exists(working_dir):
+            return create_error_response(
+                'PROJECT_NOT_FOUND',
+                language,
+                status_code=status.HTTP_404_NOT_FOUND
+            )
+        
+        # 既に起動している場合は既存のインスタンスを返す
+        if project_folder in jupyter_instances:
+            instance = jupyter_instances[project_folder]
+            if instance['process'].poll() is None:  # プロセスがまだ生きている
+                return Response({
+                    'success': True,
+                    'url': instance['url'],
+                    'port': instance['port'],
+                    'message': 'JupyterLab is already running',
+                    'project_folder': project_folder
+                })
+            else:
+                # プロセスが死んでいる場合は削除
+                del jupyter_instances[project_folder]
+        
+        # JupyterLabを起動
+        instance, error = start_jupyter_lab(project_folder, working_dir)
+        
+        if instance:
+            return Response({
+                'success': True,
+                'url': instance['url'],
+                'port': instance['port'],
+                'message': 'JupyterLab started successfully',
+                'project_folder': project_folder
+            })
+        else:
+            return create_error_response(
+                'JUPYTER_START_FAILED',
+                language,
+                details={'error': error},
+                status_code=status.HTTP_500_INTERNAL_SERVER_ERROR
+            )
+    
+    @action(detail=False, methods=['post'])
+    def stop(self, request):
+        """JupyterLabを停止"""
+        language = get_language_from_request(request)
+        project_folder = request.data.get('project_folder')
+        
+        if not project_folder:
+            return create_error_response(
+                'MISSING_PROJECT_FOLDER',
+                language,
+                status_code=status.HTTP_400_BAD_REQUEST
+            )
+        
+        if project_folder not in jupyter_instances:
+            return create_error_response(
+                'JUPYTER_NOT_RUNNING',
+                language,
+                status_code=status.HTTP_404_NOT_FOUND
+            )
+        
+        try:
+            instance = jupyter_instances[project_folder]
+            instance['process'].terminate()
+            instance['process'].wait(timeout=5)
+            del jupyter_instances[project_folder]
+            
+            return Response({
+                'success': True,
+                'message': 'JupyterLab stopped successfully',
+                'project_folder': project_folder
+            })
+        except Exception as e:
+            return create_error_response(
+                'JUPYTER_STOP_FAILED',
+                language,
+                details={'error': str(e)},
+                status_code=status.HTTP_500_INTERNAL_SERVER_ERROR
+            )
+    
+    @action(detail=False, methods=['get'])
+    def status(self, request):
+        """JupyterLabの状態を確認"""
+        running_instances = []
+        
+        for project_folder, instance in list(jupyter_instances.items()):
+            if instance['process'].poll() is None:  # プロセスが生きている
+                running_instances.append({
+                    'project_folder': project_folder,
+                    'url': instance['url'],
+                    'port': instance['port'],
+                    'started_at': instance['started_at']
+                })
+            else:
+                # 死んでいるプロセスを削除
+                del jupyter_instances[project_folder]
+        
+        return Response({
+            'running_instances': running_instances,
+            'total_count': len(running_instances)
+        })
 
 @api_view(['GET'])
 def server_info(request):
