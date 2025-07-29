@@ -8,6 +8,7 @@ from django.utils import timezone
 from .models import Project, ProjectFile
 from .serializers import ProjectSerializer, ProjectFileSerializer
 from .utils import load_projects_registry, save_projects_registry
+from .registry_validator import validate_and_fix_registry
 from .localization import (
     get_language_from_request, 
     create_error_response, 
@@ -533,6 +534,36 @@ class ProjectViewSet(viewsets.ModelViewSet):
             return create_error_response(
                 'FAILED_TO_RESTORE_PROJECT',
                 language,
+                status_code=status.HTTP_500_INTERNAL_SERVER_ERROR
+            )
+
+    @action(detail=False, methods=['post'])
+    def validate_registry(self, request):
+        """プロジェクトレジストリとフォルダ構造の整合性を確認・修正"""
+        language = get_language_from_request(request)
+        
+        try:
+            modified, log_messages = validate_and_fix_registry()
+            
+            return Response({
+                'success': True,
+                'modified': modified,
+                'message': (
+                    'Registry validation completed' if language == 'en' else 
+                    '整合性確認が完了しました'
+                ),
+                'log_messages': log_messages,
+                'summary': {
+                    'issues_found': len(log_messages),
+                    'fixes_applied': modified
+                }
+            })
+            
+        except Exception as e:
+            return create_error_response(
+                'REGISTRY_VALIDATION_FAILED',
+                language,
+                details={'error': str(e)},
                 status_code=status.HTTP_500_INTERNAL_SERVER_ERROR
             )
 
