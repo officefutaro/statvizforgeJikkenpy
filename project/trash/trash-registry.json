@@ -1,6 +1,6 @@
 {
   "version": "1.0.0",
-  "last_updated": "2025-07-28T17:03:10.538450",
+  "last_updated": "2025-07-29T22:34:32.640842",
   "deleted_projects": [
     {
       "id": "82886a55-fe6c-4559-9dfa-27aeb21e924e",
@@ -171,6 +171,17 @@
       "original_created_date": "2025-07-28T17:03:10.532732",
       "tags": "test5",
       "description": "並行処理テスト用プロジェクト5"
+    },
+    {
+      "id": "3779d95d-d923-435b-8da0-2a157940d95b",
+      "folder_name": "ichikawa",
+      "project_name": "市川アパートの家賃",
+      "archive_filename": "ichikawa_20250729_223432.zip",
+      "archive_size": 4988,
+      "deletion_date": "2025-07-29T22:34:32.640834",
+      "original_created_date": "2025-07-28T19:10:51.399660",
+      "tags": [],
+      "description": "重回帰分析のテスト用"
     }
   ]
 }

@@ -1,6 +1,6 @@
 {
   "version": "1.0.0",
-  "last_updated": "2025-07-29T09:43:02.366552",
+  "last_updated": "2025-07-29T22:58:40.242498",
   "retention_months": 13,
   "projects": [
     {
@@ -16,16 +16,6 @@
       "modified_date": "2025-07-27T20:33:51.353635"
     },
     {
-      "folder_name": "ichikawa",
-      "project_name": "市川アパートの家賃",
-      "description": "重回帰分析のテスト用",
-      "tags": [],
-      "status": "active",
-      "id": "3779d95d-d923-435b-8da0-2a157940d95b",
-      "created_date": "2025-07-28T19:10:51.399660",
-      "modified_date": "2025-07-28T19:10:51.399660"
-    },
-    {
       "folder_name": "test_project_4f1b6ebf",
       "project_name": "テストプロジェクト",
       "description": "ライフサイクルテスト用プロジェクト",
@@ -34,6 +24,28 @@
       "id": "d2c7d39b-c3a4-4591-9f89-b7f1def829d3",
       "created_date": "2025-07-29T09:43:02.366552",
       "modified_date": "2025-07-29T09:43:02.366552"
+    },
+    {
+      "folder_name": "Yachin",
+      "project_name": "アパートの家賃",
+      "description": "重回帰分析トライ\n",
+      "tags": [],
+      "status": "active",
+      "id": "596dbe95-3bdc-4544-97d9-b857f342539f",
+      "created_date": "2025-07-29T21:42:33.998502",
+      "modified_date": "2025-07-29T21:42:33.998502"
+    },
+    {
+      "id": "ff775140-6c01-4f67-9479-cd520b1fdad2",
+      "folder_name": "minimal_test",
+      "project_name": "Minimal Test Project",
+      "description": "Test project for minimal testing",
+      "tags": [
+        "test"
+      ],
+      "status": "active",
+      "created_date": "2025-07-28T00:00:00",
+      "modified_date": "2025-07-29T22:57:56.743484"
     }
   ],
   "archived_projects": [
@@ -71,55 +83,6 @@
       "archive_size": 385,
       "deletion_date": "2025-07-27T10:38:36.035929",
       "reason": "ユーザー削除"
-    },
-    {
-      "folder_name": "save_test",
-      "project_name": "セーブテスト",
-      "description": "セーブテスト（フォルダが存在しないため移動）",
-      "tags": [],
-      "status": "active",
-      "id": "bb5830e9-e13c-4960-bc25-fa8045a272e9",
-      "created_date": "2025-07-27T10:37:56.948759",
-      "modified_date": "2025-07-27T10:37:56.948769",
-      "archive_filename": "save_test_auto_archived.zip",
-      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/save_test_auto_archived.zip",
-      "archive_size": 0,
-      "deletion_date": "2025-07-27T17:30:00.000000",
-      "reason": "フォルダが存在しないため自動アーカイブ"
-    },
-    {
-      "folder_name": "test_project_simple",
-      "project_name": "Simple Test Project",
-      "description": "A simple test project（不正データのため移動）",
-      "tags": [
-        "test"
-      ],
-      "status": "active",
-      "id": "bd7e7a94-fce7-471b-9dce-7e4c1bcb8255",
-      "created_date": "2025-07-27T16:08:14.889746",
-      "modified_date": "2025-07-27T16:08:14.889746",
-      "archive_filename": "test_project_simple_invalid_data.zip",
-      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/test_project_simple_invalid_data.zip",
-      "archive_size": 0,
-      "deletion_date": "2025-07-27T17:30:00.000000",
-      "reason": "不正な配列データのため自動アーカイブ"
-    },
-    {
-      "folder_name": "test_project_simple",
-      "project_name": "Simple Test Project",
-      "description": "A simple test project（重複データのため移動）",
-      "tags": [
-        "test"
-      ],
-      "status": "active",
-      "id": "7e7be177-9396-4e40-baf3-0b15c2310500",
-      "created_date": "2025-07-27T16:42:31.526622",
-      "modified_date": "2025-07-27T16:42:31.526622",
-      "archive_filename": "test_project_simple_duplicate.zip",
-      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/test_project_simple_duplicate.zip",
-      "archive_size": 0,
-      "deletion_date": "2025-07-27T17:30:00.000000",
-      "reason": "重複データのため自動アーカイブ"
     },
     {
       "folder_name": "error_mix_test_valid",
@@ -316,6 +279,21 @@
       "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/concurrent_test_4_b6a0a86d_20250728_170310.zip",
       "archive_size": 375,
       "deletion_date": "2025-07-28T17:03:10.538741",
+      "reason": "ユーザー削除"
+    },
+    {
+      "folder_name": "ichikawa",
+      "project_name": "市川アパートの家賃",
+      "description": "重回帰分析のテスト用",
+      "tags": [],
+      "status": "active",
+      "id": "3779d95d-d923-435b-8da0-2a157940d95b",
+      "created_date": "2025-07-28T19:10:51.399660",
+      "modified_date": "2025-07-28T19:10:51.399660",
+      "archive_filename": "ichikawa_20250729_223432.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/ichikawa_20250729_223432.zip",
+      "archive_size": 4988,
+      "deletion_date": "2025-07-29T22:34:32.644319",
       "reason": "ユーザー削除"
     }
   ],
