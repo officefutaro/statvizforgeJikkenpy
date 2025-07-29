@@ -104991,3 +104991,9482 @@ active
 }
 ステータス: 201
 ---
+
+[2025-07-29 11:51:20] GET /api/projects/
+リクエスト: {'lang': ['ja']}
+レスポンス: {
+  "version": "1.0.0",
+  "last_updated": "2025-07-29T09:43:02.366552",
+  "retention_months": 13,
+  "projects": [
+    {
+      "folder_name": "testProject",
+      "project_name": "テストのためのプロジェクト",
+      "description": "テストです。サンプルファイルとサブフォルダが追加されました。",
+      "tags": [
+        "sample"
+      ],
+      "status": "active",
+      "id": "2cec431a-0416-4451-a43b-fdc85e0c5c62",
+      "created_date": "2025-07-24T23:31:44.186614",
+      "modified_date": "2025-07-27T20:33:51.353635"
+    },
+    {
+      "folder_name": "ichikawa",
+      "project_name": "市川アパートの家賃",
+      "description": "重回帰分析のテスト用",
+      "tags": [],
+      "status": "active",
+      "id": "3779d95d-d923-435b-8da0-2a157940d95b",
+      "created_date": "2025-07-28T19:10:51.399660",
+      "modified_date": "2025-07-28T19:10:51.399660"
+    },
+    {
+      "folder_name": "test_project_4f1b6ebf",
+      "project_name": "テストプロジェクト",
+      "description": "ライフサイクルテスト用プロジェクト",
+      "tags": "lifecycle",
+      "status": "active",
+      "id": "d2c7d39b-c3a4-4591-9f89-b7f1def829d3",
+      "created_date": "2025-07-29T09:43:02.366552",
+      "modified_date": "2025-07-29T09:43:02.366552"
+    }
+  ],
+  "archived_projects": [
+    {
+      "folder_name": "direct_test_project",
+      "project_name": "直接テストプロジェクト",
+      "description": "直接テスト用プロジェクト",
+      "tags": [
+        "test"
+      ],
+      "status": "active",
+      "id": "82886a55-fe6c-4559-9dfa-27aeb21e924e",
+      "created_date": "2025-07-27T10:37:56.949497",
+      "modified_date": "2025-07-27T10:37:56.949497",
+      "archive_filename": "direct_test_project_20250727_103756.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/direct_test_project_20250727_103756.zip",
+      "archive_size": 347,
+      "deletion_date": "2025-07-27T10:37:56.952974",
+      "reason": "ユーザー削除"
+    },
+    {
+      "folder_name": "success_test_project",
+      "project_name": "成功テストプロジェクト",
+      "description": "正常に作成されるべきプロジェクト",
+      "tags": [
+        "success",
+        "test"
+      ],
+      "status": "active",
+      "id": "658786da-0f80-4434-bf7c-4e389df4b9b2",
+      "created_date": "2025-07-27T10:38:36.034282",
+      "modified_date": "2025-07-27T10:38:36.034282",
+      "archive_filename": "success_test_project_20250727_103836.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/success_test_project_20250727_103836.zip",
+      "archive_size": 385,
+      "deletion_date": "2025-07-27T10:38:36.035929",
+      "reason": "ユーザー削除"
+    },
+    {
+      "folder_name": "save_test",
+      "project_name": "セーブテスト",
+      "description": "セーブテスト（フォルダが存在しないため移動）",
+      "tags": [],
+      "status": "active",
+      "id": "bb5830e9-e13c-4960-bc25-fa8045a272e9",
+      "created_date": "2025-07-27T10:37:56.948759",
+      "modified_date": "2025-07-27T10:37:56.948769",
+      "archive_filename": "save_test_auto_archived.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/save_test_auto_archived.zip",
+      "archive_size": 0,
+      "deletion_date": "2025-07-27T17:30:00.000000",
+      "reason": "フォルダが存在しないため自動アーカイブ"
+    },
+    {
+      "folder_name": "test_project_simple",
+      "project_name": "Simple Test Project",
+      "description": "A simple test project（不正データのため移動）",
+      "tags": [
+        "test"
+      ],
+      "status": "active",
+      "id": "bd7e7a94-fce7-471b-9dce-7e4c1bcb8255",
+      "created_date": "2025-07-27T16:08:14.889746",
+      "modified_date": "2025-07-27T16:08:14.889746",
+      "archive_filename": "test_project_simple_invalid_data.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/test_project_simple_invalid_data.zip",
+      "archive_size": 0,
+      "deletion_date": "2025-07-27T17:30:00.000000",
+      "reason": "不正な配列データのため自動アーカイブ"
+    },
+    {
+      "folder_name": "test_project_simple",
+      "project_name": "Simple Test Project",
+      "description": "A simple test project（重複データのため移動）",
+      "tags": [
+        "test"
+      ],
+      "status": "active",
+      "id": "7e7be177-9396-4e40-baf3-0b15c2310500",
+      "created_date": "2025-07-27T16:42:31.526622",
+      "modified_date": "2025-07-27T16:42:31.526622",
+      "archive_filename": "test_project_simple_duplicate.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/test_project_simple_duplicate.zip",
+      "archive_size": 0,
+      "deletion_date": "2025-07-27T17:30:00.000000",
+      "reason": "重複データのため自動アーカイブ"
+    },
+    {
+      "folder_name": "error_mix_test_valid",
+      "project_name": [
+        "更新済み正常プロジェクト"
+      ],
+      "description": "正常なプロジェクト",
+      "status": "active",
+      "id": "b053ecbe-e6b0-468f-a128-2a09f8bc912f",
+      "created_date": "2025-07-28T16:19:11.123684",
+      "modified_date": "2025-07-28T16:19:11.125795",
+      "tags": [],
+      "archive_filename": "error_mix_test_valid_20250728_161911.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/error_mix_test_valid_20250728_161911.zip",
+      "archive_size": 340,
+      "deletion_date": "2025-07-28T16:19:11.128968",
+      "reason": "ユーザー削除"
+    },
+    {
+      "folder_name": "concurrent_test_0_66622648",
+      "project_name": "並行テストプロジェクト1",
+      "description": "並行処理テスト用プロジェクト1",
+      "tags": "test1",
+      "status": "active",
+      "id": "93f59528-8874-43e2-9046-8aa7f20cec4e",
+      "created_date": "2025-07-28T16:19:11.132327",
+      "modified_date": "2025-07-28T16:19:11.132327",
+      "archive_filename": "concurrent_test_0_66622648_20250728_161911.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/concurrent_test_0_66622648_20250728_161911.zip",
+      "archive_size": 376,
+      "deletion_date": "2025-07-28T16:19:11.138207",
+      "reason": "ユーザー削除"
+    },
+    {
+      "folder_name": "concurrent_test_2_e609d57b",
+      "project_name": "並行テストプロジェクト3",
+      "description": "並行処理テスト用プロジェクト3",
+      "tags": "test3",
+      "status": "active",
+      "id": "19800ff7-d7fc-4ab4-85e5-d16075ee81bc",
+      "created_date": "2025-07-28T16:19:11.134657",
+      "modified_date": "2025-07-28T16:19:11.134657",
+      "archive_filename": "concurrent_test_2_e609d57b_20250728_161911.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/concurrent_test_2_e609d57b_20250728_161911.zip",
+      "archive_size": 376,
+      "deletion_date": "2025-07-28T16:19:11.139132",
+      "reason": "ユーザー削除"
+    },
+    {
+      "folder_name": "concurrent_test_4_092f0468",
+      "project_name": "並行テストプロジェクト5",
+      "description": "並行処理テスト用プロジェクト5",
+      "tags": "test5",
+      "status": "active",
+      "id": "09e9dfc9-ca4f-44f4-986a-03f567c8ce12",
+      "created_date": "2025-07-28T16:19:11.136815",
+      "modified_date": "2025-07-28T16:19:11.136815",
+      "archive_filename": "concurrent_test_4_092f0468_20250728_161911.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/concurrent_test_4_092f0468_20250728_161911.zip",
+      "archive_size": 374,
+      "deletion_date": "2025-07-28T16:19:11.139959",
+      "reason": "ユーザー削除"
+    },
+    {
+      "folder_name": "concurrent_test_0_efcb15fd",
+      "project_name": "並行テストプロジェクト1",
+      "description": "並行処理テスト用プロジェクト1",
+      "tags": "test1",
+      "status": "active",
+      "id": "b8bdfef1-663d-4317-9733-520b7c82ef4c",
+      "created_date": "2025-07-28T17:01:01.713250",
+      "modified_date": "2025-07-28T17:01:01.713250",
+      "archive_filename": "concurrent_test_0_efcb15fd_20250728_170101.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/concurrent_test_0_efcb15fd_20250728_170101.zip",
+      "archive_size": 375,
+      "deletion_date": "2025-07-28T17:01:01.722770",
+      "reason": "ユーザー削除"
+    },
+    {
+      "folder_name": "concurrent_test_2_ee325ed7",
+      "project_name": "並行テストプロジェクト3",
+      "description": "並行処理テスト用プロジェクト3",
+      "tags": "test3",
+      "status": "active",
+      "id": "96aec4c7-1934-4a4d-a124-648cedab3cce",
+      "created_date": "2025-07-28T17:01:01.716608",
+      "modified_date": "2025-07-28T17:01:01.716608",
+      "archive_filename": "concurrent_test_2_ee325ed7_20250728_170101.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/concurrent_test_2_ee325ed7_20250728_170101.zip",
+      "archive_size": 375,
+      "deletion_date": "2025-07-28T17:01:01.723940",
+      "reason": "ユーザー削除"
+    },
+    {
+      "folder_name": "concurrent_test_4_ba6d6c1b",
+      "project_name": "並行テストプロジェクト5",
+      "description": "並行処理テスト用プロジェクト5",
+      "tags": "test5",
+      "status": "active",
+      "id": "59ff5728-63a6-4d99-8798-483937754e16",
+      "created_date": "2025-07-28T17:01:01.719739",
+      "modified_date": "2025-07-28T17:01:01.719739",
+      "archive_filename": "concurrent_test_4_ba6d6c1b_20250728_170101.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/concurrent_test_4_ba6d6c1b_20250728_170101.zip",
+      "archive_size": 375,
+      "deletion_date": "2025-07-28T17:01:01.725236",
+      "reason": "ユーザー削除"
+    },
+    {
+      "folder_name": "concurrent_test_0_2d83d836",
+      "project_name": "並行テストプロジェクト1",
+      "description": "並行処理テスト用プロジェクト1",
+      "tags": "test1",
+      "status": "active",
+      "id": "f5a03448-9b95-4b0d-bdee-bb9394282d31",
+      "created_date": "2025-07-28T17:02:13.338155",
+      "modified_date": "2025-07-28T17:02:13.338155",
+      "archive_filename": "concurrent_test_0_2d83d836_20250728_170213.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/concurrent_test_0_2d83d836_20250728_170213.zip",
+      "archive_size": 375,
+      "deletion_date": "2025-07-28T17:02:13.348167",
+      "reason": "ユーザー削除"
+    },
+    {
+      "folder_name": "concurrent_test_2_cc450da3",
+      "project_name": "並行テストプロジェクト3",
+      "description": "並行処理テスト用プロジェクト3",
+      "tags": "test3",
+      "status": "active",
+      "id": "e1c81e4f-5442-4448-90ea-88d84d031106",
+      "created_date": "2025-07-28T17:02:13.342054",
+      "modified_date": "2025-07-28T17:02:13.342054",
+      "archive_filename": "concurrent_test_2_cc450da3_20250728_170213.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/concurrent_test_2_cc450da3_20250728_170213.zip",
+      "archive_size": 374,
+      "deletion_date": "2025-07-28T17:02:13.349390",
+      "reason": "ユーザー削除"
+    },
+    {
+      "folder_name": "concurrent_test_4_73d0fb17",
+      "project_name": "並行テストプロジェクト5",
+      "description": "並行処理テスト用プロジェクト5",
+      "tags": "test5",
+      "status": "active",
+      "id": "ea790dc1-2fad-4e1e-ae29-f57de39d2fcd",
+      "created_date": "2025-07-28T17:02:13.345182",
+      "modified_date": "2025-07-28T17:02:13.345182",
+      "archive_filename": "concurrent_test_4_73d0fb17_20250728_170213.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/concurrent_test_4_73d0fb17_20250728_170213.zip",
+      "archive_size": 376,
+      "deletion_date": "2025-07-28T17:02:13.350711",
+      "reason": "ユーザー削除"
+    },
+    {
+      "folder_name": "concurrent_test_0_1fb7ac72",
+      "project_name": "並行テストプロジェクト1",
+      "description": "並行処理テスト用プロジェクト1",
+      "tags": "test1",
+      "status": "active",
+      "id": "89308044-b174-4b8f-828a-f2ca1c7e969f",
+      "created_date": "2025-07-28T17:03:10.525040",
+      "modified_date": "2025-07-28T17:03:10.525040",
+      "archive_filename": "concurrent_test_0_1fb7ac72_20250728_170310.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/concurrent_test_0_1fb7ac72_20250728_170310.zip",
+      "archive_size": 375,
+      "deletion_date": "2025-07-28T17:03:10.536131",
+      "reason": "ユーザー削除"
+    },
+    {
+      "folder_name": "concurrent_test_2_cd5b71e5",
+      "project_name": "並行テストプロジェクト3",
+      "description": "並行処理テスト用プロジェクト3",
+      "tags": "test3",
+      "status": "active",
+      "id": "3f5c31c8-b469-49bd-b191-683d973467a7",
+      "created_date": "2025-07-28T17:03:10.528416",
+      "modified_date": "2025-07-28T17:03:10.528416",
+      "archive_filename": "concurrent_test_2_cd5b71e5_20250728_170310.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/concurrent_test_2_cd5b71e5_20250728_170310.zip",
+      "archive_size": 376,
+      "deletion_date": "2025-07-28T17:03:10.537484",
+      "reason": "ユーザー削除"
+    },
+    {
+      "folder_name": "concurrent_test_4_b6a0a86d",
+      "project_name": "並行テストプロジェクト5",
+      "description": "並行処理テスト用プロジェクト5",
+      "tags": "test5",
+      "status": "active",
+      "id": "e9ab4e07-42a4-40a9-b720-3b5f25b70c4b",
+      "created_date": "2025-07-28T17:03:10.532732",
+      "modified_date": "2025-07-28T17:03:10.532732",
+      "archive_filename": "concurrent_test_4_b6a0a86d_20250728_170310.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/concurrent_test_4_b6a0a86d_20250728_170310.zip",
+      "archive_size": 375,
+      "deletion_date": "2025-07-28T17:03:10.538741",
+      "reason": "ユーザー削除"
+    }
+  ],
+  "reserved_folders": [
+    "node_modules",
+    "dist",
+    "build",
+    ".git",
+    "backend",
+    "frontend",
+    "trash",
+    "recycle_bin",
+    "deleted",
+    ".trash"
+  ]
+}
+ステータス: 200
+---
+
+[2025-07-29 11:51:20] GET /api/projects/
+リクエスト: {'lang': ['ja']}
+レスポンス: {
+  "version": "1.0.0",
+  "last_updated": "2025-07-29T09:43:02.366552",
+  "retention_months": 13,
+  "projects": [
+    {
+      "folder_name": "testProject",
+      "project_name": "テストのためのプロジェクト",
+      "description": "テストです。サンプルファイルとサブフォルダが追加されました。",
+      "tags": [
+        "sample"
+      ],
+      "status": "active",
+      "id": "2cec431a-0416-4451-a43b-fdc85e0c5c62",
+      "created_date": "2025-07-24T23:31:44.186614",
+      "modified_date": "2025-07-27T20:33:51.353635"
+    },
+    {
+      "folder_name": "ichikawa",
+      "project_name": "市川アパートの家賃",
+      "description": "重回帰分析のテスト用",
+      "tags": [],
+      "status": "active",
+      "id": "3779d95d-d923-435b-8da0-2a157940d95b",
+      "created_date": "2025-07-28T19:10:51.399660",
+      "modified_date": "2025-07-28T19:10:51.399660"
+    },
+    {
+      "folder_name": "test_project_4f1b6ebf",
+      "project_name": "テストプロジェクト",
+      "description": "ライフサイクルテスト用プロジェクト",
+      "tags": "lifecycle",
+      "status": "active",
+      "id": "d2c7d39b-c3a4-4591-9f89-b7f1def829d3",
+      "created_date": "2025-07-29T09:43:02.366552",
+      "modified_date": "2025-07-29T09:43:02.366552"
+    }
+  ],
+  "archived_projects": [
+    {
+      "folder_name": "direct_test_project",
+      "project_name": "直接テストプロジェクト",
+      "description": "直接テスト用プロジェクト",
+      "tags": [
+        "test"
+      ],
+      "status": "active",
+      "id": "82886a55-fe6c-4559-9dfa-27aeb21e924e",
+      "created_date": "2025-07-27T10:37:56.949497",
+      "modified_date": "2025-07-27T10:37:56.949497",
+      "archive_filename": "direct_test_project_20250727_103756.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/direct_test_project_20250727_103756.zip",
+      "archive_size": 347,
+      "deletion_date": "2025-07-27T10:37:56.952974",
+      "reason": "ユーザー削除"
+    },
+    {
+      "folder_name": "success_test_project",
+      "project_name": "成功テストプロジェクト",
+      "description": "正常に作成されるべきプロジェクト",
+      "tags": [
+        "success",
+        "test"
+      ],
+      "status": "active",
+      "id": "658786da-0f80-4434-bf7c-4e389df4b9b2",
+      "created_date": "2025-07-27T10:38:36.034282",
+      "modified_date": "2025-07-27T10:38:36.034282",
+      "archive_filename": "success_test_project_20250727_103836.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/success_test_project_20250727_103836.zip",
+      "archive_size": 385,
+      "deletion_date": "2025-07-27T10:38:36.035929",
+      "reason": "ユーザー削除"
+    },
+    {
+      "folder_name": "save_test",
+      "project_name": "セーブテスト",
+      "description": "セーブテスト（フォルダが存在しないため移動）",
+      "tags": [],
+      "status": "active",
+      "id": "bb5830e9-e13c-4960-bc25-fa8045a272e9",
+      "created_date": "2025-07-27T10:37:56.948759",
+      "modified_date": "2025-07-27T10:37:56.948769",
+      "archive_filename": "save_test_auto_archived.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/save_test_auto_archived.zip",
+      "archive_size": 0,
+      "deletion_date": "2025-07-27T17:30:00.000000",
+      "reason": "フォルダが存在しないため自動アーカイブ"
+    },
+    {
+      "folder_name": "test_project_simple",
+      "project_name": "Simple Test Project",
+      "description": "A simple test project（不正データのため移動）",
+      "tags": [
+        "test"
+      ],
+      "status": "active",
+      "id": "bd7e7a94-fce7-471b-9dce-7e4c1bcb8255",
+      "created_date": "2025-07-27T16:08:14.889746",
+      "modified_date": "2025-07-27T16:08:14.889746",
+      "archive_filename": "test_project_simple_invalid_data.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/test_project_simple_invalid_data.zip",
+      "archive_size": 0,
+      "deletion_date": "2025-07-27T17:30:00.000000",
+      "reason": "不正な配列データのため自動アーカイブ"
+    },
+    {
+      "folder_name": "test_project_simple",
+      "project_name": "Simple Test Project",
+      "description": "A simple test project（重複データのため移動）",
+      "tags": [
+        "test"
+      ],
+      "status": "active",
+      "id": "7e7be177-9396-4e40-baf3-0b15c2310500",
+      "created_date": "2025-07-27T16:42:31.526622",
+      "modified_date": "2025-07-27T16:42:31.526622",
+      "archive_filename": "test_project_simple_duplicate.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/test_project_simple_duplicate.zip",
+      "archive_size": 0,
+      "deletion_date": "2025-07-27T17:30:00.000000",
+      "reason": "重複データのため自動アーカイブ"
+    },
+    {
+      "folder_name": "error_mix_test_valid",
+      "project_name": [
+        "更新済み正常プロジェクト"
+      ],
+      "description": "正常なプロジェクト",
+      "status": "active",
+      "id": "b053ecbe-e6b0-468f-a128-2a09f8bc912f",
+      "created_date": "2025-07-28T16:19:11.123684",
+      "modified_date": "2025-07-28T16:19:11.125795",
+      "tags": [],
+      "archive_filename": "error_mix_test_valid_20250728_161911.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/error_mix_test_valid_20250728_161911.zip",
+      "archive_size": 340,
+      "deletion_date": "2025-07-28T16:19:11.128968",
+      "reason": "ユーザー削除"
+    },
+    {
+      "folder_name": "concurrent_test_0_66622648",
+      "project_name": "並行テストプロジェクト1",
+      "description": "並行処理テスト用プロジェクト1",
+      "tags": "test1",
+      "status": "active",
+      "id": "93f59528-8874-43e2-9046-8aa7f20cec4e",
+      "created_date": "2025-07-28T16:19:11.132327",
+      "modified_date": "2025-07-28T16:19:11.132327",
+      "archive_filename": "concurrent_test_0_66622648_20250728_161911.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/concurrent_test_0_66622648_20250728_161911.zip",
+      "archive_size": 376,
+      "deletion_date": "2025-07-28T16:19:11.138207",
+      "reason": "ユーザー削除"
+    },
+    {
+      "folder_name": "concurrent_test_2_e609d57b",
+      "project_name": "並行テストプロジェクト3",
+      "description": "並行処理テスト用プロジェクト3",
+      "tags": "test3",
+      "status": "active",
+      "id": "19800ff7-d7fc-4ab4-85e5-d16075ee81bc",
+      "created_date": "2025-07-28T16:19:11.134657",
+      "modified_date": "2025-07-28T16:19:11.134657",
+      "archive_filename": "concurrent_test_2_e609d57b_20250728_161911.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/concurrent_test_2_e609d57b_20250728_161911.zip",
+      "archive_size": 376,
+      "deletion_date": "2025-07-28T16:19:11.139132",
+      "reason": "ユーザー削除"
+    },
+    {
+      "folder_name": "concurrent_test_4_092f0468",
+      "project_name": "並行テストプロジェクト5",
+      "description": "並行処理テスト用プロジェクト5",
+      "tags": "test5",
+      "status": "active",
+      "id": "09e9dfc9-ca4f-44f4-986a-03f567c8ce12",
+      "created_date": "2025-07-28T16:19:11.136815",
+      "modified_date": "2025-07-28T16:19:11.136815",
+      "archive_filename": "concurrent_test_4_092f0468_20250728_161911.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/concurrent_test_4_092f0468_20250728_161911.zip",
+      "archive_size": 374,
+      "deletion_date": "2025-07-28T16:19:11.139959",
+      "reason": "ユーザー削除"
+    },
+    {
+      "folder_name": "concurrent_test_0_efcb15fd",
+      "project_name": "並行テストプロジェクト1",
+      "description": "並行処理テスト用プロジェクト1",
+      "tags": "test1",
+      "status": "active",
+      "id": "b8bdfef1-663d-4317-9733-520b7c82ef4c",
+      "created_date": "2025-07-28T17:01:01.713250",
+      "modified_date": "2025-07-28T17:01:01.713250",
+      "archive_filename": "concurrent_test_0_efcb15fd_20250728_170101.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/concurrent_test_0_efcb15fd_20250728_170101.zip",
+      "archive_size": 375,
+      "deletion_date": "2025-07-28T17:01:01.722770",
+      "reason": "ユーザー削除"
+    },
+    {
+      "folder_name": "concurrent_test_2_ee325ed7",
+      "project_name": "並行テストプロジェクト3",
+      "description": "並行処理テスト用プロジェクト3",
+      "tags": "test3",
+      "status": "active",
+      "id": "96aec4c7-1934-4a4d-a124-648cedab3cce",
+      "created_date": "2025-07-28T17:01:01.716608",
+      "modified_date": "2025-07-28T17:01:01.716608",
+      "archive_filename": "concurrent_test_2_ee325ed7_20250728_170101.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/concurrent_test_2_ee325ed7_20250728_170101.zip",
+      "archive_size": 375,
+      "deletion_date": "2025-07-28T17:01:01.723940",
+      "reason": "ユーザー削除"
+    },
+    {
+      "folder_name": "concurrent_test_4_ba6d6c1b",
+      "project_name": "並行テストプロジェクト5",
+      "description": "並行処理テスト用プロジェクト5",
+      "tags": "test5",
+      "status": "active",
+      "id": "59ff5728-63a6-4d99-8798-483937754e16",
+      "created_date": "2025-07-28T17:01:01.719739",
+      "modified_date": "2025-07-28T17:01:01.719739",
+      "archive_filename": "concurrent_test_4_ba6d6c1b_20250728_170101.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/concurrent_test_4_ba6d6c1b_20250728_170101.zip",
+      "archive_size": 375,
+      "deletion_date": "2025-07-28T17:01:01.725236",
+      "reason": "ユーザー削除"
+    },
+    {
+      "folder_name": "concurrent_test_0_2d83d836",
+      "project_name": "並行テストプロジェクト1",
+      "description": "並行処理テスト用プロジェクト1",
+      "tags": "test1",
+      "status": "active",
+      "id": "f5a03448-9b95-4b0d-bdee-bb9394282d31",
+      "created_date": "2025-07-28T17:02:13.338155",
+      "modified_date": "2025-07-28T17:02:13.338155",
+      "archive_filename": "concurrent_test_0_2d83d836_20250728_170213.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/concurrent_test_0_2d83d836_20250728_170213.zip",
+      "archive_size": 375,
+      "deletion_date": "2025-07-28T17:02:13.348167",
+      "reason": "ユーザー削除"
+    },
+    {
+      "folder_name": "concurrent_test_2_cc450da3",
+      "project_name": "並行テストプロジェクト3",
+      "description": "並行処理テスト用プロジェクト3",
+      "tags": "test3",
+      "status": "active",
+      "id": "e1c81e4f-5442-4448-90ea-88d84d031106",
+      "created_date": "2025-07-28T17:02:13.342054",
+      "modified_date": "2025-07-28T17:02:13.342054",
+      "archive_filename": "concurrent_test_2_cc450da3_20250728_170213.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/concurrent_test_2_cc450da3_20250728_170213.zip",
+      "archive_size": 374,
+      "deletion_date": "2025-07-28T17:02:13.349390",
+      "reason": "ユーザー削除"
+    },
+    {
+      "folder_name": "concurrent_test_4_73d0fb17",
+      "project_name": "並行テストプロジェクト5",
+      "description": "並行処理テスト用プロジェクト5",
+      "tags": "test5",
+      "status": "active",
+      "id": "ea790dc1-2fad-4e1e-ae29-f57de39d2fcd",
+      "created_date": "2025-07-28T17:02:13.345182",
+      "modified_date": "2025-07-28T17:02:13.345182",
+      "archive_filename": "concurrent_test_4_73d0fb17_20250728_170213.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/concurrent_test_4_73d0fb17_20250728_170213.zip",
+      "archive_size": 376,
+      "deletion_date": "2025-07-28T17:02:13.350711",
+      "reason": "ユーザー削除"
+    },
+    {
+      "folder_name": "concurrent_test_0_1fb7ac72",
+      "project_name": "並行テストプロジェクト1",
+      "description": "並行処理テスト用プロジェクト1",
+      "tags": "test1",
+      "status": "active",
+      "id": "89308044-b174-4b8f-828a-f2ca1c7e969f",
+      "created_date": "2025-07-28T17:03:10.525040",
+      "modified_date": "2025-07-28T17:03:10.525040",
+      "archive_filename": "concurrent_test_0_1fb7ac72_20250728_170310.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/concurrent_test_0_1fb7ac72_20250728_170310.zip",
+      "archive_size": 375,
+      "deletion_date": "2025-07-28T17:03:10.536131",
+      "reason": "ユーザー削除"
+    },
+    {
+      "folder_name": "concurrent_test_2_cd5b71e5",
+      "project_name": "並行テストプロジェクト3",
+      "description": "並行処理テスト用プロジェクト3",
+      "tags": "test3",
+      "status": "active",
+      "id": "3f5c31c8-b469-49bd-b191-683d973467a7",
+      "created_date": "2025-07-28T17:03:10.528416",
+      "modified_date": "2025-07-28T17:03:10.528416",
+      "archive_filename": "concurrent_test_2_cd5b71e5_20250728_170310.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/concurrent_test_2_cd5b71e5_20250728_170310.zip",
+      "archive_size": 376,
+      "deletion_date": "2025-07-28T17:03:10.537484",
+      "reason": "ユーザー削除"
+    },
+    {
+      "folder_name": "concurrent_test_4_b6a0a86d",
+      "project_name": "並行テストプロジェクト5",
+      "description": "並行処理テスト用プロジェクト5",
+      "tags": "test5",
+      "status": "active",
+      "id": "e9ab4e07-42a4-40a9-b720-3b5f25b70c4b",
+      "created_date": "2025-07-28T17:03:10.532732",
+      "modified_date": "2025-07-28T17:03:10.532732",
+      "archive_filename": "concurrent_test_4_b6a0a86d_20250728_170310.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/concurrent_test_4_b6a0a86d_20250728_170310.zip",
+      "archive_size": 375,
+      "deletion_date": "2025-07-28T17:03:10.538741",
+      "reason": "ユーザー削除"
+    }
+  ],
+  "reserved_folders": [
+    "node_modules",
+    "dist",
+    "build",
+    ".git",
+    "backend",
+    "frontend",
+    "trash",
+    "recycle_bin",
+    "deleted",
+    ".trash"
+  ]
+}
+ステータス: 200
+---
+
+[2025-07-29 11:51:25] GET /api/projects/
+リクエスト: {}
+レスポンス: {
+  "version": "1.0.0",
+  "last_updated": "2025-07-29T09:43:02.366552",
+  "retention_months": 13,
+  "projects": [
+    {
+      "folder_name": "testProject",
+      "project_name": "テストのためのプロジェクト",
+      "description": "テストです。サンプルファイルとサブフォルダが追加されました。",
+      "tags": [
+        "sample"
+      ],
+      "status": "active",
+      "id": "2cec431a-0416-4451-a43b-fdc85e0c5c62",
+      "created_date": "2025-07-24T23:31:44.186614",
+      "modified_date": "2025-07-27T20:33:51.353635"
+    },
+    {
+      "folder_name": "ichikawa",
+      "project_name": "市川アパートの家賃",
+      "description": "重回帰分析のテスト用",
+      "tags": [],
+      "status": "active",
+      "id": "3779d95d-d923-435b-8da0-2a157940d95b",
+      "created_date": "2025-07-28T19:10:51.399660",
+      "modified_date": "2025-07-28T19:10:51.399660"
+    },
+    {
+      "folder_name": "test_project_4f1b6ebf",
+      "project_name": "テストプロジェクト",
+      "description": "ライフサイクルテスト用プロジェクト",
+      "tags": "lifecycle",
+      "status": "active",
+      "id": "d2c7d39b-c3a4-4591-9f89-b7f1def829d3",
+      "created_date": "2025-07-29T09:43:02.366552",
+      "modified_date": "2025-07-29T09:43:02.366552"
+    }
+  ],
+  "archived_projects": [
+    {
+      "folder_name": "direct_test_project",
+      "project_name": "直接テストプロジェクト",
+      "description": "直接テスト用プロジェクト",
+      "tags": [
+        "test"
+      ],
+      "status": "active",
+      "id": "82886a55-fe6c-4559-9dfa-27aeb21e924e",
+      "created_date": "2025-07-27T10:37:56.949497",
+      "modified_date": "2025-07-27T10:37:56.949497",
+      "archive_filename": "direct_test_project_20250727_103756.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/direct_test_project_20250727_103756.zip",
+      "archive_size": 347,
+      "deletion_date": "2025-07-27T10:37:56.952974",
+      "reason": "ユーザー削除"
+    },
+    {
+      "folder_name": "success_test_project",
+      "project_name": "成功テストプロジェクト",
+      "description": "正常に作成されるべきプロジェクト",
+      "tags": [
+        "success",
+        "test"
+      ],
+      "status": "active",
+      "id": "658786da-0f80-4434-bf7c-4e389df4b9b2",
+      "created_date": "2025-07-27T10:38:36.034282",
+      "modified_date": "2025-07-27T10:38:36.034282",
+      "archive_filename": "success_test_project_20250727_103836.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/success_test_project_20250727_103836.zip",
+      "archive_size": 385,
+      "deletion_date": "2025-07-27T10:38:36.035929",
+      "reason": "ユーザー削除"
+    },
+    {
+      "folder_name": "save_test",
+      "project_name": "セーブテスト",
+      "description": "セーブテスト（フォルダが存在しないため移動）",
+      "tags": [],
+      "status": "active",
+      "id": "bb5830e9-e13c-4960-bc25-fa8045a272e9",
+      "created_date": "2025-07-27T10:37:56.948759",
+      "modified_date": "2025-07-27T10:37:56.948769",
+      "archive_filename": "save_test_auto_archived.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/save_test_auto_archived.zip",
+      "archive_size": 0,
+      "deletion_date": "2025-07-27T17:30:00.000000",
+      "reason": "フォルダが存在しないため自動アーカイブ"
+    },
+    {
+      "folder_name": "test_project_simple",
+      "project_name": "Simple Test Project",
+      "description": "A simple test project（不正データのため移動）",
+      "tags": [
+        "test"
+      ],
+      "status": "active",
+      "id": "bd7e7a94-fce7-471b-9dce-7e4c1bcb8255",
+      "created_date": "2025-07-27T16:08:14.889746",
+      "modified_date": "2025-07-27T16:08:14.889746",
+      "archive_filename": "test_project_simple_invalid_data.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/test_project_simple_invalid_data.zip",
+      "archive_size": 0,
+      "deletion_date": "2025-07-27T17:30:00.000000",
+      "reason": "不正な配列データのため自動アーカイブ"
+    },
+    {
+      "folder_name": "test_project_simple",
+      "project_name": "Simple Test Project",
+      "description": "A simple test project（重複データのため移動）",
+      "tags": [
+        "test"
+      ],
+      "status": "active",
+      "id": "7e7be177-9396-4e40-baf3-0b15c2310500",
+      "created_date": "2025-07-27T16:42:31.526622",
+      "modified_date": "2025-07-27T16:42:31.526622",
+      "archive_filename": "test_project_simple_duplicate.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/test_project_simple_duplicate.zip",
+      "archive_size": 0,
+      "deletion_date": "2025-07-27T17:30:00.000000",
+      "reason": "重複データのため自動アーカイブ"
+    },
+    {
+      "folder_name": "error_mix_test_valid",
+      "project_name": [
+        "更新済み正常プロジェクト"
+      ],
+      "description": "正常なプロジェクト",
+      "status": "active",
+      "id": "b053ecbe-e6b0-468f-a128-2a09f8bc912f",
+      "created_date": "2025-07-28T16:19:11.123684",
+      "modified_date": "2025-07-28T16:19:11.125795",
+      "tags": [],
+      "archive_filename": "error_mix_test_valid_20250728_161911.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/error_mix_test_valid_20250728_161911.zip",
+      "archive_size": 340,
+      "deletion_date": "2025-07-28T16:19:11.128968",
+      "reason": "ユーザー削除"
+    },
+    {
+      "folder_name": "concurrent_test_0_66622648",
+      "project_name": "並行テストプロジェクト1",
+      "description": "並行処理テスト用プロジェクト1",
+      "tags": "test1",
+      "status": "active",
+      "id": "93f59528-8874-43e2-9046-8aa7f20cec4e",
+      "created_date": "2025-07-28T16:19:11.132327",
+      "modified_date": "2025-07-28T16:19:11.132327",
+      "archive_filename": "concurrent_test_0_66622648_20250728_161911.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/concurrent_test_0_66622648_20250728_161911.zip",
+      "archive_size": 376,
+      "deletion_date": "2025-07-28T16:19:11.138207",
+      "reason": "ユーザー削除"
+    },
+    {
+      "folder_name": "concurrent_test_2_e609d57b",
+      "project_name": "並行テストプロジェクト3",
+      "description": "並行処理テスト用プロジェクト3",
+      "tags": "test3",
+      "status": "active",
+      "id": "19800ff7-d7fc-4ab4-85e5-d16075ee81bc",
+      "created_date": "2025-07-28T16:19:11.134657",
+      "modified_date": "2025-07-28T16:19:11.134657",
+      "archive_filename": "concurrent_test_2_e609d57b_20250728_161911.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/concurrent_test_2_e609d57b_20250728_161911.zip",
+      "archive_size": 376,
+      "deletion_date": "2025-07-28T16:19:11.139132",
+      "reason": "ユーザー削除"
+    },
+    {
+      "folder_name": "concurrent_test_4_092f0468",
+      "project_name": "並行テストプロジェクト5",
+      "description": "並行処理テスト用プロジェクト5",
+      "tags": "test5",
+      "status": "active",
+      "id": "09e9dfc9-ca4f-44f4-986a-03f567c8ce12",
+      "created_date": "2025-07-28T16:19:11.136815",
+      "modified_date": "2025-07-28T16:19:11.136815",
+      "archive_filename": "concurrent_test_4_092f0468_20250728_161911.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/concurrent_test_4_092f0468_20250728_161911.zip",
+      "archive_size": 374,
+      "deletion_date": "2025-07-28T16:19:11.139959",
+      "reason": "ユーザー削除"
+    },
+    {
+      "folder_name": "concurrent_test_0_efcb15fd",
+      "project_name": "並行テストプロジェクト1",
+      "description": "並行処理テスト用プロジェクト1",
+      "tags": "test1",
+      "status": "active",
+      "id": "b8bdfef1-663d-4317-9733-520b7c82ef4c",
+      "created_date": "2025-07-28T17:01:01.713250",
+      "modified_date": "2025-07-28T17:01:01.713250",
+      "archive_filename": "concurrent_test_0_efcb15fd_20250728_170101.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/concurrent_test_0_efcb15fd_20250728_170101.zip",
+      "archive_size": 375,
+      "deletion_date": "2025-07-28T17:01:01.722770",
+      "reason": "ユーザー削除"
+    },
+    {
+      "folder_name": "concurrent_test_2_ee325ed7",
+      "project_name": "並行テストプロジェクト3",
+      "description": "並行処理テスト用プロジェクト3",
+      "tags": "test3",
+      "status": "active",
+      "id": "96aec4c7-1934-4a4d-a124-648cedab3cce",
+      "created_date": "2025-07-28T17:01:01.716608",
+      "modified_date": "2025-07-28T17:01:01.716608",
+      "archive_filename": "concurrent_test_2_ee325ed7_20250728_170101.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/concurrent_test_2_ee325ed7_20250728_170101.zip",
+      "archive_size": 375,
+      "deletion_date": "2025-07-28T17:01:01.723940",
+      "reason": "ユーザー削除"
+    },
+    {
+      "folder_name": "concurrent_test_4_ba6d6c1b",
+      "project_name": "並行テストプロジェクト5",
+      "description": "並行処理テスト用プロジェクト5",
+      "tags": "test5",
+      "status": "active",
+      "id": "59ff5728-63a6-4d99-8798-483937754e16",
+      "created_date": "2025-07-28T17:01:01.719739",
+      "modified_date": "2025-07-28T17:01:01.719739",
+      "archive_filename": "concurrent_test_4_ba6d6c1b_20250728_170101.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/concurrent_test_4_ba6d6c1b_20250728_170101.zip",
+      "archive_size": 375,
+      "deletion_date": "2025-07-28T17:01:01.725236",
+      "reason": "ユーザー削除"
+    },
+    {
+      "folder_name": "concurrent_test_0_2d83d836",
+      "project_name": "並行テストプロジェクト1",
+      "description": "並行処理テスト用プロジェクト1",
+      "tags": "test1",
+      "status": "active",
+      "id": "f5a03448-9b95-4b0d-bdee-bb9394282d31",
+      "created_date": "2025-07-28T17:02:13.338155",
+      "modified_date": "2025-07-28T17:02:13.338155",
+      "archive_filename": "concurrent_test_0_2d83d836_20250728_170213.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/concurrent_test_0_2d83d836_20250728_170213.zip",
+      "archive_size": 375,
+      "deletion_date": "2025-07-28T17:02:13.348167",
+      "reason": "ユーザー削除"
+    },
+    {
+      "folder_name": "concurrent_test_2_cc450da3",
+      "project_name": "並行テストプロジェクト3",
+      "description": "並行処理テスト用プロジェクト3",
+      "tags": "test3",
+      "status": "active",
+      "id": "e1c81e4f-5442-4448-90ea-88d84d031106",
+      "created_date": "2025-07-28T17:02:13.342054",
+      "modified_date": "2025-07-28T17:02:13.342054",
+      "archive_filename": "concurrent_test_2_cc450da3_20250728_170213.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/concurrent_test_2_cc450da3_20250728_170213.zip",
+      "archive_size": 374,
+      "deletion_date": "2025-07-28T17:02:13.349390",
+      "reason": "ユーザー削除"
+    },
+    {
+      "folder_name": "concurrent_test_4_73d0fb17",
+      "project_name": "並行テストプロジェクト5",
+      "description": "並行処理テスト用プロジェクト5",
+      "tags": "test5",
+      "status": "active",
+      "id": "ea790dc1-2fad-4e1e-ae29-f57de39d2fcd",
+      "created_date": "2025-07-28T17:02:13.345182",
+      "modified_date": "2025-07-28T17:02:13.345182",
+      "archive_filename": "concurrent_test_4_73d0fb17_20250728_170213.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/concurrent_test_4_73d0fb17_20250728_170213.zip",
+      "archive_size": 376,
+      "deletion_date": "2025-07-28T17:02:13.350711",
+      "reason": "ユーザー削除"
+    },
+    {
+      "folder_name": "concurrent_test_0_1fb7ac72",
+      "project_name": "並行テストプロジェクト1",
+      "description": "並行処理テスト用プロジェクト1",
+      "tags": "test1",
+      "status": "active",
+      "id": "89308044-b174-4b8f-828a-f2ca1c7e969f",
+      "created_date": "2025-07-28T17:03:10.525040",
+      "modified_date": "2025-07-28T17:03:10.525040",
+      "archive_filename": "concurrent_test_0_1fb7ac72_20250728_170310.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/concurrent_test_0_1fb7ac72_20250728_170310.zip",
+      "archive_size": 375,
+      "deletion_date": "2025-07-28T17:03:10.536131",
+      "reason": "ユーザー削除"
+    },
+    {
+      "folder_name": "concurrent_test_2_cd5b71e5",
+      "project_name": "並行テストプロジェクト3",
+      "description": "並行処理テスト用プロジェクト3",
+      "tags": "test3",
+      "status": "active",
+      "id": "3f5c31c8-b469-49bd-b191-683d973467a7",
+      "created_date": "2025-07-28T17:03:10.528416",
+      "modified_date": "2025-07-28T17:03:10.528416",
+      "archive_filename": "concurrent_test_2_cd5b71e5_20250728_170310.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/concurrent_test_2_cd5b71e5_20250728_170310.zip",
+      "archive_size": 376,
+      "deletion_date": "2025-07-28T17:03:10.537484",
+      "reason": "ユーザー削除"
+    },
+    {
+      "folder_name": "concurrent_test_4_b6a0a86d",
+      "project_name": "並行テストプロジェクト5",
+      "description": "並行処理テスト用プロジェクト5",
+      "tags": "test5",
+      "status": "active",
+      "id": "e9ab4e07-42a4-40a9-b720-3b5f25b70c4b",
+      "created_date": "2025-07-28T17:03:10.532732",
+      "modified_date": "2025-07-28T17:03:10.532732",
+      "archive_filename": "concurrent_test_4_b6a0a86d_20250728_170310.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/concurrent_test_4_b6a0a86d_20250728_170310.zip",
+      "archive_size": 375,
+      "deletion_date": "2025-07-28T17:03:10.538741",
+      "reason": "ユーザー削除"
+    }
+  ],
+  "reserved_folders": [
+    "node_modules",
+    "dist",
+    "build",
+    ".git",
+    "backend",
+    "frontend",
+    "trash",
+    "recycle_bin",
+    "deleted",
+    ".trash"
+  ]
+}
+ステータス: 200
+---
+
+[2025-07-29 11:51:25] GET /api/projects/
+リクエスト: {}
+レスポンス: {
+  "version": "1.0.0",
+  "last_updated": "2025-07-29T09:43:02.366552",
+  "retention_months": 13,
+  "projects": [
+    {
+      "folder_name": "testProject",
+      "project_name": "テストのためのプロジェクト",
+      "description": "テストです。サンプルファイルとサブフォルダが追加されました。",
+      "tags": [
+        "sample"
+      ],
+      "status": "active",
+      "id": "2cec431a-0416-4451-a43b-fdc85e0c5c62",
+      "created_date": "2025-07-24T23:31:44.186614",
+      "modified_date": "2025-07-27T20:33:51.353635"
+    },
+    {
+      "folder_name": "ichikawa",
+      "project_name": "市川アパートの家賃",
+      "description": "重回帰分析のテスト用",
+      "tags": [],
+      "status": "active",
+      "id": "3779d95d-d923-435b-8da0-2a157940d95b",
+      "created_date": "2025-07-28T19:10:51.399660",
+      "modified_date": "2025-07-28T19:10:51.399660"
+    },
+    {
+      "folder_name": "test_project_4f1b6ebf",
+      "project_name": "テストプロジェクト",
+      "description": "ライフサイクルテスト用プロジェクト",
+      "tags": "lifecycle",
+      "status": "active",
+      "id": "d2c7d39b-c3a4-4591-9f89-b7f1def829d3",
+      "created_date": "2025-07-29T09:43:02.366552",
+      "modified_date": "2025-07-29T09:43:02.366552"
+    }
+  ],
+  "archived_projects": [
+    {
+      "folder_name": "direct_test_project",
+      "project_name": "直接テストプロジェクト",
+      "description": "直接テスト用プロジェクト",
+      "tags": [
+        "test"
+      ],
+      "status": "active",
+      "id": "82886a55-fe6c-4559-9dfa-27aeb21e924e",
+      "created_date": "2025-07-27T10:37:56.949497",
+      "modified_date": "2025-07-27T10:37:56.949497",
+      "archive_filename": "direct_test_project_20250727_103756.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/direct_test_project_20250727_103756.zip",
+      "archive_size": 347,
+      "deletion_date": "2025-07-27T10:37:56.952974",
+      "reason": "ユーザー削除"
+    },
+    {
+      "folder_name": "success_test_project",
+      "project_name": "成功テストプロジェクト",
+      "description": "正常に作成されるべきプロジェクト",
+      "tags": [
+        "success",
+        "test"
+      ],
+      "status": "active",
+      "id": "658786da-0f80-4434-bf7c-4e389df4b9b2",
+      "created_date": "2025-07-27T10:38:36.034282",
+      "modified_date": "2025-07-27T10:38:36.034282",
+      "archive_filename": "success_test_project_20250727_103836.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/success_test_project_20250727_103836.zip",
+      "archive_size": 385,
+      "deletion_date": "2025-07-27T10:38:36.035929",
+      "reason": "ユーザー削除"
+    },
+    {
+      "folder_name": "save_test",
+      "project_name": "セーブテスト",
+      "description": "セーブテスト（フォルダが存在しないため移動）",
+      "tags": [],
+      "status": "active",
+      "id": "bb5830e9-e13c-4960-bc25-fa8045a272e9",
+      "created_date": "2025-07-27T10:37:56.948759",
+      "modified_date": "2025-07-27T10:37:56.948769",
+      "archive_filename": "save_test_auto_archived.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/save_test_auto_archived.zip",
+      "archive_size": 0,
+      "deletion_date": "2025-07-27T17:30:00.000000",
+      "reason": "フォルダが存在しないため自動アーカイブ"
+    },
+    {
+      "folder_name": "test_project_simple",
+      "project_name": "Simple Test Project",
+      "description": "A simple test project（不正データのため移動）",
+      "tags": [
+        "test"
+      ],
+      "status": "active",
+      "id": "bd7e7a94-fce7-471b-9dce-7e4c1bcb8255",
+      "created_date": "2025-07-27T16:08:14.889746",
+      "modified_date": "2025-07-27T16:08:14.889746",
+      "archive_filename": "test_project_simple_invalid_data.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/test_project_simple_invalid_data.zip",
+      "archive_size": 0,
+      "deletion_date": "2025-07-27T17:30:00.000000",
+      "reason": "不正な配列データのため自動アーカイブ"
+    },
+    {
+      "folder_name": "test_project_simple",
+      "project_name": "Simple Test Project",
+      "description": "A simple test project（重複データのため移動）",
+      "tags": [
+        "test"
+      ],
+      "status": "active",
+      "id": "7e7be177-9396-4e40-baf3-0b15c2310500",
+      "created_date": "2025-07-27T16:42:31.526622",
+      "modified_date": "2025-07-27T16:42:31.526622",
+      "archive_filename": "test_project_simple_duplicate.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/test_project_simple_duplicate.zip",
+      "archive_size": 0,
+      "deletion_date": "2025-07-27T17:30:00.000000",
+      "reason": "重複データのため自動アーカイブ"
+    },
+    {
+      "folder_name": "error_mix_test_valid",
+      "project_name": [
+        "更新済み正常プロジェクト"
+      ],
+      "description": "正常なプロジェクト",
+      "status": "active",
+      "id": "b053ecbe-e6b0-468f-a128-2a09f8bc912f",
+      "created_date": "2025-07-28T16:19:11.123684",
+      "modified_date": "2025-07-28T16:19:11.125795",
+      "tags": [],
+      "archive_filename": "error_mix_test_valid_20250728_161911.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/error_mix_test_valid_20250728_161911.zip",
+      "archive_size": 340,
+      "deletion_date": "2025-07-28T16:19:11.128968",
+      "reason": "ユーザー削除"
+    },
+    {
+      "folder_name": "concurrent_test_0_66622648",
+      "project_name": "並行テストプロジェクト1",
+      "description": "並行処理テスト用プロジェクト1",
+      "tags": "test1",
+      "status": "active",
+      "id": "93f59528-8874-43e2-9046-8aa7f20cec4e",
+      "created_date": "2025-07-28T16:19:11.132327",
+      "modified_date": "2025-07-28T16:19:11.132327",
+      "archive_filename": "concurrent_test_0_66622648_20250728_161911.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/concurrent_test_0_66622648_20250728_161911.zip",
+      "archive_size": 376,
+      "deletion_date": "2025-07-28T16:19:11.138207",
+      "reason": "ユーザー削除"
+    },
+    {
+      "folder_name": "concurrent_test_2_e609d57b",
+      "project_name": "並行テストプロジェクト3",
+      "description": "並行処理テスト用プロジェクト3",
+      "tags": "test3",
+      "status": "active",
+      "id": "19800ff7-d7fc-4ab4-85e5-d16075ee81bc",
+      "created_date": "2025-07-28T16:19:11.134657",
+      "modified_date": "2025-07-28T16:19:11.134657",
+      "archive_filename": "concurrent_test_2_e609d57b_20250728_161911.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/concurrent_test_2_e609d57b_20250728_161911.zip",
+      "archive_size": 376,
+      "deletion_date": "2025-07-28T16:19:11.139132",
+      "reason": "ユーザー削除"
+    },
+    {
+      "folder_name": "concurrent_test_4_092f0468",
+      "project_name": "並行テストプロジェクト5",
+      "description": "並行処理テスト用プロジェクト5",
+      "tags": "test5",
+      "status": "active",
+      "id": "09e9dfc9-ca4f-44f4-986a-03f567c8ce12",
+      "created_date": "2025-07-28T16:19:11.136815",
+      "modified_date": "2025-07-28T16:19:11.136815",
+      "archive_filename": "concurrent_test_4_092f0468_20250728_161911.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/concurrent_test_4_092f0468_20250728_161911.zip",
+      "archive_size": 374,
+      "deletion_date": "2025-07-28T16:19:11.139959",
+      "reason": "ユーザー削除"
+    },
+    {
+      "folder_name": "concurrent_test_0_efcb15fd",
+      "project_name": "並行テストプロジェクト1",
+      "description": "並行処理テスト用プロジェクト1",
+      "tags": "test1",
+      "status": "active",
+      "id": "b8bdfef1-663d-4317-9733-520b7c82ef4c",
+      "created_date": "2025-07-28T17:01:01.713250",
+      "modified_date": "2025-07-28T17:01:01.713250",
+      "archive_filename": "concurrent_test_0_efcb15fd_20250728_170101.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/concurrent_test_0_efcb15fd_20250728_170101.zip",
+      "archive_size": 375,
+      "deletion_date": "2025-07-28T17:01:01.722770",
+      "reason": "ユーザー削除"
+    },
+    {
+      "folder_name": "concurrent_test_2_ee325ed7",
+      "project_name": "並行テストプロジェクト3",
+      "description": "並行処理テスト用プロジェクト3",
+      "tags": "test3",
+      "status": "active",
+      "id": "96aec4c7-1934-4a4d-a124-648cedab3cce",
+      "created_date": "2025-07-28T17:01:01.716608",
+      "modified_date": "2025-07-28T17:01:01.716608",
+      "archive_filename": "concurrent_test_2_ee325ed7_20250728_170101.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/concurrent_test_2_ee325ed7_20250728_170101.zip",
+      "archive_size": 375,
+      "deletion_date": "2025-07-28T17:01:01.723940",
+      "reason": "ユーザー削除"
+    },
+    {
+      "folder_name": "concurrent_test_4_ba6d6c1b",
+      "project_name": "並行テストプロジェクト5",
+      "description": "並行処理テスト用プロジェクト5",
+      "tags": "test5",
+      "status": "active",
+      "id": "59ff5728-63a6-4d99-8798-483937754e16",
+      "created_date": "2025-07-28T17:01:01.719739",
+      "modified_date": "2025-07-28T17:01:01.719739",
+      "archive_filename": "concurrent_test_4_ba6d6c1b_20250728_170101.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/concurrent_test_4_ba6d6c1b_20250728_170101.zip",
+      "archive_size": 375,
+      "deletion_date": "2025-07-28T17:01:01.725236",
+      "reason": "ユーザー削除"
+    },
+    {
+      "folder_name": "concurrent_test_0_2d83d836",
+      "project_name": "並行テストプロジェクト1",
+      "description": "並行処理テスト用プロジェクト1",
+      "tags": "test1",
+      "status": "active",
+      "id": "f5a03448-9b95-4b0d-bdee-bb9394282d31",
+      "created_date": "2025-07-28T17:02:13.338155",
+      "modified_date": "2025-07-28T17:02:13.338155",
+      "archive_filename": "concurrent_test_0_2d83d836_20250728_170213.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/concurrent_test_0_2d83d836_20250728_170213.zip",
+      "archive_size": 375,
+      "deletion_date": "2025-07-28T17:02:13.348167",
+      "reason": "ユーザー削除"
+    },
+    {
+      "folder_name": "concurrent_test_2_cc450da3",
+      "project_name": "並行テストプロジェクト3",
+      "description": "並行処理テスト用プロジェクト3",
+      "tags": "test3",
+      "status": "active",
+      "id": "e1c81e4f-5442-4448-90ea-88d84d031106",
+      "created_date": "2025-07-28T17:02:13.342054",
+      "modified_date": "2025-07-28T17:02:13.342054",
+      "archive_filename": "concurrent_test_2_cc450da3_20250728_170213.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/concurrent_test_2_cc450da3_20250728_170213.zip",
+      "archive_size": 374,
+      "deletion_date": "2025-07-28T17:02:13.349390",
+      "reason": "ユーザー削除"
+    },
+    {
+      "folder_name": "concurrent_test_4_73d0fb17",
+      "project_name": "並行テストプロジェクト5",
+      "description": "並行処理テスト用プロジェクト5",
+      "tags": "test5",
+      "status": "active",
+      "id": "ea790dc1-2fad-4e1e-ae29-f57de39d2fcd",
+      "created_date": "2025-07-28T17:02:13.345182",
+      "modified_date": "2025-07-28T17:02:13.345182",
+      "archive_filename": "concurrent_test_4_73d0fb17_20250728_170213.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/concurrent_test_4_73d0fb17_20250728_170213.zip",
+      "archive_size": 376,
+      "deletion_date": "2025-07-28T17:02:13.350711",
+      "reason": "ユーザー削除"
+    },
+    {
+      "folder_name": "concurrent_test_0_1fb7ac72",
+      "project_name": "並行テストプロジェクト1",
+      "description": "並行処理テスト用プロジェクト1",
+      "tags": "test1",
+      "status": "active",
+      "id": "89308044-b174-4b8f-828a-f2ca1c7e969f",
+      "created_date": "2025-07-28T17:03:10.525040",
+      "modified_date": "2025-07-28T17:03:10.525040",
+      "archive_filename": "concurrent_test_0_1fb7ac72_20250728_170310.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/concurrent_test_0_1fb7ac72_20250728_170310.zip",
+      "archive_size": 375,
+      "deletion_date": "2025-07-28T17:03:10.536131",
+      "reason": "ユーザー削除"
+    },
+    {
+      "folder_name": "concurrent_test_2_cd5b71e5",
+      "project_name": "並行テストプロジェクト3",
+      "description": "並行処理テスト用プロジェクト3",
+      "tags": "test3",
+      "status": "active",
+      "id": "3f5c31c8-b469-49bd-b191-683d973467a7",
+      "created_date": "2025-07-28T17:03:10.528416",
+      "modified_date": "2025-07-28T17:03:10.528416",
+      "archive_filename": "concurrent_test_2_cd5b71e5_20250728_170310.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/concurrent_test_2_cd5b71e5_20250728_170310.zip",
+      "archive_size": 376,
+      "deletion_date": "2025-07-28T17:03:10.537484",
+      "reason": "ユーザー削除"
+    },
+    {
+      "folder_name": "concurrent_test_4_b6a0a86d",
+      "project_name": "並行テストプロジェクト5",
+      "description": "並行処理テスト用プロジェクト5",
+      "tags": "test5",
+      "status": "active",
+      "id": "e9ab4e07-42a4-40a9-b720-3b5f25b70c4b",
+      "created_date": "2025-07-28T17:03:10.532732",
+      "modified_date": "2025-07-28T17:03:10.532732",
+      "archive_filename": "concurrent_test_4_b6a0a86d_20250728_170310.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/concurrent_test_4_b6a0a86d_20250728_170310.zip",
+      "archive_size": 375,
+      "deletion_date": "2025-07-28T17:03:10.538741",
+      "reason": "ユーザー削除"
+    }
+  ],
+  "reserved_folders": [
+    "node_modules",
+    "dist",
+    "build",
+    ".git",
+    "backend",
+    "frontend",
+    "trash",
+    "recycle_bin",
+    "deleted",
+    ".trash"
+  ]
+}
+ステータス: 200
+---
+
+[2025-07-29 11:51:26] GET /api/files/tree/ichikawa/
+リクエスト: {}
+レスポンス: {
+  "name": "raw",
+  "path": ".",
+  "type": "directory",
+  "size": 0,
+  "modified": "2025-07-28T19:11:20.600562",
+  "children": [
+    {
+      "name": "市川市アパートの家賃.csv",
+      "path": "市川市アパートの家賃.csv",
+      "type": "file",
+      "size": 20449,
+      "modified": "2025-07-28T19:11:20.600562",
+      "children": [],
+      "comment_count": 0,
+      "has_comments": false
+    }
+  ],
+  "comment_count": 0,
+  "has_comments": false
+}
+ステータス: 200
+---
+
+[2025-07-29 11:51:26] GET /api/files/tree/ichikawa/
+リクエスト: {}
+レスポンス: {
+  "name": "raw",
+  "path": ".",
+  "type": "directory",
+  "size": 0,
+  "modified": "2025-07-28T19:11:20.600562",
+  "children": [
+    {
+      "name": "市川市アパートの家賃.csv",
+      "path": "市川市アパートの家賃.csv",
+      "type": "file",
+      "size": 20449,
+      "modified": "2025-07-28T19:11:20.600562",
+      "children": [],
+      "comment_count": 0,
+      "has_comments": false
+    }
+  ],
+  "comment_count": 0,
+  "has_comments": false
+}
+ステータス: 200
+---
+
+[2025-07-29 11:51:29] GET /api/files/tags/ichikawa/
+リクエスト: {'file_path': ['市川市アパートの家賃.csv']}
+レスポンス: {
+  "tags": [
+    "分析データ",
+    "項目データ"
+  ]
+}
+ステータス: 200
+---
+
+[2025-07-29 11:51:29] GET /api/files/descriptions/ichikawa/
+リクエスト: {'file_path': ['市川市アパートの家賃.csv']}
+レスポンス: {
+  "description": "市川市のアパート家賃データテスト\n"
+}
+ステータス: 200
+---
+
+[2025-07-29 11:52:33] GET /api/projects/
+リクエスト: {'lang': ['ja']}
+レスポンス: {
+  "version": "1.0.0",
+  "last_updated": "2025-07-29T09:43:02.366552",
+  "retention_months": 13,
+  "projects": [
+    {
+      "folder_name": "testProject",
+      "project_name": "テストのためのプロジェクト",
+      "description": "テストです。サンプルファイルとサブフォルダが追加されました。",
+      "tags": [
+        "sample"
+      ],
+      "status": "active",
+      "id": "2cec431a-0416-4451-a43b-fdc85e0c5c62",
+      "created_date": "2025-07-24T23:31:44.186614",
+      "modified_date": "2025-07-27T20:33:51.353635"
+    },
+    {
+      "folder_name": "ichikawa",
+      "project_name": "市川アパートの家賃",
+      "description": "重回帰分析のテスト用",
+      "tags": [],
+      "status": "active",
+      "id": "3779d95d-d923-435b-8da0-2a157940d95b",
+      "created_date": "2025-07-28T19:10:51.399660",
+      "modified_date": "2025-07-28T19:10:51.399660"
+    },
+    {
+      "folder_name": "test_project_4f1b6ebf",
+      "project_name": "テストプロジェクト",
+      "description": "ライフサイクルテスト用プロジェクト",
+      "tags": "lifecycle",
+      "status": "active",
+      "id": "d2c7d39b-c3a4-4591-9f89-b7f1def829d3",
+      "created_date": "2025-07-29T09:43:02.366552",
+      "modified_date": "2025-07-29T09:43:02.366552"
+    }
+  ],
+  "archived_projects": [
+    {
+      "folder_name": "direct_test_project",
+      "project_name": "直接テストプロジェクト",
+      "description": "直接テスト用プロジェクト",
+      "tags": [
+        "test"
+      ],
+      "status": "active",
+      "id": "82886a55-fe6c-4559-9dfa-27aeb21e924e",
+      "created_date": "2025-07-27T10:37:56.949497",
+      "modified_date": "2025-07-27T10:37:56.949497",
+      "archive_filename": "direct_test_project_20250727_103756.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/direct_test_project_20250727_103756.zip",
+      "archive_size": 347,
+      "deletion_date": "2025-07-27T10:37:56.952974",
+      "reason": "ユーザー削除"
+    },
+    {
+      "folder_name": "success_test_project",
+      "project_name": "成功テストプロジェクト",
+      "description": "正常に作成されるべきプロジェクト",
+      "tags": [
+        "success",
+        "test"
+      ],
+      "status": "active",
+      "id": "658786da-0f80-4434-bf7c-4e389df4b9b2",
+      "created_date": "2025-07-27T10:38:36.034282",
+      "modified_date": "2025-07-27T10:38:36.034282",
+      "archive_filename": "success_test_project_20250727_103836.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/success_test_project_20250727_103836.zip",
+      "archive_size": 385,
+      "deletion_date": "2025-07-27T10:38:36.035929",
+      "reason": "ユーザー削除"
+    },
+    {
+      "folder_name": "save_test",
+      "project_name": "セーブテスト",
+      "description": "セーブテスト（フォルダが存在しないため移動）",
+      "tags": [],
+      "status": "active",
+      "id": "bb5830e9-e13c-4960-bc25-fa8045a272e9",
+      "created_date": "2025-07-27T10:37:56.948759",
+      "modified_date": "2025-07-27T10:37:56.948769",
+      "archive_filename": "save_test_auto_archived.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/save_test_auto_archived.zip",
+      "archive_size": 0,
+      "deletion_date": "2025-07-27T17:30:00.000000",
+      "reason": "フォルダが存在しないため自動アーカイブ"
+    },
+    {
+      "folder_name": "test_project_simple",
+      "project_name": "Simple Test Project",
+      "description": "A simple test project（不正データのため移動）",
+      "tags": [
+        "test"
+      ],
+      "status": "active",
+      "id": "bd7e7a94-fce7-471b-9dce-7e4c1bcb8255",
+      "created_date": "2025-07-27T16:08:14.889746",
+      "modified_date": "2025-07-27T16:08:14.889746",
+      "archive_filename": "test_project_simple_invalid_data.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/test_project_simple_invalid_data.zip",
+      "archive_size": 0,
+      "deletion_date": "2025-07-27T17:30:00.000000",
+      "reason": "不正な配列データのため自動アーカイブ"
+    },
+    {
+      "folder_name": "test_project_simple",
+      "project_name": "Simple Test Project",
+      "description": "A simple test project（重複データのため移動）",
+      "tags": [
+        "test"
+      ],
+      "status": "active",
+      "id": "7e7be177-9396-4e40-baf3-0b15c2310500",
+      "created_date": "2025-07-27T16:42:31.526622",
+      "modified_date": "2025-07-27T16:42:31.526622",
+      "archive_filename": "test_project_simple_duplicate.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/test_project_simple_duplicate.zip",
+      "archive_size": 0,
+      "deletion_date": "2025-07-27T17:30:00.000000",
+      "reason": "重複データのため自動アーカイブ"
+    },
+    {
+      "folder_name": "error_mix_test_valid",
+      "project_name": [
+        "更新済み正常プロジェクト"
+      ],
+      "description": "正常なプロジェクト",
+      "status": "active",
+      "id": "b053ecbe-e6b0-468f-a128-2a09f8bc912f",
+      "created_date": "2025-07-28T16:19:11.123684",
+      "modified_date": "2025-07-28T16:19:11.125795",
+      "tags": [],
+      "archive_filename": "error_mix_test_valid_20250728_161911.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/error_mix_test_valid_20250728_161911.zip",
+      "archive_size": 340,
+      "deletion_date": "2025-07-28T16:19:11.128968",
+      "reason": "ユーザー削除"
+    },
+    {
+      "folder_name": "concurrent_test_0_66622648",
+      "project_name": "並行テストプロジェクト1",
+      "description": "並行処理テスト用プロジェクト1",
+      "tags": "test1",
+      "status": "active",
+      "id": "93f59528-8874-43e2-9046-8aa7f20cec4e",
+      "created_date": "2025-07-28T16:19:11.132327",
+      "modified_date": "2025-07-28T16:19:11.132327",
+      "archive_filename": "concurrent_test_0_66622648_20250728_161911.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/concurrent_test_0_66622648_20250728_161911.zip",
+      "archive_size": 376,
+      "deletion_date": "2025-07-28T16:19:11.138207",
+      "reason": "ユーザー削除"
+    },
+    {
+      "folder_name": "concurrent_test_2_e609d57b",
+      "project_name": "並行テストプロジェクト3",
+      "description": "並行処理テスト用プロジェクト3",
+      "tags": "test3",
+      "status": "active",
+      "id": "19800ff7-d7fc-4ab4-85e5-d16075ee81bc",
+      "created_date": "2025-07-28T16:19:11.134657",
+      "modified_date": "2025-07-28T16:19:11.134657",
+      "archive_filename": "concurrent_test_2_e609d57b_20250728_161911.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/concurrent_test_2_e609d57b_20250728_161911.zip",
+      "archive_size": 376,
+      "deletion_date": "2025-07-28T16:19:11.139132",
+      "reason": "ユーザー削除"
+    },
+    {
+      "folder_name": "concurrent_test_4_092f0468",
+      "project_name": "並行テストプロジェクト5",
+      "description": "並行処理テスト用プロジェクト5",
+      "tags": "test5",
+      "status": "active",
+      "id": "09e9dfc9-ca4f-44f4-986a-03f567c8ce12",
+      "created_date": "2025-07-28T16:19:11.136815",
+      "modified_date": "2025-07-28T16:19:11.136815",
+      "archive_filename": "concurrent_test_4_092f0468_20250728_161911.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/concurrent_test_4_092f0468_20250728_161911.zip",
+      "archive_size": 374,
+      "deletion_date": "2025-07-28T16:19:11.139959",
+      "reason": "ユーザー削除"
+    },
+    {
+      "folder_name": "concurrent_test_0_efcb15fd",
+      "project_name": "並行テストプロジェクト1",
+      "description": "並行処理テスト用プロジェクト1",
+      "tags": "test1",
+      "status": "active",
+      "id": "b8bdfef1-663d-4317-9733-520b7c82ef4c",
+      "created_date": "2025-07-28T17:01:01.713250",
+      "modified_date": "2025-07-28T17:01:01.713250",
+      "archive_filename": "concurrent_test_0_efcb15fd_20250728_170101.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/concurrent_test_0_efcb15fd_20250728_170101.zip",
+      "archive_size": 375,
+      "deletion_date": "2025-07-28T17:01:01.722770",
+      "reason": "ユーザー削除"
+    },
+    {
+      "folder_name": "concurrent_test_2_ee325ed7",
+      "project_name": "並行テストプロジェクト3",
+      "description": "並行処理テスト用プロジェクト3",
+      "tags": "test3",
+      "status": "active",
+      "id": "96aec4c7-1934-4a4d-a124-648cedab3cce",
+      "created_date": "2025-07-28T17:01:01.716608",
+      "modified_date": "2025-07-28T17:01:01.716608",
+      "archive_filename": "concurrent_test_2_ee325ed7_20250728_170101.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/concurrent_test_2_ee325ed7_20250728_170101.zip",
+      "archive_size": 375,
+      "deletion_date": "2025-07-28T17:01:01.723940",
+      "reason": "ユーザー削除"
+    },
+    {
+      "folder_name": "concurrent_test_4_ba6d6c1b",
+      "project_name": "並行テストプロジェクト5",
+      "description": "並行処理テスト用プロジェクト5",
+      "tags": "test5",
+      "status": "active",
+      "id": "59ff5728-63a6-4d99-8798-483937754e16",
+      "created_date": "2025-07-28T17:01:01.719739",
+      "modified_date": "2025-07-28T17:01:01.719739",
+      "archive_filename": "concurrent_test_4_ba6d6c1b_20250728_170101.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/concurrent_test_4_ba6d6c1b_20250728_170101.zip",
+      "archive_size": 375,
+      "deletion_date": "2025-07-28T17:01:01.725236",
+      "reason": "ユーザー削除"
+    },
+    {
+      "folder_name": "concurrent_test_0_2d83d836",
+      "project_name": "並行テストプロジェクト1",
+      "description": "並行処理テスト用プロジェクト1",
+      "tags": "test1",
+      "status": "active",
+      "id": "f5a03448-9b95-4b0d-bdee-bb9394282d31",
+      "created_date": "2025-07-28T17:02:13.338155",
+      "modified_date": "2025-07-28T17:02:13.338155",
+      "archive_filename": "concurrent_test_0_2d83d836_20250728_170213.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/concurrent_test_0_2d83d836_20250728_170213.zip",
+      "archive_size": 375,
+      "deletion_date": "2025-07-28T17:02:13.348167",
+      "reason": "ユーザー削除"
+    },
+    {
+      "folder_name": "concurrent_test_2_cc450da3",
+      "project_name": "並行テストプロジェクト3",
+      "description": "並行処理テスト用プロジェクト3",
+      "tags": "test3",
+      "status": "active",
+      "id": "e1c81e4f-5442-4448-90ea-88d84d031106",
+      "created_date": "2025-07-28T17:02:13.342054",
+      "modified_date": "2025-07-28T17:02:13.342054",
+      "archive_filename": "concurrent_test_2_cc450da3_20250728_170213.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/concurrent_test_2_cc450da3_20250728_170213.zip",
+      "archive_size": 374,
+      "deletion_date": "2025-07-28T17:02:13.349390",
+      "reason": "ユーザー削除"
+    },
+    {
+      "folder_name": "concurrent_test_4_73d0fb17",
+      "project_name": "並行テストプロジェクト5",
+      "description": "並行処理テスト用プロジェクト5",
+      "tags": "test5",
+      "status": "active",
+      "id": "ea790dc1-2fad-4e1e-ae29-f57de39d2fcd",
+      "created_date": "2025-07-28T17:02:13.345182",
+      "modified_date": "2025-07-28T17:02:13.345182",
+      "archive_filename": "concurrent_test_4_73d0fb17_20250728_170213.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/concurrent_test_4_73d0fb17_20250728_170213.zip",
+      "archive_size": 376,
+      "deletion_date": "2025-07-28T17:02:13.350711",
+      "reason": "ユーザー削除"
+    },
+    {
+      "folder_name": "concurrent_test_0_1fb7ac72",
+      "project_name": "並行テストプロジェクト1",
+      "description": "並行処理テスト用プロジェクト1",
+      "tags": "test1",
+      "status": "active",
+      "id": "89308044-b174-4b8f-828a-f2ca1c7e969f",
+      "created_date": "2025-07-28T17:03:10.525040",
+      "modified_date": "2025-07-28T17:03:10.525040",
+      "archive_filename": "concurrent_test_0_1fb7ac72_20250728_170310.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/concurrent_test_0_1fb7ac72_20250728_170310.zip",
+      "archive_size": 375,
+      "deletion_date": "2025-07-28T17:03:10.536131",
+      "reason": "ユーザー削除"
+    },
+    {
+      "folder_name": "concurrent_test_2_cd5b71e5",
+      "project_name": "並行テストプロジェクト3",
+      "description": "並行処理テスト用プロジェクト3",
+      "tags": "test3",
+      "status": "active",
+      "id": "3f5c31c8-b469-49bd-b191-683d973467a7",
+      "created_date": "2025-07-28T17:03:10.528416",
+      "modified_date": "2025-07-28T17:03:10.528416",
+      "archive_filename": "concurrent_test_2_cd5b71e5_20250728_170310.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/concurrent_test_2_cd5b71e5_20250728_170310.zip",
+      "archive_size": 376,
+      "deletion_date": "2025-07-28T17:03:10.537484",
+      "reason": "ユーザー削除"
+    },
+    {
+      "folder_name": "concurrent_test_4_b6a0a86d",
+      "project_name": "並行テストプロジェクト5",
+      "description": "並行処理テスト用プロジェクト5",
+      "tags": "test5",
+      "status": "active",
+      "id": "e9ab4e07-42a4-40a9-b720-3b5f25b70c4b",
+      "created_date": "2025-07-28T17:03:10.532732",
+      "modified_date": "2025-07-28T17:03:10.532732",
+      "archive_filename": "concurrent_test_4_b6a0a86d_20250728_170310.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/concurrent_test_4_b6a0a86d_20250728_170310.zip",
+      "archive_size": 375,
+      "deletion_date": "2025-07-28T17:03:10.538741",
+      "reason": "ユーザー削除"
+    }
+  ],
+  "reserved_folders": [
+    "node_modules",
+    "dist",
+    "build",
+    ".git",
+    "backend",
+    "frontend",
+    "trash",
+    "recycle_bin",
+    "deleted",
+    ".trash"
+  ]
+}
+ステータス: 200
+---
+
+[2025-07-29 11:52:33] GET /api/projects/
+リクエスト: {'lang': ['ja']}
+レスポンス: {
+  "version": "1.0.0",
+  "last_updated": "2025-07-29T09:43:02.366552",
+  "retention_months": 13,
+  "projects": [
+    {
+      "folder_name": "testProject",
+      "project_name": "テストのためのプロジェクト",
+      "description": "テストです。サンプルファイルとサブフォルダが追加されました。",
+      "tags": [
+        "sample"
+      ],
+      "status": "active",
+      "id": "2cec431a-0416-4451-a43b-fdc85e0c5c62",
+      "created_date": "2025-07-24T23:31:44.186614",
+      "modified_date": "2025-07-27T20:33:51.353635"
+    },
+    {
+      "folder_name": "ichikawa",
+      "project_name": "市川アパートの家賃",
+      "description": "重回帰分析のテスト用",
+      "tags": [],
+      "status": "active",
+      "id": "3779d95d-d923-435b-8da0-2a157940d95b",
+      "created_date": "2025-07-28T19:10:51.399660",
+      "modified_date": "2025-07-28T19:10:51.399660"
+    },
+    {
+      "folder_name": "test_project_4f1b6ebf",
+      "project_name": "テストプロジェクト",
+      "description": "ライフサイクルテスト用プロジェクト",
+      "tags": "lifecycle",
+      "status": "active",
+      "id": "d2c7d39b-c3a4-4591-9f89-b7f1def829d3",
+      "created_date": "2025-07-29T09:43:02.366552",
+      "modified_date": "2025-07-29T09:43:02.366552"
+    }
+  ],
+  "archived_projects": [
+    {
+      "folder_name": "direct_test_project",
+      "project_name": "直接テストプロジェクト",
+      "description": "直接テスト用プロジェクト",
+      "tags": [
+        "test"
+      ],
+      "status": "active",
+      "id": "82886a55-fe6c-4559-9dfa-27aeb21e924e",
+      "created_date": "2025-07-27T10:37:56.949497",
+      "modified_date": "2025-07-27T10:37:56.949497",
+      "archive_filename": "direct_test_project_20250727_103756.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/direct_test_project_20250727_103756.zip",
+      "archive_size": 347,
+      "deletion_date": "2025-07-27T10:37:56.952974",
+      "reason": "ユーザー削除"
+    },
+    {
+      "folder_name": "success_test_project",
+      "project_name": "成功テストプロジェクト",
+      "description": "正常に作成されるべきプロジェクト",
+      "tags": [
+        "success",
+        "test"
+      ],
+      "status": "active",
+      "id": "658786da-0f80-4434-bf7c-4e389df4b9b2",
+      "created_date": "2025-07-27T10:38:36.034282",
+      "modified_date": "2025-07-27T10:38:36.034282",
+      "archive_filename": "success_test_project_20250727_103836.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/success_test_project_20250727_103836.zip",
+      "archive_size": 385,
+      "deletion_date": "2025-07-27T10:38:36.035929",
+      "reason": "ユーザー削除"
+    },
+    {
+      "folder_name": "save_test",
+      "project_name": "セーブテスト",
+      "description": "セーブテスト（フォルダが存在しないため移動）",
+      "tags": [],
+      "status": "active",
+      "id": "bb5830e9-e13c-4960-bc25-fa8045a272e9",
+      "created_date": "2025-07-27T10:37:56.948759",
+      "modified_date": "2025-07-27T10:37:56.948769",
+      "archive_filename": "save_test_auto_archived.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/save_test_auto_archived.zip",
+      "archive_size": 0,
+      "deletion_date": "2025-07-27T17:30:00.000000",
+      "reason": "フォルダが存在しないため自動アーカイブ"
+    },
+    {
+      "folder_name": "test_project_simple",
+      "project_name": "Simple Test Project",
+      "description": "A simple test project（不正データのため移動）",
+      "tags": [
+        "test"
+      ],
+      "status": "active",
+      "id": "bd7e7a94-fce7-471b-9dce-7e4c1bcb8255",
+      "created_date": "2025-07-27T16:08:14.889746",
+      "modified_date": "2025-07-27T16:08:14.889746",
+      "archive_filename": "test_project_simple_invalid_data.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/test_project_simple_invalid_data.zip",
+      "archive_size": 0,
+      "deletion_date": "2025-07-27T17:30:00.000000",
+      "reason": "不正な配列データのため自動アーカイブ"
+    },
+    {
+      "folder_name": "test_project_simple",
+      "project_name": "Simple Test Project",
+      "description": "A simple test project（重複データのため移動）",
+      "tags": [
+        "test"
+      ],
+      "status": "active",
+      "id": "7e7be177-9396-4e40-baf3-0b15c2310500",
+      "created_date": "2025-07-27T16:42:31.526622",
+      "modified_date": "2025-07-27T16:42:31.526622",
+      "archive_filename": "test_project_simple_duplicate.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/test_project_simple_duplicate.zip",
+      "archive_size": 0,
+      "deletion_date": "2025-07-27T17:30:00.000000",
+      "reason": "重複データのため自動アーカイブ"
+    },
+    {
+      "folder_name": "error_mix_test_valid",
+      "project_name": [
+        "更新済み正常プロジェクト"
+      ],
+      "description": "正常なプロジェクト",
+      "status": "active",
+      "id": "b053ecbe-e6b0-468f-a128-2a09f8bc912f",
+      "created_date": "2025-07-28T16:19:11.123684",
+      "modified_date": "2025-07-28T16:19:11.125795",
+      "tags": [],
+      "archive_filename": "error_mix_test_valid_20250728_161911.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/error_mix_test_valid_20250728_161911.zip",
+      "archive_size": 340,
+      "deletion_date": "2025-07-28T16:19:11.128968",
+      "reason": "ユーザー削除"
+    },
+    {
+      "folder_name": "concurrent_test_0_66622648",
+      "project_name": "並行テストプロジェクト1",
+      "description": "並行処理テスト用プロジェクト1",
+      "tags": "test1",
+      "status": "active",
+      "id": "93f59528-8874-43e2-9046-8aa7f20cec4e",
+      "created_date": "2025-07-28T16:19:11.132327",
+      "modified_date": "2025-07-28T16:19:11.132327",
+      "archive_filename": "concurrent_test_0_66622648_20250728_161911.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/concurrent_test_0_66622648_20250728_161911.zip",
+      "archive_size": 376,
+      "deletion_date": "2025-07-28T16:19:11.138207",
+      "reason": "ユーザー削除"
+    },
+    {
+      "folder_name": "concurrent_test_2_e609d57b",
+      "project_name": "並行テストプロジェクト3",
+      "description": "並行処理テスト用プロジェクト3",
+      "tags": "test3",
+      "status": "active",
+      "id": "19800ff7-d7fc-4ab4-85e5-d16075ee81bc",
+      "created_date": "2025-07-28T16:19:11.134657",
+      "modified_date": "2025-07-28T16:19:11.134657",
+      "archive_filename": "concurrent_test_2_e609d57b_20250728_161911.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/concurrent_test_2_e609d57b_20250728_161911.zip",
+      "archive_size": 376,
+      "deletion_date": "2025-07-28T16:19:11.139132",
+      "reason": "ユーザー削除"
+    },
+    {
+      "folder_name": "concurrent_test_4_092f0468",
+      "project_name": "並行テストプロジェクト5",
+      "description": "並行処理テスト用プロジェクト5",
+      "tags": "test5",
+      "status": "active",
+      "id": "09e9dfc9-ca4f-44f4-986a-03f567c8ce12",
+      "created_date": "2025-07-28T16:19:11.136815",
+      "modified_date": "2025-07-28T16:19:11.136815",
+      "archive_filename": "concurrent_test_4_092f0468_20250728_161911.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/concurrent_test_4_092f0468_20250728_161911.zip",
+      "archive_size": 374,
+      "deletion_date": "2025-07-28T16:19:11.139959",
+      "reason": "ユーザー削除"
+    },
+    {
+      "folder_name": "concurrent_test_0_efcb15fd",
+      "project_name": "並行テストプロジェクト1",
+      "description": "並行処理テスト用プロジェクト1",
+      "tags": "test1",
+      "status": "active",
+      "id": "b8bdfef1-663d-4317-9733-520b7c82ef4c",
+      "created_date": "2025-07-28T17:01:01.713250",
+      "modified_date": "2025-07-28T17:01:01.713250",
+      "archive_filename": "concurrent_test_0_efcb15fd_20250728_170101.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/concurrent_test_0_efcb15fd_20250728_170101.zip",
+      "archive_size": 375,
+      "deletion_date": "2025-07-28T17:01:01.722770",
+      "reason": "ユーザー削除"
+    },
+    {
+      "folder_name": "concurrent_test_2_ee325ed7",
+      "project_name": "並行テストプロジェクト3",
+      "description": "並行処理テスト用プロジェクト3",
+      "tags": "test3",
+      "status": "active",
+      "id": "96aec4c7-1934-4a4d-a124-648cedab3cce",
+      "created_date": "2025-07-28T17:01:01.716608",
+      "modified_date": "2025-07-28T17:01:01.716608",
+      "archive_filename": "concurrent_test_2_ee325ed7_20250728_170101.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/concurrent_test_2_ee325ed7_20250728_170101.zip",
+      "archive_size": 375,
+      "deletion_date": "2025-07-28T17:01:01.723940",
+      "reason": "ユーザー削除"
+    },
+    {
+      "folder_name": "concurrent_test_4_ba6d6c1b",
+      "project_name": "並行テストプロジェクト5",
+      "description": "並行処理テスト用プロジェクト5",
+      "tags": "test5",
+      "status": "active",
+      "id": "59ff5728-63a6-4d99-8798-483937754e16",
+      "created_date": "2025-07-28T17:01:01.719739",
+      "modified_date": "2025-07-28T17:01:01.719739",
+      "archive_filename": "concurrent_test_4_ba6d6c1b_20250728_170101.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/concurrent_test_4_ba6d6c1b_20250728_170101.zip",
+      "archive_size": 375,
+      "deletion_date": "2025-07-28T17:01:01.725236",
+      "reason": "ユーザー削除"
+    },
+    {
+      "folder_name": "concurrent_test_0_2d83d836",
+      "project_name": "並行テストプロジェクト1",
+      "description": "並行処理テスト用プロジェクト1",
+      "tags": "test1",
+      "status": "active",
+      "id": "f5a03448-9b95-4b0d-bdee-bb9394282d31",
+      "created_date": "2025-07-28T17:02:13.338155",
+      "modified_date": "2025-07-28T17:02:13.338155",
+      "archive_filename": "concurrent_test_0_2d83d836_20250728_170213.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/concurrent_test_0_2d83d836_20250728_170213.zip",
+      "archive_size": 375,
+      "deletion_date": "2025-07-28T17:02:13.348167",
+      "reason": "ユーザー削除"
+    },
+    {
+      "folder_name": "concurrent_test_2_cc450da3",
+      "project_name": "並行テストプロジェクト3",
+      "description": "並行処理テスト用プロジェクト3",
+      "tags": "test3",
+      "status": "active",
+      "id": "e1c81e4f-5442-4448-90ea-88d84d031106",
+      "created_date": "2025-07-28T17:02:13.342054",
+      "modified_date": "2025-07-28T17:02:13.342054",
+      "archive_filename": "concurrent_test_2_cc450da3_20250728_170213.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/concurrent_test_2_cc450da3_20250728_170213.zip",
+      "archive_size": 374,
+      "deletion_date": "2025-07-28T17:02:13.349390",
+      "reason": "ユーザー削除"
+    },
+    {
+      "folder_name": "concurrent_test_4_73d0fb17",
+      "project_name": "並行テストプロジェクト5",
+      "description": "並行処理テスト用プロジェクト5",
+      "tags": "test5",
+      "status": "active",
+      "id": "ea790dc1-2fad-4e1e-ae29-f57de39d2fcd",
+      "created_date": "2025-07-28T17:02:13.345182",
+      "modified_date": "2025-07-28T17:02:13.345182",
+      "archive_filename": "concurrent_test_4_73d0fb17_20250728_170213.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/concurrent_test_4_73d0fb17_20250728_170213.zip",
+      "archive_size": 376,
+      "deletion_date": "2025-07-28T17:02:13.350711",
+      "reason": "ユーザー削除"
+    },
+    {
+      "folder_name": "concurrent_test_0_1fb7ac72",
+      "project_name": "並行テストプロジェクト1",
+      "description": "並行処理テスト用プロジェクト1",
+      "tags": "test1",
+      "status": "active",
+      "id": "89308044-b174-4b8f-828a-f2ca1c7e969f",
+      "created_date": "2025-07-28T17:03:10.525040",
+      "modified_date": "2025-07-28T17:03:10.525040",
+      "archive_filename": "concurrent_test_0_1fb7ac72_20250728_170310.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/concurrent_test_0_1fb7ac72_20250728_170310.zip",
+      "archive_size": 375,
+      "deletion_date": "2025-07-28T17:03:10.536131",
+      "reason": "ユーザー削除"
+    },
+    {
+      "folder_name": "concurrent_test_2_cd5b71e5",
+      "project_name": "並行テストプロジェクト3",
+      "description": "並行処理テスト用プロジェクト3",
+      "tags": "test3",
+      "status": "active",
+      "id": "3f5c31c8-b469-49bd-b191-683d973467a7",
+      "created_date": "2025-07-28T17:03:10.528416",
+      "modified_date": "2025-07-28T17:03:10.528416",
+      "archive_filename": "concurrent_test_2_cd5b71e5_20250728_170310.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/concurrent_test_2_cd5b71e5_20250728_170310.zip",
+      "archive_size": 376,
+      "deletion_date": "2025-07-28T17:03:10.537484",
+      "reason": "ユーザー削除"
+    },
+    {
+      "folder_name": "concurrent_test_4_b6a0a86d",
+      "project_name": "並行テストプロジェクト5",
+      "description": "並行処理テスト用プロジェクト5",
+      "tags": "test5",
+      "status": "active",
+      "id": "e9ab4e07-42a4-40a9-b720-3b5f25b70c4b",
+      "created_date": "2025-07-28T17:03:10.532732",
+      "modified_date": "2025-07-28T17:03:10.532732",
+      "archive_filename": "concurrent_test_4_b6a0a86d_20250728_170310.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/concurrent_test_4_b6a0a86d_20250728_170310.zip",
+      "archive_size": 375,
+      "deletion_date": "2025-07-28T17:03:10.538741",
+      "reason": "ユーザー削除"
+    }
+  ],
+  "reserved_folders": [
+    "node_modules",
+    "dist",
+    "build",
+    ".git",
+    "backend",
+    "frontend",
+    "trash",
+    "recycle_bin",
+    "deleted",
+    ".trash"
+  ]
+}
+ステータス: 200
+---
+
+[2025-07-29 11:52:37] GET /api/projects/
+リクエスト: {}
+レスポンス: {
+  "version": "1.0.0",
+  "last_updated": "2025-07-29T09:43:02.366552",
+  "retention_months": 13,
+  "projects": [
+    {
+      "folder_name": "testProject",
+      "project_name": "テストのためのプロジェクト",
+      "description": "テストです。サンプルファイルとサブフォルダが追加されました。",
+      "tags": [
+        "sample"
+      ],
+      "status": "active",
+      "id": "2cec431a-0416-4451-a43b-fdc85e0c5c62",
+      "created_date": "2025-07-24T23:31:44.186614",
+      "modified_date": "2025-07-27T20:33:51.353635"
+    },
+    {
+      "folder_name": "ichikawa",
+      "project_name": "市川アパートの家賃",
+      "description": "重回帰分析のテスト用",
+      "tags": [],
+      "status": "active",
+      "id": "3779d95d-d923-435b-8da0-2a157940d95b",
+      "created_date": "2025-07-28T19:10:51.399660",
+      "modified_date": "2025-07-28T19:10:51.399660"
+    },
+    {
+      "folder_name": "test_project_4f1b6ebf",
+      "project_name": "テストプロジェクト",
+      "description": "ライフサイクルテスト用プロジェクト",
+      "tags": "lifecycle",
+      "status": "active",
+      "id": "d2c7d39b-c3a4-4591-9f89-b7f1def829d3",
+      "created_date": "2025-07-29T09:43:02.366552",
+      "modified_date": "2025-07-29T09:43:02.366552"
+    }
+  ],
+  "archived_projects": [
+    {
+      "folder_name": "direct_test_project",
+      "project_name": "直接テストプロジェクト",
+      "description": "直接テスト用プロジェクト",
+      "tags": [
+        "test"
+      ],
+      "status": "active",
+      "id": "82886a55-fe6c-4559-9dfa-27aeb21e924e",
+      "created_date": "2025-07-27T10:37:56.949497",
+      "modified_date": "2025-07-27T10:37:56.949497",
+      "archive_filename": "direct_test_project_20250727_103756.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/direct_test_project_20250727_103756.zip",
+      "archive_size": 347,
+      "deletion_date": "2025-07-27T10:37:56.952974",
+      "reason": "ユーザー削除"
+    },
+    {
+      "folder_name": "success_test_project",
+      "project_name": "成功テストプロジェクト",
+      "description": "正常に作成されるべきプロジェクト",
+      "tags": [
+        "success",
+        "test"
+      ],
+      "status": "active",
+      "id": "658786da-0f80-4434-bf7c-4e389df4b9b2",
+      "created_date": "2025-07-27T10:38:36.034282",
+      "modified_date": "2025-07-27T10:38:36.034282",
+      "archive_filename": "success_test_project_20250727_103836.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/success_test_project_20250727_103836.zip",
+      "archive_size": 385,
+      "deletion_date": "2025-07-27T10:38:36.035929",
+      "reason": "ユーザー削除"
+    },
+    {
+      "folder_name": "save_test",
+      "project_name": "セーブテスト",
+      "description": "セーブテスト（フォルダが存在しないため移動）",
+      "tags": [],
+      "status": "active",
+      "id": "bb5830e9-e13c-4960-bc25-fa8045a272e9",
+      "created_date": "2025-07-27T10:37:56.948759",
+      "modified_date": "2025-07-27T10:37:56.948769",
+      "archive_filename": "save_test_auto_archived.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/save_test_auto_archived.zip",
+      "archive_size": 0,
+      "deletion_date": "2025-07-27T17:30:00.000000",
+      "reason": "フォルダが存在しないため自動アーカイブ"
+    },
+    {
+      "folder_name": "test_project_simple",
+      "project_name": "Simple Test Project",
+      "description": "A simple test project（不正データのため移動）",
+      "tags": [
+        "test"
+      ],
+      "status": "active",
+      "id": "bd7e7a94-fce7-471b-9dce-7e4c1bcb8255",
+      "created_date": "2025-07-27T16:08:14.889746",
+      "modified_date": "2025-07-27T16:08:14.889746",
+      "archive_filename": "test_project_simple_invalid_data.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/test_project_simple_invalid_data.zip",
+      "archive_size": 0,
+      "deletion_date": "2025-07-27T17:30:00.000000",
+      "reason": "不正な配列データのため自動アーカイブ"
+    },
+    {
+      "folder_name": "test_project_simple",
+      "project_name": "Simple Test Project",
+      "description": "A simple test project（重複データのため移動）",
+      "tags": [
+        "test"
+      ],
+      "status": "active",
+      "id": "7e7be177-9396-4e40-baf3-0b15c2310500",
+      "created_date": "2025-07-27T16:42:31.526622",
+      "modified_date": "2025-07-27T16:42:31.526622",
+      "archive_filename": "test_project_simple_duplicate.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/test_project_simple_duplicate.zip",
+      "archive_size": 0,
+      "deletion_date": "2025-07-27T17:30:00.000000",
+      "reason": "重複データのため自動アーカイブ"
+    },
+    {
+      "folder_name": "error_mix_test_valid",
+      "project_name": [
+        "更新済み正常プロジェクト"
+      ],
+      "description": "正常なプロジェクト",
+      "status": "active",
+      "id": "b053ecbe-e6b0-468f-a128-2a09f8bc912f",
+      "created_date": "2025-07-28T16:19:11.123684",
+      "modified_date": "2025-07-28T16:19:11.125795",
+      "tags": [],
+      "archive_filename": "error_mix_test_valid_20250728_161911.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/error_mix_test_valid_20250728_161911.zip",
+      "archive_size": 340,
+      "deletion_date": "2025-07-28T16:19:11.128968",
+      "reason": "ユーザー削除"
+    },
+    {
+      "folder_name": "concurrent_test_0_66622648",
+      "project_name": "並行テストプロジェクト1",
+      "description": "並行処理テスト用プロジェクト1",
+      "tags": "test1",
+      "status": "active",
+      "id": "93f59528-8874-43e2-9046-8aa7f20cec4e",
+      "created_date": "2025-07-28T16:19:11.132327",
+      "modified_date": "2025-07-28T16:19:11.132327",
+      "archive_filename": "concurrent_test_0_66622648_20250728_161911.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/concurrent_test_0_66622648_20250728_161911.zip",
+      "archive_size": 376,
+      "deletion_date": "2025-07-28T16:19:11.138207",
+      "reason": "ユーザー削除"
+    },
+    {
+      "folder_name": "concurrent_test_2_e609d57b",
+      "project_name": "並行テストプロジェクト3",
+      "description": "並行処理テスト用プロジェクト3",
+      "tags": "test3",
+      "status": "active",
+      "id": "19800ff7-d7fc-4ab4-85e5-d16075ee81bc",
+      "created_date": "2025-07-28T16:19:11.134657",
+      "modified_date": "2025-07-28T16:19:11.134657",
+      "archive_filename": "concurrent_test_2_e609d57b_20250728_161911.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/concurrent_test_2_e609d57b_20250728_161911.zip",
+      "archive_size": 376,
+      "deletion_date": "2025-07-28T16:19:11.139132",
+      "reason": "ユーザー削除"
+    },
+    {
+      "folder_name": "concurrent_test_4_092f0468",
+      "project_name": "並行テストプロジェクト5",
+      "description": "並行処理テスト用プロジェクト5",
+      "tags": "test5",
+      "status": "active",
+      "id": "09e9dfc9-ca4f-44f4-986a-03f567c8ce12",
+      "created_date": "2025-07-28T16:19:11.136815",
+      "modified_date": "2025-07-28T16:19:11.136815",
+      "archive_filename": "concurrent_test_4_092f0468_20250728_161911.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/concurrent_test_4_092f0468_20250728_161911.zip",
+      "archive_size": 374,
+      "deletion_date": "2025-07-28T16:19:11.139959",
+      "reason": "ユーザー削除"
+    },
+    {
+      "folder_name": "concurrent_test_0_efcb15fd",
+      "project_name": "並行テストプロジェクト1",
+      "description": "並行処理テスト用プロジェクト1",
+      "tags": "test1",
+      "status": "active",
+      "id": "b8bdfef1-663d-4317-9733-520b7c82ef4c",
+      "created_date": "2025-07-28T17:01:01.713250",
+      "modified_date": "2025-07-28T17:01:01.713250",
+      "archive_filename": "concurrent_test_0_efcb15fd_20250728_170101.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/concurrent_test_0_efcb15fd_20250728_170101.zip",
+      "archive_size": 375,
+      "deletion_date": "2025-07-28T17:01:01.722770",
+      "reason": "ユーザー削除"
+    },
+    {
+      "folder_name": "concurrent_test_2_ee325ed7",
+      "project_name": "並行テストプロジェクト3",
+      "description": "並行処理テスト用プロジェクト3",
+      "tags": "test3",
+      "status": "active",
+      "id": "96aec4c7-1934-4a4d-a124-648cedab3cce",
+      "created_date": "2025-07-28T17:01:01.716608",
+      "modified_date": "2025-07-28T17:01:01.716608",
+      "archive_filename": "concurrent_test_2_ee325ed7_20250728_170101.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/concurrent_test_2_ee325ed7_20250728_170101.zip",
+      "archive_size": 375,
+      "deletion_date": "2025-07-28T17:01:01.723940",
+      "reason": "ユーザー削除"
+    },
+    {
+      "folder_name": "concurrent_test_4_ba6d6c1b",
+      "project_name": "並行テストプロジェクト5",
+      "description": "並行処理テスト用プロジェクト5",
+      "tags": "test5",
+      "status": "active",
+      "id": "59ff5728-63a6-4d99-8798-483937754e16",
+      "created_date": "2025-07-28T17:01:01.719739",
+      "modified_date": "2025-07-28T17:01:01.719739",
+      "archive_filename": "concurrent_test_4_ba6d6c1b_20250728_170101.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/concurrent_test_4_ba6d6c1b_20250728_170101.zip",
+      "archive_size": 375,
+      "deletion_date": "2025-07-28T17:01:01.725236",
+      "reason": "ユーザー削除"
+    },
+    {
+      "folder_name": "concurrent_test_0_2d83d836",
+      "project_name": "並行テストプロジェクト1",
+      "description": "並行処理テスト用プロジェクト1",
+      "tags": "test1",
+      "status": "active",
+      "id": "f5a03448-9b95-4b0d-bdee-bb9394282d31",
+      "created_date": "2025-07-28T17:02:13.338155",
+      "modified_date": "2025-07-28T17:02:13.338155",
+      "archive_filename": "concurrent_test_0_2d83d836_20250728_170213.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/concurrent_test_0_2d83d836_20250728_170213.zip",
+      "archive_size": 375,
+      "deletion_date": "2025-07-28T17:02:13.348167",
+      "reason": "ユーザー削除"
+    },
+    {
+      "folder_name": "concurrent_test_2_cc450da3",
+      "project_name": "並行テストプロジェクト3",
+      "description": "並行処理テスト用プロジェクト3",
+      "tags": "test3",
+      "status": "active",
+      "id": "e1c81e4f-5442-4448-90ea-88d84d031106",
+      "created_date": "2025-07-28T17:02:13.342054",
+      "modified_date": "2025-07-28T17:02:13.342054",
+      "archive_filename": "concurrent_test_2_cc450da3_20250728_170213.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/concurrent_test_2_cc450da3_20250728_170213.zip",
+      "archive_size": 374,
+      "deletion_date": "2025-07-28T17:02:13.349390",
+      "reason": "ユーザー削除"
+    },
+    {
+      "folder_name": "concurrent_test_4_73d0fb17",
+      "project_name": "並行テストプロジェクト5",
+      "description": "並行処理テスト用プロジェクト5",
+      "tags": "test5",
+      "status": "active",
+      "id": "ea790dc1-2fad-4e1e-ae29-f57de39d2fcd",
+      "created_date": "2025-07-28T17:02:13.345182",
+      "modified_date": "2025-07-28T17:02:13.345182",
+      "archive_filename": "concurrent_test_4_73d0fb17_20250728_170213.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/concurrent_test_4_73d0fb17_20250728_170213.zip",
+      "archive_size": 376,
+      "deletion_date": "2025-07-28T17:02:13.350711",
+      "reason": "ユーザー削除"
+    },
+    {
+      "folder_name": "concurrent_test_0_1fb7ac72",
+      "project_name": "並行テストプロジェクト1",
+      "description": "並行処理テスト用プロジェクト1",
+      "tags": "test1",
+      "status": "active",
+      "id": "89308044-b174-4b8f-828a-f2ca1c7e969f",
+      "created_date": "2025-07-28T17:03:10.525040",
+      "modified_date": "2025-07-28T17:03:10.525040",
+      "archive_filename": "concurrent_test_0_1fb7ac72_20250728_170310.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/concurrent_test_0_1fb7ac72_20250728_170310.zip",
+      "archive_size": 375,
+      "deletion_date": "2025-07-28T17:03:10.536131",
+      "reason": "ユーザー削除"
+    },
+    {
+      "folder_name": "concurrent_test_2_cd5b71e5",
+      "project_name": "並行テストプロジェクト3",
+      "description": "並行処理テスト用プロジェクト3",
+      "tags": "test3",
+      "status": "active",
+      "id": "3f5c31c8-b469-49bd-b191-683d973467a7",
+      "created_date": "2025-07-28T17:03:10.528416",
+      "modified_date": "2025-07-28T17:03:10.528416",
+      "archive_filename": "concurrent_test_2_cd5b71e5_20250728_170310.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/concurrent_test_2_cd5b71e5_20250728_170310.zip",
+      "archive_size": 376,
+      "deletion_date": "2025-07-28T17:03:10.537484",
+      "reason": "ユーザー削除"
+    },
+    {
+      "folder_name": "concurrent_test_4_b6a0a86d",
+      "project_name": "並行テストプロジェクト5",
+      "description": "並行処理テスト用プロジェクト5",
+      "tags": "test5",
+      "status": "active",
+      "id": "e9ab4e07-42a4-40a9-b720-3b5f25b70c4b",
+      "created_date": "2025-07-28T17:03:10.532732",
+      "modified_date": "2025-07-28T17:03:10.532732",
+      "archive_filename": "concurrent_test_4_b6a0a86d_20250728_170310.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/concurrent_test_4_b6a0a86d_20250728_170310.zip",
+      "archive_size": 375,
+      "deletion_date": "2025-07-28T17:03:10.538741",
+      "reason": "ユーザー削除"
+    }
+  ],
+  "reserved_folders": [
+    "node_modules",
+    "dist",
+    "build",
+    ".git",
+    "backend",
+    "frontend",
+    "trash",
+    "recycle_bin",
+    "deleted",
+    ".trash"
+  ]
+}
+ステータス: 200
+---
+
+[2025-07-29 11:52:37] GET /api/projects/
+リクエスト: {}
+レスポンス: {
+  "version": "1.0.0",
+  "last_updated": "2025-07-29T09:43:02.366552",
+  "retention_months": 13,
+  "projects": [
+    {
+      "folder_name": "testProject",
+      "project_name": "テストのためのプロジェクト",
+      "description": "テストです。サンプルファイルとサブフォルダが追加されました。",
+      "tags": [
+        "sample"
+      ],
+      "status": "active",
+      "id": "2cec431a-0416-4451-a43b-fdc85e0c5c62",
+      "created_date": "2025-07-24T23:31:44.186614",
+      "modified_date": "2025-07-27T20:33:51.353635"
+    },
+    {
+      "folder_name": "ichikawa",
+      "project_name": "市川アパートの家賃",
+      "description": "重回帰分析のテスト用",
+      "tags": [],
+      "status": "active",
+      "id": "3779d95d-d923-435b-8da0-2a157940d95b",
+      "created_date": "2025-07-28T19:10:51.399660",
+      "modified_date": "2025-07-28T19:10:51.399660"
+    },
+    {
+      "folder_name": "test_project_4f1b6ebf",
+      "project_name": "テストプロジェクト",
+      "description": "ライフサイクルテスト用プロジェクト",
+      "tags": "lifecycle",
+      "status": "active",
+      "id": "d2c7d39b-c3a4-4591-9f89-b7f1def829d3",
+      "created_date": "2025-07-29T09:43:02.366552",
+      "modified_date": "2025-07-29T09:43:02.366552"
+    }
+  ],
+  "archived_projects": [
+    {
+      "folder_name": "direct_test_project",
+      "project_name": "直接テストプロジェクト",
+      "description": "直接テスト用プロジェクト",
+      "tags": [
+        "test"
+      ],
+      "status": "active",
+      "id": "82886a55-fe6c-4559-9dfa-27aeb21e924e",
+      "created_date": "2025-07-27T10:37:56.949497",
+      "modified_date": "2025-07-27T10:37:56.949497",
+      "archive_filename": "direct_test_project_20250727_103756.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/direct_test_project_20250727_103756.zip",
+      "archive_size": 347,
+      "deletion_date": "2025-07-27T10:37:56.952974",
+      "reason": "ユーザー削除"
+    },
+    {
+      "folder_name": "success_test_project",
+      "project_name": "成功テストプロジェクト",
+      "description": "正常に作成されるべきプロジェクト",
+      "tags": [
+        "success",
+        "test"
+      ],
+      "status": "active",
+      "id": "658786da-0f80-4434-bf7c-4e389df4b9b2",
+      "created_date": "2025-07-27T10:38:36.034282",
+      "modified_date": "2025-07-27T10:38:36.034282",
+      "archive_filename": "success_test_project_20250727_103836.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/success_test_project_20250727_103836.zip",
+      "archive_size": 385,
+      "deletion_date": "2025-07-27T10:38:36.035929",
+      "reason": "ユーザー削除"
+    },
+    {
+      "folder_name": "save_test",
+      "project_name": "セーブテスト",
+      "description": "セーブテスト（フォルダが存在しないため移動）",
+      "tags": [],
+      "status": "active",
+      "id": "bb5830e9-e13c-4960-bc25-fa8045a272e9",
+      "created_date": "2025-07-27T10:37:56.948759",
+      "modified_date": "2025-07-27T10:37:56.948769",
+      "archive_filename": "save_test_auto_archived.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/save_test_auto_archived.zip",
+      "archive_size": 0,
+      "deletion_date": "2025-07-27T17:30:00.000000",
+      "reason": "フォルダが存在しないため自動アーカイブ"
+    },
+    {
+      "folder_name": "test_project_simple",
+      "project_name": "Simple Test Project",
+      "description": "A simple test project（不正データのため移動）",
+      "tags": [
+        "test"
+      ],
+      "status": "active",
+      "id": "bd7e7a94-fce7-471b-9dce-7e4c1bcb8255",
+      "created_date": "2025-07-27T16:08:14.889746",
+      "modified_date": "2025-07-27T16:08:14.889746",
+      "archive_filename": "test_project_simple_invalid_data.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/test_project_simple_invalid_data.zip",
+      "archive_size": 0,
+      "deletion_date": "2025-07-27T17:30:00.000000",
+      "reason": "不正な配列データのため自動アーカイブ"
+    },
+    {
+      "folder_name": "test_project_simple",
+      "project_name": "Simple Test Project",
+      "description": "A simple test project（重複データのため移動）",
+      "tags": [
+        "test"
+      ],
+      "status": "active",
+      "id": "7e7be177-9396-4e40-baf3-0b15c2310500",
+      "created_date": "2025-07-27T16:42:31.526622",
+      "modified_date": "2025-07-27T16:42:31.526622",
+      "archive_filename": "test_project_simple_duplicate.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/test_project_simple_duplicate.zip",
+      "archive_size": 0,
+      "deletion_date": "2025-07-27T17:30:00.000000",
+      "reason": "重複データのため自動アーカイブ"
+    },
+    {
+      "folder_name": "error_mix_test_valid",
+      "project_name": [
+        "更新済み正常プロジェクト"
+      ],
+      "description": "正常なプロジェクト",
+      "status": "active",
+      "id": "b053ecbe-e6b0-468f-a128-2a09f8bc912f",
+      "created_date": "2025-07-28T16:19:11.123684",
+      "modified_date": "2025-07-28T16:19:11.125795",
+      "tags": [],
+      "archive_filename": "error_mix_test_valid_20250728_161911.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/error_mix_test_valid_20250728_161911.zip",
+      "archive_size": 340,
+      "deletion_date": "2025-07-28T16:19:11.128968",
+      "reason": "ユーザー削除"
+    },
+    {
+      "folder_name": "concurrent_test_0_66622648",
+      "project_name": "並行テストプロジェクト1",
+      "description": "並行処理テスト用プロジェクト1",
+      "tags": "test1",
+      "status": "active",
+      "id": "93f59528-8874-43e2-9046-8aa7f20cec4e",
+      "created_date": "2025-07-28T16:19:11.132327",
+      "modified_date": "2025-07-28T16:19:11.132327",
+      "archive_filename": "concurrent_test_0_66622648_20250728_161911.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/concurrent_test_0_66622648_20250728_161911.zip",
+      "archive_size": 376,
+      "deletion_date": "2025-07-28T16:19:11.138207",
+      "reason": "ユーザー削除"
+    },
+    {
+      "folder_name": "concurrent_test_2_e609d57b",
+      "project_name": "並行テストプロジェクト3",
+      "description": "並行処理テスト用プロジェクト3",
+      "tags": "test3",
+      "status": "active",
+      "id": "19800ff7-d7fc-4ab4-85e5-d16075ee81bc",
+      "created_date": "2025-07-28T16:19:11.134657",
+      "modified_date": "2025-07-28T16:19:11.134657",
+      "archive_filename": "concurrent_test_2_e609d57b_20250728_161911.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/concurrent_test_2_e609d57b_20250728_161911.zip",
+      "archive_size": 376,
+      "deletion_date": "2025-07-28T16:19:11.139132",
+      "reason": "ユーザー削除"
+    },
+    {
+      "folder_name": "concurrent_test_4_092f0468",
+      "project_name": "並行テストプロジェクト5",
+      "description": "並行処理テスト用プロジェクト5",
+      "tags": "test5",
+      "status": "active",
+      "id": "09e9dfc9-ca4f-44f4-986a-03f567c8ce12",
+      "created_date": "2025-07-28T16:19:11.136815",
+      "modified_date": "2025-07-28T16:19:11.136815",
+      "archive_filename": "concurrent_test_4_092f0468_20250728_161911.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/concurrent_test_4_092f0468_20250728_161911.zip",
+      "archive_size": 374,
+      "deletion_date": "2025-07-28T16:19:11.139959",
+      "reason": "ユーザー削除"
+    },
+    {
+      "folder_name": "concurrent_test_0_efcb15fd",
+      "project_name": "並行テストプロジェクト1",
+      "description": "並行処理テスト用プロジェクト1",
+      "tags": "test1",
+      "status": "active",
+      "id": "b8bdfef1-663d-4317-9733-520b7c82ef4c",
+      "created_date": "2025-07-28T17:01:01.713250",
+      "modified_date": "2025-07-28T17:01:01.713250",
+      "archive_filename": "concurrent_test_0_efcb15fd_20250728_170101.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/concurrent_test_0_efcb15fd_20250728_170101.zip",
+      "archive_size": 375,
+      "deletion_date": "2025-07-28T17:01:01.722770",
+      "reason": "ユーザー削除"
+    },
+    {
+      "folder_name": "concurrent_test_2_ee325ed7",
+      "project_name": "並行テストプロジェクト3",
+      "description": "並行処理テスト用プロジェクト3",
+      "tags": "test3",
+      "status": "active",
+      "id": "96aec4c7-1934-4a4d-a124-648cedab3cce",
+      "created_date": "2025-07-28T17:01:01.716608",
+      "modified_date": "2025-07-28T17:01:01.716608",
+      "archive_filename": "concurrent_test_2_ee325ed7_20250728_170101.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/concurrent_test_2_ee325ed7_20250728_170101.zip",
+      "archive_size": 375,
+      "deletion_date": "2025-07-28T17:01:01.723940",
+      "reason": "ユーザー削除"
+    },
+    {
+      "folder_name": "concurrent_test_4_ba6d6c1b",
+      "project_name": "並行テストプロジェクト5",
+      "description": "並行処理テスト用プロジェクト5",
+      "tags": "test5",
+      "status": "active",
+      "id": "59ff5728-63a6-4d99-8798-483937754e16",
+      "created_date": "2025-07-28T17:01:01.719739",
+      "modified_date": "2025-07-28T17:01:01.719739",
+      "archive_filename": "concurrent_test_4_ba6d6c1b_20250728_170101.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/concurrent_test_4_ba6d6c1b_20250728_170101.zip",
+      "archive_size": 375,
+      "deletion_date": "2025-07-28T17:01:01.725236",
+      "reason": "ユーザー削除"
+    },
+    {
+      "folder_name": "concurrent_test_0_2d83d836",
+      "project_name": "並行テストプロジェクト1",
+      "description": "並行処理テスト用プロジェクト1",
+      "tags": "test1",
+      "status": "active",
+      "id": "f5a03448-9b95-4b0d-bdee-bb9394282d31",
+      "created_date": "2025-07-28T17:02:13.338155",
+      "modified_date": "2025-07-28T17:02:13.338155",
+      "archive_filename": "concurrent_test_0_2d83d836_20250728_170213.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/concurrent_test_0_2d83d836_20250728_170213.zip",
+      "archive_size": 375,
+      "deletion_date": "2025-07-28T17:02:13.348167",
+      "reason": "ユーザー削除"
+    },
+    {
+      "folder_name": "concurrent_test_2_cc450da3",
+      "project_name": "並行テストプロジェクト3",
+      "description": "並行処理テスト用プロジェクト3",
+      "tags": "test3",
+      "status": "active",
+      "id": "e1c81e4f-5442-4448-90ea-88d84d031106",
+      "created_date": "2025-07-28T17:02:13.342054",
+      "modified_date": "2025-07-28T17:02:13.342054",
+      "archive_filename": "concurrent_test_2_cc450da3_20250728_170213.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/concurrent_test_2_cc450da3_20250728_170213.zip",
+      "archive_size": 374,
+      "deletion_date": "2025-07-28T17:02:13.349390",
+      "reason": "ユーザー削除"
+    },
+    {
+      "folder_name": "concurrent_test_4_73d0fb17",
+      "project_name": "並行テストプロジェクト5",
+      "description": "並行処理テスト用プロジェクト5",
+      "tags": "test5",
+      "status": "active",
+      "id": "ea790dc1-2fad-4e1e-ae29-f57de39d2fcd",
+      "created_date": "2025-07-28T17:02:13.345182",
+      "modified_date": "2025-07-28T17:02:13.345182",
+      "archive_filename": "concurrent_test_4_73d0fb17_20250728_170213.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/concurrent_test_4_73d0fb17_20250728_170213.zip",
+      "archive_size": 376,
+      "deletion_date": "2025-07-28T17:02:13.350711",
+      "reason": "ユーザー削除"
+    },
+    {
+      "folder_name": "concurrent_test_0_1fb7ac72",
+      "project_name": "並行テストプロジェクト1",
+      "description": "並行処理テスト用プロジェクト1",
+      "tags": "test1",
+      "status": "active",
+      "id": "89308044-b174-4b8f-828a-f2ca1c7e969f",
+      "created_date": "2025-07-28T17:03:10.525040",
+      "modified_date": "2025-07-28T17:03:10.525040",
+      "archive_filename": "concurrent_test_0_1fb7ac72_20250728_170310.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/concurrent_test_0_1fb7ac72_20250728_170310.zip",
+      "archive_size": 375,
+      "deletion_date": "2025-07-28T17:03:10.536131",
+      "reason": "ユーザー削除"
+    },
+    {
+      "folder_name": "concurrent_test_2_cd5b71e5",
+      "project_name": "並行テストプロジェクト3",
+      "description": "並行処理テスト用プロジェクト3",
+      "tags": "test3",
+      "status": "active",
+      "id": "3f5c31c8-b469-49bd-b191-683d973467a7",
+      "created_date": "2025-07-28T17:03:10.528416",
+      "modified_date": "2025-07-28T17:03:10.528416",
+      "archive_filename": "concurrent_test_2_cd5b71e5_20250728_170310.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/concurrent_test_2_cd5b71e5_20250728_170310.zip",
+      "archive_size": 376,
+      "deletion_date": "2025-07-28T17:03:10.537484",
+      "reason": "ユーザー削除"
+    },
+    {
+      "folder_name": "concurrent_test_4_b6a0a86d",
+      "project_name": "並行テストプロジェクト5",
+      "description": "並行処理テスト用プロジェクト5",
+      "tags": "test5",
+      "status": "active",
+      "id": "e9ab4e07-42a4-40a9-b720-3b5f25b70c4b",
+      "created_date": "2025-07-28T17:03:10.532732",
+      "modified_date": "2025-07-28T17:03:10.532732",
+      "archive_filename": "concurrent_test_4_b6a0a86d_20250728_170310.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/concurrent_test_4_b6a0a86d_20250728_170310.zip",
+      "archive_size": 375,
+      "deletion_date": "2025-07-28T17:03:10.538741",
+      "reason": "ユーザー削除"
+    }
+  ],
+  "reserved_folders": [
+    "node_modules",
+    "dist",
+    "build",
+    ".git",
+    "backend",
+    "frontend",
+    "trash",
+    "recycle_bin",
+    "deleted",
+    ".trash"
+  ]
+}
+ステータス: 200
+---
+
+[2025-07-29 11:52:37] GET /api/files/tree/ichikawa/
+リクエスト: {}
+レスポンス: {
+  "name": "raw",
+  "path": ".",
+  "type": "directory",
+  "size": 0,
+  "modified": "2025-07-28T19:11:20.600562",
+  "children": [
+    {
+      "name": "市川市アパートの家賃.csv",
+      "path": "市川市アパートの家賃.csv",
+      "type": "file",
+      "size": 20449,
+      "modified": "2025-07-28T19:11:20.600562",
+      "children": [],
+      "comment_count": 0,
+      "has_comments": false
+    }
+  ],
+  "comment_count": 0,
+  "has_comments": false
+}
+ステータス: 200
+---
+
+[2025-07-29 11:52:37] GET /api/files/tree/ichikawa/
+リクエスト: {}
+レスポンス: {
+  "name": "raw",
+  "path": ".",
+  "type": "directory",
+  "size": 0,
+  "modified": "2025-07-28T19:11:20.600562",
+  "children": [
+    {
+      "name": "市川市アパートの家賃.csv",
+      "path": "市川市アパートの家賃.csv",
+      "type": "file",
+      "size": 20449,
+      "modified": "2025-07-28T19:11:20.600562",
+      "children": [],
+      "comment_count": 0,
+      "has_comments": false
+    }
+  ],
+  "comment_count": 0,
+  "has_comments": false
+}
+ステータス: 200
+---
+
+[2025-07-29 11:52:40] GET /api/files/tags/ichikawa/
+リクエスト: {'file_path': ['市川市アパートの家賃.csv']}
+レスポンス: {
+  "tags": [
+    "分析データ",
+    "項目データ"
+  ]
+}
+ステータス: 200
+---
+
+[2025-07-29 11:52:40] GET /api/files/descriptions/ichikawa/
+リクエスト: {'file_path': ['市川市アパートの家賃.csv']}
+レスポンス: {
+  "description": "市川市のアパート家賃データテスト\n"
+}
+ステータス: 200
+---
+
+[2025-07-29 12:28:08] GET /api/files/table/minimal_test/
+リクエスト: {'file_path': ['raw/data.csv']}
+レスポンス: {
+  "error": "FILE_NOT_FOUND",
+  "message": "An unexpected error occurred. Please try again later"
+}
+ステータス: 404
+---
+
+[2025-07-29 12:28:28] GET /api/files/table/minimal_test/
+リクエスト: {'file_path': ['raw/test_data.csv']}
+レスポンス: {
+  "success": true,
+  "file_path": "raw/test_data.csv",
+  "headers": [
+    "名前",
+    "年齢",
+    "職業",
+    "住所"
+  ],
+  "rows": [
+    [
+      "田中太郎",
+      "25",
+      "エンジニア",
+      "東京都"
+    ],
+    [
+      "山田花子",
+      "30",
+      "デザイナー",
+      "大阪府"
+    ],
+    [
+      "佐藤次郎",
+      "35",
+      "営業",
+      "愛知県"
+    ],
+    [
+      "鈴木美智子",
+      "28",
+      "マーケター",
+      "福岡県"
+    ],
+    [
+      "高橋健一",
+      "42",
+      "管理職",
+      "北海道"
+    ]
+  ],
+  "total_rows": 5,
+  "is_truncated": false
+}
+ステータス: 200
+---
+
+[2025-07-29 12:28:32] GET /api/files/tags/minimal_test/
+リクエスト: {'file_path': ['raw/test_data.csv']}
+レスポンス: {
+  "tags": [
+    "分析データ",
+    "項目データ"
+  ]
+}
+ステータス: 200
+---
+
+[2025-07-29 12:29:05] GET /api/projects/
+リクエスト: {'lang': ['ja']}
+レスポンス: {
+  "version": "1.0.0",
+  "last_updated": "2025-07-29T09:43:02.366552",
+  "retention_months": 13,
+  "projects": [
+    {
+      "folder_name": "testProject",
+      "project_name": "テストのためのプロジェクト",
+      "description": "テストです。サンプルファイルとサブフォルダが追加されました。",
+      "tags": [
+        "sample"
+      ],
+      "status": "active",
+      "id": "2cec431a-0416-4451-a43b-fdc85e0c5c62",
+      "created_date": "2025-07-24T23:31:44.186614",
+      "modified_date": "2025-07-27T20:33:51.353635"
+    },
+    {
+      "folder_name": "ichikawa",
+      "project_name": "市川アパートの家賃",
+      "description": "重回帰分析のテスト用",
+      "tags": [],
+      "status": "active",
+      "id": "3779d95d-d923-435b-8da0-2a157940d95b",
+      "created_date": "2025-07-28T19:10:51.399660",
+      "modified_date": "2025-07-28T19:10:51.399660"
+    },
+    {
+      "folder_name": "test_project_4f1b6ebf",
+      "project_name": "テストプロジェクト",
+      "description": "ライフサイクルテスト用プロジェクト",
+      "tags": "lifecycle",
+      "status": "active",
+      "id": "d2c7d39b-c3a4-4591-9f89-b7f1def829d3",
+      "created_date": "2025-07-29T09:43:02.366552",
+      "modified_date": "2025-07-29T09:43:02.366552"
+    }
+  ],
+  "archived_projects": [
+    {
+      "folder_name": "direct_test_project",
+      "project_name": "直接テストプロジェクト",
+      "description": "直接テスト用プロジェクト",
+      "tags": [
+        "test"
+      ],
+      "status": "active",
+      "id": "82886a55-fe6c-4559-9dfa-27aeb21e924e",
+      "created_date": "2025-07-27T10:37:56.949497",
+      "modified_date": "2025-07-27T10:37:56.949497",
+      "archive_filename": "direct_test_project_20250727_103756.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/direct_test_project_20250727_103756.zip",
+      "archive_size": 347,
+      "deletion_date": "2025-07-27T10:37:56.952974",
+      "reason": "ユーザー削除"
+    },
+    {
+      "folder_name": "success_test_project",
+      "project_name": "成功テストプロジェクト",
+      "description": "正常に作成されるべきプロジェクト",
+      "tags": [
+        "success",
+        "test"
+      ],
+      "status": "active",
+      "id": "658786da-0f80-4434-bf7c-4e389df4b9b2",
+      "created_date": "2025-07-27T10:38:36.034282",
+      "modified_date": "2025-07-27T10:38:36.034282",
+      "archive_filename": "success_test_project_20250727_103836.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/success_test_project_20250727_103836.zip",
+      "archive_size": 385,
+      "deletion_date": "2025-07-27T10:38:36.035929",
+      "reason": "ユーザー削除"
+    },
+    {
+      "folder_name": "save_test",
+      "project_name": "セーブテスト",
+      "description": "セーブテスト（フォルダが存在しないため移動）",
+      "tags": [],
+      "status": "active",
+      "id": "bb5830e9-e13c-4960-bc25-fa8045a272e9",
+      "created_date": "2025-07-27T10:37:56.948759",
+      "modified_date": "2025-07-27T10:37:56.948769",
+      "archive_filename": "save_test_auto_archived.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/save_test_auto_archived.zip",
+      "archive_size": 0,
+      "deletion_date": "2025-07-27T17:30:00.000000",
+      "reason": "フォルダが存在しないため自動アーカイブ"
+    },
+    {
+      "folder_name": "test_project_simple",
+      "project_name": "Simple Test Project",
+      "description": "A simple test project（不正データのため移動）",
+      "tags": [
+        "test"
+      ],
+      "status": "active",
+      "id": "bd7e7a94-fce7-471b-9dce-7e4c1bcb8255",
+      "created_date": "2025-07-27T16:08:14.889746",
+      "modified_date": "2025-07-27T16:08:14.889746",
+      "archive_filename": "test_project_simple_invalid_data.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/test_project_simple_invalid_data.zip",
+      "archive_size": 0,
+      "deletion_date": "2025-07-27T17:30:00.000000",
+      "reason": "不正な配列データのため自動アーカイブ"
+    },
+    {
+      "folder_name": "test_project_simple",
+      "project_name": "Simple Test Project",
+      "description": "A simple test project（重複データのため移動）",
+      "tags": [
+        "test"
+      ],
+      "status": "active",
+      "id": "7e7be177-9396-4e40-baf3-0b15c2310500",
+      "created_date": "2025-07-27T16:42:31.526622",
+      "modified_date": "2025-07-27T16:42:31.526622",
+      "archive_filename": "test_project_simple_duplicate.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/test_project_simple_duplicate.zip",
+      "archive_size": 0,
+      "deletion_date": "2025-07-27T17:30:00.000000",
+      "reason": "重複データのため自動アーカイブ"
+    },
+    {
+      "folder_name": "error_mix_test_valid",
+      "project_name": [
+        "更新済み正常プロジェクト"
+      ],
+      "description": "正常なプロジェクト",
+      "status": "active",
+      "id": "b053ecbe-e6b0-468f-a128-2a09f8bc912f",
+      "created_date": "2025-07-28T16:19:11.123684",
+      "modified_date": "2025-07-28T16:19:11.125795",
+      "tags": [],
+      "archive_filename": "error_mix_test_valid_20250728_161911.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/error_mix_test_valid_20250728_161911.zip",
+      "archive_size": 340,
+      "deletion_date": "2025-07-28T16:19:11.128968",
+      "reason": "ユーザー削除"
+    },
+    {
+      "folder_name": "concurrent_test_0_66622648",
+      "project_name": "並行テストプロジェクト1",
+      "description": "並行処理テスト用プロジェクト1",
+      "tags": "test1",
+      "status": "active",
+      "id": "93f59528-8874-43e2-9046-8aa7f20cec4e",
+      "created_date": "2025-07-28T16:19:11.132327",
+      "modified_date": "2025-07-28T16:19:11.132327",
+      "archive_filename": "concurrent_test_0_66622648_20250728_161911.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/concurrent_test_0_66622648_20250728_161911.zip",
+      "archive_size": 376,
+      "deletion_date": "2025-07-28T16:19:11.138207",
+      "reason": "ユーザー削除"
+    },
+    {
+      "folder_name": "concurrent_test_2_e609d57b",
+      "project_name": "並行テストプロジェクト3",
+      "description": "並行処理テスト用プロジェクト3",
+      "tags": "test3",
+      "status": "active",
+      "id": "19800ff7-d7fc-4ab4-85e5-d16075ee81bc",
+      "created_date": "2025-07-28T16:19:11.134657",
+      "modified_date": "2025-07-28T16:19:11.134657",
+      "archive_filename": "concurrent_test_2_e609d57b_20250728_161911.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/concurrent_test_2_e609d57b_20250728_161911.zip",
+      "archive_size": 376,
+      "deletion_date": "2025-07-28T16:19:11.139132",
+      "reason": "ユーザー削除"
+    },
+    {
+      "folder_name": "concurrent_test_4_092f0468",
+      "project_name": "並行テストプロジェクト5",
+      "description": "並行処理テスト用プロジェクト5",
+      "tags": "test5",
+      "status": "active",
+      "id": "09e9dfc9-ca4f-44f4-986a-03f567c8ce12",
+      "created_date": "2025-07-28T16:19:11.136815",
+      "modified_date": "2025-07-28T16:19:11.136815",
+      "archive_filename": "concurrent_test_4_092f0468_20250728_161911.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/concurrent_test_4_092f0468_20250728_161911.zip",
+      "archive_size": 374,
+      "deletion_date": "2025-07-28T16:19:11.139959",
+      "reason": "ユーザー削除"
+    },
+    {
+      "folder_name": "concurrent_test_0_efcb15fd",
+      "project_name": "並行テストプロジェクト1",
+      "description": "並行処理テスト用プロジェクト1",
+      "tags": "test1",
+      "status": "active",
+      "id": "b8bdfef1-663d-4317-9733-520b7c82ef4c",
+      "created_date": "2025-07-28T17:01:01.713250",
+      "modified_date": "2025-07-28T17:01:01.713250",
+      "archive_filename": "concurrent_test_0_efcb15fd_20250728_170101.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/concurrent_test_0_efcb15fd_20250728_170101.zip",
+      "archive_size": 375,
+      "deletion_date": "2025-07-28T17:01:01.722770",
+      "reason": "ユーザー削除"
+    },
+    {
+      "folder_name": "concurrent_test_2_ee325ed7",
+      "project_name": "並行テストプロジェクト3",
+      "description": "並行処理テスト用プロジェクト3",
+      "tags": "test3",
+      "status": "active",
+      "id": "96aec4c7-1934-4a4d-a124-648cedab3cce",
+      "created_date": "2025-07-28T17:01:01.716608",
+      "modified_date": "2025-07-28T17:01:01.716608",
+      "archive_filename": "concurrent_test_2_ee325ed7_20250728_170101.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/concurrent_test_2_ee325ed7_20250728_170101.zip",
+      "archive_size": 375,
+      "deletion_date": "2025-07-28T17:01:01.723940",
+      "reason": "ユーザー削除"
+    },
+    {
+      "folder_name": "concurrent_test_4_ba6d6c1b",
+      "project_name": "並行テストプロジェクト5",
+      "description": "並行処理テスト用プロジェクト5",
+      "tags": "test5",
+      "status": "active",
+      "id": "59ff5728-63a6-4d99-8798-483937754e16",
+      "created_date": "2025-07-28T17:01:01.719739",
+      "modified_date": "2025-07-28T17:01:01.719739",
+      "archive_filename": "concurrent_test_4_ba6d6c1b_20250728_170101.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/concurrent_test_4_ba6d6c1b_20250728_170101.zip",
+      "archive_size": 375,
+      "deletion_date": "2025-07-28T17:01:01.725236",
+      "reason": "ユーザー削除"
+    },
+    {
+      "folder_name": "concurrent_test_0_2d83d836",
+      "project_name": "並行テストプロジェクト1",
+      "description": "並行処理テスト用プロジェクト1",
+      "tags": "test1",
+      "status": "active",
+      "id": "f5a03448-9b95-4b0d-bdee-bb9394282d31",
+      "created_date": "2025-07-28T17:02:13.338155",
+      "modified_date": "2025-07-28T17:02:13.338155",
+      "archive_filename": "concurrent_test_0_2d83d836_20250728_170213.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/concurrent_test_0_2d83d836_20250728_170213.zip",
+      "archive_size": 375,
+      "deletion_date": "2025-07-28T17:02:13.348167",
+      "reason": "ユーザー削除"
+    },
+    {
+      "folder_name": "concurrent_test_2_cc450da3",
+      "project_name": "並行テストプロジェクト3",
+      "description": "並行処理テスト用プロジェクト3",
+      "tags": "test3",
+      "status": "active",
+      "id": "e1c81e4f-5442-4448-90ea-88d84d031106",
+      "created_date": "2025-07-28T17:02:13.342054",
+      "modified_date": "2025-07-28T17:02:13.342054",
+      "archive_filename": "concurrent_test_2_cc450da3_20250728_170213.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/concurrent_test_2_cc450da3_20250728_170213.zip",
+      "archive_size": 374,
+      "deletion_date": "2025-07-28T17:02:13.349390",
+      "reason": "ユーザー削除"
+    },
+    {
+      "folder_name": "concurrent_test_4_73d0fb17",
+      "project_name": "並行テストプロジェクト5",
+      "description": "並行処理テスト用プロジェクト5",
+      "tags": "test5",
+      "status": "active",
+      "id": "ea790dc1-2fad-4e1e-ae29-f57de39d2fcd",
+      "created_date": "2025-07-28T17:02:13.345182",
+      "modified_date": "2025-07-28T17:02:13.345182",
+      "archive_filename": "concurrent_test_4_73d0fb17_20250728_170213.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/concurrent_test_4_73d0fb17_20250728_170213.zip",
+      "archive_size": 376,
+      "deletion_date": "2025-07-28T17:02:13.350711",
+      "reason": "ユーザー削除"
+    },
+    {
+      "folder_name": "concurrent_test_0_1fb7ac72",
+      "project_name": "並行テストプロジェクト1",
+      "description": "並行処理テスト用プロジェクト1",
+      "tags": "test1",
+      "status": "active",
+      "id": "89308044-b174-4b8f-828a-f2ca1c7e969f",
+      "created_date": "2025-07-28T17:03:10.525040",
+      "modified_date": "2025-07-28T17:03:10.525040",
+      "archive_filename": "concurrent_test_0_1fb7ac72_20250728_170310.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/concurrent_test_0_1fb7ac72_20250728_170310.zip",
+      "archive_size": 375,
+      "deletion_date": "2025-07-28T17:03:10.536131",
+      "reason": "ユーザー削除"
+    },
+    {
+      "folder_name": "concurrent_test_2_cd5b71e5",
+      "project_name": "並行テストプロジェクト3",
+      "description": "並行処理テスト用プロジェクト3",
+      "tags": "test3",
+      "status": "active",
+      "id": "3f5c31c8-b469-49bd-b191-683d973467a7",
+      "created_date": "2025-07-28T17:03:10.528416",
+      "modified_date": "2025-07-28T17:03:10.528416",
+      "archive_filename": "concurrent_test_2_cd5b71e5_20250728_170310.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/concurrent_test_2_cd5b71e5_20250728_170310.zip",
+      "archive_size": 376,
+      "deletion_date": "2025-07-28T17:03:10.537484",
+      "reason": "ユーザー削除"
+    },
+    {
+      "folder_name": "concurrent_test_4_b6a0a86d",
+      "project_name": "並行テストプロジェクト5",
+      "description": "並行処理テスト用プロジェクト5",
+      "tags": "test5",
+      "status": "active",
+      "id": "e9ab4e07-42a4-40a9-b720-3b5f25b70c4b",
+      "created_date": "2025-07-28T17:03:10.532732",
+      "modified_date": "2025-07-28T17:03:10.532732",
+      "archive_filename": "concurrent_test_4_b6a0a86d_20250728_170310.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/concurrent_test_4_b6a0a86d_20250728_170310.zip",
+      "archive_size": 375,
+      "deletion_date": "2025-07-28T17:03:10.538741",
+      "reason": "ユーザー削除"
+    }
+  ],
+  "reserved_folders": [
+    "node_modules",
+    "dist",
+    "build",
+    ".git",
+    "backend",
+    "frontend",
+    "trash",
+    "recycle_bin",
+    "deleted",
+    ".trash"
+  ]
+}
+ステータス: 200
+---
+
+[2025-07-29 12:29:05] GET /api/projects/
+リクエスト: {'lang': ['ja']}
+レスポンス: {
+  "version": "1.0.0",
+  "last_updated": "2025-07-29T09:43:02.366552",
+  "retention_months": 13,
+  "projects": [
+    {
+      "folder_name": "testProject",
+      "project_name": "テストのためのプロジェクト",
+      "description": "テストです。サンプルファイルとサブフォルダが追加されました。",
+      "tags": [
+        "sample"
+      ],
+      "status": "active",
+      "id": "2cec431a-0416-4451-a43b-fdc85e0c5c62",
+      "created_date": "2025-07-24T23:31:44.186614",
+      "modified_date": "2025-07-27T20:33:51.353635"
+    },
+    {
+      "folder_name": "ichikawa",
+      "project_name": "市川アパートの家賃",
+      "description": "重回帰分析のテスト用",
+      "tags": [],
+      "status": "active",
+      "id": "3779d95d-d923-435b-8da0-2a157940d95b",
+      "created_date": "2025-07-28T19:10:51.399660",
+      "modified_date": "2025-07-28T19:10:51.399660"
+    },
+    {
+      "folder_name": "test_project_4f1b6ebf",
+      "project_name": "テストプロジェクト",
+      "description": "ライフサイクルテスト用プロジェクト",
+      "tags": "lifecycle",
+      "status": "active",
+      "id": "d2c7d39b-c3a4-4591-9f89-b7f1def829d3",
+      "created_date": "2025-07-29T09:43:02.366552",
+      "modified_date": "2025-07-29T09:43:02.366552"
+    }
+  ],
+  "archived_projects": [
+    {
+      "folder_name": "direct_test_project",
+      "project_name": "直接テストプロジェクト",
+      "description": "直接テスト用プロジェクト",
+      "tags": [
+        "test"
+      ],
+      "status": "active",
+      "id": "82886a55-fe6c-4559-9dfa-27aeb21e924e",
+      "created_date": "2025-07-27T10:37:56.949497",
+      "modified_date": "2025-07-27T10:37:56.949497",
+      "archive_filename": "direct_test_project_20250727_103756.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/direct_test_project_20250727_103756.zip",
+      "archive_size": 347,
+      "deletion_date": "2025-07-27T10:37:56.952974",
+      "reason": "ユーザー削除"
+    },
+    {
+      "folder_name": "success_test_project",
+      "project_name": "成功テストプロジェクト",
+      "description": "正常に作成されるべきプロジェクト",
+      "tags": [
+        "success",
+        "test"
+      ],
+      "status": "active",
+      "id": "658786da-0f80-4434-bf7c-4e389df4b9b2",
+      "created_date": "2025-07-27T10:38:36.034282",
+      "modified_date": "2025-07-27T10:38:36.034282",
+      "archive_filename": "success_test_project_20250727_103836.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/success_test_project_20250727_103836.zip",
+      "archive_size": 385,
+      "deletion_date": "2025-07-27T10:38:36.035929",
+      "reason": "ユーザー削除"
+    },
+    {
+      "folder_name": "save_test",
+      "project_name": "セーブテスト",
+      "description": "セーブテスト（フォルダが存在しないため移動）",
+      "tags": [],
+      "status": "active",
+      "id": "bb5830e9-e13c-4960-bc25-fa8045a272e9",
+      "created_date": "2025-07-27T10:37:56.948759",
+      "modified_date": "2025-07-27T10:37:56.948769",
+      "archive_filename": "save_test_auto_archived.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/save_test_auto_archived.zip",
+      "archive_size": 0,
+      "deletion_date": "2025-07-27T17:30:00.000000",
+      "reason": "フォルダが存在しないため自動アーカイブ"
+    },
+    {
+      "folder_name": "test_project_simple",
+      "project_name": "Simple Test Project",
+      "description": "A simple test project（不正データのため移動）",
+      "tags": [
+        "test"
+      ],
+      "status": "active",
+      "id": "bd7e7a94-fce7-471b-9dce-7e4c1bcb8255",
+      "created_date": "2025-07-27T16:08:14.889746",
+      "modified_date": "2025-07-27T16:08:14.889746",
+      "archive_filename": "test_project_simple_invalid_data.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/test_project_simple_invalid_data.zip",
+      "archive_size": 0,
+      "deletion_date": "2025-07-27T17:30:00.000000",
+      "reason": "不正な配列データのため自動アーカイブ"
+    },
+    {
+      "folder_name": "test_project_simple",
+      "project_name": "Simple Test Project",
+      "description": "A simple test project（重複データのため移動）",
+      "tags": [
+        "test"
+      ],
+      "status": "active",
+      "id": "7e7be177-9396-4e40-baf3-0b15c2310500",
+      "created_date": "2025-07-27T16:42:31.526622",
+      "modified_date": "2025-07-27T16:42:31.526622",
+      "archive_filename": "test_project_simple_duplicate.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/test_project_simple_duplicate.zip",
+      "archive_size": 0,
+      "deletion_date": "2025-07-27T17:30:00.000000",
+      "reason": "重複データのため自動アーカイブ"
+    },
+    {
+      "folder_name": "error_mix_test_valid",
+      "project_name": [
+        "更新済み正常プロジェクト"
+      ],
+      "description": "正常なプロジェクト",
+      "status": "active",
+      "id": "b053ecbe-e6b0-468f-a128-2a09f8bc912f",
+      "created_date": "2025-07-28T16:19:11.123684",
+      "modified_date": "2025-07-28T16:19:11.125795",
+      "tags": [],
+      "archive_filename": "error_mix_test_valid_20250728_161911.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/error_mix_test_valid_20250728_161911.zip",
+      "archive_size": 340,
+      "deletion_date": "2025-07-28T16:19:11.128968",
+      "reason": "ユーザー削除"
+    },
+    {
+      "folder_name": "concurrent_test_0_66622648",
+      "project_name": "並行テストプロジェクト1",
+      "description": "並行処理テスト用プロジェクト1",
+      "tags": "test1",
+      "status": "active",
+      "id": "93f59528-8874-43e2-9046-8aa7f20cec4e",
+      "created_date": "2025-07-28T16:19:11.132327",
+      "modified_date": "2025-07-28T16:19:11.132327",
+      "archive_filename": "concurrent_test_0_66622648_20250728_161911.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/concurrent_test_0_66622648_20250728_161911.zip",
+      "archive_size": 376,
+      "deletion_date": "2025-07-28T16:19:11.138207",
+      "reason": "ユーザー削除"
+    },
+    {
+      "folder_name": "concurrent_test_2_e609d57b",
+      "project_name": "並行テストプロジェクト3",
+      "description": "並行処理テスト用プロジェクト3",
+      "tags": "test3",
+      "status": "active",
+      "id": "19800ff7-d7fc-4ab4-85e5-d16075ee81bc",
+      "created_date": "2025-07-28T16:19:11.134657",
+      "modified_date": "2025-07-28T16:19:11.134657",
+      "archive_filename": "concurrent_test_2_e609d57b_20250728_161911.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/concurrent_test_2_e609d57b_20250728_161911.zip",
+      "archive_size": 376,
+      "deletion_date": "2025-07-28T16:19:11.139132",
+      "reason": "ユーザー削除"
+    },
+    {
+      "folder_name": "concurrent_test_4_092f0468",
+      "project_name": "並行テストプロジェクト5",
+      "description": "並行処理テスト用プロジェクト5",
+      "tags": "test5",
+      "status": "active",
+      "id": "09e9dfc9-ca4f-44f4-986a-03f567c8ce12",
+      "created_date": "2025-07-28T16:19:11.136815",
+      "modified_date": "2025-07-28T16:19:11.136815",
+      "archive_filename": "concurrent_test_4_092f0468_20250728_161911.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/concurrent_test_4_092f0468_20250728_161911.zip",
+      "archive_size": 374,
+      "deletion_date": "2025-07-28T16:19:11.139959",
+      "reason": "ユーザー削除"
+    },
+    {
+      "folder_name": "concurrent_test_0_efcb15fd",
+      "project_name": "並行テストプロジェクト1",
+      "description": "並行処理テスト用プロジェクト1",
+      "tags": "test1",
+      "status": "active",
+      "id": "b8bdfef1-663d-4317-9733-520b7c82ef4c",
+      "created_date": "2025-07-28T17:01:01.713250",
+      "modified_date": "2025-07-28T17:01:01.713250",
+      "archive_filename": "concurrent_test_0_efcb15fd_20250728_170101.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/concurrent_test_0_efcb15fd_20250728_170101.zip",
+      "archive_size": 375,
+      "deletion_date": "2025-07-28T17:01:01.722770",
+      "reason": "ユーザー削除"
+    },
+    {
+      "folder_name": "concurrent_test_2_ee325ed7",
+      "project_name": "並行テストプロジェクト3",
+      "description": "並行処理テスト用プロジェクト3",
+      "tags": "test3",
+      "status": "active",
+      "id": "96aec4c7-1934-4a4d-a124-648cedab3cce",
+      "created_date": "2025-07-28T17:01:01.716608",
+      "modified_date": "2025-07-28T17:01:01.716608",
+      "archive_filename": "concurrent_test_2_ee325ed7_20250728_170101.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/concurrent_test_2_ee325ed7_20250728_170101.zip",
+      "archive_size": 375,
+      "deletion_date": "2025-07-28T17:01:01.723940",
+      "reason": "ユーザー削除"
+    },
+    {
+      "folder_name": "concurrent_test_4_ba6d6c1b",
+      "project_name": "並行テストプロジェクト5",
+      "description": "並行処理テスト用プロジェクト5",
+      "tags": "test5",
+      "status": "active",
+      "id": "59ff5728-63a6-4d99-8798-483937754e16",
+      "created_date": "2025-07-28T17:01:01.719739",
+      "modified_date": "2025-07-28T17:01:01.719739",
+      "archive_filename": "concurrent_test_4_ba6d6c1b_20250728_170101.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/concurrent_test_4_ba6d6c1b_20250728_170101.zip",
+      "archive_size": 375,
+      "deletion_date": "2025-07-28T17:01:01.725236",
+      "reason": "ユーザー削除"
+    },
+    {
+      "folder_name": "concurrent_test_0_2d83d836",
+      "project_name": "並行テストプロジェクト1",
+      "description": "並行処理テスト用プロジェクト1",
+      "tags": "test1",
+      "status": "active",
+      "id": "f5a03448-9b95-4b0d-bdee-bb9394282d31",
+      "created_date": "2025-07-28T17:02:13.338155",
+      "modified_date": "2025-07-28T17:02:13.338155",
+      "archive_filename": "concurrent_test_0_2d83d836_20250728_170213.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/concurrent_test_0_2d83d836_20250728_170213.zip",
+      "archive_size": 375,
+      "deletion_date": "2025-07-28T17:02:13.348167",
+      "reason": "ユーザー削除"
+    },
+    {
+      "folder_name": "concurrent_test_2_cc450da3",
+      "project_name": "並行テストプロジェクト3",
+      "description": "並行処理テスト用プロジェクト3",
+      "tags": "test3",
+      "status": "active",
+      "id": "e1c81e4f-5442-4448-90ea-88d84d031106",
+      "created_date": "2025-07-28T17:02:13.342054",
+      "modified_date": "2025-07-28T17:02:13.342054",
+      "archive_filename": "concurrent_test_2_cc450da3_20250728_170213.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/concurrent_test_2_cc450da3_20250728_170213.zip",
+      "archive_size": 374,
+      "deletion_date": "2025-07-28T17:02:13.349390",
+      "reason": "ユーザー削除"
+    },
+    {
+      "folder_name": "concurrent_test_4_73d0fb17",
+      "project_name": "並行テストプロジェクト5",
+      "description": "並行処理テスト用プロジェクト5",
+      "tags": "test5",
+      "status": "active",
+      "id": "ea790dc1-2fad-4e1e-ae29-f57de39d2fcd",
+      "created_date": "2025-07-28T17:02:13.345182",
+      "modified_date": "2025-07-28T17:02:13.345182",
+      "archive_filename": "concurrent_test_4_73d0fb17_20250728_170213.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/concurrent_test_4_73d0fb17_20250728_170213.zip",
+      "archive_size": 376,
+      "deletion_date": "2025-07-28T17:02:13.350711",
+      "reason": "ユーザー削除"
+    },
+    {
+      "folder_name": "concurrent_test_0_1fb7ac72",
+      "project_name": "並行テストプロジェクト1",
+      "description": "並行処理テスト用プロジェクト1",
+      "tags": "test1",
+      "status": "active",
+      "id": "89308044-b174-4b8f-828a-f2ca1c7e969f",
+      "created_date": "2025-07-28T17:03:10.525040",
+      "modified_date": "2025-07-28T17:03:10.525040",
+      "archive_filename": "concurrent_test_0_1fb7ac72_20250728_170310.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/concurrent_test_0_1fb7ac72_20250728_170310.zip",
+      "archive_size": 375,
+      "deletion_date": "2025-07-28T17:03:10.536131",
+      "reason": "ユーザー削除"
+    },
+    {
+      "folder_name": "concurrent_test_2_cd5b71e5",
+      "project_name": "並行テストプロジェクト3",
+      "description": "並行処理テスト用プロジェクト3",
+      "tags": "test3",
+      "status": "active",
+      "id": "3f5c31c8-b469-49bd-b191-683d973467a7",
+      "created_date": "2025-07-28T17:03:10.528416",
+      "modified_date": "2025-07-28T17:03:10.528416",
+      "archive_filename": "concurrent_test_2_cd5b71e5_20250728_170310.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/concurrent_test_2_cd5b71e5_20250728_170310.zip",
+      "archive_size": 376,
+      "deletion_date": "2025-07-28T17:03:10.537484",
+      "reason": "ユーザー削除"
+    },
+    {
+      "folder_name": "concurrent_test_4_b6a0a86d",
+      "project_name": "並行テストプロジェクト5",
+      "description": "並行処理テスト用プロジェクト5",
+      "tags": "test5",
+      "status": "active",
+      "id": "e9ab4e07-42a4-40a9-b720-3b5f25b70c4b",
+      "created_date": "2025-07-28T17:03:10.532732",
+      "modified_date": "2025-07-28T17:03:10.532732",
+      "archive_filename": "concurrent_test_4_b6a0a86d_20250728_170310.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/concurrent_test_4_b6a0a86d_20250728_170310.zip",
+      "archive_size": 375,
+      "deletion_date": "2025-07-28T17:03:10.538741",
+      "reason": "ユーザー削除"
+    }
+  ],
+  "reserved_folders": [
+    "node_modules",
+    "dist",
+    "build",
+    ".git",
+    "backend",
+    "frontend",
+    "trash",
+    "recycle_bin",
+    "deleted",
+    ".trash"
+  ]
+}
+ステータス: 200
+---
+
+[2025-07-29 12:29:09] GET /api/projects/
+リクエスト: {'lang': ['ja']}
+レスポンス: {
+  "version": "1.0.0",
+  "last_updated": "2025-07-29T09:43:02.366552",
+  "retention_months": 13,
+  "projects": [
+    {
+      "folder_name": "testProject",
+      "project_name": "テストのためのプロジェクト",
+      "description": "テストです。サンプルファイルとサブフォルダが追加されました。",
+      "tags": [
+        "sample"
+      ],
+      "status": "active",
+      "id": "2cec431a-0416-4451-a43b-fdc85e0c5c62",
+      "created_date": "2025-07-24T23:31:44.186614",
+      "modified_date": "2025-07-27T20:33:51.353635"
+    },
+    {
+      "folder_name": "ichikawa",
+      "project_name": "市川アパートの家賃",
+      "description": "重回帰分析のテスト用",
+      "tags": [],
+      "status": "active",
+      "id": "3779d95d-d923-435b-8da0-2a157940d95b",
+      "created_date": "2025-07-28T19:10:51.399660",
+      "modified_date": "2025-07-28T19:10:51.399660"
+    },
+    {
+      "folder_name": "test_project_4f1b6ebf",
+      "project_name": "テストプロジェクト",
+      "description": "ライフサイクルテスト用プロジェクト",
+      "tags": "lifecycle",
+      "status": "active",
+      "id": "d2c7d39b-c3a4-4591-9f89-b7f1def829d3",
+      "created_date": "2025-07-29T09:43:02.366552",
+      "modified_date": "2025-07-29T09:43:02.366552"
+    }
+  ],
+  "archived_projects": [
+    {
+      "folder_name": "direct_test_project",
+      "project_name": "直接テストプロジェクト",
+      "description": "直接テスト用プロジェクト",
+      "tags": [
+        "test"
+      ],
+      "status": "active",
+      "id": "82886a55-fe6c-4559-9dfa-27aeb21e924e",
+      "created_date": "2025-07-27T10:37:56.949497",
+      "modified_date": "2025-07-27T10:37:56.949497",
+      "archive_filename": "direct_test_project_20250727_103756.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/direct_test_project_20250727_103756.zip",
+      "archive_size": 347,
+      "deletion_date": "2025-07-27T10:37:56.952974",
+      "reason": "ユーザー削除"
+    },
+    {
+      "folder_name": "success_test_project",
+      "project_name": "成功テストプロジェクト",
+      "description": "正常に作成されるべきプロジェクト",
+      "tags": [
+        "success",
+        "test"
+      ],
+      "status": "active",
+      "id": "658786da-0f80-4434-bf7c-4e389df4b9b2",
+      "created_date": "2025-07-27T10:38:36.034282",
+      "modified_date": "2025-07-27T10:38:36.034282",
+      "archive_filename": "success_test_project_20250727_103836.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/success_test_project_20250727_103836.zip",
+      "archive_size": 385,
+      "deletion_date": "2025-07-27T10:38:36.035929",
+      "reason": "ユーザー削除"
+    },
+    {
+      "folder_name": "save_test",
+      "project_name": "セーブテスト",
+      "description": "セーブテスト（フォルダが存在しないため移動）",
+      "tags": [],
+      "status": "active",
+      "id": "bb5830e9-e13c-4960-bc25-fa8045a272e9",
+      "created_date": "2025-07-27T10:37:56.948759",
+      "modified_date": "2025-07-27T10:37:56.948769",
+      "archive_filename": "save_test_auto_archived.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/save_test_auto_archived.zip",
+      "archive_size": 0,
+      "deletion_date": "2025-07-27T17:30:00.000000",
+      "reason": "フォルダが存在しないため自動アーカイブ"
+    },
+    {
+      "folder_name": "test_project_simple",
+      "project_name": "Simple Test Project",
+      "description": "A simple test project（不正データのため移動）",
+      "tags": [
+        "test"
+      ],
+      "status": "active",
+      "id": "bd7e7a94-fce7-471b-9dce-7e4c1bcb8255",
+      "created_date": "2025-07-27T16:08:14.889746",
+      "modified_date": "2025-07-27T16:08:14.889746",
+      "archive_filename": "test_project_simple_invalid_data.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/test_project_simple_invalid_data.zip",
+      "archive_size": 0,
+      "deletion_date": "2025-07-27T17:30:00.000000",
+      "reason": "不正な配列データのため自動アーカイブ"
+    },
+    {
+      "folder_name": "test_project_simple",
+      "project_name": "Simple Test Project",
+      "description": "A simple test project（重複データのため移動）",
+      "tags": [
+        "test"
+      ],
+      "status": "active",
+      "id": "7e7be177-9396-4e40-baf3-0b15c2310500",
+      "created_date": "2025-07-27T16:42:31.526622",
+      "modified_date": "2025-07-27T16:42:31.526622",
+      "archive_filename": "test_project_simple_duplicate.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/test_project_simple_duplicate.zip",
+      "archive_size": 0,
+      "deletion_date": "2025-07-27T17:30:00.000000",
+      "reason": "重複データのため自動アーカイブ"
+    },
+    {
+      "folder_name": "error_mix_test_valid",
+      "project_name": [
+        "更新済み正常プロジェクト"
+      ],
+      "description": "正常なプロジェクト",
+      "status": "active",
+      "id": "b053ecbe-e6b0-468f-a128-2a09f8bc912f",
+      "created_date": "2025-07-28T16:19:11.123684",
+      "modified_date": "2025-07-28T16:19:11.125795",
+      "tags": [],
+      "archive_filename": "error_mix_test_valid_20250728_161911.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/error_mix_test_valid_20250728_161911.zip",
+      "archive_size": 340,
+      "deletion_date": "2025-07-28T16:19:11.128968",
+      "reason": "ユーザー削除"
+    },
+    {
+      "folder_name": "concurrent_test_0_66622648",
+      "project_name": "並行テストプロジェクト1",
+      "description": "並行処理テスト用プロジェクト1",
+      "tags": "test1",
+      "status": "active",
+      "id": "93f59528-8874-43e2-9046-8aa7f20cec4e",
+      "created_date": "2025-07-28T16:19:11.132327",
+      "modified_date": "2025-07-28T16:19:11.132327",
+      "archive_filename": "concurrent_test_0_66622648_20250728_161911.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/concurrent_test_0_66622648_20250728_161911.zip",
+      "archive_size": 376,
+      "deletion_date": "2025-07-28T16:19:11.138207",
+      "reason": "ユーザー削除"
+    },
+    {
+      "folder_name": "concurrent_test_2_e609d57b",
+      "project_name": "並行テストプロジェクト3",
+      "description": "並行処理テスト用プロジェクト3",
+      "tags": "test3",
+      "status": "active",
+      "id": "19800ff7-d7fc-4ab4-85e5-d16075ee81bc",
+      "created_date": "2025-07-28T16:19:11.134657",
+      "modified_date": "2025-07-28T16:19:11.134657",
+      "archive_filename": "concurrent_test_2_e609d57b_20250728_161911.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/concurrent_test_2_e609d57b_20250728_161911.zip",
+      "archive_size": 376,
+      "deletion_date": "2025-07-28T16:19:11.139132",
+      "reason": "ユーザー削除"
+    },
+    {
+      "folder_name": "concurrent_test_4_092f0468",
+      "project_name": "並行テストプロジェクト5",
+      "description": "並行処理テスト用プロジェクト5",
+      "tags": "test5",
+      "status": "active",
+      "id": "09e9dfc9-ca4f-44f4-986a-03f567c8ce12",
+      "created_date": "2025-07-28T16:19:11.136815",
+      "modified_date": "2025-07-28T16:19:11.136815",
+      "archive_filename": "concurrent_test_4_092f0468_20250728_161911.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/concurrent_test_4_092f0468_20250728_161911.zip",
+      "archive_size": 374,
+      "deletion_date": "2025-07-28T16:19:11.139959",
+      "reason": "ユーザー削除"
+    },
+    {
+      "folder_name": "concurrent_test_0_efcb15fd",
+      "project_name": "並行テストプロジェクト1",
+      "description": "並行処理テスト用プロジェクト1",
+      "tags": "test1",
+      "status": "active",
+      "id": "b8bdfef1-663d-4317-9733-520b7c82ef4c",
+      "created_date": "2025-07-28T17:01:01.713250",
+      "modified_date": "2025-07-28T17:01:01.713250",
+      "archive_filename": "concurrent_test_0_efcb15fd_20250728_170101.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/concurrent_test_0_efcb15fd_20250728_170101.zip",
+      "archive_size": 375,
+      "deletion_date": "2025-07-28T17:01:01.722770",
+      "reason": "ユーザー削除"
+    },
+    {
+      "folder_name": "concurrent_test_2_ee325ed7",
+      "project_name": "並行テストプロジェクト3",
+      "description": "並行処理テスト用プロジェクト3",
+      "tags": "test3",
+      "status": "active",
+      "id": "96aec4c7-1934-4a4d-a124-648cedab3cce",
+      "created_date": "2025-07-28T17:01:01.716608",
+      "modified_date": "2025-07-28T17:01:01.716608",
+      "archive_filename": "concurrent_test_2_ee325ed7_20250728_170101.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/concurrent_test_2_ee325ed7_20250728_170101.zip",
+      "archive_size": 375,
+      "deletion_date": "2025-07-28T17:01:01.723940",
+      "reason": "ユーザー削除"
+    },
+    {
+      "folder_name": "concurrent_test_4_ba6d6c1b",
+      "project_name": "並行テストプロジェクト5",
+      "description": "並行処理テスト用プロジェクト5",
+      "tags": "test5",
+      "status": "active",
+      "id": "59ff5728-63a6-4d99-8798-483937754e16",
+      "created_date": "2025-07-28T17:01:01.719739",
+      "modified_date": "2025-07-28T17:01:01.719739",
+      "archive_filename": "concurrent_test_4_ba6d6c1b_20250728_170101.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/concurrent_test_4_ba6d6c1b_20250728_170101.zip",
+      "archive_size": 375,
+      "deletion_date": "2025-07-28T17:01:01.725236",
+      "reason": "ユーザー削除"
+    },
+    {
+      "folder_name": "concurrent_test_0_2d83d836",
+      "project_name": "並行テストプロジェクト1",
+      "description": "並行処理テスト用プロジェクト1",
+      "tags": "test1",
+      "status": "active",
+      "id": "f5a03448-9b95-4b0d-bdee-bb9394282d31",
+      "created_date": "2025-07-28T17:02:13.338155",
+      "modified_date": "2025-07-28T17:02:13.338155",
+      "archive_filename": "concurrent_test_0_2d83d836_20250728_170213.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/concurrent_test_0_2d83d836_20250728_170213.zip",
+      "archive_size": 375,
+      "deletion_date": "2025-07-28T17:02:13.348167",
+      "reason": "ユーザー削除"
+    },
+    {
+      "folder_name": "concurrent_test_2_cc450da3",
+      "project_name": "並行テストプロジェクト3",
+      "description": "並行処理テスト用プロジェクト3",
+      "tags": "test3",
+      "status": "active",
+      "id": "e1c81e4f-5442-4448-90ea-88d84d031106",
+      "created_date": "2025-07-28T17:02:13.342054",
+      "modified_date": "2025-07-28T17:02:13.342054",
+      "archive_filename": "concurrent_test_2_cc450da3_20250728_170213.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/concurrent_test_2_cc450da3_20250728_170213.zip",
+      "archive_size": 374,
+      "deletion_date": "2025-07-28T17:02:13.349390",
+      "reason": "ユーザー削除"
+    },
+    {
+      "folder_name": "concurrent_test_4_73d0fb17",
+      "project_name": "並行テストプロジェクト5",
+      "description": "並行処理テスト用プロジェクト5",
+      "tags": "test5",
+      "status": "active",
+      "id": "ea790dc1-2fad-4e1e-ae29-f57de39d2fcd",
+      "created_date": "2025-07-28T17:02:13.345182",
+      "modified_date": "2025-07-28T17:02:13.345182",
+      "archive_filename": "concurrent_test_4_73d0fb17_20250728_170213.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/concurrent_test_4_73d0fb17_20250728_170213.zip",
+      "archive_size": 376,
+      "deletion_date": "2025-07-28T17:02:13.350711",
+      "reason": "ユーザー削除"
+    },
+    {
+      "folder_name": "concurrent_test_0_1fb7ac72",
+      "project_name": "並行テストプロジェクト1",
+      "description": "並行処理テスト用プロジェクト1",
+      "tags": "test1",
+      "status": "active",
+      "id": "89308044-b174-4b8f-828a-f2ca1c7e969f",
+      "created_date": "2025-07-28T17:03:10.525040",
+      "modified_date": "2025-07-28T17:03:10.525040",
+      "archive_filename": "concurrent_test_0_1fb7ac72_20250728_170310.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/concurrent_test_0_1fb7ac72_20250728_170310.zip",
+      "archive_size": 375,
+      "deletion_date": "2025-07-28T17:03:10.536131",
+      "reason": "ユーザー削除"
+    },
+    {
+      "folder_name": "concurrent_test_2_cd5b71e5",
+      "project_name": "並行テストプロジェクト3",
+      "description": "並行処理テスト用プロジェクト3",
+      "tags": "test3",
+      "status": "active",
+      "id": "3f5c31c8-b469-49bd-b191-683d973467a7",
+      "created_date": "2025-07-28T17:03:10.528416",
+      "modified_date": "2025-07-28T17:03:10.528416",
+      "archive_filename": "concurrent_test_2_cd5b71e5_20250728_170310.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/concurrent_test_2_cd5b71e5_20250728_170310.zip",
+      "archive_size": 376,
+      "deletion_date": "2025-07-28T17:03:10.537484",
+      "reason": "ユーザー削除"
+    },
+    {
+      "folder_name": "concurrent_test_4_b6a0a86d",
+      "project_name": "並行テストプロジェクト5",
+      "description": "並行処理テスト用プロジェクト5",
+      "tags": "test5",
+      "status": "active",
+      "id": "e9ab4e07-42a4-40a9-b720-3b5f25b70c4b",
+      "created_date": "2025-07-28T17:03:10.532732",
+      "modified_date": "2025-07-28T17:03:10.532732",
+      "archive_filename": "concurrent_test_4_b6a0a86d_20250728_170310.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/concurrent_test_4_b6a0a86d_20250728_170310.zip",
+      "archive_size": 375,
+      "deletion_date": "2025-07-28T17:03:10.538741",
+      "reason": "ユーザー削除"
+    }
+  ],
+  "reserved_folders": [
+    "node_modules",
+    "dist",
+    "build",
+    ".git",
+    "backend",
+    "frontend",
+    "trash",
+    "recycle_bin",
+    "deleted",
+    ".trash"
+  ]
+}
+ステータス: 200
+---
+
+[2025-07-29 12:29:09] GET /api/projects/
+リクエスト: {'lang': ['ja']}
+レスポンス: {
+  "version": "1.0.0",
+  "last_updated": "2025-07-29T09:43:02.366552",
+  "retention_months": 13,
+  "projects": [
+    {
+      "folder_name": "testProject",
+      "project_name": "テストのためのプロジェクト",
+      "description": "テストです。サンプルファイルとサブフォルダが追加されました。",
+      "tags": [
+        "sample"
+      ],
+      "status": "active",
+      "id": "2cec431a-0416-4451-a43b-fdc85e0c5c62",
+      "created_date": "2025-07-24T23:31:44.186614",
+      "modified_date": "2025-07-27T20:33:51.353635"
+    },
+    {
+      "folder_name": "ichikawa",
+      "project_name": "市川アパートの家賃",
+      "description": "重回帰分析のテスト用",
+      "tags": [],
+      "status": "active",
+      "id": "3779d95d-d923-435b-8da0-2a157940d95b",
+      "created_date": "2025-07-28T19:10:51.399660",
+      "modified_date": "2025-07-28T19:10:51.399660"
+    },
+    {
+      "folder_name": "test_project_4f1b6ebf",
+      "project_name": "テストプロジェクト",
+      "description": "ライフサイクルテスト用プロジェクト",
+      "tags": "lifecycle",
+      "status": "active",
+      "id": "d2c7d39b-c3a4-4591-9f89-b7f1def829d3",
+      "created_date": "2025-07-29T09:43:02.366552",
+      "modified_date": "2025-07-29T09:43:02.366552"
+    }
+  ],
+  "archived_projects": [
+    {
+      "folder_name": "direct_test_project",
+      "project_name": "直接テストプロジェクト",
+      "description": "直接テスト用プロジェクト",
+      "tags": [
+        "test"
+      ],
+      "status": "active",
+      "id": "82886a55-fe6c-4559-9dfa-27aeb21e924e",
+      "created_date": "2025-07-27T10:37:56.949497",
+      "modified_date": "2025-07-27T10:37:56.949497",
+      "archive_filename": "direct_test_project_20250727_103756.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/direct_test_project_20250727_103756.zip",
+      "archive_size": 347,
+      "deletion_date": "2025-07-27T10:37:56.952974",
+      "reason": "ユーザー削除"
+    },
+    {
+      "folder_name": "success_test_project",
+      "project_name": "成功テストプロジェクト",
+      "description": "正常に作成されるべきプロジェクト",
+      "tags": [
+        "success",
+        "test"
+      ],
+      "status": "active",
+      "id": "658786da-0f80-4434-bf7c-4e389df4b9b2",
+      "created_date": "2025-07-27T10:38:36.034282",
+      "modified_date": "2025-07-27T10:38:36.034282",
+      "archive_filename": "success_test_project_20250727_103836.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/success_test_project_20250727_103836.zip",
+      "archive_size": 385,
+      "deletion_date": "2025-07-27T10:38:36.035929",
+      "reason": "ユーザー削除"
+    },
+    {
+      "folder_name": "save_test",
+      "project_name": "セーブテスト",
+      "description": "セーブテスト（フォルダが存在しないため移動）",
+      "tags": [],
+      "status": "active",
+      "id": "bb5830e9-e13c-4960-bc25-fa8045a272e9",
+      "created_date": "2025-07-27T10:37:56.948759",
+      "modified_date": "2025-07-27T10:37:56.948769",
+      "archive_filename": "save_test_auto_archived.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/save_test_auto_archived.zip",
+      "archive_size": 0,
+      "deletion_date": "2025-07-27T17:30:00.000000",
+      "reason": "フォルダが存在しないため自動アーカイブ"
+    },
+    {
+      "folder_name": "test_project_simple",
+      "project_name": "Simple Test Project",
+      "description": "A simple test project（不正データのため移動）",
+      "tags": [
+        "test"
+      ],
+      "status": "active",
+      "id": "bd7e7a94-fce7-471b-9dce-7e4c1bcb8255",
+      "created_date": "2025-07-27T16:08:14.889746",
+      "modified_date": "2025-07-27T16:08:14.889746",
+      "archive_filename": "test_project_simple_invalid_data.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/test_project_simple_invalid_data.zip",
+      "archive_size": 0,
+      "deletion_date": "2025-07-27T17:30:00.000000",
+      "reason": "不正な配列データのため自動アーカイブ"
+    },
+    {
+      "folder_name": "test_project_simple",
+      "project_name": "Simple Test Project",
+      "description": "A simple test project（重複データのため移動）",
+      "tags": [
+        "test"
+      ],
+      "status": "active",
+      "id": "7e7be177-9396-4e40-baf3-0b15c2310500",
+      "created_date": "2025-07-27T16:42:31.526622",
+      "modified_date": "2025-07-27T16:42:31.526622",
+      "archive_filename": "test_project_simple_duplicate.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/test_project_simple_duplicate.zip",
+      "archive_size": 0,
+      "deletion_date": "2025-07-27T17:30:00.000000",
+      "reason": "重複データのため自動アーカイブ"
+    },
+    {
+      "folder_name": "error_mix_test_valid",
+      "project_name": [
+        "更新済み正常プロジェクト"
+      ],
+      "description": "正常なプロジェクト",
+      "status": "active",
+      "id": "b053ecbe-e6b0-468f-a128-2a09f8bc912f",
+      "created_date": "2025-07-28T16:19:11.123684",
+      "modified_date": "2025-07-28T16:19:11.125795",
+      "tags": [],
+      "archive_filename": "error_mix_test_valid_20250728_161911.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/error_mix_test_valid_20250728_161911.zip",
+      "archive_size": 340,
+      "deletion_date": "2025-07-28T16:19:11.128968",
+      "reason": "ユーザー削除"
+    },
+    {
+      "folder_name": "concurrent_test_0_66622648",
+      "project_name": "並行テストプロジェクト1",
+      "description": "並行処理テスト用プロジェクト1",
+      "tags": "test1",
+      "status": "active",
+      "id": "93f59528-8874-43e2-9046-8aa7f20cec4e",
+      "created_date": "2025-07-28T16:19:11.132327",
+      "modified_date": "2025-07-28T16:19:11.132327",
+      "archive_filename": "concurrent_test_0_66622648_20250728_161911.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/concurrent_test_0_66622648_20250728_161911.zip",
+      "archive_size": 376,
+      "deletion_date": "2025-07-28T16:19:11.138207",
+      "reason": "ユーザー削除"
+    },
+    {
+      "folder_name": "concurrent_test_2_e609d57b",
+      "project_name": "並行テストプロジェクト3",
+      "description": "並行処理テスト用プロジェクト3",
+      "tags": "test3",
+      "status": "active",
+      "id": "19800ff7-d7fc-4ab4-85e5-d16075ee81bc",
+      "created_date": "2025-07-28T16:19:11.134657",
+      "modified_date": "2025-07-28T16:19:11.134657",
+      "archive_filename": "concurrent_test_2_e609d57b_20250728_161911.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/concurrent_test_2_e609d57b_20250728_161911.zip",
+      "archive_size": 376,
+      "deletion_date": "2025-07-28T16:19:11.139132",
+      "reason": "ユーザー削除"
+    },
+    {
+      "folder_name": "concurrent_test_4_092f0468",
+      "project_name": "並行テストプロジェクト5",
+      "description": "並行処理テスト用プロジェクト5",
+      "tags": "test5",
+      "status": "active",
+      "id": "09e9dfc9-ca4f-44f4-986a-03f567c8ce12",
+      "created_date": "2025-07-28T16:19:11.136815",
+      "modified_date": "2025-07-28T16:19:11.136815",
+      "archive_filename": "concurrent_test_4_092f0468_20250728_161911.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/concurrent_test_4_092f0468_20250728_161911.zip",
+      "archive_size": 374,
+      "deletion_date": "2025-07-28T16:19:11.139959",
+      "reason": "ユーザー削除"
+    },
+    {
+      "folder_name": "concurrent_test_0_efcb15fd",
+      "project_name": "並行テストプロジェクト1",
+      "description": "並行処理テスト用プロジェクト1",
+      "tags": "test1",
+      "status": "active",
+      "id": "b8bdfef1-663d-4317-9733-520b7c82ef4c",
+      "created_date": "2025-07-28T17:01:01.713250",
+      "modified_date": "2025-07-28T17:01:01.713250",
+      "archive_filename": "concurrent_test_0_efcb15fd_20250728_170101.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/concurrent_test_0_efcb15fd_20250728_170101.zip",
+      "archive_size": 375,
+      "deletion_date": "2025-07-28T17:01:01.722770",
+      "reason": "ユーザー削除"
+    },
+    {
+      "folder_name": "concurrent_test_2_ee325ed7",
+      "project_name": "並行テストプロジェクト3",
+      "description": "並行処理テスト用プロジェクト3",
+      "tags": "test3",
+      "status": "active",
+      "id": "96aec4c7-1934-4a4d-a124-648cedab3cce",
+      "created_date": "2025-07-28T17:01:01.716608",
+      "modified_date": "2025-07-28T17:01:01.716608",
+      "archive_filename": "concurrent_test_2_ee325ed7_20250728_170101.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/concurrent_test_2_ee325ed7_20250728_170101.zip",
+      "archive_size": 375,
+      "deletion_date": "2025-07-28T17:01:01.723940",
+      "reason": "ユーザー削除"
+    },
+    {
+      "folder_name": "concurrent_test_4_ba6d6c1b",
+      "project_name": "並行テストプロジェクト5",
+      "description": "並行処理テスト用プロジェクト5",
+      "tags": "test5",
+      "status": "active",
+      "id": "59ff5728-63a6-4d99-8798-483937754e16",
+      "created_date": "2025-07-28T17:01:01.719739",
+      "modified_date": "2025-07-28T17:01:01.719739",
+      "archive_filename": "concurrent_test_4_ba6d6c1b_20250728_170101.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/concurrent_test_4_ba6d6c1b_20250728_170101.zip",
+      "archive_size": 375,
+      "deletion_date": "2025-07-28T17:01:01.725236",
+      "reason": "ユーザー削除"
+    },
+    {
+      "folder_name": "concurrent_test_0_2d83d836",
+      "project_name": "並行テストプロジェクト1",
+      "description": "並行処理テスト用プロジェクト1",
+      "tags": "test1",
+      "status": "active",
+      "id": "f5a03448-9b95-4b0d-bdee-bb9394282d31",
+      "created_date": "2025-07-28T17:02:13.338155",
+      "modified_date": "2025-07-28T17:02:13.338155",
+      "archive_filename": "concurrent_test_0_2d83d836_20250728_170213.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/concurrent_test_0_2d83d836_20250728_170213.zip",
+      "archive_size": 375,
+      "deletion_date": "2025-07-28T17:02:13.348167",
+      "reason": "ユーザー削除"
+    },
+    {
+      "folder_name": "concurrent_test_2_cc450da3",
+      "project_name": "並行テストプロジェクト3",
+      "description": "並行処理テスト用プロジェクト3",
+      "tags": "test3",
+      "status": "active",
+      "id": "e1c81e4f-5442-4448-90ea-88d84d031106",
+      "created_date": "2025-07-28T17:02:13.342054",
+      "modified_date": "2025-07-28T17:02:13.342054",
+      "archive_filename": "concurrent_test_2_cc450da3_20250728_170213.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/concurrent_test_2_cc450da3_20250728_170213.zip",
+      "archive_size": 374,
+      "deletion_date": "2025-07-28T17:02:13.349390",
+      "reason": "ユーザー削除"
+    },
+    {
+      "folder_name": "concurrent_test_4_73d0fb17",
+      "project_name": "並行テストプロジェクト5",
+      "description": "並行処理テスト用プロジェクト5",
+      "tags": "test5",
+      "status": "active",
+      "id": "ea790dc1-2fad-4e1e-ae29-f57de39d2fcd",
+      "created_date": "2025-07-28T17:02:13.345182",
+      "modified_date": "2025-07-28T17:02:13.345182",
+      "archive_filename": "concurrent_test_4_73d0fb17_20250728_170213.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/concurrent_test_4_73d0fb17_20250728_170213.zip",
+      "archive_size": 376,
+      "deletion_date": "2025-07-28T17:02:13.350711",
+      "reason": "ユーザー削除"
+    },
+    {
+      "folder_name": "concurrent_test_0_1fb7ac72",
+      "project_name": "並行テストプロジェクト1",
+      "description": "並行処理テスト用プロジェクト1",
+      "tags": "test1",
+      "status": "active",
+      "id": "89308044-b174-4b8f-828a-f2ca1c7e969f",
+      "created_date": "2025-07-28T17:03:10.525040",
+      "modified_date": "2025-07-28T17:03:10.525040",
+      "archive_filename": "concurrent_test_0_1fb7ac72_20250728_170310.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/concurrent_test_0_1fb7ac72_20250728_170310.zip",
+      "archive_size": 375,
+      "deletion_date": "2025-07-28T17:03:10.536131",
+      "reason": "ユーザー削除"
+    },
+    {
+      "folder_name": "concurrent_test_2_cd5b71e5",
+      "project_name": "並行テストプロジェクト3",
+      "description": "並行処理テスト用プロジェクト3",
+      "tags": "test3",
+      "status": "active",
+      "id": "3f5c31c8-b469-49bd-b191-683d973467a7",
+      "created_date": "2025-07-28T17:03:10.528416",
+      "modified_date": "2025-07-28T17:03:10.528416",
+      "archive_filename": "concurrent_test_2_cd5b71e5_20250728_170310.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/concurrent_test_2_cd5b71e5_20250728_170310.zip",
+      "archive_size": 376,
+      "deletion_date": "2025-07-28T17:03:10.537484",
+      "reason": "ユーザー削除"
+    },
+    {
+      "folder_name": "concurrent_test_4_b6a0a86d",
+      "project_name": "並行テストプロジェクト5",
+      "description": "並行処理テスト用プロジェクト5",
+      "tags": "test5",
+      "status": "active",
+      "id": "e9ab4e07-42a4-40a9-b720-3b5f25b70c4b",
+      "created_date": "2025-07-28T17:03:10.532732",
+      "modified_date": "2025-07-28T17:03:10.532732",
+      "archive_filename": "concurrent_test_4_b6a0a86d_20250728_170310.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/concurrent_test_4_b6a0a86d_20250728_170310.zip",
+      "archive_size": 375,
+      "deletion_date": "2025-07-28T17:03:10.538741",
+      "reason": "ユーザー削除"
+    }
+  ],
+  "reserved_folders": [
+    "node_modules",
+    "dist",
+    "build",
+    ".git",
+    "backend",
+    "frontend",
+    "trash",
+    "recycle_bin",
+    "deleted",
+    ".trash"
+  ]
+}
+ステータス: 200
+---
+
+[2025-07-29 12:30:53] GET /api/projects/
+リクエスト: {'lang': ['ja']}
+レスポンス: {
+  "version": "1.0.0",
+  "last_updated": "2025-07-29T09:43:02.366552",
+  "retention_months": 13,
+  "projects": [
+    {
+      "folder_name": "testProject",
+      "project_name": "テストのためのプロジェクト",
+      "description": "テストです。サンプルファイルとサブフォルダが追加されました。",
+      "tags": [
+        "sample"
+      ],
+      "status": "active",
+      "id": "2cec431a-0416-4451-a43b-fdc85e0c5c62",
+      "created_date": "2025-07-24T23:31:44.186614",
+      "modified_date": "2025-07-27T20:33:51.353635"
+    },
+    {
+      "folder_name": "ichikawa",
+      "project_name": "市川アパートの家賃",
+      "description": "重回帰分析のテスト用",
+      "tags": [],
+      "status": "active",
+      "id": "3779d95d-d923-435b-8da0-2a157940d95b",
+      "created_date": "2025-07-28T19:10:51.399660",
+      "modified_date": "2025-07-28T19:10:51.399660"
+    },
+    {
+      "folder_name": "test_project_4f1b6ebf",
+      "project_name": "テストプロジェクト",
+      "description": "ライフサイクルテスト用プロジェクト",
+      "tags": "lifecycle",
+      "status": "active",
+      "id": "d2c7d39b-c3a4-4591-9f89-b7f1def829d3",
+      "created_date": "2025-07-29T09:43:02.366552",
+      "modified_date": "2025-07-29T09:43:02.366552"
+    }
+  ],
+  "archived_projects": [
+    {
+      "folder_name": "direct_test_project",
+      "project_name": "直接テストプロジェクト",
+      "description": "直接テスト用プロジェクト",
+      "tags": [
+        "test"
+      ],
+      "status": "active",
+      "id": "82886a55-fe6c-4559-9dfa-27aeb21e924e",
+      "created_date": "2025-07-27T10:37:56.949497",
+      "modified_date": "2025-07-27T10:37:56.949497",
+      "archive_filename": "direct_test_project_20250727_103756.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/direct_test_project_20250727_103756.zip",
+      "archive_size": 347,
+      "deletion_date": "2025-07-27T10:37:56.952974",
+      "reason": "ユーザー削除"
+    },
+    {
+      "folder_name": "success_test_project",
+      "project_name": "成功テストプロジェクト",
+      "description": "正常に作成されるべきプロジェクト",
+      "tags": [
+        "success",
+        "test"
+      ],
+      "status": "active",
+      "id": "658786da-0f80-4434-bf7c-4e389df4b9b2",
+      "created_date": "2025-07-27T10:38:36.034282",
+      "modified_date": "2025-07-27T10:38:36.034282",
+      "archive_filename": "success_test_project_20250727_103836.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/success_test_project_20250727_103836.zip",
+      "archive_size": 385,
+      "deletion_date": "2025-07-27T10:38:36.035929",
+      "reason": "ユーザー削除"
+    },
+    {
+      "folder_name": "save_test",
+      "project_name": "セーブテスト",
+      "description": "セーブテスト（フォルダが存在しないため移動）",
+      "tags": [],
+      "status": "active",
+      "id": "bb5830e9-e13c-4960-bc25-fa8045a272e9",
+      "created_date": "2025-07-27T10:37:56.948759",
+      "modified_date": "2025-07-27T10:37:56.948769",
+      "archive_filename": "save_test_auto_archived.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/save_test_auto_archived.zip",
+      "archive_size": 0,
+      "deletion_date": "2025-07-27T17:30:00.000000",
+      "reason": "フォルダが存在しないため自動アーカイブ"
+    },
+    {
+      "folder_name": "test_project_simple",
+      "project_name": "Simple Test Project",
+      "description": "A simple test project（不正データのため移動）",
+      "tags": [
+        "test"
+      ],
+      "status": "active",
+      "id": "bd7e7a94-fce7-471b-9dce-7e4c1bcb8255",
+      "created_date": "2025-07-27T16:08:14.889746",
+      "modified_date": "2025-07-27T16:08:14.889746",
+      "archive_filename": "test_project_simple_invalid_data.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/test_project_simple_invalid_data.zip",
+      "archive_size": 0,
+      "deletion_date": "2025-07-27T17:30:00.000000",
+      "reason": "不正な配列データのため自動アーカイブ"
+    },
+    {
+      "folder_name": "test_project_simple",
+      "project_name": "Simple Test Project",
+      "description": "A simple test project（重複データのため移動）",
+      "tags": [
+        "test"
+      ],
+      "status": "active",
+      "id": "7e7be177-9396-4e40-baf3-0b15c2310500",
+      "created_date": "2025-07-27T16:42:31.526622",
+      "modified_date": "2025-07-27T16:42:31.526622",
+      "archive_filename": "test_project_simple_duplicate.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/test_project_simple_duplicate.zip",
+      "archive_size": 0,
+      "deletion_date": "2025-07-27T17:30:00.000000",
+      "reason": "重複データのため自動アーカイブ"
+    },
+    {
+      "folder_name": "error_mix_test_valid",
+      "project_name": [
+        "更新済み正常プロジェクト"
+      ],
+      "description": "正常なプロジェクト",
+      "status": "active",
+      "id": "b053ecbe-e6b0-468f-a128-2a09f8bc912f",
+      "created_date": "2025-07-28T16:19:11.123684",
+      "modified_date": "2025-07-28T16:19:11.125795",
+      "tags": [],
+      "archive_filename": "error_mix_test_valid_20250728_161911.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/error_mix_test_valid_20250728_161911.zip",
+      "archive_size": 340,
+      "deletion_date": "2025-07-28T16:19:11.128968",
+      "reason": "ユーザー削除"
+    },
+    {
+      "folder_name": "concurrent_test_0_66622648",
+      "project_name": "並行テストプロジェクト1",
+      "description": "並行処理テスト用プロジェクト1",
+      "tags": "test1",
+      "status": "active",
+      "id": "93f59528-8874-43e2-9046-8aa7f20cec4e",
+      "created_date": "2025-07-28T16:19:11.132327",
+      "modified_date": "2025-07-28T16:19:11.132327",
+      "archive_filename": "concurrent_test_0_66622648_20250728_161911.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/concurrent_test_0_66622648_20250728_161911.zip",
+      "archive_size": 376,
+      "deletion_date": "2025-07-28T16:19:11.138207",
+      "reason": "ユーザー削除"
+    },
+    {
+      "folder_name": "concurrent_test_2_e609d57b",
+      "project_name": "並行テストプロジェクト3",
+      "description": "並行処理テスト用プロジェクト3",
+      "tags": "test3",
+      "status": "active",
+      "id": "19800ff7-d7fc-4ab4-85e5-d16075ee81bc",
+      "created_date": "2025-07-28T16:19:11.134657",
+      "modified_date": "2025-07-28T16:19:11.134657",
+      "archive_filename": "concurrent_test_2_e609d57b_20250728_161911.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/concurrent_test_2_e609d57b_20250728_161911.zip",
+      "archive_size": 376,
+      "deletion_date": "2025-07-28T16:19:11.139132",
+      "reason": "ユーザー削除"
+    },
+    {
+      "folder_name": "concurrent_test_4_092f0468",
+      "project_name": "並行テストプロジェクト5",
+      "description": "並行処理テスト用プロジェクト5",
+      "tags": "test5",
+      "status": "active",
+      "id": "09e9dfc9-ca4f-44f4-986a-03f567c8ce12",
+      "created_date": "2025-07-28T16:19:11.136815",
+      "modified_date": "2025-07-28T16:19:11.136815",
+      "archive_filename": "concurrent_test_4_092f0468_20250728_161911.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/concurrent_test_4_092f0468_20250728_161911.zip",
+      "archive_size": 374,
+      "deletion_date": "2025-07-28T16:19:11.139959",
+      "reason": "ユーザー削除"
+    },
+    {
+      "folder_name": "concurrent_test_0_efcb15fd",
+      "project_name": "並行テストプロジェクト1",
+      "description": "並行処理テスト用プロジェクト1",
+      "tags": "test1",
+      "status": "active",
+      "id": "b8bdfef1-663d-4317-9733-520b7c82ef4c",
+      "created_date": "2025-07-28T17:01:01.713250",
+      "modified_date": "2025-07-28T17:01:01.713250",
+      "archive_filename": "concurrent_test_0_efcb15fd_20250728_170101.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/concurrent_test_0_efcb15fd_20250728_170101.zip",
+      "archive_size": 375,
+      "deletion_date": "2025-07-28T17:01:01.722770",
+      "reason": "ユーザー削除"
+    },
+    {
+      "folder_name": "concurrent_test_2_ee325ed7",
+      "project_name": "並行テストプロジェクト3",
+      "description": "並行処理テスト用プロジェクト3",
+      "tags": "test3",
+      "status": "active",
+      "id": "96aec4c7-1934-4a4d-a124-648cedab3cce",
+      "created_date": "2025-07-28T17:01:01.716608",
+      "modified_date": "2025-07-28T17:01:01.716608",
+      "archive_filename": "concurrent_test_2_ee325ed7_20250728_170101.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/concurrent_test_2_ee325ed7_20250728_170101.zip",
+      "archive_size": 375,
+      "deletion_date": "2025-07-28T17:01:01.723940",
+      "reason": "ユーザー削除"
+    },
+    {
+      "folder_name": "concurrent_test_4_ba6d6c1b",
+      "project_name": "並行テストプロジェクト5",
+      "description": "並行処理テスト用プロジェクト5",
+      "tags": "test5",
+      "status": "active",
+      "id": "59ff5728-63a6-4d99-8798-483937754e16",
+      "created_date": "2025-07-28T17:01:01.719739",
+      "modified_date": "2025-07-28T17:01:01.719739",
+      "archive_filename": "concurrent_test_4_ba6d6c1b_20250728_170101.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/concurrent_test_4_ba6d6c1b_20250728_170101.zip",
+      "archive_size": 375,
+      "deletion_date": "2025-07-28T17:01:01.725236",
+      "reason": "ユーザー削除"
+    },
+    {
+      "folder_name": "concurrent_test_0_2d83d836",
+      "project_name": "並行テストプロジェクト1",
+      "description": "並行処理テスト用プロジェクト1",
+      "tags": "test1",
+      "status": "active",
+      "id": "f5a03448-9b95-4b0d-bdee-bb9394282d31",
+      "created_date": "2025-07-28T17:02:13.338155",
+      "modified_date": "2025-07-28T17:02:13.338155",
+      "archive_filename": "concurrent_test_0_2d83d836_20250728_170213.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/concurrent_test_0_2d83d836_20250728_170213.zip",
+      "archive_size": 375,
+      "deletion_date": "2025-07-28T17:02:13.348167",
+      "reason": "ユーザー削除"
+    },
+    {
+      "folder_name": "concurrent_test_2_cc450da3",
+      "project_name": "並行テストプロジェクト3",
+      "description": "並行処理テスト用プロジェクト3",
+      "tags": "test3",
+      "status": "active",
+      "id": "e1c81e4f-5442-4448-90ea-88d84d031106",
+      "created_date": "2025-07-28T17:02:13.342054",
+      "modified_date": "2025-07-28T17:02:13.342054",
+      "archive_filename": "concurrent_test_2_cc450da3_20250728_170213.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/concurrent_test_2_cc450da3_20250728_170213.zip",
+      "archive_size": 374,
+      "deletion_date": "2025-07-28T17:02:13.349390",
+      "reason": "ユーザー削除"
+    },
+    {
+      "folder_name": "concurrent_test_4_73d0fb17",
+      "project_name": "並行テストプロジェクト5",
+      "description": "並行処理テスト用プロジェクト5",
+      "tags": "test5",
+      "status": "active",
+      "id": "ea790dc1-2fad-4e1e-ae29-f57de39d2fcd",
+      "created_date": "2025-07-28T17:02:13.345182",
+      "modified_date": "2025-07-28T17:02:13.345182",
+      "archive_filename": "concurrent_test_4_73d0fb17_20250728_170213.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/concurrent_test_4_73d0fb17_20250728_170213.zip",
+      "archive_size": 376,
+      "deletion_date": "2025-07-28T17:02:13.350711",
+      "reason": "ユーザー削除"
+    },
+    {
+      "folder_name": "concurrent_test_0_1fb7ac72",
+      "project_name": "並行テストプロジェクト1",
+      "description": "並行処理テスト用プロジェクト1",
+      "tags": "test1",
+      "status": "active",
+      "id": "89308044-b174-4b8f-828a-f2ca1c7e969f",
+      "created_date": "2025-07-28T17:03:10.525040",
+      "modified_date": "2025-07-28T17:03:10.525040",
+      "archive_filename": "concurrent_test_0_1fb7ac72_20250728_170310.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/concurrent_test_0_1fb7ac72_20250728_170310.zip",
+      "archive_size": 375,
+      "deletion_date": "2025-07-28T17:03:10.536131",
+      "reason": "ユーザー削除"
+    },
+    {
+      "folder_name": "concurrent_test_2_cd5b71e5",
+      "project_name": "並行テストプロジェクト3",
+      "description": "並行処理テスト用プロジェクト3",
+      "tags": "test3",
+      "status": "active",
+      "id": "3f5c31c8-b469-49bd-b191-683d973467a7",
+      "created_date": "2025-07-28T17:03:10.528416",
+      "modified_date": "2025-07-28T17:03:10.528416",
+      "archive_filename": "concurrent_test_2_cd5b71e5_20250728_170310.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/concurrent_test_2_cd5b71e5_20250728_170310.zip",
+      "archive_size": 376,
+      "deletion_date": "2025-07-28T17:03:10.537484",
+      "reason": "ユーザー削除"
+    },
+    {
+      "folder_name": "concurrent_test_4_b6a0a86d",
+      "project_name": "並行テストプロジェクト5",
+      "description": "並行処理テスト用プロジェクト5",
+      "tags": "test5",
+      "status": "active",
+      "id": "e9ab4e07-42a4-40a9-b720-3b5f25b70c4b",
+      "created_date": "2025-07-28T17:03:10.532732",
+      "modified_date": "2025-07-28T17:03:10.532732",
+      "archive_filename": "concurrent_test_4_b6a0a86d_20250728_170310.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/concurrent_test_4_b6a0a86d_20250728_170310.zip",
+      "archive_size": 375,
+      "deletion_date": "2025-07-28T17:03:10.538741",
+      "reason": "ユーザー削除"
+    }
+  ],
+  "reserved_folders": [
+    "node_modules",
+    "dist",
+    "build",
+    ".git",
+    "backend",
+    "frontend",
+    "trash",
+    "recycle_bin",
+    "deleted",
+    ".trash"
+  ]
+}
+ステータス: 200
+---
+
+[2025-07-29 12:30:53] GET /api/projects/
+リクエスト: {'lang': ['ja']}
+レスポンス: {
+  "version": "1.0.0",
+  "last_updated": "2025-07-29T09:43:02.366552",
+  "retention_months": 13,
+  "projects": [
+    {
+      "folder_name": "testProject",
+      "project_name": "テストのためのプロジェクト",
+      "description": "テストです。サンプルファイルとサブフォルダが追加されました。",
+      "tags": [
+        "sample"
+      ],
+      "status": "active",
+      "id": "2cec431a-0416-4451-a43b-fdc85e0c5c62",
+      "created_date": "2025-07-24T23:31:44.186614",
+      "modified_date": "2025-07-27T20:33:51.353635"
+    },
+    {
+      "folder_name": "ichikawa",
+      "project_name": "市川アパートの家賃",
+      "description": "重回帰分析のテスト用",
+      "tags": [],
+      "status": "active",
+      "id": "3779d95d-d923-435b-8da0-2a157940d95b",
+      "created_date": "2025-07-28T19:10:51.399660",
+      "modified_date": "2025-07-28T19:10:51.399660"
+    },
+    {
+      "folder_name": "test_project_4f1b6ebf",
+      "project_name": "テストプロジェクト",
+      "description": "ライフサイクルテスト用プロジェクト",
+      "tags": "lifecycle",
+      "status": "active",
+      "id": "d2c7d39b-c3a4-4591-9f89-b7f1def829d3",
+      "created_date": "2025-07-29T09:43:02.366552",
+      "modified_date": "2025-07-29T09:43:02.366552"
+    }
+  ],
+  "archived_projects": [
+    {
+      "folder_name": "direct_test_project",
+      "project_name": "直接テストプロジェクト",
+      "description": "直接テスト用プロジェクト",
+      "tags": [
+        "test"
+      ],
+      "status": "active",
+      "id": "82886a55-fe6c-4559-9dfa-27aeb21e924e",
+      "created_date": "2025-07-27T10:37:56.949497",
+      "modified_date": "2025-07-27T10:37:56.949497",
+      "archive_filename": "direct_test_project_20250727_103756.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/direct_test_project_20250727_103756.zip",
+      "archive_size": 347,
+      "deletion_date": "2025-07-27T10:37:56.952974",
+      "reason": "ユーザー削除"
+    },
+    {
+      "folder_name": "success_test_project",
+      "project_name": "成功テストプロジェクト",
+      "description": "正常に作成されるべきプロジェクト",
+      "tags": [
+        "success",
+        "test"
+      ],
+      "status": "active",
+      "id": "658786da-0f80-4434-bf7c-4e389df4b9b2",
+      "created_date": "2025-07-27T10:38:36.034282",
+      "modified_date": "2025-07-27T10:38:36.034282",
+      "archive_filename": "success_test_project_20250727_103836.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/success_test_project_20250727_103836.zip",
+      "archive_size": 385,
+      "deletion_date": "2025-07-27T10:38:36.035929",
+      "reason": "ユーザー削除"
+    },
+    {
+      "folder_name": "save_test",
+      "project_name": "セーブテスト",
+      "description": "セーブテスト（フォルダが存在しないため移動）",
+      "tags": [],
+      "status": "active",
+      "id": "bb5830e9-e13c-4960-bc25-fa8045a272e9",
+      "created_date": "2025-07-27T10:37:56.948759",
+      "modified_date": "2025-07-27T10:37:56.948769",
+      "archive_filename": "save_test_auto_archived.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/save_test_auto_archived.zip",
+      "archive_size": 0,
+      "deletion_date": "2025-07-27T17:30:00.000000",
+      "reason": "フォルダが存在しないため自動アーカイブ"
+    },
+    {
+      "folder_name": "test_project_simple",
+      "project_name": "Simple Test Project",
+      "description": "A simple test project（不正データのため移動）",
+      "tags": [
+        "test"
+      ],
+      "status": "active",
+      "id": "bd7e7a94-fce7-471b-9dce-7e4c1bcb8255",
+      "created_date": "2025-07-27T16:08:14.889746",
+      "modified_date": "2025-07-27T16:08:14.889746",
+      "archive_filename": "test_project_simple_invalid_data.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/test_project_simple_invalid_data.zip",
+      "archive_size": 0,
+      "deletion_date": "2025-07-27T17:30:00.000000",
+      "reason": "不正な配列データのため自動アーカイブ"
+    },
+    {
+      "folder_name": "test_project_simple",
+      "project_name": "Simple Test Project",
+      "description": "A simple test project（重複データのため移動）",
+      "tags": [
+        "test"
+      ],
+      "status": "active",
+      "id": "7e7be177-9396-4e40-baf3-0b15c2310500",
+      "created_date": "2025-07-27T16:42:31.526622",
+      "modified_date": "2025-07-27T16:42:31.526622",
+      "archive_filename": "test_project_simple_duplicate.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/test_project_simple_duplicate.zip",
+      "archive_size": 0,
+      "deletion_date": "2025-07-27T17:30:00.000000",
+      "reason": "重複データのため自動アーカイブ"
+    },
+    {
+      "folder_name": "error_mix_test_valid",
+      "project_name": [
+        "更新済み正常プロジェクト"
+      ],
+      "description": "正常なプロジェクト",
+      "status": "active",
+      "id": "b053ecbe-e6b0-468f-a128-2a09f8bc912f",
+      "created_date": "2025-07-28T16:19:11.123684",
+      "modified_date": "2025-07-28T16:19:11.125795",
+      "tags": [],
+      "archive_filename": "error_mix_test_valid_20250728_161911.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/error_mix_test_valid_20250728_161911.zip",
+      "archive_size": 340,
+      "deletion_date": "2025-07-28T16:19:11.128968",
+      "reason": "ユーザー削除"
+    },
+    {
+      "folder_name": "concurrent_test_0_66622648",
+      "project_name": "並行テストプロジェクト1",
+      "description": "並行処理テスト用プロジェクト1",
+      "tags": "test1",
+      "status": "active",
+      "id": "93f59528-8874-43e2-9046-8aa7f20cec4e",
+      "created_date": "2025-07-28T16:19:11.132327",
+      "modified_date": "2025-07-28T16:19:11.132327",
+      "archive_filename": "concurrent_test_0_66622648_20250728_161911.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/concurrent_test_0_66622648_20250728_161911.zip",
+      "archive_size": 376,
+      "deletion_date": "2025-07-28T16:19:11.138207",
+      "reason": "ユーザー削除"
+    },
+    {
+      "folder_name": "concurrent_test_2_e609d57b",
+      "project_name": "並行テストプロジェクト3",
+      "description": "並行処理テスト用プロジェクト3",
+      "tags": "test3",
+      "status": "active",
+      "id": "19800ff7-d7fc-4ab4-85e5-d16075ee81bc",
+      "created_date": "2025-07-28T16:19:11.134657",
+      "modified_date": "2025-07-28T16:19:11.134657",
+      "archive_filename": "concurrent_test_2_e609d57b_20250728_161911.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/concurrent_test_2_e609d57b_20250728_161911.zip",
+      "archive_size": 376,
+      "deletion_date": "2025-07-28T16:19:11.139132",
+      "reason": "ユーザー削除"
+    },
+    {
+      "folder_name": "concurrent_test_4_092f0468",
+      "project_name": "並行テストプロジェクト5",
+      "description": "並行処理テスト用プロジェクト5",
+      "tags": "test5",
+      "status": "active",
+      "id": "09e9dfc9-ca4f-44f4-986a-03f567c8ce12",
+      "created_date": "2025-07-28T16:19:11.136815",
+      "modified_date": "2025-07-28T16:19:11.136815",
+      "archive_filename": "concurrent_test_4_092f0468_20250728_161911.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/concurrent_test_4_092f0468_20250728_161911.zip",
+      "archive_size": 374,
+      "deletion_date": "2025-07-28T16:19:11.139959",
+      "reason": "ユーザー削除"
+    },
+    {
+      "folder_name": "concurrent_test_0_efcb15fd",
+      "project_name": "並行テストプロジェクト1",
+      "description": "並行処理テスト用プロジェクト1",
+      "tags": "test1",
+      "status": "active",
+      "id": "b8bdfef1-663d-4317-9733-520b7c82ef4c",
+      "created_date": "2025-07-28T17:01:01.713250",
+      "modified_date": "2025-07-28T17:01:01.713250",
+      "archive_filename": "concurrent_test_0_efcb15fd_20250728_170101.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/concurrent_test_0_efcb15fd_20250728_170101.zip",
+      "archive_size": 375,
+      "deletion_date": "2025-07-28T17:01:01.722770",
+      "reason": "ユーザー削除"
+    },
+    {
+      "folder_name": "concurrent_test_2_ee325ed7",
+      "project_name": "並行テストプロジェクト3",
+      "description": "並行処理テスト用プロジェクト3",
+      "tags": "test3",
+      "status": "active",
+      "id": "96aec4c7-1934-4a4d-a124-648cedab3cce",
+      "created_date": "2025-07-28T17:01:01.716608",
+      "modified_date": "2025-07-28T17:01:01.716608",
+      "archive_filename": "concurrent_test_2_ee325ed7_20250728_170101.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/concurrent_test_2_ee325ed7_20250728_170101.zip",
+      "archive_size": 375,
+      "deletion_date": "2025-07-28T17:01:01.723940",
+      "reason": "ユーザー削除"
+    },
+    {
+      "folder_name": "concurrent_test_4_ba6d6c1b",
+      "project_name": "並行テストプロジェクト5",
+      "description": "並行処理テスト用プロジェクト5",
+      "tags": "test5",
+      "status": "active",
+      "id": "59ff5728-63a6-4d99-8798-483937754e16",
+      "created_date": "2025-07-28T17:01:01.719739",
+      "modified_date": "2025-07-28T17:01:01.719739",
+      "archive_filename": "concurrent_test_4_ba6d6c1b_20250728_170101.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/concurrent_test_4_ba6d6c1b_20250728_170101.zip",
+      "archive_size": 375,
+      "deletion_date": "2025-07-28T17:01:01.725236",
+      "reason": "ユーザー削除"
+    },
+    {
+      "folder_name": "concurrent_test_0_2d83d836",
+      "project_name": "並行テストプロジェクト1",
+      "description": "並行処理テスト用プロジェクト1",
+      "tags": "test1",
+      "status": "active",
+      "id": "f5a03448-9b95-4b0d-bdee-bb9394282d31",
+      "created_date": "2025-07-28T17:02:13.338155",
+      "modified_date": "2025-07-28T17:02:13.338155",
+      "archive_filename": "concurrent_test_0_2d83d836_20250728_170213.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/concurrent_test_0_2d83d836_20250728_170213.zip",
+      "archive_size": 375,
+      "deletion_date": "2025-07-28T17:02:13.348167",
+      "reason": "ユーザー削除"
+    },
+    {
+      "folder_name": "concurrent_test_2_cc450da3",
+      "project_name": "並行テストプロジェクト3",
+      "description": "並行処理テスト用プロジェクト3",
+      "tags": "test3",
+      "status": "active",
+      "id": "e1c81e4f-5442-4448-90ea-88d84d031106",
+      "created_date": "2025-07-28T17:02:13.342054",
+      "modified_date": "2025-07-28T17:02:13.342054",
+      "archive_filename": "concurrent_test_2_cc450da3_20250728_170213.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/concurrent_test_2_cc450da3_20250728_170213.zip",
+      "archive_size": 374,
+      "deletion_date": "2025-07-28T17:02:13.349390",
+      "reason": "ユーザー削除"
+    },
+    {
+      "folder_name": "concurrent_test_4_73d0fb17",
+      "project_name": "並行テストプロジェクト5",
+      "description": "並行処理テスト用プロジェクト5",
+      "tags": "test5",
+      "status": "active",
+      "id": "ea790dc1-2fad-4e1e-ae29-f57de39d2fcd",
+      "created_date": "2025-07-28T17:02:13.345182",
+      "modified_date": "2025-07-28T17:02:13.345182",
+      "archive_filename": "concurrent_test_4_73d0fb17_20250728_170213.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/concurrent_test_4_73d0fb17_20250728_170213.zip",
+      "archive_size": 376,
+      "deletion_date": "2025-07-28T17:02:13.350711",
+      "reason": "ユーザー削除"
+    },
+    {
+      "folder_name": "concurrent_test_0_1fb7ac72",
+      "project_name": "並行テストプロジェクト1",
+      "description": "並行処理テスト用プロジェクト1",
+      "tags": "test1",
+      "status": "active",
+      "id": "89308044-b174-4b8f-828a-f2ca1c7e969f",
+      "created_date": "2025-07-28T17:03:10.525040",
+      "modified_date": "2025-07-28T17:03:10.525040",
+      "archive_filename": "concurrent_test_0_1fb7ac72_20250728_170310.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/concurrent_test_0_1fb7ac72_20250728_170310.zip",
+      "archive_size": 375,
+      "deletion_date": "2025-07-28T17:03:10.536131",
+      "reason": "ユーザー削除"
+    },
+    {
+      "folder_name": "concurrent_test_2_cd5b71e5",
+      "project_name": "並行テストプロジェクト3",
+      "description": "並行処理テスト用プロジェクト3",
+      "tags": "test3",
+      "status": "active",
+      "id": "3f5c31c8-b469-49bd-b191-683d973467a7",
+      "created_date": "2025-07-28T17:03:10.528416",
+      "modified_date": "2025-07-28T17:03:10.528416",
+      "archive_filename": "concurrent_test_2_cd5b71e5_20250728_170310.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/concurrent_test_2_cd5b71e5_20250728_170310.zip",
+      "archive_size": 376,
+      "deletion_date": "2025-07-28T17:03:10.537484",
+      "reason": "ユーザー削除"
+    },
+    {
+      "folder_name": "concurrent_test_4_b6a0a86d",
+      "project_name": "並行テストプロジェクト5",
+      "description": "並行処理テスト用プロジェクト5",
+      "tags": "test5",
+      "status": "active",
+      "id": "e9ab4e07-42a4-40a9-b720-3b5f25b70c4b",
+      "created_date": "2025-07-28T17:03:10.532732",
+      "modified_date": "2025-07-28T17:03:10.532732",
+      "archive_filename": "concurrent_test_4_b6a0a86d_20250728_170310.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/concurrent_test_4_b6a0a86d_20250728_170310.zip",
+      "archive_size": 375,
+      "deletion_date": "2025-07-28T17:03:10.538741",
+      "reason": "ユーザー削除"
+    }
+  ],
+  "reserved_folders": [
+    "node_modules",
+    "dist",
+    "build",
+    ".git",
+    "backend",
+    "frontend",
+    "trash",
+    "recycle_bin",
+    "deleted",
+    ".trash"
+  ]
+}
+ステータス: 200
+---
+
+[2025-07-29 12:30:57] GET /api/projects/
+リクエスト: {}
+レスポンス: {
+  "version": "1.0.0",
+  "last_updated": "2025-07-29T09:43:02.366552",
+  "retention_months": 13,
+  "projects": [
+    {
+      "folder_name": "testProject",
+      "project_name": "テストのためのプロジェクト",
+      "description": "テストです。サンプルファイルとサブフォルダが追加されました。",
+      "tags": [
+        "sample"
+      ],
+      "status": "active",
+      "id": "2cec431a-0416-4451-a43b-fdc85e0c5c62",
+      "created_date": "2025-07-24T23:31:44.186614",
+      "modified_date": "2025-07-27T20:33:51.353635"
+    },
+    {
+      "folder_name": "ichikawa",
+      "project_name": "市川アパートの家賃",
+      "description": "重回帰分析のテスト用",
+      "tags": [],
+      "status": "active",
+      "id": "3779d95d-d923-435b-8da0-2a157940d95b",
+      "created_date": "2025-07-28T19:10:51.399660",
+      "modified_date": "2025-07-28T19:10:51.399660"
+    },
+    {
+      "folder_name": "test_project_4f1b6ebf",
+      "project_name": "テストプロジェクト",
+      "description": "ライフサイクルテスト用プロジェクト",
+      "tags": "lifecycle",
+      "status": "active",
+      "id": "d2c7d39b-c3a4-4591-9f89-b7f1def829d3",
+      "created_date": "2025-07-29T09:43:02.366552",
+      "modified_date": "2025-07-29T09:43:02.366552"
+    }
+  ],
+  "archived_projects": [
+    {
+      "folder_name": "direct_test_project",
+      "project_name": "直接テストプロジェクト",
+      "description": "直接テスト用プロジェクト",
+      "tags": [
+        "test"
+      ],
+      "status": "active",
+      "id": "82886a55-fe6c-4559-9dfa-27aeb21e924e",
+      "created_date": "2025-07-27T10:37:56.949497",
+      "modified_date": "2025-07-27T10:37:56.949497",
+      "archive_filename": "direct_test_project_20250727_103756.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/direct_test_project_20250727_103756.zip",
+      "archive_size": 347,
+      "deletion_date": "2025-07-27T10:37:56.952974",
+      "reason": "ユーザー削除"
+    },
+    {
+      "folder_name": "success_test_project",
+      "project_name": "成功テストプロジェクト",
+      "description": "正常に作成されるべきプロジェクト",
+      "tags": [
+        "success",
+        "test"
+      ],
+      "status": "active",
+      "id": "658786da-0f80-4434-bf7c-4e389df4b9b2",
+      "created_date": "2025-07-27T10:38:36.034282",
+      "modified_date": "2025-07-27T10:38:36.034282",
+      "archive_filename": "success_test_project_20250727_103836.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/success_test_project_20250727_103836.zip",
+      "archive_size": 385,
+      "deletion_date": "2025-07-27T10:38:36.035929",
+      "reason": "ユーザー削除"
+    },
+    {
+      "folder_name": "save_test",
+      "project_name": "セーブテスト",
+      "description": "セーブテスト（フォルダが存在しないため移動）",
+      "tags": [],
+      "status": "active",
+      "id": "bb5830e9-e13c-4960-bc25-fa8045a272e9",
+      "created_date": "2025-07-27T10:37:56.948759",
+      "modified_date": "2025-07-27T10:37:56.948769",
+      "archive_filename": "save_test_auto_archived.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/save_test_auto_archived.zip",
+      "archive_size": 0,
+      "deletion_date": "2025-07-27T17:30:00.000000",
+      "reason": "フォルダが存在しないため自動アーカイブ"
+    },
+    {
+      "folder_name": "test_project_simple",
+      "project_name": "Simple Test Project",
+      "description": "A simple test project（不正データのため移動）",
+      "tags": [
+        "test"
+      ],
+      "status": "active",
+      "id": "bd7e7a94-fce7-471b-9dce-7e4c1bcb8255",
+      "created_date": "2025-07-27T16:08:14.889746",
+      "modified_date": "2025-07-27T16:08:14.889746",
+      "archive_filename": "test_project_simple_invalid_data.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/test_project_simple_invalid_data.zip",
+      "archive_size": 0,
+      "deletion_date": "2025-07-27T17:30:00.000000",
+      "reason": "不正な配列データのため自動アーカイブ"
+    },
+    {
+      "folder_name": "test_project_simple",
+      "project_name": "Simple Test Project",
+      "description": "A simple test project（重複データのため移動）",
+      "tags": [
+        "test"
+      ],
+      "status": "active",
+      "id": "7e7be177-9396-4e40-baf3-0b15c2310500",
+      "created_date": "2025-07-27T16:42:31.526622",
+      "modified_date": "2025-07-27T16:42:31.526622",
+      "archive_filename": "test_project_simple_duplicate.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/test_project_simple_duplicate.zip",
+      "archive_size": 0,
+      "deletion_date": "2025-07-27T17:30:00.000000",
+      "reason": "重複データのため自動アーカイブ"
+    },
+    {
+      "folder_name": "error_mix_test_valid",
+      "project_name": [
+        "更新済み正常プロジェクト"
+      ],
+      "description": "正常なプロジェクト",
+      "status": "active",
+      "id": "b053ecbe-e6b0-468f-a128-2a09f8bc912f",
+      "created_date": "2025-07-28T16:19:11.123684",
+      "modified_date": "2025-07-28T16:19:11.125795",
+      "tags": [],
+      "archive_filename": "error_mix_test_valid_20250728_161911.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/error_mix_test_valid_20250728_161911.zip",
+      "archive_size": 340,
+      "deletion_date": "2025-07-28T16:19:11.128968",
+      "reason": "ユーザー削除"
+    },
+    {
+      "folder_name": "concurrent_test_0_66622648",
+      "project_name": "並行テストプロジェクト1",
+      "description": "並行処理テスト用プロジェクト1",
+      "tags": "test1",
+      "status": "active",
+      "id": "93f59528-8874-43e2-9046-8aa7f20cec4e",
+      "created_date": "2025-07-28T16:19:11.132327",
+      "modified_date": "2025-07-28T16:19:11.132327",
+      "archive_filename": "concurrent_test_0_66622648_20250728_161911.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/concurrent_test_0_66622648_20250728_161911.zip",
+      "archive_size": 376,
+      "deletion_date": "2025-07-28T16:19:11.138207",
+      "reason": "ユーザー削除"
+    },
+    {
+      "folder_name": "concurrent_test_2_e609d57b",
+      "project_name": "並行テストプロジェクト3",
+      "description": "並行処理テスト用プロジェクト3",
+      "tags": "test3",
+      "status": "active",
+      "id": "19800ff7-d7fc-4ab4-85e5-d16075ee81bc",
+      "created_date": "2025-07-28T16:19:11.134657",
+      "modified_date": "2025-07-28T16:19:11.134657",
+      "archive_filename": "concurrent_test_2_e609d57b_20250728_161911.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/concurrent_test_2_e609d57b_20250728_161911.zip",
+      "archive_size": 376,
+      "deletion_date": "2025-07-28T16:19:11.139132",
+      "reason": "ユーザー削除"
+    },
+    {
+      "folder_name": "concurrent_test_4_092f0468",
+      "project_name": "並行テストプロジェクト5",
+      "description": "並行処理テスト用プロジェクト5",
+      "tags": "test5",
+      "status": "active",
+      "id": "09e9dfc9-ca4f-44f4-986a-03f567c8ce12",
+      "created_date": "2025-07-28T16:19:11.136815",
+      "modified_date": "2025-07-28T16:19:11.136815",
+      "archive_filename": "concurrent_test_4_092f0468_20250728_161911.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/concurrent_test_4_092f0468_20250728_161911.zip",
+      "archive_size": 374,
+      "deletion_date": "2025-07-28T16:19:11.139959",
+      "reason": "ユーザー削除"
+    },
+    {
+      "folder_name": "concurrent_test_0_efcb15fd",
+      "project_name": "並行テストプロジェクト1",
+      "description": "並行処理テスト用プロジェクト1",
+      "tags": "test1",
+      "status": "active",
+      "id": "b8bdfef1-663d-4317-9733-520b7c82ef4c",
+      "created_date": "2025-07-28T17:01:01.713250",
+      "modified_date": "2025-07-28T17:01:01.713250",
+      "archive_filename": "concurrent_test_0_efcb15fd_20250728_170101.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/concurrent_test_0_efcb15fd_20250728_170101.zip",
+      "archive_size": 375,
+      "deletion_date": "2025-07-28T17:01:01.722770",
+      "reason": "ユーザー削除"
+    },
+    {
+      "folder_name": "concurrent_test_2_ee325ed7",
+      "project_name": "並行テストプロジェクト3",
+      "description": "並行処理テスト用プロジェクト3",
+      "tags": "test3",
+      "status": "active",
+      "id": "96aec4c7-1934-4a4d-a124-648cedab3cce",
+      "created_date": "2025-07-28T17:01:01.716608",
+      "modified_date": "2025-07-28T17:01:01.716608",
+      "archive_filename": "concurrent_test_2_ee325ed7_20250728_170101.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/concurrent_test_2_ee325ed7_20250728_170101.zip",
+      "archive_size": 375,
+      "deletion_date": "2025-07-28T17:01:01.723940",
+      "reason": "ユーザー削除"
+    },
+    {
+      "folder_name": "concurrent_test_4_ba6d6c1b",
+      "project_name": "並行テストプロジェクト5",
+      "description": "並行処理テスト用プロジェクト5",
+      "tags": "test5",
+      "status": "active",
+      "id": "59ff5728-63a6-4d99-8798-483937754e16",
+      "created_date": "2025-07-28T17:01:01.719739",
+      "modified_date": "2025-07-28T17:01:01.719739",
+      "archive_filename": "concurrent_test_4_ba6d6c1b_20250728_170101.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/concurrent_test_4_ba6d6c1b_20250728_170101.zip",
+      "archive_size": 375,
+      "deletion_date": "2025-07-28T17:01:01.725236",
+      "reason": "ユーザー削除"
+    },
+    {
+      "folder_name": "concurrent_test_0_2d83d836",
+      "project_name": "並行テストプロジェクト1",
+      "description": "並行処理テスト用プロジェクト1",
+      "tags": "test1",
+      "status": "active",
+      "id": "f5a03448-9b95-4b0d-bdee-bb9394282d31",
+      "created_date": "2025-07-28T17:02:13.338155",
+      "modified_date": "2025-07-28T17:02:13.338155",
+      "archive_filename": "concurrent_test_0_2d83d836_20250728_170213.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/concurrent_test_0_2d83d836_20250728_170213.zip",
+      "archive_size": 375,
+      "deletion_date": "2025-07-28T17:02:13.348167",
+      "reason": "ユーザー削除"
+    },
+    {
+      "folder_name": "concurrent_test_2_cc450da3",
+      "project_name": "並行テストプロジェクト3",
+      "description": "並行処理テスト用プロジェクト3",
+      "tags": "test3",
+      "status": "active",
+      "id": "e1c81e4f-5442-4448-90ea-88d84d031106",
+      "created_date": "2025-07-28T17:02:13.342054",
+      "modified_date": "2025-07-28T17:02:13.342054",
+      "archive_filename": "concurrent_test_2_cc450da3_20250728_170213.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/concurrent_test_2_cc450da3_20250728_170213.zip",
+      "archive_size": 374,
+      "deletion_date": "2025-07-28T17:02:13.349390",
+      "reason": "ユーザー削除"
+    },
+    {
+      "folder_name": "concurrent_test_4_73d0fb17",
+      "project_name": "並行テストプロジェクト5",
+      "description": "並行処理テスト用プロジェクト5",
+      "tags": "test5",
+      "status": "active",
+      "id": "ea790dc1-2fad-4e1e-ae29-f57de39d2fcd",
+      "created_date": "2025-07-28T17:02:13.345182",
+      "modified_date": "2025-07-28T17:02:13.345182",
+      "archive_filename": "concurrent_test_4_73d0fb17_20250728_170213.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/concurrent_test_4_73d0fb17_20250728_170213.zip",
+      "archive_size": 376,
+      "deletion_date": "2025-07-28T17:02:13.350711",
+      "reason": "ユーザー削除"
+    },
+    {
+      "folder_name": "concurrent_test_0_1fb7ac72",
+      "project_name": "並行テストプロジェクト1",
+      "description": "並行処理テスト用プロジェクト1",
+      "tags": "test1",
+      "status": "active",
+      "id": "89308044-b174-4b8f-828a-f2ca1c7e969f",
+      "created_date": "2025-07-28T17:03:10.525040",
+      "modified_date": "2025-07-28T17:03:10.525040",
+      "archive_filename": "concurrent_test_0_1fb7ac72_20250728_170310.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/concurrent_test_0_1fb7ac72_20250728_170310.zip",
+      "archive_size": 375,
+      "deletion_date": "2025-07-28T17:03:10.536131",
+      "reason": "ユーザー削除"
+    },
+    {
+      "folder_name": "concurrent_test_2_cd5b71e5",
+      "project_name": "並行テストプロジェクト3",
+      "description": "並行処理テスト用プロジェクト3",
+      "tags": "test3",
+      "status": "active",
+      "id": "3f5c31c8-b469-49bd-b191-683d973467a7",
+      "created_date": "2025-07-28T17:03:10.528416",
+      "modified_date": "2025-07-28T17:03:10.528416",
+      "archive_filename": "concurrent_test_2_cd5b71e5_20250728_170310.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/concurrent_test_2_cd5b71e5_20250728_170310.zip",
+      "archive_size": 376,
+      "deletion_date": "2025-07-28T17:03:10.537484",
+      "reason": "ユーザー削除"
+    },
+    {
+      "folder_name": "concurrent_test_4_b6a0a86d",
+      "project_name": "並行テストプロジェクト5",
+      "description": "並行処理テスト用プロジェクト5",
+      "tags": "test5",
+      "status": "active",
+      "id": "e9ab4e07-42a4-40a9-b720-3b5f25b70c4b",
+      "created_date": "2025-07-28T17:03:10.532732",
+      "modified_date": "2025-07-28T17:03:10.532732",
+      "archive_filename": "concurrent_test_4_b6a0a86d_20250728_170310.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/concurrent_test_4_b6a0a86d_20250728_170310.zip",
+      "archive_size": 375,
+      "deletion_date": "2025-07-28T17:03:10.538741",
+      "reason": "ユーザー削除"
+    }
+  ],
+  "reserved_folders": [
+    "node_modules",
+    "dist",
+    "build",
+    ".git",
+    "backend",
+    "frontend",
+    "trash",
+    "recycle_bin",
+    "deleted",
+    ".trash"
+  ]
+}
+ステータス: 200
+---
+
+[2025-07-29 12:30:57] GET /api/projects/
+リクエスト: {}
+レスポンス: {
+  "version": "1.0.0",
+  "last_updated": "2025-07-29T09:43:02.366552",
+  "retention_months": 13,
+  "projects": [
+    {
+      "folder_name": "testProject",
+      "project_name": "テストのためのプロジェクト",
+      "description": "テストです。サンプルファイルとサブフォルダが追加されました。",
+      "tags": [
+        "sample"
+      ],
+      "status": "active",
+      "id": "2cec431a-0416-4451-a43b-fdc85e0c5c62",
+      "created_date": "2025-07-24T23:31:44.186614",
+      "modified_date": "2025-07-27T20:33:51.353635"
+    },
+    {
+      "folder_name": "ichikawa",
+      "project_name": "市川アパートの家賃",
+      "description": "重回帰分析のテスト用",
+      "tags": [],
+      "status": "active",
+      "id": "3779d95d-d923-435b-8da0-2a157940d95b",
+      "created_date": "2025-07-28T19:10:51.399660",
+      "modified_date": "2025-07-28T19:10:51.399660"
+    },
+    {
+      "folder_name": "test_project_4f1b6ebf",
+      "project_name": "テストプロジェクト",
+      "description": "ライフサイクルテスト用プロジェクト",
+      "tags": "lifecycle",
+      "status": "active",
+      "id": "d2c7d39b-c3a4-4591-9f89-b7f1def829d3",
+      "created_date": "2025-07-29T09:43:02.366552",
+      "modified_date": "2025-07-29T09:43:02.366552"
+    }
+  ],
+  "archived_projects": [
+    {
+      "folder_name": "direct_test_project",
+      "project_name": "直接テストプロジェクト",
+      "description": "直接テスト用プロジェクト",
+      "tags": [
+        "test"
+      ],
+      "status": "active",
+      "id": "82886a55-fe6c-4559-9dfa-27aeb21e924e",
+      "created_date": "2025-07-27T10:37:56.949497",
+      "modified_date": "2025-07-27T10:37:56.949497",
+      "archive_filename": "direct_test_project_20250727_103756.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/direct_test_project_20250727_103756.zip",
+      "archive_size": 347,
+      "deletion_date": "2025-07-27T10:37:56.952974",
+      "reason": "ユーザー削除"
+    },
+    {
+      "folder_name": "success_test_project",
+      "project_name": "成功テストプロジェクト",
+      "description": "正常に作成されるべきプロジェクト",
+      "tags": [
+        "success",
+        "test"
+      ],
+      "status": "active",
+      "id": "658786da-0f80-4434-bf7c-4e389df4b9b2",
+      "created_date": "2025-07-27T10:38:36.034282",
+      "modified_date": "2025-07-27T10:38:36.034282",
+      "archive_filename": "success_test_project_20250727_103836.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/success_test_project_20250727_103836.zip",
+      "archive_size": 385,
+      "deletion_date": "2025-07-27T10:38:36.035929",
+      "reason": "ユーザー削除"
+    },
+    {
+      "folder_name": "save_test",
+      "project_name": "セーブテスト",
+      "description": "セーブテスト（フォルダが存在しないため移動）",
+      "tags": [],
+      "status": "active",
+      "id": "bb5830e9-e13c-4960-bc25-fa8045a272e9",
+      "created_date": "2025-07-27T10:37:56.948759",
+      "modified_date": "2025-07-27T10:37:56.948769",
+      "archive_filename": "save_test_auto_archived.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/save_test_auto_archived.zip",
+      "archive_size": 0,
+      "deletion_date": "2025-07-27T17:30:00.000000",
+      "reason": "フォルダが存在しないため自動アーカイブ"
+    },
+    {
+      "folder_name": "test_project_simple",
+      "project_name": "Simple Test Project",
+      "description": "A simple test project（不正データのため移動）",
+      "tags": [
+        "test"
+      ],
+      "status": "active",
+      "id": "bd7e7a94-fce7-471b-9dce-7e4c1bcb8255",
+      "created_date": "2025-07-27T16:08:14.889746",
+      "modified_date": "2025-07-27T16:08:14.889746",
+      "archive_filename": "test_project_simple_invalid_data.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/test_project_simple_invalid_data.zip",
+      "archive_size": 0,
+      "deletion_date": "2025-07-27T17:30:00.000000",
+      "reason": "不正な配列データのため自動アーカイブ"
+    },
+    {
+      "folder_name": "test_project_simple",
+      "project_name": "Simple Test Project",
+      "description": "A simple test project（重複データのため移動）",
+      "tags": [
+        "test"
+      ],
+      "status": "active",
+      "id": "7e7be177-9396-4e40-baf3-0b15c2310500",
+      "created_date": "2025-07-27T16:42:31.526622",
+      "modified_date": "2025-07-27T16:42:31.526622",
+      "archive_filename": "test_project_simple_duplicate.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/test_project_simple_duplicate.zip",
+      "archive_size": 0,
+      "deletion_date": "2025-07-27T17:30:00.000000",
+      "reason": "重複データのため自動アーカイブ"
+    },
+    {
+      "folder_name": "error_mix_test_valid",
+      "project_name": [
+        "更新済み正常プロジェクト"
+      ],
+      "description": "正常なプロジェクト",
+      "status": "active",
+      "id": "b053ecbe-e6b0-468f-a128-2a09f8bc912f",
+      "created_date": "2025-07-28T16:19:11.123684",
+      "modified_date": "2025-07-28T16:19:11.125795",
+      "tags": [],
+      "archive_filename": "error_mix_test_valid_20250728_161911.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/error_mix_test_valid_20250728_161911.zip",
+      "archive_size": 340,
+      "deletion_date": "2025-07-28T16:19:11.128968",
+      "reason": "ユーザー削除"
+    },
+    {
+      "folder_name": "concurrent_test_0_66622648",
+      "project_name": "並行テストプロジェクト1",
+      "description": "並行処理テスト用プロジェクト1",
+      "tags": "test1",
+      "status": "active",
+      "id": "93f59528-8874-43e2-9046-8aa7f20cec4e",
+      "created_date": "2025-07-28T16:19:11.132327",
+      "modified_date": "2025-07-28T16:19:11.132327",
+      "archive_filename": "concurrent_test_0_66622648_20250728_161911.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/concurrent_test_0_66622648_20250728_161911.zip",
+      "archive_size": 376,
+      "deletion_date": "2025-07-28T16:19:11.138207",
+      "reason": "ユーザー削除"
+    },
+    {
+      "folder_name": "concurrent_test_2_e609d57b",
+      "project_name": "並行テストプロジェクト3",
+      "description": "並行処理テスト用プロジェクト3",
+      "tags": "test3",
+      "status": "active",
+      "id": "19800ff7-d7fc-4ab4-85e5-d16075ee81bc",
+      "created_date": "2025-07-28T16:19:11.134657",
+      "modified_date": "2025-07-28T16:19:11.134657",
+      "archive_filename": "concurrent_test_2_e609d57b_20250728_161911.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/concurrent_test_2_e609d57b_20250728_161911.zip",
+      "archive_size": 376,
+      "deletion_date": "2025-07-28T16:19:11.139132",
+      "reason": "ユーザー削除"
+    },
+    {
+      "folder_name": "concurrent_test_4_092f0468",
+      "project_name": "並行テストプロジェクト5",
+      "description": "並行処理テスト用プロジェクト5",
+      "tags": "test5",
+      "status": "active",
+      "id": "09e9dfc9-ca4f-44f4-986a-03f567c8ce12",
+      "created_date": "2025-07-28T16:19:11.136815",
+      "modified_date": "2025-07-28T16:19:11.136815",
+      "archive_filename": "concurrent_test_4_092f0468_20250728_161911.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/concurrent_test_4_092f0468_20250728_161911.zip",
+      "archive_size": 374,
+      "deletion_date": "2025-07-28T16:19:11.139959",
+      "reason": "ユーザー削除"
+    },
+    {
+      "folder_name": "concurrent_test_0_efcb15fd",
+      "project_name": "並行テストプロジェクト1",
+      "description": "並行処理テスト用プロジェクト1",
+      "tags": "test1",
+      "status": "active",
+      "id": "b8bdfef1-663d-4317-9733-520b7c82ef4c",
+      "created_date": "2025-07-28T17:01:01.713250",
+      "modified_date": "2025-07-28T17:01:01.713250",
+      "archive_filename": "concurrent_test_0_efcb15fd_20250728_170101.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/concurrent_test_0_efcb15fd_20250728_170101.zip",
+      "archive_size": 375,
+      "deletion_date": "2025-07-28T17:01:01.722770",
+      "reason": "ユーザー削除"
+    },
+    {
+      "folder_name": "concurrent_test_2_ee325ed7",
+      "project_name": "並行テストプロジェクト3",
+      "description": "並行処理テスト用プロジェクト3",
+      "tags": "test3",
+      "status": "active",
+      "id": "96aec4c7-1934-4a4d-a124-648cedab3cce",
+      "created_date": "2025-07-28T17:01:01.716608",
+      "modified_date": "2025-07-28T17:01:01.716608",
+      "archive_filename": "concurrent_test_2_ee325ed7_20250728_170101.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/concurrent_test_2_ee325ed7_20250728_170101.zip",
+      "archive_size": 375,
+      "deletion_date": "2025-07-28T17:01:01.723940",
+      "reason": "ユーザー削除"
+    },
+    {
+      "folder_name": "concurrent_test_4_ba6d6c1b",
+      "project_name": "並行テストプロジェクト5",
+      "description": "並行処理テスト用プロジェクト5",
+      "tags": "test5",
+      "status": "active",
+      "id": "59ff5728-63a6-4d99-8798-483937754e16",
+      "created_date": "2025-07-28T17:01:01.719739",
+      "modified_date": "2025-07-28T17:01:01.719739",
+      "archive_filename": "concurrent_test_4_ba6d6c1b_20250728_170101.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/concurrent_test_4_ba6d6c1b_20250728_170101.zip",
+      "archive_size": 375,
+      "deletion_date": "2025-07-28T17:01:01.725236",
+      "reason": "ユーザー削除"
+    },
+    {
+      "folder_name": "concurrent_test_0_2d83d836",
+      "project_name": "並行テストプロジェクト1",
+      "description": "並行処理テスト用プロジェクト1",
+      "tags": "test1",
+      "status": "active",
+      "id": "f5a03448-9b95-4b0d-bdee-bb9394282d31",
+      "created_date": "2025-07-28T17:02:13.338155",
+      "modified_date": "2025-07-28T17:02:13.338155",
+      "archive_filename": "concurrent_test_0_2d83d836_20250728_170213.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/concurrent_test_0_2d83d836_20250728_170213.zip",
+      "archive_size": 375,
+      "deletion_date": "2025-07-28T17:02:13.348167",
+      "reason": "ユーザー削除"
+    },
+    {
+      "folder_name": "concurrent_test_2_cc450da3",
+      "project_name": "並行テストプロジェクト3",
+      "description": "並行処理テスト用プロジェクト3",
+      "tags": "test3",
+      "status": "active",
+      "id": "e1c81e4f-5442-4448-90ea-88d84d031106",
+      "created_date": "2025-07-28T17:02:13.342054",
+      "modified_date": "2025-07-28T17:02:13.342054",
+      "archive_filename": "concurrent_test_2_cc450da3_20250728_170213.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/concurrent_test_2_cc450da3_20250728_170213.zip",
+      "archive_size": 374,
+      "deletion_date": "2025-07-28T17:02:13.349390",
+      "reason": "ユーザー削除"
+    },
+    {
+      "folder_name": "concurrent_test_4_73d0fb17",
+      "project_name": "並行テストプロジェクト5",
+      "description": "並行処理テスト用プロジェクト5",
+      "tags": "test5",
+      "status": "active",
+      "id": "ea790dc1-2fad-4e1e-ae29-f57de39d2fcd",
+      "created_date": "2025-07-28T17:02:13.345182",
+      "modified_date": "2025-07-28T17:02:13.345182",
+      "archive_filename": "concurrent_test_4_73d0fb17_20250728_170213.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/concurrent_test_4_73d0fb17_20250728_170213.zip",
+      "archive_size": 376,
+      "deletion_date": "2025-07-28T17:02:13.350711",
+      "reason": "ユーザー削除"
+    },
+    {
+      "folder_name": "concurrent_test_0_1fb7ac72",
+      "project_name": "並行テストプロジェクト1",
+      "description": "並行処理テスト用プロジェクト1",
+      "tags": "test1",
+      "status": "active",
+      "id": "89308044-b174-4b8f-828a-f2ca1c7e969f",
+      "created_date": "2025-07-28T17:03:10.525040",
+      "modified_date": "2025-07-28T17:03:10.525040",
+      "archive_filename": "concurrent_test_0_1fb7ac72_20250728_170310.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/concurrent_test_0_1fb7ac72_20250728_170310.zip",
+      "archive_size": 375,
+      "deletion_date": "2025-07-28T17:03:10.536131",
+      "reason": "ユーザー削除"
+    },
+    {
+      "folder_name": "concurrent_test_2_cd5b71e5",
+      "project_name": "並行テストプロジェクト3",
+      "description": "並行処理テスト用プロジェクト3",
+      "tags": "test3",
+      "status": "active",
+      "id": "3f5c31c8-b469-49bd-b191-683d973467a7",
+      "created_date": "2025-07-28T17:03:10.528416",
+      "modified_date": "2025-07-28T17:03:10.528416",
+      "archive_filename": "concurrent_test_2_cd5b71e5_20250728_170310.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/concurrent_test_2_cd5b71e5_20250728_170310.zip",
+      "archive_size": 376,
+      "deletion_date": "2025-07-28T17:03:10.537484",
+      "reason": "ユーザー削除"
+    },
+    {
+      "folder_name": "concurrent_test_4_b6a0a86d",
+      "project_name": "並行テストプロジェクト5",
+      "description": "並行処理テスト用プロジェクト5",
+      "tags": "test5",
+      "status": "active",
+      "id": "e9ab4e07-42a4-40a9-b720-3b5f25b70c4b",
+      "created_date": "2025-07-28T17:03:10.532732",
+      "modified_date": "2025-07-28T17:03:10.532732",
+      "archive_filename": "concurrent_test_4_b6a0a86d_20250728_170310.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/concurrent_test_4_b6a0a86d_20250728_170310.zip",
+      "archive_size": 375,
+      "deletion_date": "2025-07-28T17:03:10.538741",
+      "reason": "ユーザー削除"
+    }
+  ],
+  "reserved_folders": [
+    "node_modules",
+    "dist",
+    "build",
+    ".git",
+    "backend",
+    "frontend",
+    "trash",
+    "recycle_bin",
+    "deleted",
+    ".trash"
+  ]
+}
+ステータス: 200
+---
+
+[2025-07-29 12:30:57] GET /api/files/tree/ichikawa/
+リクエスト: {}
+レスポンス: {
+  "name": "raw",
+  "path": ".",
+  "type": "directory",
+  "size": 0,
+  "modified": "2025-07-28T19:11:20.600562",
+  "children": [
+    {
+      "name": "市川市アパートの家賃.csv",
+      "path": "市川市アパートの家賃.csv",
+      "type": "file",
+      "size": 20449,
+      "modified": "2025-07-28T19:11:20.600562",
+      "children": [],
+      "comment_count": 0,
+      "has_comments": false
+    }
+  ],
+  "comment_count": 0,
+  "has_comments": false
+}
+ステータス: 200
+---
+
+[2025-07-29 12:30:57] GET /api/files/tree/ichikawa/
+リクエスト: {}
+レスポンス: {
+  "name": "raw",
+  "path": ".",
+  "type": "directory",
+  "size": 0,
+  "modified": "2025-07-28T19:11:20.600562",
+  "children": [
+    {
+      "name": "市川市アパートの家賃.csv",
+      "path": "市川市アパートの家賃.csv",
+      "type": "file",
+      "size": 20449,
+      "modified": "2025-07-28T19:11:20.600562",
+      "children": [],
+      "comment_count": 0,
+      "has_comments": false
+    }
+  ],
+  "comment_count": 0,
+  "has_comments": false
+}
+ステータス: 200
+---
+
+[2025-07-29 12:31:00] GET /api/files/tags/ichikawa/
+リクエスト: {'file_path': ['市川市アパートの家賃.csv']}
+レスポンス: {
+  "tags": [
+    "分析データ",
+    "項目データ"
+  ]
+}
+ステータス: 200
+---
+
+[2025-07-29 12:31:00] GET /api/files/descriptions/ichikawa/
+リクエスト: {'file_path': ['市川市アパートの家賃.csv']}
+レスポンス: {
+  "description": "市川市のアパート家賃データテスト\n"
+}
+ステータス: 200
+---
+
+[2025-07-29 12:31:11] GET /api/files/tags/ichikawa/
+リクエスト: {'file_path': ['市川市アパートの家賃.csv']}
+レスポンス: {
+  "tags": [
+    "分析データ",
+    "項目データ"
+  ]
+}
+ステータス: 200
+---
+
+[2025-07-29 12:31:11] GET /api/files/table/ichikawa/
+リクエスト: {'file_path': ['市川市アパートの家賃.csv']}
+レスポンス: {
+  "error": "FILE_NOT_FOUND",
+  "message": "An unexpected error occurred. Please try again later"
+}
+ステータス: 404
+---
+
+[2025-07-29 12:31:11] GET /api/files/table/ichikawa/
+リクエスト: {'file_path': ['市川市アパートの家賃.csv']}
+レスポンス: {
+  "error": "FILE_NOT_FOUND",
+  "message": "An unexpected error occurred. Please try again later"
+}
+ステータス: 404
+---
+
+[2025-07-29 12:31:16] GET /api/projects/
+リクエスト: {}
+レスポンス: {
+  "version": "1.0.0",
+  "last_updated": "2025-07-29T09:43:02.366552",
+  "retention_months": 13,
+  "projects": [
+    {
+      "folder_name": "testProject",
+      "project_name": "テストのためのプロジェクト",
+      "description": "テストです。サンプルファイルとサブフォルダが追加されました。",
+      "tags": [
+        "sample"
+      ],
+      "status": "active",
+      "id": "2cec431a-0416-4451-a43b-fdc85e0c5c62",
+      "created_date": "2025-07-24T23:31:44.186614",
+      "modified_date": "2025-07-27T20:33:51.353635"
+    },
+    {
+      "folder_name": "ichikawa",
+      "project_name": "市川アパートの家賃",
+      "description": "重回帰分析のテスト用",
+      "tags": [],
+      "status": "active",
+      "id": "3779d95d-d923-435b-8da0-2a157940d95b",
+      "created_date": "2025-07-28T19:10:51.399660",
+      "modified_date": "2025-07-28T19:10:51.399660"
+    },
+    {
+      "folder_name": "test_project_4f1b6ebf",
+      "project_name": "テストプロジェクト",
+      "description": "ライフサイクルテスト用プロジェクト",
+      "tags": "lifecycle",
+      "status": "active",
+      "id": "d2c7d39b-c3a4-4591-9f89-b7f1def829d3",
+      "created_date": "2025-07-29T09:43:02.366552",
+      "modified_date": "2025-07-29T09:43:02.366552"
+    }
+  ],
+  "archived_projects": [
+    {
+      "folder_name": "direct_test_project",
+      "project_name": "直接テストプロジェクト",
+      "description": "直接テスト用プロジェクト",
+      "tags": [
+        "test"
+      ],
+      "status": "active",
+      "id": "82886a55-fe6c-4559-9dfa-27aeb21e924e",
+      "created_date": "2025-07-27T10:37:56.949497",
+      "modified_date": "2025-07-27T10:37:56.949497",
+      "archive_filename": "direct_test_project_20250727_103756.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/direct_test_project_20250727_103756.zip",
+      "archive_size": 347,
+      "deletion_date": "2025-07-27T10:37:56.952974",
+      "reason": "ユーザー削除"
+    },
+    {
+      "folder_name": "success_test_project",
+      "project_name": "成功テストプロジェクト",
+      "description": "正常に作成されるべきプロジェクト",
+      "tags": [
+        "success",
+        "test"
+      ],
+      "status": "active",
+      "id": "658786da-0f80-4434-bf7c-4e389df4b9b2",
+      "created_date": "2025-07-27T10:38:36.034282",
+      "modified_date": "2025-07-27T10:38:36.034282",
+      "archive_filename": "success_test_project_20250727_103836.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/success_test_project_20250727_103836.zip",
+      "archive_size": 385,
+      "deletion_date": "2025-07-27T10:38:36.035929",
+      "reason": "ユーザー削除"
+    },
+    {
+      "folder_name": "save_test",
+      "project_name": "セーブテスト",
+      "description": "セーブテスト（フォルダが存在しないため移動）",
+      "tags": [],
+      "status": "active",
+      "id": "bb5830e9-e13c-4960-bc25-fa8045a272e9",
+      "created_date": "2025-07-27T10:37:56.948759",
+      "modified_date": "2025-07-27T10:37:56.948769",
+      "archive_filename": "save_test_auto_archived.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/save_test_auto_archived.zip",
+      "archive_size": 0,
+      "deletion_date": "2025-07-27T17:30:00.000000",
+      "reason": "フォルダが存在しないため自動アーカイブ"
+    },
+    {
+      "folder_name": "test_project_simple",
+      "project_name": "Simple Test Project",
+      "description": "A simple test project（不正データのため移動）",
+      "tags": [
+        "test"
+      ],
+      "status": "active",
+      "id": "bd7e7a94-fce7-471b-9dce-7e4c1bcb8255",
+      "created_date": "2025-07-27T16:08:14.889746",
+      "modified_date": "2025-07-27T16:08:14.889746",
+      "archive_filename": "test_project_simple_invalid_data.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/test_project_simple_invalid_data.zip",
+      "archive_size": 0,
+      "deletion_date": "2025-07-27T17:30:00.000000",
+      "reason": "不正な配列データのため自動アーカイブ"
+    },
+    {
+      "folder_name": "test_project_simple",
+      "project_name": "Simple Test Project",
+      "description": "A simple test project（重複データのため移動）",
+      "tags": [
+        "test"
+      ],
+      "status": "active",
+      "id": "7e7be177-9396-4e40-baf3-0b15c2310500",
+      "created_date": "2025-07-27T16:42:31.526622",
+      "modified_date": "2025-07-27T16:42:31.526622",
+      "archive_filename": "test_project_simple_duplicate.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/test_project_simple_duplicate.zip",
+      "archive_size": 0,
+      "deletion_date": "2025-07-27T17:30:00.000000",
+      "reason": "重複データのため自動アーカイブ"
+    },
+    {
+      "folder_name": "error_mix_test_valid",
+      "project_name": [
+        "更新済み正常プロジェクト"
+      ],
+      "description": "正常なプロジェクト",
+      "status": "active",
+      "id": "b053ecbe-e6b0-468f-a128-2a09f8bc912f",
+      "created_date": "2025-07-28T16:19:11.123684",
+      "modified_date": "2025-07-28T16:19:11.125795",
+      "tags": [],
+      "archive_filename": "error_mix_test_valid_20250728_161911.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/error_mix_test_valid_20250728_161911.zip",
+      "archive_size": 340,
+      "deletion_date": "2025-07-28T16:19:11.128968",
+      "reason": "ユーザー削除"
+    },
+    {
+      "folder_name": "concurrent_test_0_66622648",
+      "project_name": "並行テストプロジェクト1",
+      "description": "並行処理テスト用プロジェクト1",
+      "tags": "test1",
+      "status": "active",
+      "id": "93f59528-8874-43e2-9046-8aa7f20cec4e",
+      "created_date": "2025-07-28T16:19:11.132327",
+      "modified_date": "2025-07-28T16:19:11.132327",
+      "archive_filename": "concurrent_test_0_66622648_20250728_161911.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/concurrent_test_0_66622648_20250728_161911.zip",
+      "archive_size": 376,
+      "deletion_date": "2025-07-28T16:19:11.138207",
+      "reason": "ユーザー削除"
+    },
+    {
+      "folder_name": "concurrent_test_2_e609d57b",
+      "project_name": "並行テストプロジェクト3",
+      "description": "並行処理テスト用プロジェクト3",
+      "tags": "test3",
+      "status": "active",
+      "id": "19800ff7-d7fc-4ab4-85e5-d16075ee81bc",
+      "created_date": "2025-07-28T16:19:11.134657",
+      "modified_date": "2025-07-28T16:19:11.134657",
+      "archive_filename": "concurrent_test_2_e609d57b_20250728_161911.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/concurrent_test_2_e609d57b_20250728_161911.zip",
+      "archive_size": 376,
+      "deletion_date": "2025-07-28T16:19:11.139132",
+      "reason": "ユーザー削除"
+    },
+    {
+      "folder_name": "concurrent_test_4_092f0468",
+      "project_name": "並行テストプロジェクト5",
+      "description": "並行処理テスト用プロジェクト5",
+      "tags": "test5",
+      "status": "active",
+      "id": "09e9dfc9-ca4f-44f4-986a-03f567c8ce12",
+      "created_date": "2025-07-28T16:19:11.136815",
+      "modified_date": "2025-07-28T16:19:11.136815",
+      "archive_filename": "concurrent_test_4_092f0468_20250728_161911.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/concurrent_test_4_092f0468_20250728_161911.zip",
+      "archive_size": 374,
+      "deletion_date": "2025-07-28T16:19:11.139959",
+      "reason": "ユーザー削除"
+    },
+    {
+      "folder_name": "concurrent_test_0_efcb15fd",
+      "project_name": "並行テストプロジェクト1",
+      "description": "並行処理テスト用プロジェクト1",
+      "tags": "test1",
+      "status": "active",
+      "id": "b8bdfef1-663d-4317-9733-520b7c82ef4c",
+      "created_date": "2025-07-28T17:01:01.713250",
+      "modified_date": "2025-07-28T17:01:01.713250",
+      "archive_filename": "concurrent_test_0_efcb15fd_20250728_170101.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/concurrent_test_0_efcb15fd_20250728_170101.zip",
+      "archive_size": 375,
+      "deletion_date": "2025-07-28T17:01:01.722770",
+      "reason": "ユーザー削除"
+    },
+    {
+      "folder_name": "concurrent_test_2_ee325ed7",
+      "project_name": "並行テストプロジェクト3",
+      "description": "並行処理テスト用プロジェクト3",
+      "tags": "test3",
+      "status": "active",
+      "id": "96aec4c7-1934-4a4d-a124-648cedab3cce",
+      "created_date": "2025-07-28T17:01:01.716608",
+      "modified_date": "2025-07-28T17:01:01.716608",
+      "archive_filename": "concurrent_test_2_ee325ed7_20250728_170101.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/concurrent_test_2_ee325ed7_20250728_170101.zip",
+      "archive_size": 375,
+      "deletion_date": "2025-07-28T17:01:01.723940",
+      "reason": "ユーザー削除"
+    },
+    {
+      "folder_name": "concurrent_test_4_ba6d6c1b",
+      "project_name": "並行テストプロジェクト5",
+      "description": "並行処理テスト用プロジェクト5",
+      "tags": "test5",
+      "status": "active",
+      "id": "59ff5728-63a6-4d99-8798-483937754e16",
+      "created_date": "2025-07-28T17:01:01.719739",
+      "modified_date": "2025-07-28T17:01:01.719739",
+      "archive_filename": "concurrent_test_4_ba6d6c1b_20250728_170101.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/concurrent_test_4_ba6d6c1b_20250728_170101.zip",
+      "archive_size": 375,
+      "deletion_date": "2025-07-28T17:01:01.725236",
+      "reason": "ユーザー削除"
+    },
+    {
+      "folder_name": "concurrent_test_0_2d83d836",
+      "project_name": "並行テストプロジェクト1",
+      "description": "並行処理テスト用プロジェクト1",
+      "tags": "test1",
+      "status": "active",
+      "id": "f5a03448-9b95-4b0d-bdee-bb9394282d31",
+      "created_date": "2025-07-28T17:02:13.338155",
+      "modified_date": "2025-07-28T17:02:13.338155",
+      "archive_filename": "concurrent_test_0_2d83d836_20250728_170213.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/concurrent_test_0_2d83d836_20250728_170213.zip",
+      "archive_size": 375,
+      "deletion_date": "2025-07-28T17:02:13.348167",
+      "reason": "ユーザー削除"
+    },
+    {
+      "folder_name": "concurrent_test_2_cc450da3",
+      "project_name": "並行テストプロジェクト3",
+      "description": "並行処理テスト用プロジェクト3",
+      "tags": "test3",
+      "status": "active",
+      "id": "e1c81e4f-5442-4448-90ea-88d84d031106",
+      "created_date": "2025-07-28T17:02:13.342054",
+      "modified_date": "2025-07-28T17:02:13.342054",
+      "archive_filename": "concurrent_test_2_cc450da3_20250728_170213.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/concurrent_test_2_cc450da3_20250728_170213.zip",
+      "archive_size": 374,
+      "deletion_date": "2025-07-28T17:02:13.349390",
+      "reason": "ユーザー削除"
+    },
+    {
+      "folder_name": "concurrent_test_4_73d0fb17",
+      "project_name": "並行テストプロジェクト5",
+      "description": "並行処理テスト用プロジェクト5",
+      "tags": "test5",
+      "status": "active",
+      "id": "ea790dc1-2fad-4e1e-ae29-f57de39d2fcd",
+      "created_date": "2025-07-28T17:02:13.345182",
+      "modified_date": "2025-07-28T17:02:13.345182",
+      "archive_filename": "concurrent_test_4_73d0fb17_20250728_170213.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/concurrent_test_4_73d0fb17_20250728_170213.zip",
+      "archive_size": 376,
+      "deletion_date": "2025-07-28T17:02:13.350711",
+      "reason": "ユーザー削除"
+    },
+    {
+      "folder_name": "concurrent_test_0_1fb7ac72",
+      "project_name": "並行テストプロジェクト1",
+      "description": "並行処理テスト用プロジェクト1",
+      "tags": "test1",
+      "status": "active",
+      "id": "89308044-b174-4b8f-828a-f2ca1c7e969f",
+      "created_date": "2025-07-28T17:03:10.525040",
+      "modified_date": "2025-07-28T17:03:10.525040",
+      "archive_filename": "concurrent_test_0_1fb7ac72_20250728_170310.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/concurrent_test_0_1fb7ac72_20250728_170310.zip",
+      "archive_size": 375,
+      "deletion_date": "2025-07-28T17:03:10.536131",
+      "reason": "ユーザー削除"
+    },
+    {
+      "folder_name": "concurrent_test_2_cd5b71e5",
+      "project_name": "並行テストプロジェクト3",
+      "description": "並行処理テスト用プロジェクト3",
+      "tags": "test3",
+      "status": "active",
+      "id": "3f5c31c8-b469-49bd-b191-683d973467a7",
+      "created_date": "2025-07-28T17:03:10.528416",
+      "modified_date": "2025-07-28T17:03:10.528416",
+      "archive_filename": "concurrent_test_2_cd5b71e5_20250728_170310.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/concurrent_test_2_cd5b71e5_20250728_170310.zip",
+      "archive_size": 376,
+      "deletion_date": "2025-07-28T17:03:10.537484",
+      "reason": "ユーザー削除"
+    },
+    {
+      "folder_name": "concurrent_test_4_b6a0a86d",
+      "project_name": "並行テストプロジェクト5",
+      "description": "並行処理テスト用プロジェクト5",
+      "tags": "test5",
+      "status": "active",
+      "id": "e9ab4e07-42a4-40a9-b720-3b5f25b70c4b",
+      "created_date": "2025-07-28T17:03:10.532732",
+      "modified_date": "2025-07-28T17:03:10.532732",
+      "archive_filename": "concurrent_test_4_b6a0a86d_20250728_170310.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/concurrent_test_4_b6a0a86d_20250728_170310.zip",
+      "archive_size": 375,
+      "deletion_date": "2025-07-28T17:03:10.538741",
+      "reason": "ユーザー削除"
+    }
+  ],
+  "reserved_folders": [
+    "node_modules",
+    "dist",
+    "build",
+    ".git",
+    "backend",
+    "frontend",
+    "trash",
+    "recycle_bin",
+    "deleted",
+    ".trash"
+  ]
+}
+ステータス: 200
+---
+
+[2025-07-29 12:31:16] GET /api/files/tree/ichikawa/
+リクエスト: {}
+レスポンス: {
+  "name": "raw",
+  "path": ".",
+  "type": "directory",
+  "size": 0,
+  "modified": "2025-07-28T19:11:20.600562",
+  "children": [
+    {
+      "name": "市川市アパートの家賃.csv",
+      "path": "市川市アパートの家賃.csv",
+      "type": "file",
+      "size": 20449,
+      "modified": "2025-07-28T19:11:20.600562",
+      "children": [],
+      "comment_count": 0,
+      "has_comments": false
+    }
+  ],
+  "comment_count": 0,
+  "has_comments": false
+}
+ステータス: 200
+---
+
+[2025-07-29 12:31:16] GET /api/projects/
+リクエスト: {}
+レスポンス: {
+  "version": "1.0.0",
+  "last_updated": "2025-07-29T09:43:02.366552",
+  "retention_months": 13,
+  "projects": [
+    {
+      "folder_name": "testProject",
+      "project_name": "テストのためのプロジェクト",
+      "description": "テストです。サンプルファイルとサブフォルダが追加されました。",
+      "tags": [
+        "sample"
+      ],
+      "status": "active",
+      "id": "2cec431a-0416-4451-a43b-fdc85e0c5c62",
+      "created_date": "2025-07-24T23:31:44.186614",
+      "modified_date": "2025-07-27T20:33:51.353635"
+    },
+    {
+      "folder_name": "ichikawa",
+      "project_name": "市川アパートの家賃",
+      "description": "重回帰分析のテスト用",
+      "tags": [],
+      "status": "active",
+      "id": "3779d95d-d923-435b-8da0-2a157940d95b",
+      "created_date": "2025-07-28T19:10:51.399660",
+      "modified_date": "2025-07-28T19:10:51.399660"
+    },
+    {
+      "folder_name": "test_project_4f1b6ebf",
+      "project_name": "テストプロジェクト",
+      "description": "ライフサイクルテスト用プロジェクト",
+      "tags": "lifecycle",
+      "status": "active",
+      "id": "d2c7d39b-c3a4-4591-9f89-b7f1def829d3",
+      "created_date": "2025-07-29T09:43:02.366552",
+      "modified_date": "2025-07-29T09:43:02.366552"
+    }
+  ],
+  "archived_projects": [
+    {
+      "folder_name": "direct_test_project",
+      "project_name": "直接テストプロジェクト",
+      "description": "直接テスト用プロジェクト",
+      "tags": [
+        "test"
+      ],
+      "status": "active",
+      "id": "82886a55-fe6c-4559-9dfa-27aeb21e924e",
+      "created_date": "2025-07-27T10:37:56.949497",
+      "modified_date": "2025-07-27T10:37:56.949497",
+      "archive_filename": "direct_test_project_20250727_103756.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/direct_test_project_20250727_103756.zip",
+      "archive_size": 347,
+      "deletion_date": "2025-07-27T10:37:56.952974",
+      "reason": "ユーザー削除"
+    },
+    {
+      "folder_name": "success_test_project",
+      "project_name": "成功テストプロジェクト",
+      "description": "正常に作成されるべきプロジェクト",
+      "tags": [
+        "success",
+        "test"
+      ],
+      "status": "active",
+      "id": "658786da-0f80-4434-bf7c-4e389df4b9b2",
+      "created_date": "2025-07-27T10:38:36.034282",
+      "modified_date": "2025-07-27T10:38:36.034282",
+      "archive_filename": "success_test_project_20250727_103836.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/success_test_project_20250727_103836.zip",
+      "archive_size": 385,
+      "deletion_date": "2025-07-27T10:38:36.035929",
+      "reason": "ユーザー削除"
+    },
+    {
+      "folder_name": "save_test",
+      "project_name": "セーブテスト",
+      "description": "セーブテスト（フォルダが存在しないため移動）",
+      "tags": [],
+      "status": "active",
+      "id": "bb5830e9-e13c-4960-bc25-fa8045a272e9",
+      "created_date": "2025-07-27T10:37:56.948759",
+      "modified_date": "2025-07-27T10:37:56.948769",
+      "archive_filename": "save_test_auto_archived.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/save_test_auto_archived.zip",
+      "archive_size": 0,
+      "deletion_date": "2025-07-27T17:30:00.000000",
+      "reason": "フォルダが存在しないため自動アーカイブ"
+    },
+    {
+      "folder_name": "test_project_simple",
+      "project_name": "Simple Test Project",
+      "description": "A simple test project（不正データのため移動）",
+      "tags": [
+        "test"
+      ],
+      "status": "active",
+      "id": "bd7e7a94-fce7-471b-9dce-7e4c1bcb8255",
+      "created_date": "2025-07-27T16:08:14.889746",
+      "modified_date": "2025-07-27T16:08:14.889746",
+      "archive_filename": "test_project_simple_invalid_data.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/test_project_simple_invalid_data.zip",
+      "archive_size": 0,
+      "deletion_date": "2025-07-27T17:30:00.000000",
+      "reason": "不正な配列データのため自動アーカイブ"
+    },
+    {
+      "folder_name": "test_project_simple",
+      "project_name": "Simple Test Project",
+      "description": "A simple test project（重複データのため移動）",
+      "tags": [
+        "test"
+      ],
+      "status": "active",
+      "id": "7e7be177-9396-4e40-baf3-0b15c2310500",
+      "created_date": "2025-07-27T16:42:31.526622",
+      "modified_date": "2025-07-27T16:42:31.526622",
+      "archive_filename": "test_project_simple_duplicate.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/test_project_simple_duplicate.zip",
+      "archive_size": 0,
+      "deletion_date": "2025-07-27T17:30:00.000000",
+      "reason": "重複データのため自動アーカイブ"
+    },
+    {
+      "folder_name": "error_mix_test_valid",
+      "project_name": [
+        "更新済み正常プロジェクト"
+      ],
+      "description": "正常なプロジェクト",
+      "status": "active",
+      "id": "b053ecbe-e6b0-468f-a128-2a09f8bc912f",
+      "created_date": "2025-07-28T16:19:11.123684",
+      "modified_date": "2025-07-28T16:19:11.125795",
+      "tags": [],
+      "archive_filename": "error_mix_test_valid_20250728_161911.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/error_mix_test_valid_20250728_161911.zip",
+      "archive_size": 340,
+      "deletion_date": "2025-07-28T16:19:11.128968",
+      "reason": "ユーザー削除"
+    },
+    {
+      "folder_name": "concurrent_test_0_66622648",
+      "project_name": "並行テストプロジェクト1",
+      "description": "並行処理テスト用プロジェクト1",
+      "tags": "test1",
+      "status": "active",
+      "id": "93f59528-8874-43e2-9046-8aa7f20cec4e",
+      "created_date": "2025-07-28T16:19:11.132327",
+      "modified_date": "2025-07-28T16:19:11.132327",
+      "archive_filename": "concurrent_test_0_66622648_20250728_161911.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/concurrent_test_0_66622648_20250728_161911.zip",
+      "archive_size": 376,
+      "deletion_date": "2025-07-28T16:19:11.138207",
+      "reason": "ユーザー削除"
+    },
+    {
+      "folder_name": "concurrent_test_2_e609d57b",
+      "project_name": "並行テストプロジェクト3",
+      "description": "並行処理テスト用プロジェクト3",
+      "tags": "test3",
+      "status": "active",
+      "id": "19800ff7-d7fc-4ab4-85e5-d16075ee81bc",
+      "created_date": "2025-07-28T16:19:11.134657",
+      "modified_date": "2025-07-28T16:19:11.134657",
+      "archive_filename": "concurrent_test_2_e609d57b_20250728_161911.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/concurrent_test_2_e609d57b_20250728_161911.zip",
+      "archive_size": 376,
+      "deletion_date": "2025-07-28T16:19:11.139132",
+      "reason": "ユーザー削除"
+    },
+    {
+      "folder_name": "concurrent_test_4_092f0468",
+      "project_name": "並行テストプロジェクト5",
+      "description": "並行処理テスト用プロジェクト5",
+      "tags": "test5",
+      "status": "active",
+      "id": "09e9dfc9-ca4f-44f4-986a-03f567c8ce12",
+      "created_date": "2025-07-28T16:19:11.136815",
+      "modified_date": "2025-07-28T16:19:11.136815",
+      "archive_filename": "concurrent_test_4_092f0468_20250728_161911.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/concurrent_test_4_092f0468_20250728_161911.zip",
+      "archive_size": 374,
+      "deletion_date": "2025-07-28T16:19:11.139959",
+      "reason": "ユーザー削除"
+    },
+    {
+      "folder_name": "concurrent_test_0_efcb15fd",
+      "project_name": "並行テストプロジェクト1",
+      "description": "並行処理テスト用プロジェクト1",
+      "tags": "test1",
+      "status": "active",
+      "id": "b8bdfef1-663d-4317-9733-520b7c82ef4c",
+      "created_date": "2025-07-28T17:01:01.713250",
+      "modified_date": "2025-07-28T17:01:01.713250",
+      "archive_filename": "concurrent_test_0_efcb15fd_20250728_170101.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/concurrent_test_0_efcb15fd_20250728_170101.zip",
+      "archive_size": 375,
+      "deletion_date": "2025-07-28T17:01:01.722770",
+      "reason": "ユーザー削除"
+    },
+    {
+      "folder_name": "concurrent_test_2_ee325ed7",
+      "project_name": "並行テストプロジェクト3",
+      "description": "並行処理テスト用プロジェクト3",
+      "tags": "test3",
+      "status": "active",
+      "id": "96aec4c7-1934-4a4d-a124-648cedab3cce",
+      "created_date": "2025-07-28T17:01:01.716608",
+      "modified_date": "2025-07-28T17:01:01.716608",
+      "archive_filename": "concurrent_test_2_ee325ed7_20250728_170101.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/concurrent_test_2_ee325ed7_20250728_170101.zip",
+      "archive_size": 375,
+      "deletion_date": "2025-07-28T17:01:01.723940",
+      "reason": "ユーザー削除"
+    },
+    {
+      "folder_name": "concurrent_test_4_ba6d6c1b",
+      "project_name": "並行テストプロジェクト5",
+      "description": "並行処理テスト用プロジェクト5",
+      "tags": "test5",
+      "status": "active",
+      "id": "59ff5728-63a6-4d99-8798-483937754e16",
+      "created_date": "2025-07-28T17:01:01.719739",
+      "modified_date": "2025-07-28T17:01:01.719739",
+      "archive_filename": "concurrent_test_4_ba6d6c1b_20250728_170101.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/concurrent_test_4_ba6d6c1b_20250728_170101.zip",
+      "archive_size": 375,
+      "deletion_date": "2025-07-28T17:01:01.725236",
+      "reason": "ユーザー削除"
+    },
+    {
+      "folder_name": "concurrent_test_0_2d83d836",
+      "project_name": "並行テストプロジェクト1",
+      "description": "並行処理テスト用プロジェクト1",
+      "tags": "test1",
+      "status": "active",
+      "id": "f5a03448-9b95-4b0d-bdee-bb9394282d31",
+      "created_date": "2025-07-28T17:02:13.338155",
+      "modified_date": "2025-07-28T17:02:13.338155",
+      "archive_filename": "concurrent_test_0_2d83d836_20250728_170213.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/concurrent_test_0_2d83d836_20250728_170213.zip",
+      "archive_size": 375,
+      "deletion_date": "2025-07-28T17:02:13.348167",
+      "reason": "ユーザー削除"
+    },
+    {
+      "folder_name": "concurrent_test_2_cc450da3",
+      "project_name": "並行テストプロジェクト3",
+      "description": "並行処理テスト用プロジェクト3",
+      "tags": "test3",
+      "status": "active",
+      "id": "e1c81e4f-5442-4448-90ea-88d84d031106",
+      "created_date": "2025-07-28T17:02:13.342054",
+      "modified_date": "2025-07-28T17:02:13.342054",
+      "archive_filename": "concurrent_test_2_cc450da3_20250728_170213.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/concurrent_test_2_cc450da3_20250728_170213.zip",
+      "archive_size": 374,
+      "deletion_date": "2025-07-28T17:02:13.349390",
+      "reason": "ユーザー削除"
+    },
+    {
+      "folder_name": "concurrent_test_4_73d0fb17",
+      "project_name": "並行テストプロジェクト5",
+      "description": "並行処理テスト用プロジェクト5",
+      "tags": "test5",
+      "status": "active",
+      "id": "ea790dc1-2fad-4e1e-ae29-f57de39d2fcd",
+      "created_date": "2025-07-28T17:02:13.345182",
+      "modified_date": "2025-07-28T17:02:13.345182",
+      "archive_filename": "concurrent_test_4_73d0fb17_20250728_170213.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/concurrent_test_4_73d0fb17_20250728_170213.zip",
+      "archive_size": 376,
+      "deletion_date": "2025-07-28T17:02:13.350711",
+      "reason": "ユーザー削除"
+    },
+    {
+      "folder_name": "concurrent_test_0_1fb7ac72",
+      "project_name": "並行テストプロジェクト1",
+      "description": "並行処理テスト用プロジェクト1",
+      "tags": "test1",
+      "status": "active",
+      "id": "89308044-b174-4b8f-828a-f2ca1c7e969f",
+      "created_date": "2025-07-28T17:03:10.525040",
+      "modified_date": "2025-07-28T17:03:10.525040",
+      "archive_filename": "concurrent_test_0_1fb7ac72_20250728_170310.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/concurrent_test_0_1fb7ac72_20250728_170310.zip",
+      "archive_size": 375,
+      "deletion_date": "2025-07-28T17:03:10.536131",
+      "reason": "ユーザー削除"
+    },
+    {
+      "folder_name": "concurrent_test_2_cd5b71e5",
+      "project_name": "並行テストプロジェクト3",
+      "description": "並行処理テスト用プロジェクト3",
+      "tags": "test3",
+      "status": "active",
+      "id": "3f5c31c8-b469-49bd-b191-683d973467a7",
+      "created_date": "2025-07-28T17:03:10.528416",
+      "modified_date": "2025-07-28T17:03:10.528416",
+      "archive_filename": "concurrent_test_2_cd5b71e5_20250728_170310.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/concurrent_test_2_cd5b71e5_20250728_170310.zip",
+      "archive_size": 376,
+      "deletion_date": "2025-07-28T17:03:10.537484",
+      "reason": "ユーザー削除"
+    },
+    {
+      "folder_name": "concurrent_test_4_b6a0a86d",
+      "project_name": "並行テストプロジェクト5",
+      "description": "並行処理テスト用プロジェクト5",
+      "tags": "test5",
+      "status": "active",
+      "id": "e9ab4e07-42a4-40a9-b720-3b5f25b70c4b",
+      "created_date": "2025-07-28T17:03:10.532732",
+      "modified_date": "2025-07-28T17:03:10.532732",
+      "archive_filename": "concurrent_test_4_b6a0a86d_20250728_170310.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/concurrent_test_4_b6a0a86d_20250728_170310.zip",
+      "archive_size": 375,
+      "deletion_date": "2025-07-28T17:03:10.538741",
+      "reason": "ユーザー削除"
+    }
+  ],
+  "reserved_folders": [
+    "node_modules",
+    "dist",
+    "build",
+    ".git",
+    "backend",
+    "frontend",
+    "trash",
+    "recycle_bin",
+    "deleted",
+    ".trash"
+  ]
+}
+ステータス: 200
+---
+
+[2025-07-29 12:31:16] GET /api/files/tree/ichikawa/
+リクエスト: {}
+レスポンス: {
+  "name": "raw",
+  "path": ".",
+  "type": "directory",
+  "size": 0,
+  "modified": "2025-07-28T19:11:20.600562",
+  "children": [
+    {
+      "name": "市川市アパートの家賃.csv",
+      "path": "市川市アパートの家賃.csv",
+      "type": "file",
+      "size": 20449,
+      "modified": "2025-07-28T19:11:20.600562",
+      "children": [],
+      "comment_count": 0,
+      "has_comments": false
+    }
+  ],
+  "comment_count": 0,
+  "has_comments": false
+}
+ステータス: 200
+---
+
+[2025-07-29 12:31:19] GET /api/files/table/ichikawa/
+リクエスト: {'file_path': ['市川市アパートの家賃.csv']}
+レスポンス: {
+  "error": "FILE_NOT_FOUND",
+  "message": "An unexpected error occurred. Please try again later"
+}
+ステータス: 404
+---
+
+[2025-07-29 12:31:19] GET /api/files/table/ichikawa/
+リクエスト: {'file_path': ['市川市アパートの家賃.csv']}
+レスポンス: {
+  "error": "FILE_NOT_FOUND",
+  "message": "An unexpected error occurred. Please try again later"
+}
+ステータス: 404
+---
+
+[2025-07-29 12:31:21] GET /api/files/table/ichikawa/
+リクエスト: {'file_path': ['市川市アパートの家賃.csv']}
+レスポンス: {
+  "error": "FILE_NOT_FOUND",
+  "message": "An unexpected error occurred. Please try again later"
+}
+ステータス: 404
+---
+
+[2025-07-29 12:31:22] GET /api/projects/
+リクエスト: {}
+レスポンス: {
+  "version": "1.0.0",
+  "last_updated": "2025-07-29T09:43:02.366552",
+  "retention_months": 13,
+  "projects": [
+    {
+      "folder_name": "testProject",
+      "project_name": "テストのためのプロジェクト",
+      "description": "テストです。サンプルファイルとサブフォルダが追加されました。",
+      "tags": [
+        "sample"
+      ],
+      "status": "active",
+      "id": "2cec431a-0416-4451-a43b-fdc85e0c5c62",
+      "created_date": "2025-07-24T23:31:44.186614",
+      "modified_date": "2025-07-27T20:33:51.353635"
+    },
+    {
+      "folder_name": "ichikawa",
+      "project_name": "市川アパートの家賃",
+      "description": "重回帰分析のテスト用",
+      "tags": [],
+      "status": "active",
+      "id": "3779d95d-d923-435b-8da0-2a157940d95b",
+      "created_date": "2025-07-28T19:10:51.399660",
+      "modified_date": "2025-07-28T19:10:51.399660"
+    },
+    {
+      "folder_name": "test_project_4f1b6ebf",
+      "project_name": "テストプロジェクト",
+      "description": "ライフサイクルテスト用プロジェクト",
+      "tags": "lifecycle",
+      "status": "active",
+      "id": "d2c7d39b-c3a4-4591-9f89-b7f1def829d3",
+      "created_date": "2025-07-29T09:43:02.366552",
+      "modified_date": "2025-07-29T09:43:02.366552"
+    }
+  ],
+  "archived_projects": [
+    {
+      "folder_name": "direct_test_project",
+      "project_name": "直接テストプロジェクト",
+      "description": "直接テスト用プロジェクト",
+      "tags": [
+        "test"
+      ],
+      "status": "active",
+      "id": "82886a55-fe6c-4559-9dfa-27aeb21e924e",
+      "created_date": "2025-07-27T10:37:56.949497",
+      "modified_date": "2025-07-27T10:37:56.949497",
+      "archive_filename": "direct_test_project_20250727_103756.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/direct_test_project_20250727_103756.zip",
+      "archive_size": 347,
+      "deletion_date": "2025-07-27T10:37:56.952974",
+      "reason": "ユーザー削除"
+    },
+    {
+      "folder_name": "success_test_project",
+      "project_name": "成功テストプロジェクト",
+      "description": "正常に作成されるべきプロジェクト",
+      "tags": [
+        "success",
+        "test"
+      ],
+      "status": "active",
+      "id": "658786da-0f80-4434-bf7c-4e389df4b9b2",
+      "created_date": "2025-07-27T10:38:36.034282",
+      "modified_date": "2025-07-27T10:38:36.034282",
+      "archive_filename": "success_test_project_20250727_103836.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/success_test_project_20250727_103836.zip",
+      "archive_size": 385,
+      "deletion_date": "2025-07-27T10:38:36.035929",
+      "reason": "ユーザー削除"
+    },
+    {
+      "folder_name": "save_test",
+      "project_name": "セーブテスト",
+      "description": "セーブテスト（フォルダが存在しないため移動）",
+      "tags": [],
+      "status": "active",
+      "id": "bb5830e9-e13c-4960-bc25-fa8045a272e9",
+      "created_date": "2025-07-27T10:37:56.948759",
+      "modified_date": "2025-07-27T10:37:56.948769",
+      "archive_filename": "save_test_auto_archived.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/save_test_auto_archived.zip",
+      "archive_size": 0,
+      "deletion_date": "2025-07-27T17:30:00.000000",
+      "reason": "フォルダが存在しないため自動アーカイブ"
+    },
+    {
+      "folder_name": "test_project_simple",
+      "project_name": "Simple Test Project",
+      "description": "A simple test project（不正データのため移動）",
+      "tags": [
+        "test"
+      ],
+      "status": "active",
+      "id": "bd7e7a94-fce7-471b-9dce-7e4c1bcb8255",
+      "created_date": "2025-07-27T16:08:14.889746",
+      "modified_date": "2025-07-27T16:08:14.889746",
+      "archive_filename": "test_project_simple_invalid_data.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/test_project_simple_invalid_data.zip",
+      "archive_size": 0,
+      "deletion_date": "2025-07-27T17:30:00.000000",
+      "reason": "不正な配列データのため自動アーカイブ"
+    },
+    {
+      "folder_name": "test_project_simple",
+      "project_name": "Simple Test Project",
+      "description": "A simple test project（重複データのため移動）",
+      "tags": [
+        "test"
+      ],
+      "status": "active",
+      "id": "7e7be177-9396-4e40-baf3-0b15c2310500",
+      "created_date": "2025-07-27T16:42:31.526622",
+      "modified_date": "2025-07-27T16:42:31.526622",
+      "archive_filename": "test_project_simple_duplicate.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/test_project_simple_duplicate.zip",
+      "archive_size": 0,
+      "deletion_date": "2025-07-27T17:30:00.000000",
+      "reason": "重複データのため自動アーカイブ"
+    },
+    {
+      "folder_name": "error_mix_test_valid",
+      "project_name": [
+        "更新済み正常プロジェクト"
+      ],
+      "description": "正常なプロジェクト",
+      "status": "active",
+      "id": "b053ecbe-e6b0-468f-a128-2a09f8bc912f",
+      "created_date": "2025-07-28T16:19:11.123684",
+      "modified_date": "2025-07-28T16:19:11.125795",
+      "tags": [],
+      "archive_filename": "error_mix_test_valid_20250728_161911.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/error_mix_test_valid_20250728_161911.zip",
+      "archive_size": 340,
+      "deletion_date": "2025-07-28T16:19:11.128968",
+      "reason": "ユーザー削除"
+    },
+    {
+      "folder_name": "concurrent_test_0_66622648",
+      "project_name": "並行テストプロジェクト1",
+      "description": "並行処理テスト用プロジェクト1",
+      "tags": "test1",
+      "status": "active",
+      "id": "93f59528-8874-43e2-9046-8aa7f20cec4e",
+      "created_date": "2025-07-28T16:19:11.132327",
+      "modified_date": "2025-07-28T16:19:11.132327",
+      "archive_filename": "concurrent_test_0_66622648_20250728_161911.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/concurrent_test_0_66622648_20250728_161911.zip",
+      "archive_size": 376,
+      "deletion_date": "2025-07-28T16:19:11.138207",
+      "reason": "ユーザー削除"
+    },
+    {
+      "folder_name": "concurrent_test_2_e609d57b",
+      "project_name": "並行テストプロジェクト3",
+      "description": "並行処理テスト用プロジェクト3",
+      "tags": "test3",
+      "status": "active",
+      "id": "19800ff7-d7fc-4ab4-85e5-d16075ee81bc",
+      "created_date": "2025-07-28T16:19:11.134657",
+      "modified_date": "2025-07-28T16:19:11.134657",
+      "archive_filename": "concurrent_test_2_e609d57b_20250728_161911.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/concurrent_test_2_e609d57b_20250728_161911.zip",
+      "archive_size": 376,
+      "deletion_date": "2025-07-28T16:19:11.139132",
+      "reason": "ユーザー削除"
+    },
+    {
+      "folder_name": "concurrent_test_4_092f0468",
+      "project_name": "並行テストプロジェクト5",
+      "description": "並行処理テスト用プロジェクト5",
+      "tags": "test5",
+      "status": "active",
+      "id": "09e9dfc9-ca4f-44f4-986a-03f567c8ce12",
+      "created_date": "2025-07-28T16:19:11.136815",
+      "modified_date": "2025-07-28T16:19:11.136815",
+      "archive_filename": "concurrent_test_4_092f0468_20250728_161911.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/concurrent_test_4_092f0468_20250728_161911.zip",
+      "archive_size": 374,
+      "deletion_date": "2025-07-28T16:19:11.139959",
+      "reason": "ユーザー削除"
+    },
+    {
+      "folder_name": "concurrent_test_0_efcb15fd",
+      "project_name": "並行テストプロジェクト1",
+      "description": "並行処理テスト用プロジェクト1",
+      "tags": "test1",
+      "status": "active",
+      "id": "b8bdfef1-663d-4317-9733-520b7c82ef4c",
+      "created_date": "2025-07-28T17:01:01.713250",
+      "modified_date": "2025-07-28T17:01:01.713250",
+      "archive_filename": "concurrent_test_0_efcb15fd_20250728_170101.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/concurrent_test_0_efcb15fd_20250728_170101.zip",
+      "archive_size": 375,
+      "deletion_date": "2025-07-28T17:01:01.722770",
+      "reason": "ユーザー削除"
+    },
+    {
+      "folder_name": "concurrent_test_2_ee325ed7",
+      "project_name": "並行テストプロジェクト3",
+      "description": "並行処理テスト用プロジェクト3",
+      "tags": "test3",
+      "status": "active",
+      "id": "96aec4c7-1934-4a4d-a124-648cedab3cce",
+      "created_date": "2025-07-28T17:01:01.716608",
+      "modified_date": "2025-07-28T17:01:01.716608",
+      "archive_filename": "concurrent_test_2_ee325ed7_20250728_170101.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/concurrent_test_2_ee325ed7_20250728_170101.zip",
+      "archive_size": 375,
+      "deletion_date": "2025-07-28T17:01:01.723940",
+      "reason": "ユーザー削除"
+    },
+    {
+      "folder_name": "concurrent_test_4_ba6d6c1b",
+      "project_name": "並行テストプロジェクト5",
+      "description": "並行処理テスト用プロジェクト5",
+      "tags": "test5",
+      "status": "active",
+      "id": "59ff5728-63a6-4d99-8798-483937754e16",
+      "created_date": "2025-07-28T17:01:01.719739",
+      "modified_date": "2025-07-28T17:01:01.719739",
+      "archive_filename": "concurrent_test_4_ba6d6c1b_20250728_170101.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/concurrent_test_4_ba6d6c1b_20250728_170101.zip",
+      "archive_size": 375,
+      "deletion_date": "2025-07-28T17:01:01.725236",
+      "reason": "ユーザー削除"
+    },
+    {
+      "folder_name": "concurrent_test_0_2d83d836",
+      "project_name": "並行テストプロジェクト1",
+      "description": "並行処理テスト用プロジェクト1",
+      "tags": "test1",
+      "status": "active",
+      "id": "f5a03448-9b95-4b0d-bdee-bb9394282d31",
+      "created_date": "2025-07-28T17:02:13.338155",
+      "modified_date": "2025-07-28T17:02:13.338155",
+      "archive_filename": "concurrent_test_0_2d83d836_20250728_170213.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/concurrent_test_0_2d83d836_20250728_170213.zip",
+      "archive_size": 375,
+      "deletion_date": "2025-07-28T17:02:13.348167",
+      "reason": "ユーザー削除"
+    },
+    {
+      "folder_name": "concurrent_test_2_cc450da3",
+      "project_name": "並行テストプロジェクト3",
+      "description": "並行処理テスト用プロジェクト3",
+      "tags": "test3",
+      "status": "active",
+      "id": "e1c81e4f-5442-4448-90ea-88d84d031106",
+      "created_date": "2025-07-28T17:02:13.342054",
+      "modified_date": "2025-07-28T17:02:13.342054",
+      "archive_filename": "concurrent_test_2_cc450da3_20250728_170213.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/concurrent_test_2_cc450da3_20250728_170213.zip",
+      "archive_size": 374,
+      "deletion_date": "2025-07-28T17:02:13.349390",
+      "reason": "ユーザー削除"
+    },
+    {
+      "folder_name": "concurrent_test_4_73d0fb17",
+      "project_name": "並行テストプロジェクト5",
+      "description": "並行処理テスト用プロジェクト5",
+      "tags": "test5",
+      "status": "active",
+      "id": "ea790dc1-2fad-4e1e-ae29-f57de39d2fcd",
+      "created_date": "2025-07-28T17:02:13.345182",
+      "modified_date": "2025-07-28T17:02:13.345182",
+      "archive_filename": "concurrent_test_4_73d0fb17_20250728_170213.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/concurrent_test_4_73d0fb17_20250728_170213.zip",
+      "archive_size": 376,
+      "deletion_date": "2025-07-28T17:02:13.350711",
+      "reason": "ユーザー削除"
+    },
+    {
+      "folder_name": "concurrent_test_0_1fb7ac72",
+      "project_name": "並行テストプロジェクト1",
+      "description": "並行処理テスト用プロジェクト1",
+      "tags": "test1",
+      "status": "active",
+      "id": "89308044-b174-4b8f-828a-f2ca1c7e969f",
+      "created_date": "2025-07-28T17:03:10.525040",
+      "modified_date": "2025-07-28T17:03:10.525040",
+      "archive_filename": "concurrent_test_0_1fb7ac72_20250728_170310.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/concurrent_test_0_1fb7ac72_20250728_170310.zip",
+      "archive_size": 375,
+      "deletion_date": "2025-07-28T17:03:10.536131",
+      "reason": "ユーザー削除"
+    },
+    {
+      "folder_name": "concurrent_test_2_cd5b71e5",
+      "project_name": "並行テストプロジェクト3",
+      "description": "並行処理テスト用プロジェクト3",
+      "tags": "test3",
+      "status": "active",
+      "id": "3f5c31c8-b469-49bd-b191-683d973467a7",
+      "created_date": "2025-07-28T17:03:10.528416",
+      "modified_date": "2025-07-28T17:03:10.528416",
+      "archive_filename": "concurrent_test_2_cd5b71e5_20250728_170310.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/concurrent_test_2_cd5b71e5_20250728_170310.zip",
+      "archive_size": 376,
+      "deletion_date": "2025-07-28T17:03:10.537484",
+      "reason": "ユーザー削除"
+    },
+    {
+      "folder_name": "concurrent_test_4_b6a0a86d",
+      "project_name": "並行テストプロジェクト5",
+      "description": "並行処理テスト用プロジェクト5",
+      "tags": "test5",
+      "status": "active",
+      "id": "e9ab4e07-42a4-40a9-b720-3b5f25b70c4b",
+      "created_date": "2025-07-28T17:03:10.532732",
+      "modified_date": "2025-07-28T17:03:10.532732",
+      "archive_filename": "concurrent_test_4_b6a0a86d_20250728_170310.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/concurrent_test_4_b6a0a86d_20250728_170310.zip",
+      "archive_size": 375,
+      "deletion_date": "2025-07-28T17:03:10.538741",
+      "reason": "ユーザー削除"
+    }
+  ],
+  "reserved_folders": [
+    "node_modules",
+    "dist",
+    "build",
+    ".git",
+    "backend",
+    "frontend",
+    "trash",
+    "recycle_bin",
+    "deleted",
+    ".trash"
+  ]
+}
+ステータス: 200
+---
+
+[2025-07-29 12:31:22] GET /api/files/tree/ichikawa/
+リクエスト: {}
+レスポンス: {
+  "name": "raw",
+  "path": ".",
+  "type": "directory",
+  "size": 0,
+  "modified": "2025-07-28T19:11:20.600562",
+  "children": [
+    {
+      "name": "市川市アパートの家賃.csv",
+      "path": "市川市アパートの家賃.csv",
+      "type": "file",
+      "size": 20449,
+      "modified": "2025-07-28T19:11:20.600562",
+      "children": [],
+      "comment_count": 0,
+      "has_comments": false
+    }
+  ],
+  "comment_count": 0,
+  "has_comments": false
+}
+ステータス: 200
+---
+
+[2025-07-29 12:31:22] GET /api/projects/
+リクエスト: {}
+レスポンス: {
+  "version": "1.0.0",
+  "last_updated": "2025-07-29T09:43:02.366552",
+  "retention_months": 13,
+  "projects": [
+    {
+      "folder_name": "testProject",
+      "project_name": "テストのためのプロジェクト",
+      "description": "テストです。サンプルファイルとサブフォルダが追加されました。",
+      "tags": [
+        "sample"
+      ],
+      "status": "active",
+      "id": "2cec431a-0416-4451-a43b-fdc85e0c5c62",
+      "created_date": "2025-07-24T23:31:44.186614",
+      "modified_date": "2025-07-27T20:33:51.353635"
+    },
+    {
+      "folder_name": "ichikawa",
+      "project_name": "市川アパートの家賃",
+      "description": "重回帰分析のテスト用",
+      "tags": [],
+      "status": "active",
+      "id": "3779d95d-d923-435b-8da0-2a157940d95b",
+      "created_date": "2025-07-28T19:10:51.399660",
+      "modified_date": "2025-07-28T19:10:51.399660"
+    },
+    {
+      "folder_name": "test_project_4f1b6ebf",
+      "project_name": "テストプロジェクト",
+      "description": "ライフサイクルテスト用プロジェクト",
+      "tags": "lifecycle",
+      "status": "active",
+      "id": "d2c7d39b-c3a4-4591-9f89-b7f1def829d3",
+      "created_date": "2025-07-29T09:43:02.366552",
+      "modified_date": "2025-07-29T09:43:02.366552"
+    }
+  ],
+  "archived_projects": [
+    {
+      "folder_name": "direct_test_project",
+      "project_name": "直接テストプロジェクト",
+      "description": "直接テスト用プロジェクト",
+      "tags": [
+        "test"
+      ],
+      "status": "active",
+      "id": "82886a55-fe6c-4559-9dfa-27aeb21e924e",
+      "created_date": "2025-07-27T10:37:56.949497",
+      "modified_date": "2025-07-27T10:37:56.949497",
+      "archive_filename": "direct_test_project_20250727_103756.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/direct_test_project_20250727_103756.zip",
+      "archive_size": 347,
+      "deletion_date": "2025-07-27T10:37:56.952974",
+      "reason": "ユーザー削除"
+    },
+    {
+      "folder_name": "success_test_project",
+      "project_name": "成功テストプロジェクト",
+      "description": "正常に作成されるべきプロジェクト",
+      "tags": [
+        "success",
+        "test"
+      ],
+      "status": "active",
+      "id": "658786da-0f80-4434-bf7c-4e389df4b9b2",
+      "created_date": "2025-07-27T10:38:36.034282",
+      "modified_date": "2025-07-27T10:38:36.034282",
+      "archive_filename": "success_test_project_20250727_103836.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/success_test_project_20250727_103836.zip",
+      "archive_size": 385,
+      "deletion_date": "2025-07-27T10:38:36.035929",
+      "reason": "ユーザー削除"
+    },
+    {
+      "folder_name": "save_test",
+      "project_name": "セーブテスト",
+      "description": "セーブテスト（フォルダが存在しないため移動）",
+      "tags": [],
+      "status": "active",
+      "id": "bb5830e9-e13c-4960-bc25-fa8045a272e9",
+      "created_date": "2025-07-27T10:37:56.948759",
+      "modified_date": "2025-07-27T10:37:56.948769",
+      "archive_filename": "save_test_auto_archived.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/save_test_auto_archived.zip",
+      "archive_size": 0,
+      "deletion_date": "2025-07-27T17:30:00.000000",
+      "reason": "フォルダが存在しないため自動アーカイブ"
+    },
+    {
+      "folder_name": "test_project_simple",
+      "project_name": "Simple Test Project",
+      "description": "A simple test project（不正データのため移動）",
+      "tags": [
+        "test"
+      ],
+      "status": "active",
+      "id": "bd7e7a94-fce7-471b-9dce-7e4c1bcb8255",
+      "created_date": "2025-07-27T16:08:14.889746",
+      "modified_date": "2025-07-27T16:08:14.889746",
+      "archive_filename": "test_project_simple_invalid_data.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/test_project_simple_invalid_data.zip",
+      "archive_size": 0,
+      "deletion_date": "2025-07-27T17:30:00.000000",
+      "reason": "不正な配列データのため自動アーカイブ"
+    },
+    {
+      "folder_name": "test_project_simple",
+      "project_name": "Simple Test Project",
+      "description": "A simple test project（重複データのため移動）",
+      "tags": [
+        "test"
+      ],
+      "status": "active",
+      "id": "7e7be177-9396-4e40-baf3-0b15c2310500",
+      "created_date": "2025-07-27T16:42:31.526622",
+      "modified_date": "2025-07-27T16:42:31.526622",
+      "archive_filename": "test_project_simple_duplicate.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/test_project_simple_duplicate.zip",
+      "archive_size": 0,
+      "deletion_date": "2025-07-27T17:30:00.000000",
+      "reason": "重複データのため自動アーカイブ"
+    },
+    {
+      "folder_name": "error_mix_test_valid",
+      "project_name": [
+        "更新済み正常プロジェクト"
+      ],
+      "description": "正常なプロジェクト",
+      "status": "active",
+      "id": "b053ecbe-e6b0-468f-a128-2a09f8bc912f",
+      "created_date": "2025-07-28T16:19:11.123684",
+      "modified_date": "2025-07-28T16:19:11.125795",
+      "tags": [],
+      "archive_filename": "error_mix_test_valid_20250728_161911.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/error_mix_test_valid_20250728_161911.zip",
+      "archive_size": 340,
+      "deletion_date": "2025-07-28T16:19:11.128968",
+      "reason": "ユーザー削除"
+    },
+    {
+      "folder_name": "concurrent_test_0_66622648",
+      "project_name": "並行テストプロジェクト1",
+      "description": "並行処理テスト用プロジェクト1",
+      "tags": "test1",
+      "status": "active",
+      "id": "93f59528-8874-43e2-9046-8aa7f20cec4e",
+      "created_date": "2025-07-28T16:19:11.132327",
+      "modified_date": "2025-07-28T16:19:11.132327",
+      "archive_filename": "concurrent_test_0_66622648_20250728_161911.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/concurrent_test_0_66622648_20250728_161911.zip",
+      "archive_size": 376,
+      "deletion_date": "2025-07-28T16:19:11.138207",
+      "reason": "ユーザー削除"
+    },
+    {
+      "folder_name": "concurrent_test_2_e609d57b",
+      "project_name": "並行テストプロジェクト3",
+      "description": "並行処理テスト用プロジェクト3",
+      "tags": "test3",
+      "status": "active",
+      "id": "19800ff7-d7fc-4ab4-85e5-d16075ee81bc",
+      "created_date": "2025-07-28T16:19:11.134657",
+      "modified_date": "2025-07-28T16:19:11.134657",
+      "archive_filename": "concurrent_test_2_e609d57b_20250728_161911.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/concurrent_test_2_e609d57b_20250728_161911.zip",
+      "archive_size": 376,
+      "deletion_date": "2025-07-28T16:19:11.139132",
+      "reason": "ユーザー削除"
+    },
+    {
+      "folder_name": "concurrent_test_4_092f0468",
+      "project_name": "並行テストプロジェクト5",
+      "description": "並行処理テスト用プロジェクト5",
+      "tags": "test5",
+      "status": "active",
+      "id": "09e9dfc9-ca4f-44f4-986a-03f567c8ce12",
+      "created_date": "2025-07-28T16:19:11.136815",
+      "modified_date": "2025-07-28T16:19:11.136815",
+      "archive_filename": "concurrent_test_4_092f0468_20250728_161911.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/concurrent_test_4_092f0468_20250728_161911.zip",
+      "archive_size": 374,
+      "deletion_date": "2025-07-28T16:19:11.139959",
+      "reason": "ユーザー削除"
+    },
+    {
+      "folder_name": "concurrent_test_0_efcb15fd",
+      "project_name": "並行テストプロジェクト1",
+      "description": "並行処理テスト用プロジェクト1",
+      "tags": "test1",
+      "status": "active",
+      "id": "b8bdfef1-663d-4317-9733-520b7c82ef4c",
+      "created_date": "2025-07-28T17:01:01.713250",
+      "modified_date": "2025-07-28T17:01:01.713250",
+      "archive_filename": "concurrent_test_0_efcb15fd_20250728_170101.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/concurrent_test_0_efcb15fd_20250728_170101.zip",
+      "archive_size": 375,
+      "deletion_date": "2025-07-28T17:01:01.722770",
+      "reason": "ユーザー削除"
+    },
+    {
+      "folder_name": "concurrent_test_2_ee325ed7",
+      "project_name": "並行テストプロジェクト3",
+      "description": "並行処理テスト用プロジェクト3",
+      "tags": "test3",
+      "status": "active",
+      "id": "96aec4c7-1934-4a4d-a124-648cedab3cce",
+      "created_date": "2025-07-28T17:01:01.716608",
+      "modified_date": "2025-07-28T17:01:01.716608",
+      "archive_filename": "concurrent_test_2_ee325ed7_20250728_170101.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/concurrent_test_2_ee325ed7_20250728_170101.zip",
+      "archive_size": 375,
+      "deletion_date": "2025-07-28T17:01:01.723940",
+      "reason": "ユーザー削除"
+    },
+    {
+      "folder_name": "concurrent_test_4_ba6d6c1b",
+      "project_name": "並行テストプロジェクト5",
+      "description": "並行処理テスト用プロジェクト5",
+      "tags": "test5",
+      "status": "active",
+      "id": "59ff5728-63a6-4d99-8798-483937754e16",
+      "created_date": "2025-07-28T17:01:01.719739",
+      "modified_date": "2025-07-28T17:01:01.719739",
+      "archive_filename": "concurrent_test_4_ba6d6c1b_20250728_170101.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/concurrent_test_4_ba6d6c1b_20250728_170101.zip",
+      "archive_size": 375,
+      "deletion_date": "2025-07-28T17:01:01.725236",
+      "reason": "ユーザー削除"
+    },
+    {
+      "folder_name": "concurrent_test_0_2d83d836",
+      "project_name": "並行テストプロジェクト1",
+      "description": "並行処理テスト用プロジェクト1",
+      "tags": "test1",
+      "status": "active",
+      "id": "f5a03448-9b95-4b0d-bdee-bb9394282d31",
+      "created_date": "2025-07-28T17:02:13.338155",
+      "modified_date": "2025-07-28T17:02:13.338155",
+      "archive_filename": "concurrent_test_0_2d83d836_20250728_170213.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/concurrent_test_0_2d83d836_20250728_170213.zip",
+      "archive_size": 375,
+      "deletion_date": "2025-07-28T17:02:13.348167",
+      "reason": "ユーザー削除"
+    },
+    {
+      "folder_name": "concurrent_test_2_cc450da3",
+      "project_name": "並行テストプロジェクト3",
+      "description": "並行処理テスト用プロジェクト3",
+      "tags": "test3",
+      "status": "active",
+      "id": "e1c81e4f-5442-4448-90ea-88d84d031106",
+      "created_date": "2025-07-28T17:02:13.342054",
+      "modified_date": "2025-07-28T17:02:13.342054",
+      "archive_filename": "concurrent_test_2_cc450da3_20250728_170213.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/concurrent_test_2_cc450da3_20250728_170213.zip",
+      "archive_size": 374,
+      "deletion_date": "2025-07-28T17:02:13.349390",
+      "reason": "ユーザー削除"
+    },
+    {
+      "folder_name": "concurrent_test_4_73d0fb17",
+      "project_name": "並行テストプロジェクト5",
+      "description": "並行処理テスト用プロジェクト5",
+      "tags": "test5",
+      "status": "active",
+      "id": "ea790dc1-2fad-4e1e-ae29-f57de39d2fcd",
+      "created_date": "2025-07-28T17:02:13.345182",
+      "modified_date": "2025-07-28T17:02:13.345182",
+      "archive_filename": "concurrent_test_4_73d0fb17_20250728_170213.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/concurrent_test_4_73d0fb17_20250728_170213.zip",
+      "archive_size": 376,
+      "deletion_date": "2025-07-28T17:02:13.350711",
+      "reason": "ユーザー削除"
+    },
+    {
+      "folder_name": "concurrent_test_0_1fb7ac72",
+      "project_name": "並行テストプロジェクト1",
+      "description": "並行処理テスト用プロジェクト1",
+      "tags": "test1",
+      "status": "active",
+      "id": "89308044-b174-4b8f-828a-f2ca1c7e969f",
+      "created_date": "2025-07-28T17:03:10.525040",
+      "modified_date": "2025-07-28T17:03:10.525040",
+      "archive_filename": "concurrent_test_0_1fb7ac72_20250728_170310.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/concurrent_test_0_1fb7ac72_20250728_170310.zip",
+      "archive_size": 375,
+      "deletion_date": "2025-07-28T17:03:10.536131",
+      "reason": "ユーザー削除"
+    },
+    {
+      "folder_name": "concurrent_test_2_cd5b71e5",
+      "project_name": "並行テストプロジェクト3",
+      "description": "並行処理テスト用プロジェクト3",
+      "tags": "test3",
+      "status": "active",
+      "id": "3f5c31c8-b469-49bd-b191-683d973467a7",
+      "created_date": "2025-07-28T17:03:10.528416",
+      "modified_date": "2025-07-28T17:03:10.528416",
+      "archive_filename": "concurrent_test_2_cd5b71e5_20250728_170310.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/concurrent_test_2_cd5b71e5_20250728_170310.zip",
+      "archive_size": 376,
+      "deletion_date": "2025-07-28T17:03:10.537484",
+      "reason": "ユーザー削除"
+    },
+    {
+      "folder_name": "concurrent_test_4_b6a0a86d",
+      "project_name": "並行テストプロジェクト5",
+      "description": "並行処理テスト用プロジェクト5",
+      "tags": "test5",
+      "status": "active",
+      "id": "e9ab4e07-42a4-40a9-b720-3b5f25b70c4b",
+      "created_date": "2025-07-28T17:03:10.532732",
+      "modified_date": "2025-07-28T17:03:10.532732",
+      "archive_filename": "concurrent_test_4_b6a0a86d_20250728_170310.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/concurrent_test_4_b6a0a86d_20250728_170310.zip",
+      "archive_size": 375,
+      "deletion_date": "2025-07-28T17:03:10.538741",
+      "reason": "ユーザー削除"
+    }
+  ],
+  "reserved_folders": [
+    "node_modules",
+    "dist",
+    "build",
+    ".git",
+    "backend",
+    "frontend",
+    "trash",
+    "recycle_bin",
+    "deleted",
+    ".trash"
+  ]
+}
+ステータス: 200
+---
+
+[2025-07-29 12:31:23] GET /api/files/tree/ichikawa/
+リクエスト: {}
+レスポンス: {
+  "name": "raw",
+  "path": ".",
+  "type": "directory",
+  "size": 0,
+  "modified": "2025-07-28T19:11:20.600562",
+  "children": [
+    {
+      "name": "市川市アパートの家賃.csv",
+      "path": "市川市アパートの家賃.csv",
+      "type": "file",
+      "size": 20449,
+      "modified": "2025-07-28T19:11:20.600562",
+      "children": [],
+      "comment_count": 0,
+      "has_comments": false
+    }
+  ],
+  "comment_count": 0,
+  "has_comments": false
+}
+ステータス: 200
+---
+
+[2025-07-29 12:31:47] GET /api/files/table/ichikawa/
+リクエスト: {'file_path': ['市川市アパートの家賃.csv']}
+レスポンス: {
+  "error": "FILE_NOT_FOUND",
+  "message": "An unexpected error occurred. Please try again later"
+}
+ステータス: 404
+---
+
+[2025-07-29 12:31:47] GET /api/files/table/ichikawa/
+リクエスト: {'file_path': ['市川市アパートの家賃.csv']}
+レスポンス: {
+  "error": "FILE_NOT_FOUND",
+  "message": "An unexpected error occurred. Please try again later"
+}
+ステータス: 404
+---
+
+[2025-07-29 12:32:13] GET /api/projects/
+リクエスト: {}
+レスポンス: {
+  "version": "1.0.0",
+  "last_updated": "2025-07-29T09:43:02.366552",
+  "retention_months": 13,
+  "projects": [
+    {
+      "folder_name": "testProject",
+      "project_name": "テストのためのプロジェクト",
+      "description": "テストです。サンプルファイルとサブフォルダが追加されました。",
+      "tags": [
+        "sample"
+      ],
+      "status": "active",
+      "id": "2cec431a-0416-4451-a43b-fdc85e0c5c62",
+      "created_date": "2025-07-24T23:31:44.186614",
+      "modified_date": "2025-07-27T20:33:51.353635"
+    },
+    {
+      "folder_name": "ichikawa",
+      "project_name": "市川アパートの家賃",
+      "description": "重回帰分析のテスト用",
+      "tags": [],
+      "status": "active",
+      "id": "3779d95d-d923-435b-8da0-2a157940d95b",
+      "created_date": "2025-07-28T19:10:51.399660",
+      "modified_date": "2025-07-28T19:10:51.399660"
+    },
+    {
+      "folder_name": "test_project_4f1b6ebf",
+      "project_name": "テストプロジェクト",
+      "description": "ライフサイクルテスト用プロジェクト",
+      "tags": "lifecycle",
+      "status": "active",
+      "id": "d2c7d39b-c3a4-4591-9f89-b7f1def829d3",
+      "created_date": "2025-07-29T09:43:02.366552",
+      "modified_date": "2025-07-29T09:43:02.366552"
+    }
+  ],
+  "archived_projects": [
+    {
+      "folder_name": "direct_test_project",
+      "project_name": "直接テストプロジェクト",
+      "description": "直接テスト用プロジェクト",
+      "tags": [
+        "test"
+      ],
+      "status": "active",
+      "id": "82886a55-fe6c-4559-9dfa-27aeb21e924e",
+      "created_date": "2025-07-27T10:37:56.949497",
+      "modified_date": "2025-07-27T10:37:56.949497",
+      "archive_filename": "direct_test_project_20250727_103756.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/direct_test_project_20250727_103756.zip",
+      "archive_size": 347,
+      "deletion_date": "2025-07-27T10:37:56.952974",
+      "reason": "ユーザー削除"
+    },
+    {
+      "folder_name": "success_test_project",
+      "project_name": "成功テストプロジェクト",
+      "description": "正常に作成されるべきプロジェクト",
+      "tags": [
+        "success",
+        "test"
+      ],
+      "status": "active",
+      "id": "658786da-0f80-4434-bf7c-4e389df4b9b2",
+      "created_date": "2025-07-27T10:38:36.034282",
+      "modified_date": "2025-07-27T10:38:36.034282",
+      "archive_filename": "success_test_project_20250727_103836.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/success_test_project_20250727_103836.zip",
+      "archive_size": 385,
+      "deletion_date": "2025-07-27T10:38:36.035929",
+      "reason": "ユーザー削除"
+    },
+    {
+      "folder_name": "save_test",
+      "project_name": "セーブテスト",
+      "description": "セーブテスト（フォルダが存在しないため移動）",
+      "tags": [],
+      "status": "active",
+      "id": "bb5830e9-e13c-4960-bc25-fa8045a272e9",
+      "created_date": "2025-07-27T10:37:56.948759",
+      "modified_date": "2025-07-27T10:37:56.948769",
+      "archive_filename": "save_test_auto_archived.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/save_test_auto_archived.zip",
+      "archive_size": 0,
+      "deletion_date": "2025-07-27T17:30:00.000000",
+      "reason": "フォルダが存在しないため自動アーカイブ"
+    },
+    {
+      "folder_name": "test_project_simple",
+      "project_name": "Simple Test Project",
+      "description": "A simple test project（不正データのため移動）",
+      "tags": [
+        "test"
+      ],
+      "status": "active",
+      "id": "bd7e7a94-fce7-471b-9dce-7e4c1bcb8255",
+      "created_date": "2025-07-27T16:08:14.889746",
+      "modified_date": "2025-07-27T16:08:14.889746",
+      "archive_filename": "test_project_simple_invalid_data.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/test_project_simple_invalid_data.zip",
+      "archive_size": 0,
+      "deletion_date": "2025-07-27T17:30:00.000000",
+      "reason": "不正な配列データのため自動アーカイブ"
+    },
+    {
+      "folder_name": "test_project_simple",
+      "project_name": "Simple Test Project",
+      "description": "A simple test project（重複データのため移動）",
+      "tags": [
+        "test"
+      ],
+      "status": "active",
+      "id": "7e7be177-9396-4e40-baf3-0b15c2310500",
+      "created_date": "2025-07-27T16:42:31.526622",
+      "modified_date": "2025-07-27T16:42:31.526622",
+      "archive_filename": "test_project_simple_duplicate.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/test_project_simple_duplicate.zip",
+      "archive_size": 0,
+      "deletion_date": "2025-07-27T17:30:00.000000",
+      "reason": "重複データのため自動アーカイブ"
+    },
+    {
+      "folder_name": "error_mix_test_valid",
+      "project_name": [
+        "更新済み正常プロジェクト"
+      ],
+      "description": "正常なプロジェクト",
+      "status": "active",
+      "id": "b053ecbe-e6b0-468f-a128-2a09f8bc912f",
+      "created_date": "2025-07-28T16:19:11.123684",
+      "modified_date": "2025-07-28T16:19:11.125795",
+      "tags": [],
+      "archive_filename": "error_mix_test_valid_20250728_161911.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/error_mix_test_valid_20250728_161911.zip",
+      "archive_size": 340,
+      "deletion_date": "2025-07-28T16:19:11.128968",
+      "reason": "ユーザー削除"
+    },
+    {
+      "folder_name": "concurrent_test_0_66622648",
+      "project_name": "並行テストプロジェクト1",
+      "description": "並行処理テスト用プロジェクト1",
+      "tags": "test1",
+      "status": "active",
+      "id": "93f59528-8874-43e2-9046-8aa7f20cec4e",
+      "created_date": "2025-07-28T16:19:11.132327",
+      "modified_date": "2025-07-28T16:19:11.132327",
+      "archive_filename": "concurrent_test_0_66622648_20250728_161911.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/concurrent_test_0_66622648_20250728_161911.zip",
+      "archive_size": 376,
+      "deletion_date": "2025-07-28T16:19:11.138207",
+      "reason": "ユーザー削除"
+    },
+    {
+      "folder_name": "concurrent_test_2_e609d57b",
+      "project_name": "並行テストプロジェクト3",
+      "description": "並行処理テスト用プロジェクト3",
+      "tags": "test3",
+      "status": "active",
+      "id": "19800ff7-d7fc-4ab4-85e5-d16075ee81bc",
+      "created_date": "2025-07-28T16:19:11.134657",
+      "modified_date": "2025-07-28T16:19:11.134657",
+      "archive_filename": "concurrent_test_2_e609d57b_20250728_161911.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/concurrent_test_2_e609d57b_20250728_161911.zip",
+      "archive_size": 376,
+      "deletion_date": "2025-07-28T16:19:11.139132",
+      "reason": "ユーザー削除"
+    },
+    {
+      "folder_name": "concurrent_test_4_092f0468",
+      "project_name": "並行テストプロジェクト5",
+      "description": "並行処理テスト用プロジェクト5",
+      "tags": "test5",
+      "status": "active",
+      "id": "09e9dfc9-ca4f-44f4-986a-03f567c8ce12",
+      "created_date": "2025-07-28T16:19:11.136815",
+      "modified_date": "2025-07-28T16:19:11.136815",
+      "archive_filename": "concurrent_test_4_092f0468_20250728_161911.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/concurrent_test_4_092f0468_20250728_161911.zip",
+      "archive_size": 374,
+      "deletion_date": "2025-07-28T16:19:11.139959",
+      "reason": "ユーザー削除"
+    },
+    {
+      "folder_name": "concurrent_test_0_efcb15fd",
+      "project_name": "並行テストプロジェクト1",
+      "description": "並行処理テスト用プロジェクト1",
+      "tags": "test1",
+      "status": "active",
+      "id": "b8bdfef1-663d-4317-9733-520b7c82ef4c",
+      "created_date": "2025-07-28T17:01:01.713250",
+      "modified_date": "2025-07-28T17:01:01.713250",
+      "archive_filename": "concurrent_test_0_efcb15fd_20250728_170101.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/concurrent_test_0_efcb15fd_20250728_170101.zip",
+      "archive_size": 375,
+      "deletion_date": "2025-07-28T17:01:01.722770",
+      "reason": "ユーザー削除"
+    },
+    {
+      "folder_name": "concurrent_test_2_ee325ed7",
+      "project_name": "並行テストプロジェクト3",
+      "description": "並行処理テスト用プロジェクト3",
+      "tags": "test3",
+      "status": "active",
+      "id": "96aec4c7-1934-4a4d-a124-648cedab3cce",
+      "created_date": "2025-07-28T17:01:01.716608",
+      "modified_date": "2025-07-28T17:01:01.716608",
+      "archive_filename": "concurrent_test_2_ee325ed7_20250728_170101.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/concurrent_test_2_ee325ed7_20250728_170101.zip",
+      "archive_size": 375,
+      "deletion_date": "2025-07-28T17:01:01.723940",
+      "reason": "ユーザー削除"
+    },
+    {
+      "folder_name": "concurrent_test_4_ba6d6c1b",
+      "project_name": "並行テストプロジェクト5",
+      "description": "並行処理テスト用プロジェクト5",
+      "tags": "test5",
+      "status": "active",
+      "id": "59ff5728-63a6-4d99-8798-483937754e16",
+      "created_date": "2025-07-28T17:01:01.719739",
+      "modified_date": "2025-07-28T17:01:01.719739",
+      "archive_filename": "concurrent_test_4_ba6d6c1b_20250728_170101.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/concurrent_test_4_ba6d6c1b_20250728_170101.zip",
+      "archive_size": 375,
+      "deletion_date": "2025-07-28T17:01:01.725236",
+      "reason": "ユーザー削除"
+    },
+    {
+      "folder_name": "concurrent_test_0_2d83d836",
+      "project_name": "並行テストプロジェクト1",
+      "description": "並行処理テスト用プロジェクト1",
+      "tags": "test1",
+      "status": "active",
+      "id": "f5a03448-9b95-4b0d-bdee-bb9394282d31",
+      "created_date": "2025-07-28T17:02:13.338155",
+      "modified_date": "2025-07-28T17:02:13.338155",
+      "archive_filename": "concurrent_test_0_2d83d836_20250728_170213.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/concurrent_test_0_2d83d836_20250728_170213.zip",
+      "archive_size": 375,
+      "deletion_date": "2025-07-28T17:02:13.348167",
+      "reason": "ユーザー削除"
+    },
+    {
+      "folder_name": "concurrent_test_2_cc450da3",
+      "project_name": "並行テストプロジェクト3",
+      "description": "並行処理テスト用プロジェクト3",
+      "tags": "test3",
+      "status": "active",
+      "id": "e1c81e4f-5442-4448-90ea-88d84d031106",
+      "created_date": "2025-07-28T17:02:13.342054",
+      "modified_date": "2025-07-28T17:02:13.342054",
+      "archive_filename": "concurrent_test_2_cc450da3_20250728_170213.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/concurrent_test_2_cc450da3_20250728_170213.zip",
+      "archive_size": 374,
+      "deletion_date": "2025-07-28T17:02:13.349390",
+      "reason": "ユーザー削除"
+    },
+    {
+      "folder_name": "concurrent_test_4_73d0fb17",
+      "project_name": "並行テストプロジェクト5",
+      "description": "並行処理テスト用プロジェクト5",
+      "tags": "test5",
+      "status": "active",
+      "id": "ea790dc1-2fad-4e1e-ae29-f57de39d2fcd",
+      "created_date": "2025-07-28T17:02:13.345182",
+      "modified_date": "2025-07-28T17:02:13.345182",
+      "archive_filename": "concurrent_test_4_73d0fb17_20250728_170213.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/concurrent_test_4_73d0fb17_20250728_170213.zip",
+      "archive_size": 376,
+      "deletion_date": "2025-07-28T17:02:13.350711",
+      "reason": "ユーザー削除"
+    },
+    {
+      "folder_name": "concurrent_test_0_1fb7ac72",
+      "project_name": "並行テストプロジェクト1",
+      "description": "並行処理テスト用プロジェクト1",
+      "tags": "test1",
+      "status": "active",
+      "id": "89308044-b174-4b8f-828a-f2ca1c7e969f",
+      "created_date": "2025-07-28T17:03:10.525040",
+      "modified_date": "2025-07-28T17:03:10.525040",
+      "archive_filename": "concurrent_test_0_1fb7ac72_20250728_170310.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/concurrent_test_0_1fb7ac72_20250728_170310.zip",
+      "archive_size": 375,
+      "deletion_date": "2025-07-28T17:03:10.536131",
+      "reason": "ユーザー削除"
+    },
+    {
+      "folder_name": "concurrent_test_2_cd5b71e5",
+      "project_name": "並行テストプロジェクト3",
+      "description": "並行処理テスト用プロジェクト3",
+      "tags": "test3",
+      "status": "active",
+      "id": "3f5c31c8-b469-49bd-b191-683d973467a7",
+      "created_date": "2025-07-28T17:03:10.528416",
+      "modified_date": "2025-07-28T17:03:10.528416",
+      "archive_filename": "concurrent_test_2_cd5b71e5_20250728_170310.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/concurrent_test_2_cd5b71e5_20250728_170310.zip",
+      "archive_size": 376,
+      "deletion_date": "2025-07-28T17:03:10.537484",
+      "reason": "ユーザー削除"
+    },
+    {
+      "folder_name": "concurrent_test_4_b6a0a86d",
+      "project_name": "並行テストプロジェクト5",
+      "description": "並行処理テスト用プロジェクト5",
+      "tags": "test5",
+      "status": "active",
+      "id": "e9ab4e07-42a4-40a9-b720-3b5f25b70c4b",
+      "created_date": "2025-07-28T17:03:10.532732",
+      "modified_date": "2025-07-28T17:03:10.532732",
+      "archive_filename": "concurrent_test_4_b6a0a86d_20250728_170310.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/concurrent_test_4_b6a0a86d_20250728_170310.zip",
+      "archive_size": 375,
+      "deletion_date": "2025-07-28T17:03:10.538741",
+      "reason": "ユーザー削除"
+    }
+  ],
+  "reserved_folders": [
+    "node_modules",
+    "dist",
+    "build",
+    ".git",
+    "backend",
+    "frontend",
+    "trash",
+    "recycle_bin",
+    "deleted",
+    ".trash"
+  ]
+}
+ステータス: 200
+---
+
+[2025-07-29 12:32:13] GET /api/files/tree/ichikawa/
+リクエスト: {}
+レスポンス: {
+  "name": "raw",
+  "path": ".",
+  "type": "directory",
+  "size": 0,
+  "modified": "2025-07-28T19:11:20.600562",
+  "children": [
+    {
+      "name": "市川市アパートの家賃.csv",
+      "path": "市川市アパートの家賃.csv",
+      "type": "file",
+      "size": 20449,
+      "modified": "2025-07-28T19:11:20.600562",
+      "children": [],
+      "comment_count": 0,
+      "has_comments": false
+    }
+  ],
+  "comment_count": 0,
+  "has_comments": false
+}
+ステータス: 200
+---
+
+[2025-07-29 12:32:14] GET /api/projects/
+リクエスト: {}
+レスポンス: {
+  "version": "1.0.0",
+  "last_updated": "2025-07-29T09:43:02.366552",
+  "retention_months": 13,
+  "projects": [
+    {
+      "folder_name": "testProject",
+      "project_name": "テストのためのプロジェクト",
+      "description": "テストです。サンプルファイルとサブフォルダが追加されました。",
+      "tags": [
+        "sample"
+      ],
+      "status": "active",
+      "id": "2cec431a-0416-4451-a43b-fdc85e0c5c62",
+      "created_date": "2025-07-24T23:31:44.186614",
+      "modified_date": "2025-07-27T20:33:51.353635"
+    },
+    {
+      "folder_name": "ichikawa",
+      "project_name": "市川アパートの家賃",
+      "description": "重回帰分析のテスト用",
+      "tags": [],
+      "status": "active",
+      "id": "3779d95d-d923-435b-8da0-2a157940d95b",
+      "created_date": "2025-07-28T19:10:51.399660",
+      "modified_date": "2025-07-28T19:10:51.399660"
+    },
+    {
+      "folder_name": "test_project_4f1b6ebf",
+      "project_name": "テストプロジェクト",
+      "description": "ライフサイクルテスト用プロジェクト",
+      "tags": "lifecycle",
+      "status": "active",
+      "id": "d2c7d39b-c3a4-4591-9f89-b7f1def829d3",
+      "created_date": "2025-07-29T09:43:02.366552",
+      "modified_date": "2025-07-29T09:43:02.366552"
+    }
+  ],
+  "archived_projects": [
+    {
+      "folder_name": "direct_test_project",
+      "project_name": "直接テストプロジェクト",
+      "description": "直接テスト用プロジェクト",
+      "tags": [
+        "test"
+      ],
+      "status": "active",
+      "id": "82886a55-fe6c-4559-9dfa-27aeb21e924e",
+      "created_date": "2025-07-27T10:37:56.949497",
+      "modified_date": "2025-07-27T10:37:56.949497",
+      "archive_filename": "direct_test_project_20250727_103756.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/direct_test_project_20250727_103756.zip",
+      "archive_size": 347,
+      "deletion_date": "2025-07-27T10:37:56.952974",
+      "reason": "ユーザー削除"
+    },
+    {
+      "folder_name": "success_test_project",
+      "project_name": "成功テストプロジェクト",
+      "description": "正常に作成されるべきプロジェクト",
+      "tags": [
+        "success",
+        "test"
+      ],
+      "status": "active",
+      "id": "658786da-0f80-4434-bf7c-4e389df4b9b2",
+      "created_date": "2025-07-27T10:38:36.034282",
+      "modified_date": "2025-07-27T10:38:36.034282",
+      "archive_filename": "success_test_project_20250727_103836.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/success_test_project_20250727_103836.zip",
+      "archive_size": 385,
+      "deletion_date": "2025-07-27T10:38:36.035929",
+      "reason": "ユーザー削除"
+    },
+    {
+      "folder_name": "save_test",
+      "project_name": "セーブテスト",
+      "description": "セーブテスト（フォルダが存在しないため移動）",
+      "tags": [],
+      "status": "active",
+      "id": "bb5830e9-e13c-4960-bc25-fa8045a272e9",
+      "created_date": "2025-07-27T10:37:56.948759",
+      "modified_date": "2025-07-27T10:37:56.948769",
+      "archive_filename": "save_test_auto_archived.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/save_test_auto_archived.zip",
+      "archive_size": 0,
+      "deletion_date": "2025-07-27T17:30:00.000000",
+      "reason": "フォルダが存在しないため自動アーカイブ"
+    },
+    {
+      "folder_name": "test_project_simple",
+      "project_name": "Simple Test Project",
+      "description": "A simple test project（不正データのため移動）",
+      "tags": [
+        "test"
+      ],
+      "status": "active",
+      "id": "bd7e7a94-fce7-471b-9dce-7e4c1bcb8255",
+      "created_date": "2025-07-27T16:08:14.889746",
+      "modified_date": "2025-07-27T16:08:14.889746",
+      "archive_filename": "test_project_simple_invalid_data.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/test_project_simple_invalid_data.zip",
+      "archive_size": 0,
+      "deletion_date": "2025-07-27T17:30:00.000000",
+      "reason": "不正な配列データのため自動アーカイブ"
+    },
+    {
+      "folder_name": "test_project_simple",
+      "project_name": "Simple Test Project",
+      "description": "A simple test project（重複データのため移動）",
+      "tags": [
+        "test"
+      ],
+      "status": "active",
+      "id": "7e7be177-9396-4e40-baf3-0b15c2310500",
+      "created_date": "2025-07-27T16:42:31.526622",
+      "modified_date": "2025-07-27T16:42:31.526622",
+      "archive_filename": "test_project_simple_duplicate.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/test_project_simple_duplicate.zip",
+      "archive_size": 0,
+      "deletion_date": "2025-07-27T17:30:00.000000",
+      "reason": "重複データのため自動アーカイブ"
+    },
+    {
+      "folder_name": "error_mix_test_valid",
+      "project_name": [
+        "更新済み正常プロジェクト"
+      ],
+      "description": "正常なプロジェクト",
+      "status": "active",
+      "id": "b053ecbe-e6b0-468f-a128-2a09f8bc912f",
+      "created_date": "2025-07-28T16:19:11.123684",
+      "modified_date": "2025-07-28T16:19:11.125795",
+      "tags": [],
+      "archive_filename": "error_mix_test_valid_20250728_161911.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/error_mix_test_valid_20250728_161911.zip",
+      "archive_size": 340,
+      "deletion_date": "2025-07-28T16:19:11.128968",
+      "reason": "ユーザー削除"
+    },
+    {
+      "folder_name": "concurrent_test_0_66622648",
+      "project_name": "並行テストプロジェクト1",
+      "description": "並行処理テスト用プロジェクト1",
+      "tags": "test1",
+      "status": "active",
+      "id": "93f59528-8874-43e2-9046-8aa7f20cec4e",
+      "created_date": "2025-07-28T16:19:11.132327",
+      "modified_date": "2025-07-28T16:19:11.132327",
+      "archive_filename": "concurrent_test_0_66622648_20250728_161911.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/concurrent_test_0_66622648_20250728_161911.zip",
+      "archive_size": 376,
+      "deletion_date": "2025-07-28T16:19:11.138207",
+      "reason": "ユーザー削除"
+    },
+    {
+      "folder_name": "concurrent_test_2_e609d57b",
+      "project_name": "並行テストプロジェクト3",
+      "description": "並行処理テスト用プロジェクト3",
+      "tags": "test3",
+      "status": "active",
+      "id": "19800ff7-d7fc-4ab4-85e5-d16075ee81bc",
+      "created_date": "2025-07-28T16:19:11.134657",
+      "modified_date": "2025-07-28T16:19:11.134657",
+      "archive_filename": "concurrent_test_2_e609d57b_20250728_161911.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/concurrent_test_2_e609d57b_20250728_161911.zip",
+      "archive_size": 376,
+      "deletion_date": "2025-07-28T16:19:11.139132",
+      "reason": "ユーザー削除"
+    },
+    {
+      "folder_name": "concurrent_test_4_092f0468",
+      "project_name": "並行テストプロジェクト5",
+      "description": "並行処理テスト用プロジェクト5",
+      "tags": "test5",
+      "status": "active",
+      "id": "09e9dfc9-ca4f-44f4-986a-03f567c8ce12",
+      "created_date": "2025-07-28T16:19:11.136815",
+      "modified_date": "2025-07-28T16:19:11.136815",
+      "archive_filename": "concurrent_test_4_092f0468_20250728_161911.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/concurrent_test_4_092f0468_20250728_161911.zip",
+      "archive_size": 374,
+      "deletion_date": "2025-07-28T16:19:11.139959",
+      "reason": "ユーザー削除"
+    },
+    {
+      "folder_name": "concurrent_test_0_efcb15fd",
+      "project_name": "並行テストプロジェクト1",
+      "description": "並行処理テスト用プロジェクト1",
+      "tags": "test1",
+      "status": "active",
+      "id": "b8bdfef1-663d-4317-9733-520b7c82ef4c",
+      "created_date": "2025-07-28T17:01:01.713250",
+      "modified_date": "2025-07-28T17:01:01.713250",
+      "archive_filename": "concurrent_test_0_efcb15fd_20250728_170101.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/concurrent_test_0_efcb15fd_20250728_170101.zip",
+      "archive_size": 375,
+      "deletion_date": "2025-07-28T17:01:01.722770",
+      "reason": "ユーザー削除"
+    },
+    {
+      "folder_name": "concurrent_test_2_ee325ed7",
+      "project_name": "並行テストプロジェクト3",
+      "description": "並行処理テスト用プロジェクト3",
+      "tags": "test3",
+      "status": "active",
+      "id": "96aec4c7-1934-4a4d-a124-648cedab3cce",
+      "created_date": "2025-07-28T17:01:01.716608",
+      "modified_date": "2025-07-28T17:01:01.716608",
+      "archive_filename": "concurrent_test_2_ee325ed7_20250728_170101.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/concurrent_test_2_ee325ed7_20250728_170101.zip",
+      "archive_size": 375,
+      "deletion_date": "2025-07-28T17:01:01.723940",
+      "reason": "ユーザー削除"
+    },
+    {
+      "folder_name": "concurrent_test_4_ba6d6c1b",
+      "project_name": "並行テストプロジェクト5",
+      "description": "並行処理テスト用プロジェクト5",
+      "tags": "test5",
+      "status": "active",
+      "id": "59ff5728-63a6-4d99-8798-483937754e16",
+      "created_date": "2025-07-28T17:01:01.719739",
+      "modified_date": "2025-07-28T17:01:01.719739",
+      "archive_filename": "concurrent_test_4_ba6d6c1b_20250728_170101.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/concurrent_test_4_ba6d6c1b_20250728_170101.zip",
+      "archive_size": 375,
+      "deletion_date": "2025-07-28T17:01:01.725236",
+      "reason": "ユーザー削除"
+    },
+    {
+      "folder_name": "concurrent_test_0_2d83d836",
+      "project_name": "並行テストプロジェクト1",
+      "description": "並行処理テスト用プロジェクト1",
+      "tags": "test1",
+      "status": "active",
+      "id": "f5a03448-9b95-4b0d-bdee-bb9394282d31",
+      "created_date": "2025-07-28T17:02:13.338155",
+      "modified_date": "2025-07-28T17:02:13.338155",
+      "archive_filename": "concurrent_test_0_2d83d836_20250728_170213.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/concurrent_test_0_2d83d836_20250728_170213.zip",
+      "archive_size": 375,
+      "deletion_date": "2025-07-28T17:02:13.348167",
+      "reason": "ユーザー削除"
+    },
+    {
+      "folder_name": "concurrent_test_2_cc450da3",
+      "project_name": "並行テストプロジェクト3",
+      "description": "並行処理テスト用プロジェクト3",
+      "tags": "test3",
+      "status": "active",
+      "id": "e1c81e4f-5442-4448-90ea-88d84d031106",
+      "created_date": "2025-07-28T17:02:13.342054",
+      "modified_date": "2025-07-28T17:02:13.342054",
+      "archive_filename": "concurrent_test_2_cc450da3_20250728_170213.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/concurrent_test_2_cc450da3_20250728_170213.zip",
+      "archive_size": 374,
+      "deletion_date": "2025-07-28T17:02:13.349390",
+      "reason": "ユーザー削除"
+    },
+    {
+      "folder_name": "concurrent_test_4_73d0fb17",
+      "project_name": "並行テストプロジェクト5",
+      "description": "並行処理テスト用プロジェクト5",
+      "tags": "test5",
+      "status": "active",
+      "id": "ea790dc1-2fad-4e1e-ae29-f57de39d2fcd",
+      "created_date": "2025-07-28T17:02:13.345182",
+      "modified_date": "2025-07-28T17:02:13.345182",
+      "archive_filename": "concurrent_test_4_73d0fb17_20250728_170213.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/concurrent_test_4_73d0fb17_20250728_170213.zip",
+      "archive_size": 376,
+      "deletion_date": "2025-07-28T17:02:13.350711",
+      "reason": "ユーザー削除"
+    },
+    {
+      "folder_name": "concurrent_test_0_1fb7ac72",
+      "project_name": "並行テストプロジェクト1",
+      "description": "並行処理テスト用プロジェクト1",
+      "tags": "test1",
+      "status": "active",
+      "id": "89308044-b174-4b8f-828a-f2ca1c7e969f",
+      "created_date": "2025-07-28T17:03:10.525040",
+      "modified_date": "2025-07-28T17:03:10.525040",
+      "archive_filename": "concurrent_test_0_1fb7ac72_20250728_170310.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/concurrent_test_0_1fb7ac72_20250728_170310.zip",
+      "archive_size": 375,
+      "deletion_date": "2025-07-28T17:03:10.536131",
+      "reason": "ユーザー削除"
+    },
+    {
+      "folder_name": "concurrent_test_2_cd5b71e5",
+      "project_name": "並行テストプロジェクト3",
+      "description": "並行処理テスト用プロジェクト3",
+      "tags": "test3",
+      "status": "active",
+      "id": "3f5c31c8-b469-49bd-b191-683d973467a7",
+      "created_date": "2025-07-28T17:03:10.528416",
+      "modified_date": "2025-07-28T17:03:10.528416",
+      "archive_filename": "concurrent_test_2_cd5b71e5_20250728_170310.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/concurrent_test_2_cd5b71e5_20250728_170310.zip",
+      "archive_size": 376,
+      "deletion_date": "2025-07-28T17:03:10.537484",
+      "reason": "ユーザー削除"
+    },
+    {
+      "folder_name": "concurrent_test_4_b6a0a86d",
+      "project_name": "並行テストプロジェクト5",
+      "description": "並行処理テスト用プロジェクト5",
+      "tags": "test5",
+      "status": "active",
+      "id": "e9ab4e07-42a4-40a9-b720-3b5f25b70c4b",
+      "created_date": "2025-07-28T17:03:10.532732",
+      "modified_date": "2025-07-28T17:03:10.532732",
+      "archive_filename": "concurrent_test_4_b6a0a86d_20250728_170310.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/concurrent_test_4_b6a0a86d_20250728_170310.zip",
+      "archive_size": 375,
+      "deletion_date": "2025-07-28T17:03:10.538741",
+      "reason": "ユーザー削除"
+    }
+  ],
+  "reserved_folders": [
+    "node_modules",
+    "dist",
+    "build",
+    ".git",
+    "backend",
+    "frontend",
+    "trash",
+    "recycle_bin",
+    "deleted",
+    ".trash"
+  ]
+}
+ステータス: 200
+---
+
+[2025-07-29 12:32:14] GET /api/files/tree/ichikawa/
+リクエスト: {}
+レスポンス: {
+  "name": "raw",
+  "path": ".",
+  "type": "directory",
+  "size": 0,
+  "modified": "2025-07-28T19:11:20.600562",
+  "children": [
+    {
+      "name": "市川市アパートの家賃.csv",
+      "path": "市川市アパートの家賃.csv",
+      "type": "file",
+      "size": 20449,
+      "modified": "2025-07-28T19:11:20.600562",
+      "children": [],
+      "comment_count": 0,
+      "has_comments": false
+    }
+  ],
+  "comment_count": 0,
+  "has_comments": false
+}
+ステータス: 200
+---
+
+[2025-07-29 12:32:17] GET /api/files/tags/ichikawa/
+リクエスト: {'file_path': ['市川市アパートの家賃.csv']}
+レスポンス: {
+  "tags": [
+    "分析データ",
+    "項目データ"
+  ]
+}
+ステータス: 200
+---
+
+[2025-07-29 12:32:17] GET /api/files/descriptions/ichikawa/
+リクエスト: {'file_path': ['市川市アパートの家賃.csv']}
+レスポンス: {
+  "description": "市川市のアパート家賃データテスト\n"
+}
+ステータス: 200
+---
+
+[2025-07-29 12:33:01] GET /api/projects/
+リクエスト: {'lang': ['ja']}
+レスポンス: {
+  "version": "1.0.0",
+  "last_updated": "2025-07-29T09:43:02.366552",
+  "retention_months": 13,
+  "projects": [
+    {
+      "folder_name": "testProject",
+      "project_name": "テストのためのプロジェクト",
+      "description": "テストです。サンプルファイルとサブフォルダが追加されました。",
+      "tags": [
+        "sample"
+      ],
+      "status": "active",
+      "id": "2cec431a-0416-4451-a43b-fdc85e0c5c62",
+      "created_date": "2025-07-24T23:31:44.186614",
+      "modified_date": "2025-07-27T20:33:51.353635"
+    },
+    {
+      "folder_name": "ichikawa",
+      "project_name": "市川アパートの家賃",
+      "description": "重回帰分析のテスト用",
+      "tags": [],
+      "status": "active",
+      "id": "3779d95d-d923-435b-8da0-2a157940d95b",
+      "created_date": "2025-07-28T19:10:51.399660",
+      "modified_date": "2025-07-28T19:10:51.399660"
+    },
+    {
+      "folder_name": "test_project_4f1b6ebf",
+      "project_name": "テストプロジェクト",
+      "description": "ライフサイクルテスト用プロジェクト",
+      "tags": "lifecycle",
+      "status": "active",
+      "id": "d2c7d39b-c3a4-4591-9f89-b7f1def829d3",
+      "created_date": "2025-07-29T09:43:02.366552",
+      "modified_date": "2025-07-29T09:43:02.366552"
+    }
+  ],
+  "archived_projects": [
+    {
+      "folder_name": "direct_test_project",
+      "project_name": "直接テストプロジェクト",
+      "description": "直接テスト用プロジェクト",
+      "tags": [
+        "test"
+      ],
+      "status": "active",
+      "id": "82886a55-fe6c-4559-9dfa-27aeb21e924e",
+      "created_date": "2025-07-27T10:37:56.949497",
+      "modified_date": "2025-07-27T10:37:56.949497",
+      "archive_filename": "direct_test_project_20250727_103756.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/direct_test_project_20250727_103756.zip",
+      "archive_size": 347,
+      "deletion_date": "2025-07-27T10:37:56.952974",
+      "reason": "ユーザー削除"
+    },
+    {
+      "folder_name": "success_test_project",
+      "project_name": "成功テストプロジェクト",
+      "description": "正常に作成されるべきプロジェクト",
+      "tags": [
+        "success",
+        "test"
+      ],
+      "status": "active",
+      "id": "658786da-0f80-4434-bf7c-4e389df4b9b2",
+      "created_date": "2025-07-27T10:38:36.034282",
+      "modified_date": "2025-07-27T10:38:36.034282",
+      "archive_filename": "success_test_project_20250727_103836.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/success_test_project_20250727_103836.zip",
+      "archive_size": 385,
+      "deletion_date": "2025-07-27T10:38:36.035929",
+      "reason": "ユーザー削除"
+    },
+    {
+      "folder_name": "save_test",
+      "project_name": "セーブテスト",
+      "description": "セーブテスト（フォルダが存在しないため移動）",
+      "tags": [],
+      "status": "active",
+      "id": "bb5830e9-e13c-4960-bc25-fa8045a272e9",
+      "created_date": "2025-07-27T10:37:56.948759",
+      "modified_date": "2025-07-27T10:37:56.948769",
+      "archive_filename": "save_test_auto_archived.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/save_test_auto_archived.zip",
+      "archive_size": 0,
+      "deletion_date": "2025-07-27T17:30:00.000000",
+      "reason": "フォルダが存在しないため自動アーカイブ"
+    },
+    {
+      "folder_name": "test_project_simple",
+      "project_name": "Simple Test Project",
+      "description": "A simple test project（不正データのため移動）",
+      "tags": [
+        "test"
+      ],
+      "status": "active",
+      "id": "bd7e7a94-fce7-471b-9dce-7e4c1bcb8255",
+      "created_date": "2025-07-27T16:08:14.889746",
+      "modified_date": "2025-07-27T16:08:14.889746",
+      "archive_filename": "test_project_simple_invalid_data.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/test_project_simple_invalid_data.zip",
+      "archive_size": 0,
+      "deletion_date": "2025-07-27T17:30:00.000000",
+      "reason": "不正な配列データのため自動アーカイブ"
+    },
+    {
+      "folder_name": "test_project_simple",
+      "project_name": "Simple Test Project",
+      "description": "A simple test project（重複データのため移動）",
+      "tags": [
+        "test"
+      ],
+      "status": "active",
+      "id": "7e7be177-9396-4e40-baf3-0b15c2310500",
+      "created_date": "2025-07-27T16:42:31.526622",
+      "modified_date": "2025-07-27T16:42:31.526622",
+      "archive_filename": "test_project_simple_duplicate.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/test_project_simple_duplicate.zip",
+      "archive_size": 0,
+      "deletion_date": "2025-07-27T17:30:00.000000",
+      "reason": "重複データのため自動アーカイブ"
+    },
+    {
+      "folder_name": "error_mix_test_valid",
+      "project_name": [
+        "更新済み正常プロジェクト"
+      ],
+      "description": "正常なプロジェクト",
+      "status": "active",
+      "id": "b053ecbe-e6b0-468f-a128-2a09f8bc912f",
+      "created_date": "2025-07-28T16:19:11.123684",
+      "modified_date": "2025-07-28T16:19:11.125795",
+      "tags": [],
+      "archive_filename": "error_mix_test_valid_20250728_161911.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/error_mix_test_valid_20250728_161911.zip",
+      "archive_size": 340,
+      "deletion_date": "2025-07-28T16:19:11.128968",
+      "reason": "ユーザー削除"
+    },
+    {
+      "folder_name": "concurrent_test_0_66622648",
+      "project_name": "並行テストプロジェクト1",
+      "description": "並行処理テスト用プロジェクト1",
+      "tags": "test1",
+      "status": "active",
+      "id": "93f59528-8874-43e2-9046-8aa7f20cec4e",
+      "created_date": "2025-07-28T16:19:11.132327",
+      "modified_date": "2025-07-28T16:19:11.132327",
+      "archive_filename": "concurrent_test_0_66622648_20250728_161911.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/concurrent_test_0_66622648_20250728_161911.zip",
+      "archive_size": 376,
+      "deletion_date": "2025-07-28T16:19:11.138207",
+      "reason": "ユーザー削除"
+    },
+    {
+      "folder_name": "concurrent_test_2_e609d57b",
+      "project_name": "並行テストプロジェクト3",
+      "description": "並行処理テスト用プロジェクト3",
+      "tags": "test3",
+      "status": "active",
+      "id": "19800ff7-d7fc-4ab4-85e5-d16075ee81bc",
+      "created_date": "2025-07-28T16:19:11.134657",
+      "modified_date": "2025-07-28T16:19:11.134657",
+      "archive_filename": "concurrent_test_2_e609d57b_20250728_161911.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/concurrent_test_2_e609d57b_20250728_161911.zip",
+      "archive_size": 376,
+      "deletion_date": "2025-07-28T16:19:11.139132",
+      "reason": "ユーザー削除"
+    },
+    {
+      "folder_name": "concurrent_test_4_092f0468",
+      "project_name": "並行テストプロジェクト5",
+      "description": "並行処理テスト用プロジェクト5",
+      "tags": "test5",
+      "status": "active",
+      "id": "09e9dfc9-ca4f-44f4-986a-03f567c8ce12",
+      "created_date": "2025-07-28T16:19:11.136815",
+      "modified_date": "2025-07-28T16:19:11.136815",
+      "archive_filename": "concurrent_test_4_092f0468_20250728_161911.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/concurrent_test_4_092f0468_20250728_161911.zip",
+      "archive_size": 374,
+      "deletion_date": "2025-07-28T16:19:11.139959",
+      "reason": "ユーザー削除"
+    },
+    {
+      "folder_name": "concurrent_test_0_efcb15fd",
+      "project_name": "並行テストプロジェクト1",
+      "description": "並行処理テスト用プロジェクト1",
+      "tags": "test1",
+      "status": "active",
+      "id": "b8bdfef1-663d-4317-9733-520b7c82ef4c",
+      "created_date": "2025-07-28T17:01:01.713250",
+      "modified_date": "2025-07-28T17:01:01.713250",
+      "archive_filename": "concurrent_test_0_efcb15fd_20250728_170101.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/concurrent_test_0_efcb15fd_20250728_170101.zip",
+      "archive_size": 375,
+      "deletion_date": "2025-07-28T17:01:01.722770",
+      "reason": "ユーザー削除"
+    },
+    {
+      "folder_name": "concurrent_test_2_ee325ed7",
+      "project_name": "並行テストプロジェクト3",
+      "description": "並行処理テスト用プロジェクト3",
+      "tags": "test3",
+      "status": "active",
+      "id": "96aec4c7-1934-4a4d-a124-648cedab3cce",
+      "created_date": "2025-07-28T17:01:01.716608",
+      "modified_date": "2025-07-28T17:01:01.716608",
+      "archive_filename": "concurrent_test_2_ee325ed7_20250728_170101.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/concurrent_test_2_ee325ed7_20250728_170101.zip",
+      "archive_size": 375,
+      "deletion_date": "2025-07-28T17:01:01.723940",
+      "reason": "ユーザー削除"
+    },
+    {
+      "folder_name": "concurrent_test_4_ba6d6c1b",
+      "project_name": "並行テストプロジェクト5",
+      "description": "並行処理テスト用プロジェクト5",
+      "tags": "test5",
+      "status": "active",
+      "id": "59ff5728-63a6-4d99-8798-483937754e16",
+      "created_date": "2025-07-28T17:01:01.719739",
+      "modified_date": "2025-07-28T17:01:01.719739",
+      "archive_filename": "concurrent_test_4_ba6d6c1b_20250728_170101.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/concurrent_test_4_ba6d6c1b_20250728_170101.zip",
+      "archive_size": 375,
+      "deletion_date": "2025-07-28T17:01:01.725236",
+      "reason": "ユーザー削除"
+    },
+    {
+      "folder_name": "concurrent_test_0_2d83d836",
+      "project_name": "並行テストプロジェクト1",
+      "description": "並行処理テスト用プロジェクト1",
+      "tags": "test1",
+      "status": "active",
+      "id": "f5a03448-9b95-4b0d-bdee-bb9394282d31",
+      "created_date": "2025-07-28T17:02:13.338155",
+      "modified_date": "2025-07-28T17:02:13.338155",
+      "archive_filename": "concurrent_test_0_2d83d836_20250728_170213.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/concurrent_test_0_2d83d836_20250728_170213.zip",
+      "archive_size": 375,
+      "deletion_date": "2025-07-28T17:02:13.348167",
+      "reason": "ユーザー削除"
+    },
+    {
+      "folder_name": "concurrent_test_2_cc450da3",
+      "project_name": "並行テストプロジェクト3",
+      "description": "並行処理テスト用プロジェクト3",
+      "tags": "test3",
+      "status": "active",
+      "id": "e1c81e4f-5442-4448-90ea-88d84d031106",
+      "created_date": "2025-07-28T17:02:13.342054",
+      "modified_date": "2025-07-28T17:02:13.342054",
+      "archive_filename": "concurrent_test_2_cc450da3_20250728_170213.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/concurrent_test_2_cc450da3_20250728_170213.zip",
+      "archive_size": 374,
+      "deletion_date": "2025-07-28T17:02:13.349390",
+      "reason": "ユーザー削除"
+    },
+    {
+      "folder_name": "concurrent_test_4_73d0fb17",
+      "project_name": "並行テストプロジェクト5",
+      "description": "並行処理テスト用プロジェクト5",
+      "tags": "test5",
+      "status": "active",
+      "id": "ea790dc1-2fad-4e1e-ae29-f57de39d2fcd",
+      "created_date": "2025-07-28T17:02:13.345182",
+      "modified_date": "2025-07-28T17:02:13.345182",
+      "archive_filename": "concurrent_test_4_73d0fb17_20250728_170213.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/concurrent_test_4_73d0fb17_20250728_170213.zip",
+      "archive_size": 376,
+      "deletion_date": "2025-07-28T17:02:13.350711",
+      "reason": "ユーザー削除"
+    },
+    {
+      "folder_name": "concurrent_test_0_1fb7ac72",
+      "project_name": "並行テストプロジェクト1",
+      "description": "並行処理テスト用プロジェクト1",
+      "tags": "test1",
+      "status": "active",
+      "id": "89308044-b174-4b8f-828a-f2ca1c7e969f",
+      "created_date": "2025-07-28T17:03:10.525040",
+      "modified_date": "2025-07-28T17:03:10.525040",
+      "archive_filename": "concurrent_test_0_1fb7ac72_20250728_170310.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/concurrent_test_0_1fb7ac72_20250728_170310.zip",
+      "archive_size": 375,
+      "deletion_date": "2025-07-28T17:03:10.536131",
+      "reason": "ユーザー削除"
+    },
+    {
+      "folder_name": "concurrent_test_2_cd5b71e5",
+      "project_name": "並行テストプロジェクト3",
+      "description": "並行処理テスト用プロジェクト3",
+      "tags": "test3",
+      "status": "active",
+      "id": "3f5c31c8-b469-49bd-b191-683d973467a7",
+      "created_date": "2025-07-28T17:03:10.528416",
+      "modified_date": "2025-07-28T17:03:10.528416",
+      "archive_filename": "concurrent_test_2_cd5b71e5_20250728_170310.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/concurrent_test_2_cd5b71e5_20250728_170310.zip",
+      "archive_size": 376,
+      "deletion_date": "2025-07-28T17:03:10.537484",
+      "reason": "ユーザー削除"
+    },
+    {
+      "folder_name": "concurrent_test_4_b6a0a86d",
+      "project_name": "並行テストプロジェクト5",
+      "description": "並行処理テスト用プロジェクト5",
+      "tags": "test5",
+      "status": "active",
+      "id": "e9ab4e07-42a4-40a9-b720-3b5f25b70c4b",
+      "created_date": "2025-07-28T17:03:10.532732",
+      "modified_date": "2025-07-28T17:03:10.532732",
+      "archive_filename": "concurrent_test_4_b6a0a86d_20250728_170310.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/concurrent_test_4_b6a0a86d_20250728_170310.zip",
+      "archive_size": 375,
+      "deletion_date": "2025-07-28T17:03:10.538741",
+      "reason": "ユーザー削除"
+    }
+  ],
+  "reserved_folders": [
+    "node_modules",
+    "dist",
+    "build",
+    ".git",
+    "backend",
+    "frontend",
+    "trash",
+    "recycle_bin",
+    "deleted",
+    ".trash"
+  ]
+}
+ステータス: 200
+---
+
+[2025-07-29 12:33:01] GET /api/projects/
+リクエスト: {'lang': ['ja']}
+レスポンス: {
+  "version": "1.0.0",
+  "last_updated": "2025-07-29T09:43:02.366552",
+  "retention_months": 13,
+  "projects": [
+    {
+      "folder_name": "testProject",
+      "project_name": "テストのためのプロジェクト",
+      "description": "テストです。サンプルファイルとサブフォルダが追加されました。",
+      "tags": [
+        "sample"
+      ],
+      "status": "active",
+      "id": "2cec431a-0416-4451-a43b-fdc85e0c5c62",
+      "created_date": "2025-07-24T23:31:44.186614",
+      "modified_date": "2025-07-27T20:33:51.353635"
+    },
+    {
+      "folder_name": "ichikawa",
+      "project_name": "市川アパートの家賃",
+      "description": "重回帰分析のテスト用",
+      "tags": [],
+      "status": "active",
+      "id": "3779d95d-d923-435b-8da0-2a157940d95b",
+      "created_date": "2025-07-28T19:10:51.399660",
+      "modified_date": "2025-07-28T19:10:51.399660"
+    },
+    {
+      "folder_name": "test_project_4f1b6ebf",
+      "project_name": "テストプロジェクト",
+      "description": "ライフサイクルテスト用プロジェクト",
+      "tags": "lifecycle",
+      "status": "active",
+      "id": "d2c7d39b-c3a4-4591-9f89-b7f1def829d3",
+      "created_date": "2025-07-29T09:43:02.366552",
+      "modified_date": "2025-07-29T09:43:02.366552"
+    }
+  ],
+  "archived_projects": [
+    {
+      "folder_name": "direct_test_project",
+      "project_name": "直接テストプロジェクト",
+      "description": "直接テスト用プロジェクト",
+      "tags": [
+        "test"
+      ],
+      "status": "active",
+      "id": "82886a55-fe6c-4559-9dfa-27aeb21e924e",
+      "created_date": "2025-07-27T10:37:56.949497",
+      "modified_date": "2025-07-27T10:37:56.949497",
+      "archive_filename": "direct_test_project_20250727_103756.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/direct_test_project_20250727_103756.zip",
+      "archive_size": 347,
+      "deletion_date": "2025-07-27T10:37:56.952974",
+      "reason": "ユーザー削除"
+    },
+    {
+      "folder_name": "success_test_project",
+      "project_name": "成功テストプロジェクト",
+      "description": "正常に作成されるべきプロジェクト",
+      "tags": [
+        "success",
+        "test"
+      ],
+      "status": "active",
+      "id": "658786da-0f80-4434-bf7c-4e389df4b9b2",
+      "created_date": "2025-07-27T10:38:36.034282",
+      "modified_date": "2025-07-27T10:38:36.034282",
+      "archive_filename": "success_test_project_20250727_103836.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/success_test_project_20250727_103836.zip",
+      "archive_size": 385,
+      "deletion_date": "2025-07-27T10:38:36.035929",
+      "reason": "ユーザー削除"
+    },
+    {
+      "folder_name": "save_test",
+      "project_name": "セーブテスト",
+      "description": "セーブテスト（フォルダが存在しないため移動）",
+      "tags": [],
+      "status": "active",
+      "id": "bb5830e9-e13c-4960-bc25-fa8045a272e9",
+      "created_date": "2025-07-27T10:37:56.948759",
+      "modified_date": "2025-07-27T10:37:56.948769",
+      "archive_filename": "save_test_auto_archived.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/save_test_auto_archived.zip",
+      "archive_size": 0,
+      "deletion_date": "2025-07-27T17:30:00.000000",
+      "reason": "フォルダが存在しないため自動アーカイブ"
+    },
+    {
+      "folder_name": "test_project_simple",
+      "project_name": "Simple Test Project",
+      "description": "A simple test project（不正データのため移動）",
+      "tags": [
+        "test"
+      ],
+      "status": "active",
+      "id": "bd7e7a94-fce7-471b-9dce-7e4c1bcb8255",
+      "created_date": "2025-07-27T16:08:14.889746",
+      "modified_date": "2025-07-27T16:08:14.889746",
+      "archive_filename": "test_project_simple_invalid_data.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/test_project_simple_invalid_data.zip",
+      "archive_size": 0,
+      "deletion_date": "2025-07-27T17:30:00.000000",
+      "reason": "不正な配列データのため自動アーカイブ"
+    },
+    {
+      "folder_name": "test_project_simple",
+      "project_name": "Simple Test Project",
+      "description": "A simple test project（重複データのため移動）",
+      "tags": [
+        "test"
+      ],
+      "status": "active",
+      "id": "7e7be177-9396-4e40-baf3-0b15c2310500",
+      "created_date": "2025-07-27T16:42:31.526622",
+      "modified_date": "2025-07-27T16:42:31.526622",
+      "archive_filename": "test_project_simple_duplicate.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/test_project_simple_duplicate.zip",
+      "archive_size": 0,
+      "deletion_date": "2025-07-27T17:30:00.000000",
+      "reason": "重複データのため自動アーカイブ"
+    },
+    {
+      "folder_name": "error_mix_test_valid",
+      "project_name": [
+        "更新済み正常プロジェクト"
+      ],
+      "description": "正常なプロジェクト",
+      "status": "active",
+      "id": "b053ecbe-e6b0-468f-a128-2a09f8bc912f",
+      "created_date": "2025-07-28T16:19:11.123684",
+      "modified_date": "2025-07-28T16:19:11.125795",
+      "tags": [],
+      "archive_filename": "error_mix_test_valid_20250728_161911.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/error_mix_test_valid_20250728_161911.zip",
+      "archive_size": 340,
+      "deletion_date": "2025-07-28T16:19:11.128968",
+      "reason": "ユーザー削除"
+    },
+    {
+      "folder_name": "concurrent_test_0_66622648",
+      "project_name": "並行テストプロジェクト1",
+      "description": "並行処理テスト用プロジェクト1",
+      "tags": "test1",
+      "status": "active",
+      "id": "93f59528-8874-43e2-9046-8aa7f20cec4e",
+      "created_date": "2025-07-28T16:19:11.132327",
+      "modified_date": "2025-07-28T16:19:11.132327",
+      "archive_filename": "concurrent_test_0_66622648_20250728_161911.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/concurrent_test_0_66622648_20250728_161911.zip",
+      "archive_size": 376,
+      "deletion_date": "2025-07-28T16:19:11.138207",
+      "reason": "ユーザー削除"
+    },
+    {
+      "folder_name": "concurrent_test_2_e609d57b",
+      "project_name": "並行テストプロジェクト3",
+      "description": "並行処理テスト用プロジェクト3",
+      "tags": "test3",
+      "status": "active",
+      "id": "19800ff7-d7fc-4ab4-85e5-d16075ee81bc",
+      "created_date": "2025-07-28T16:19:11.134657",
+      "modified_date": "2025-07-28T16:19:11.134657",
+      "archive_filename": "concurrent_test_2_e609d57b_20250728_161911.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/concurrent_test_2_e609d57b_20250728_161911.zip",
+      "archive_size": 376,
+      "deletion_date": "2025-07-28T16:19:11.139132",
+      "reason": "ユーザー削除"
+    },
+    {
+      "folder_name": "concurrent_test_4_092f0468",
+      "project_name": "並行テストプロジェクト5",
+      "description": "並行処理テスト用プロジェクト5",
+      "tags": "test5",
+      "status": "active",
+      "id": "09e9dfc9-ca4f-44f4-986a-03f567c8ce12",
+      "created_date": "2025-07-28T16:19:11.136815",
+      "modified_date": "2025-07-28T16:19:11.136815",
+      "archive_filename": "concurrent_test_4_092f0468_20250728_161911.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/concurrent_test_4_092f0468_20250728_161911.zip",
+      "archive_size": 374,
+      "deletion_date": "2025-07-28T16:19:11.139959",
+      "reason": "ユーザー削除"
+    },
+    {
+      "folder_name": "concurrent_test_0_efcb15fd",
+      "project_name": "並行テストプロジェクト1",
+      "description": "並行処理テスト用プロジェクト1",
+      "tags": "test1",
+      "status": "active",
+      "id": "b8bdfef1-663d-4317-9733-520b7c82ef4c",
+      "created_date": "2025-07-28T17:01:01.713250",
+      "modified_date": "2025-07-28T17:01:01.713250",
+      "archive_filename": "concurrent_test_0_efcb15fd_20250728_170101.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/concurrent_test_0_efcb15fd_20250728_170101.zip",
+      "archive_size": 375,
+      "deletion_date": "2025-07-28T17:01:01.722770",
+      "reason": "ユーザー削除"
+    },
+    {
+      "folder_name": "concurrent_test_2_ee325ed7",
+      "project_name": "並行テストプロジェクト3",
+      "description": "並行処理テスト用プロジェクト3",
+      "tags": "test3",
+      "status": "active",
+      "id": "96aec4c7-1934-4a4d-a124-648cedab3cce",
+      "created_date": "2025-07-28T17:01:01.716608",
+      "modified_date": "2025-07-28T17:01:01.716608",
+      "archive_filename": "concurrent_test_2_ee325ed7_20250728_170101.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/concurrent_test_2_ee325ed7_20250728_170101.zip",
+      "archive_size": 375,
+      "deletion_date": "2025-07-28T17:01:01.723940",
+      "reason": "ユーザー削除"
+    },
+    {
+      "folder_name": "concurrent_test_4_ba6d6c1b",
+      "project_name": "並行テストプロジェクト5",
+      "description": "並行処理テスト用プロジェクト5",
+      "tags": "test5",
+      "status": "active",
+      "id": "59ff5728-63a6-4d99-8798-483937754e16",
+      "created_date": "2025-07-28T17:01:01.719739",
+      "modified_date": "2025-07-28T17:01:01.719739",
+      "archive_filename": "concurrent_test_4_ba6d6c1b_20250728_170101.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/concurrent_test_4_ba6d6c1b_20250728_170101.zip",
+      "archive_size": 375,
+      "deletion_date": "2025-07-28T17:01:01.725236",
+      "reason": "ユーザー削除"
+    },
+    {
+      "folder_name": "concurrent_test_0_2d83d836",
+      "project_name": "並行テストプロジェクト1",
+      "description": "並行処理テスト用プロジェクト1",
+      "tags": "test1",
+      "status": "active",
+      "id": "f5a03448-9b95-4b0d-bdee-bb9394282d31",
+      "created_date": "2025-07-28T17:02:13.338155",
+      "modified_date": "2025-07-28T17:02:13.338155",
+      "archive_filename": "concurrent_test_0_2d83d836_20250728_170213.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/concurrent_test_0_2d83d836_20250728_170213.zip",
+      "archive_size": 375,
+      "deletion_date": "2025-07-28T17:02:13.348167",
+      "reason": "ユーザー削除"
+    },
+    {
+      "folder_name": "concurrent_test_2_cc450da3",
+      "project_name": "並行テストプロジェクト3",
+      "description": "並行処理テスト用プロジェクト3",
+      "tags": "test3",
+      "status": "active",
+      "id": "e1c81e4f-5442-4448-90ea-88d84d031106",
+      "created_date": "2025-07-28T17:02:13.342054",
+      "modified_date": "2025-07-28T17:02:13.342054",
+      "archive_filename": "concurrent_test_2_cc450da3_20250728_170213.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/concurrent_test_2_cc450da3_20250728_170213.zip",
+      "archive_size": 374,
+      "deletion_date": "2025-07-28T17:02:13.349390",
+      "reason": "ユーザー削除"
+    },
+    {
+      "folder_name": "concurrent_test_4_73d0fb17",
+      "project_name": "並行テストプロジェクト5",
+      "description": "並行処理テスト用プロジェクト5",
+      "tags": "test5",
+      "status": "active",
+      "id": "ea790dc1-2fad-4e1e-ae29-f57de39d2fcd",
+      "created_date": "2025-07-28T17:02:13.345182",
+      "modified_date": "2025-07-28T17:02:13.345182",
+      "archive_filename": "concurrent_test_4_73d0fb17_20250728_170213.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/concurrent_test_4_73d0fb17_20250728_170213.zip",
+      "archive_size": 376,
+      "deletion_date": "2025-07-28T17:02:13.350711",
+      "reason": "ユーザー削除"
+    },
+    {
+      "folder_name": "concurrent_test_0_1fb7ac72",
+      "project_name": "並行テストプロジェクト1",
+      "description": "並行処理テスト用プロジェクト1",
+      "tags": "test1",
+      "status": "active",
+      "id": "89308044-b174-4b8f-828a-f2ca1c7e969f",
+      "created_date": "2025-07-28T17:03:10.525040",
+      "modified_date": "2025-07-28T17:03:10.525040",
+      "archive_filename": "concurrent_test_0_1fb7ac72_20250728_170310.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/concurrent_test_0_1fb7ac72_20250728_170310.zip",
+      "archive_size": 375,
+      "deletion_date": "2025-07-28T17:03:10.536131",
+      "reason": "ユーザー削除"
+    },
+    {
+      "folder_name": "concurrent_test_2_cd5b71e5",
+      "project_name": "並行テストプロジェクト3",
+      "description": "並行処理テスト用プロジェクト3",
+      "tags": "test3",
+      "status": "active",
+      "id": "3f5c31c8-b469-49bd-b191-683d973467a7",
+      "created_date": "2025-07-28T17:03:10.528416",
+      "modified_date": "2025-07-28T17:03:10.528416",
+      "archive_filename": "concurrent_test_2_cd5b71e5_20250728_170310.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/concurrent_test_2_cd5b71e5_20250728_170310.zip",
+      "archive_size": 376,
+      "deletion_date": "2025-07-28T17:03:10.537484",
+      "reason": "ユーザー削除"
+    },
+    {
+      "folder_name": "concurrent_test_4_b6a0a86d",
+      "project_name": "並行テストプロジェクト5",
+      "description": "並行処理テスト用プロジェクト5",
+      "tags": "test5",
+      "status": "active",
+      "id": "e9ab4e07-42a4-40a9-b720-3b5f25b70c4b",
+      "created_date": "2025-07-28T17:03:10.532732",
+      "modified_date": "2025-07-28T17:03:10.532732",
+      "archive_filename": "concurrent_test_4_b6a0a86d_20250728_170310.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/concurrent_test_4_b6a0a86d_20250728_170310.zip",
+      "archive_size": 375,
+      "deletion_date": "2025-07-28T17:03:10.538741",
+      "reason": "ユーザー削除"
+    }
+  ],
+  "reserved_folders": [
+    "node_modules",
+    "dist",
+    "build",
+    ".git",
+    "backend",
+    "frontend",
+    "trash",
+    "recycle_bin",
+    "deleted",
+    ".trash"
+  ]
+}
+ステータス: 200
+---
+
+[2025-07-29 12:33:06] GET /api/projects/
+リクエスト: {}
+レスポンス: {
+  "version": "1.0.0",
+  "last_updated": "2025-07-29T09:43:02.366552",
+  "retention_months": 13,
+  "projects": [
+    {
+      "folder_name": "testProject",
+      "project_name": "テストのためのプロジェクト",
+      "description": "テストです。サンプルファイルとサブフォルダが追加されました。",
+      "tags": [
+        "sample"
+      ],
+      "status": "active",
+      "id": "2cec431a-0416-4451-a43b-fdc85e0c5c62",
+      "created_date": "2025-07-24T23:31:44.186614",
+      "modified_date": "2025-07-27T20:33:51.353635"
+    },
+    {
+      "folder_name": "ichikawa",
+      "project_name": "市川アパートの家賃",
+      "description": "重回帰分析のテスト用",
+      "tags": [],
+      "status": "active",
+      "id": "3779d95d-d923-435b-8da0-2a157940d95b",
+      "created_date": "2025-07-28T19:10:51.399660",
+      "modified_date": "2025-07-28T19:10:51.399660"
+    },
+    {
+      "folder_name": "test_project_4f1b6ebf",
+      "project_name": "テストプロジェクト",
+      "description": "ライフサイクルテスト用プロジェクト",
+      "tags": "lifecycle",
+      "status": "active",
+      "id": "d2c7d39b-c3a4-4591-9f89-b7f1def829d3",
+      "created_date": "2025-07-29T09:43:02.366552",
+      "modified_date": "2025-07-29T09:43:02.366552"
+    }
+  ],
+  "archived_projects": [
+    {
+      "folder_name": "direct_test_project",
+      "project_name": "直接テストプロジェクト",
+      "description": "直接テスト用プロジェクト",
+      "tags": [
+        "test"
+      ],
+      "status": "active",
+      "id": "82886a55-fe6c-4559-9dfa-27aeb21e924e",
+      "created_date": "2025-07-27T10:37:56.949497",
+      "modified_date": "2025-07-27T10:37:56.949497",
+      "archive_filename": "direct_test_project_20250727_103756.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/direct_test_project_20250727_103756.zip",
+      "archive_size": 347,
+      "deletion_date": "2025-07-27T10:37:56.952974",
+      "reason": "ユーザー削除"
+    },
+    {
+      "folder_name": "success_test_project",
+      "project_name": "成功テストプロジェクト",
+      "description": "正常に作成されるべきプロジェクト",
+      "tags": [
+        "success",
+        "test"
+      ],
+      "status": "active",
+      "id": "658786da-0f80-4434-bf7c-4e389df4b9b2",
+      "created_date": "2025-07-27T10:38:36.034282",
+      "modified_date": "2025-07-27T10:38:36.034282",
+      "archive_filename": "success_test_project_20250727_103836.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/success_test_project_20250727_103836.zip",
+      "archive_size": 385,
+      "deletion_date": "2025-07-27T10:38:36.035929",
+      "reason": "ユーザー削除"
+    },
+    {
+      "folder_name": "save_test",
+      "project_name": "セーブテスト",
+      "description": "セーブテスト（フォルダが存在しないため移動）",
+      "tags": [],
+      "status": "active",
+      "id": "bb5830e9-e13c-4960-bc25-fa8045a272e9",
+      "created_date": "2025-07-27T10:37:56.948759",
+      "modified_date": "2025-07-27T10:37:56.948769",
+      "archive_filename": "save_test_auto_archived.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/save_test_auto_archived.zip",
+      "archive_size": 0,
+      "deletion_date": "2025-07-27T17:30:00.000000",
+      "reason": "フォルダが存在しないため自動アーカイブ"
+    },
+    {
+      "folder_name": "test_project_simple",
+      "project_name": "Simple Test Project",
+      "description": "A simple test project（不正データのため移動）",
+      "tags": [
+        "test"
+      ],
+      "status": "active",
+      "id": "bd7e7a94-fce7-471b-9dce-7e4c1bcb8255",
+      "created_date": "2025-07-27T16:08:14.889746",
+      "modified_date": "2025-07-27T16:08:14.889746",
+      "archive_filename": "test_project_simple_invalid_data.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/test_project_simple_invalid_data.zip",
+      "archive_size": 0,
+      "deletion_date": "2025-07-27T17:30:00.000000",
+      "reason": "不正な配列データのため自動アーカイブ"
+    },
+    {
+      "folder_name": "test_project_simple",
+      "project_name": "Simple Test Project",
+      "description": "A simple test project（重複データのため移動）",
+      "tags": [
+        "test"
+      ],
+      "status": "active",
+      "id": "7e7be177-9396-4e40-baf3-0b15c2310500",
+      "created_date": "2025-07-27T16:42:31.526622",
+      "modified_date": "2025-07-27T16:42:31.526622",
+      "archive_filename": "test_project_simple_duplicate.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/test_project_simple_duplicate.zip",
+      "archive_size": 0,
+      "deletion_date": "2025-07-27T17:30:00.000000",
+      "reason": "重複データのため自動アーカイブ"
+    },
+    {
+      "folder_name": "error_mix_test_valid",
+      "project_name": [
+        "更新済み正常プロジェクト"
+      ],
+      "description": "正常なプロジェクト",
+      "status": "active",
+      "id": "b053ecbe-e6b0-468f-a128-2a09f8bc912f",
+      "created_date": "2025-07-28T16:19:11.123684",
+      "modified_date": "2025-07-28T16:19:11.125795",
+      "tags": [],
+      "archive_filename": "error_mix_test_valid_20250728_161911.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/error_mix_test_valid_20250728_161911.zip",
+      "archive_size": 340,
+      "deletion_date": "2025-07-28T16:19:11.128968",
+      "reason": "ユーザー削除"
+    },
+    {
+      "folder_name": "concurrent_test_0_66622648",
+      "project_name": "並行テストプロジェクト1",
+      "description": "並行処理テスト用プロジェクト1",
+      "tags": "test1",
+      "status": "active",
+      "id": "93f59528-8874-43e2-9046-8aa7f20cec4e",
+      "created_date": "2025-07-28T16:19:11.132327",
+      "modified_date": "2025-07-28T16:19:11.132327",
+      "archive_filename": "concurrent_test_0_66622648_20250728_161911.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/concurrent_test_0_66622648_20250728_161911.zip",
+      "archive_size": 376,
+      "deletion_date": "2025-07-28T16:19:11.138207",
+      "reason": "ユーザー削除"
+    },
+    {
+      "folder_name": "concurrent_test_2_e609d57b",
+      "project_name": "並行テストプロジェクト3",
+      "description": "並行処理テスト用プロジェクト3",
+      "tags": "test3",
+      "status": "active",
+      "id": "19800ff7-d7fc-4ab4-85e5-d16075ee81bc",
+      "created_date": "2025-07-28T16:19:11.134657",
+      "modified_date": "2025-07-28T16:19:11.134657",
+      "archive_filename": "concurrent_test_2_e609d57b_20250728_161911.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/concurrent_test_2_e609d57b_20250728_161911.zip",
+      "archive_size": 376,
+      "deletion_date": "2025-07-28T16:19:11.139132",
+      "reason": "ユーザー削除"
+    },
+    {
+      "folder_name": "concurrent_test_4_092f0468",
+      "project_name": "並行テストプロジェクト5",
+      "description": "並行処理テスト用プロジェクト5",
+      "tags": "test5",
+      "status": "active",
+      "id": "09e9dfc9-ca4f-44f4-986a-03f567c8ce12",
+      "created_date": "2025-07-28T16:19:11.136815",
+      "modified_date": "2025-07-28T16:19:11.136815",
+      "archive_filename": "concurrent_test_4_092f0468_20250728_161911.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/concurrent_test_4_092f0468_20250728_161911.zip",
+      "archive_size": 374,
+      "deletion_date": "2025-07-28T16:19:11.139959",
+      "reason": "ユーザー削除"
+    },
+    {
+      "folder_name": "concurrent_test_0_efcb15fd",
+      "project_name": "並行テストプロジェクト1",
+      "description": "並行処理テスト用プロジェクト1",
+      "tags": "test1",
+      "status": "active",
+      "id": "b8bdfef1-663d-4317-9733-520b7c82ef4c",
+      "created_date": "2025-07-28T17:01:01.713250",
+      "modified_date": "2025-07-28T17:01:01.713250",
+      "archive_filename": "concurrent_test_0_efcb15fd_20250728_170101.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/concurrent_test_0_efcb15fd_20250728_170101.zip",
+      "archive_size": 375,
+      "deletion_date": "2025-07-28T17:01:01.722770",
+      "reason": "ユーザー削除"
+    },
+    {
+      "folder_name": "concurrent_test_2_ee325ed7",
+      "project_name": "並行テストプロジェクト3",
+      "description": "並行処理テスト用プロジェクト3",
+      "tags": "test3",
+      "status": "active",
+      "id": "96aec4c7-1934-4a4d-a124-648cedab3cce",
+      "created_date": "2025-07-28T17:01:01.716608",
+      "modified_date": "2025-07-28T17:01:01.716608",
+      "archive_filename": "concurrent_test_2_ee325ed7_20250728_170101.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/concurrent_test_2_ee325ed7_20250728_170101.zip",
+      "archive_size": 375,
+      "deletion_date": "2025-07-28T17:01:01.723940",
+      "reason": "ユーザー削除"
+    },
+    {
+      "folder_name": "concurrent_test_4_ba6d6c1b",
+      "project_name": "並行テストプロジェクト5",
+      "description": "並行処理テスト用プロジェクト5",
+      "tags": "test5",
+      "status": "active",
+      "id": "59ff5728-63a6-4d99-8798-483937754e16",
+      "created_date": "2025-07-28T17:01:01.719739",
+      "modified_date": "2025-07-28T17:01:01.719739",
+      "archive_filename": "concurrent_test_4_ba6d6c1b_20250728_170101.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/concurrent_test_4_ba6d6c1b_20250728_170101.zip",
+      "archive_size": 375,
+      "deletion_date": "2025-07-28T17:01:01.725236",
+      "reason": "ユーザー削除"
+    },
+    {
+      "folder_name": "concurrent_test_0_2d83d836",
+      "project_name": "並行テストプロジェクト1",
+      "description": "並行処理テスト用プロジェクト1",
+      "tags": "test1",
+      "status": "active",
+      "id": "f5a03448-9b95-4b0d-bdee-bb9394282d31",
+      "created_date": "2025-07-28T17:02:13.338155",
+      "modified_date": "2025-07-28T17:02:13.338155",
+      "archive_filename": "concurrent_test_0_2d83d836_20250728_170213.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/concurrent_test_0_2d83d836_20250728_170213.zip",
+      "archive_size": 375,
+      "deletion_date": "2025-07-28T17:02:13.348167",
+      "reason": "ユーザー削除"
+    },
+    {
+      "folder_name": "concurrent_test_2_cc450da3",
+      "project_name": "並行テストプロジェクト3",
+      "description": "並行処理テスト用プロジェクト3",
+      "tags": "test3",
+      "status": "active",
+      "id": "e1c81e4f-5442-4448-90ea-88d84d031106",
+      "created_date": "2025-07-28T17:02:13.342054",
+      "modified_date": "2025-07-28T17:02:13.342054",
+      "archive_filename": "concurrent_test_2_cc450da3_20250728_170213.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/concurrent_test_2_cc450da3_20250728_170213.zip",
+      "archive_size": 374,
+      "deletion_date": "2025-07-28T17:02:13.349390",
+      "reason": "ユーザー削除"
+    },
+    {
+      "folder_name": "concurrent_test_4_73d0fb17",
+      "project_name": "並行テストプロジェクト5",
+      "description": "並行処理テスト用プロジェクト5",
+      "tags": "test5",
+      "status": "active",
+      "id": "ea790dc1-2fad-4e1e-ae29-f57de39d2fcd",
+      "created_date": "2025-07-28T17:02:13.345182",
+      "modified_date": "2025-07-28T17:02:13.345182",
+      "archive_filename": "concurrent_test_4_73d0fb17_20250728_170213.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/concurrent_test_4_73d0fb17_20250728_170213.zip",
+      "archive_size": 376,
+      "deletion_date": "2025-07-28T17:02:13.350711",
+      "reason": "ユーザー削除"
+    },
+    {
+      "folder_name": "concurrent_test_0_1fb7ac72",
+      "project_name": "並行テストプロジェクト1",
+      "description": "並行処理テスト用プロジェクト1",
+      "tags": "test1",
+      "status": "active",
+      "id": "89308044-b174-4b8f-828a-f2ca1c7e969f",
+      "created_date": "2025-07-28T17:03:10.525040",
+      "modified_date": "2025-07-28T17:03:10.525040",
+      "archive_filename": "concurrent_test_0_1fb7ac72_20250728_170310.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/concurrent_test_0_1fb7ac72_20250728_170310.zip",
+      "archive_size": 375,
+      "deletion_date": "2025-07-28T17:03:10.536131",
+      "reason": "ユーザー削除"
+    },
+    {
+      "folder_name": "concurrent_test_2_cd5b71e5",
+      "project_name": "並行テストプロジェクト3",
+      "description": "並行処理テスト用プロジェクト3",
+      "tags": "test3",
+      "status": "active",
+      "id": "3f5c31c8-b469-49bd-b191-683d973467a7",
+      "created_date": "2025-07-28T17:03:10.528416",
+      "modified_date": "2025-07-28T17:03:10.528416",
+      "archive_filename": "concurrent_test_2_cd5b71e5_20250728_170310.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/concurrent_test_2_cd5b71e5_20250728_170310.zip",
+      "archive_size": 376,
+      "deletion_date": "2025-07-28T17:03:10.537484",
+      "reason": "ユーザー削除"
+    },
+    {
+      "folder_name": "concurrent_test_4_b6a0a86d",
+      "project_name": "並行テストプロジェクト5",
+      "description": "並行処理テスト用プロジェクト5",
+      "tags": "test5",
+      "status": "active",
+      "id": "e9ab4e07-42a4-40a9-b720-3b5f25b70c4b",
+      "created_date": "2025-07-28T17:03:10.532732",
+      "modified_date": "2025-07-28T17:03:10.532732",
+      "archive_filename": "concurrent_test_4_b6a0a86d_20250728_170310.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/concurrent_test_4_b6a0a86d_20250728_170310.zip",
+      "archive_size": 375,
+      "deletion_date": "2025-07-28T17:03:10.538741",
+      "reason": "ユーザー削除"
+    }
+  ],
+  "reserved_folders": [
+    "node_modules",
+    "dist",
+    "build",
+    ".git",
+    "backend",
+    "frontend",
+    "trash",
+    "recycle_bin",
+    "deleted",
+    ".trash"
+  ]
+}
+ステータス: 200
+---
+
+[2025-07-29 12:33:06] GET /api/files/tree/ichikawa/
+リクエスト: {}
+レスポンス: {
+  "name": "raw",
+  "path": ".",
+  "type": "directory",
+  "size": 0,
+  "modified": "2025-07-28T19:11:20.600562",
+  "children": [
+    {
+      "name": "市川市アパートの家賃.csv",
+      "path": "市川市アパートの家賃.csv",
+      "type": "file",
+      "size": 20449,
+      "modified": "2025-07-28T19:11:20.600562",
+      "children": [],
+      "comment_count": 0,
+      "has_comments": false
+    }
+  ],
+  "comment_count": 0,
+  "has_comments": false
+}
+ステータス: 200
+---
+
+[2025-07-29 12:33:06] GET /api/projects/
+リクエスト: {}
+レスポンス: {
+  "version": "1.0.0",
+  "last_updated": "2025-07-29T09:43:02.366552",
+  "retention_months": 13,
+  "projects": [
+    {
+      "folder_name": "testProject",
+      "project_name": "テストのためのプロジェクト",
+      "description": "テストです。サンプルファイルとサブフォルダが追加されました。",
+      "tags": [
+        "sample"
+      ],
+      "status": "active",
+      "id": "2cec431a-0416-4451-a43b-fdc85e0c5c62",
+      "created_date": "2025-07-24T23:31:44.186614",
+      "modified_date": "2025-07-27T20:33:51.353635"
+    },
+    {
+      "folder_name": "ichikawa",
+      "project_name": "市川アパートの家賃",
+      "description": "重回帰分析のテスト用",
+      "tags": [],
+      "status": "active",
+      "id": "3779d95d-d923-435b-8da0-2a157940d95b",
+      "created_date": "2025-07-28T19:10:51.399660",
+      "modified_date": "2025-07-28T19:10:51.399660"
+    },
+    {
+      "folder_name": "test_project_4f1b6ebf",
+      "project_name": "テストプロジェクト",
+      "description": "ライフサイクルテスト用プロジェクト",
+      "tags": "lifecycle",
+      "status": "active",
+      "id": "d2c7d39b-c3a4-4591-9f89-b7f1def829d3",
+      "created_date": "2025-07-29T09:43:02.366552",
+      "modified_date": "2025-07-29T09:43:02.366552"
+    }
+  ],
+  "archived_projects": [
+    {
+      "folder_name": "direct_test_project",
+      "project_name": "直接テストプロジェクト",
+      "description": "直接テスト用プロジェクト",
+      "tags": [
+        "test"
+      ],
+      "status": "active",
+      "id": "82886a55-fe6c-4559-9dfa-27aeb21e924e",
+      "created_date": "2025-07-27T10:37:56.949497",
+      "modified_date": "2025-07-27T10:37:56.949497",
+      "archive_filename": "direct_test_project_20250727_103756.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/direct_test_project_20250727_103756.zip",
+      "archive_size": 347,
+      "deletion_date": "2025-07-27T10:37:56.952974",
+      "reason": "ユーザー削除"
+    },
+    {
+      "folder_name": "success_test_project",
+      "project_name": "成功テストプロジェクト",
+      "description": "正常に作成されるべきプロジェクト",
+      "tags": [
+        "success",
+        "test"
+      ],
+      "status": "active",
+      "id": "658786da-0f80-4434-bf7c-4e389df4b9b2",
+      "created_date": "2025-07-27T10:38:36.034282",
+      "modified_date": "2025-07-27T10:38:36.034282",
+      "archive_filename": "success_test_project_20250727_103836.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/success_test_project_20250727_103836.zip",
+      "archive_size": 385,
+      "deletion_date": "2025-07-27T10:38:36.035929",
+      "reason": "ユーザー削除"
+    },
+    {
+      "folder_name": "save_test",
+      "project_name": "セーブテスト",
+      "description": "セーブテスト（フォルダが存在しないため移動）",
+      "tags": [],
+      "status": "active",
+      "id": "bb5830e9-e13c-4960-bc25-fa8045a272e9",
+      "created_date": "2025-07-27T10:37:56.948759",
+      "modified_date": "2025-07-27T10:37:56.948769",
+      "archive_filename": "save_test_auto_archived.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/save_test_auto_archived.zip",
+      "archive_size": 0,
+      "deletion_date": "2025-07-27T17:30:00.000000",
+      "reason": "フォルダが存在しないため自動アーカイブ"
+    },
+    {
+      "folder_name": "test_project_simple",
+      "project_name": "Simple Test Project",
+      "description": "A simple test project（不正データのため移動）",
+      "tags": [
+        "test"
+      ],
+      "status": "active",
+      "id": "bd7e7a94-fce7-471b-9dce-7e4c1bcb8255",
+      "created_date": "2025-07-27T16:08:14.889746",
+      "modified_date": "2025-07-27T16:08:14.889746",
+      "archive_filename": "test_project_simple_invalid_data.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/test_project_simple_invalid_data.zip",
+      "archive_size": 0,
+      "deletion_date": "2025-07-27T17:30:00.000000",
+      "reason": "不正な配列データのため自動アーカイブ"
+    },
+    {
+      "folder_name": "test_project_simple",
+      "project_name": "Simple Test Project",
+      "description": "A simple test project（重複データのため移動）",
+      "tags": [
+        "test"
+      ],
+      "status": "active",
+      "id": "7e7be177-9396-4e40-baf3-0b15c2310500",
+      "created_date": "2025-07-27T16:42:31.526622",
+      "modified_date": "2025-07-27T16:42:31.526622",
+      "archive_filename": "test_project_simple_duplicate.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/test_project_simple_duplicate.zip",
+      "archive_size": 0,
+      "deletion_date": "2025-07-27T17:30:00.000000",
+      "reason": "重複データのため自動アーカイブ"
+    },
+    {
+      "folder_name": "error_mix_test_valid",
+      "project_name": [
+        "更新済み正常プロジェクト"
+      ],
+      "description": "正常なプロジェクト",
+      "status": "active",
+      "id": "b053ecbe-e6b0-468f-a128-2a09f8bc912f",
+      "created_date": "2025-07-28T16:19:11.123684",
+      "modified_date": "2025-07-28T16:19:11.125795",
+      "tags": [],
+      "archive_filename": "error_mix_test_valid_20250728_161911.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/error_mix_test_valid_20250728_161911.zip",
+      "archive_size": 340,
+      "deletion_date": "2025-07-28T16:19:11.128968",
+      "reason": "ユーザー削除"
+    },
+    {
+      "folder_name": "concurrent_test_0_66622648",
+      "project_name": "並行テストプロジェクト1",
+      "description": "並行処理テスト用プロジェクト1",
+      "tags": "test1",
+      "status": "active",
+      "id": "93f59528-8874-43e2-9046-8aa7f20cec4e",
+      "created_date": "2025-07-28T16:19:11.132327",
+      "modified_date": "2025-07-28T16:19:11.132327",
+      "archive_filename": "concurrent_test_0_66622648_20250728_161911.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/concurrent_test_0_66622648_20250728_161911.zip",
+      "archive_size": 376,
+      "deletion_date": "2025-07-28T16:19:11.138207",
+      "reason": "ユーザー削除"
+    },
+    {
+      "folder_name": "concurrent_test_2_e609d57b",
+      "project_name": "並行テストプロジェクト3",
+      "description": "並行処理テスト用プロジェクト3",
+      "tags": "test3",
+      "status": "active",
+      "id": "19800ff7-d7fc-4ab4-85e5-d16075ee81bc",
+      "created_date": "2025-07-28T16:19:11.134657",
+      "modified_date": "2025-07-28T16:19:11.134657",
+      "archive_filename": "concurrent_test_2_e609d57b_20250728_161911.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/concurrent_test_2_e609d57b_20250728_161911.zip",
+      "archive_size": 376,
+      "deletion_date": "2025-07-28T16:19:11.139132",
+      "reason": "ユーザー削除"
+    },
+    {
+      "folder_name": "concurrent_test_4_092f0468",
+      "project_name": "並行テストプロジェクト5",
+      "description": "並行処理テスト用プロジェクト5",
+      "tags": "test5",
+      "status": "active",
+      "id": "09e9dfc9-ca4f-44f4-986a-03f567c8ce12",
+      "created_date": "2025-07-28T16:19:11.136815",
+      "modified_date": "2025-07-28T16:19:11.136815",
+      "archive_filename": "concurrent_test_4_092f0468_20250728_161911.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/concurrent_test_4_092f0468_20250728_161911.zip",
+      "archive_size": 374,
+      "deletion_date": "2025-07-28T16:19:11.139959",
+      "reason": "ユーザー削除"
+    },
+    {
+      "folder_name": "concurrent_test_0_efcb15fd",
+      "project_name": "並行テストプロジェクト1",
+      "description": "並行処理テスト用プロジェクト1",
+      "tags": "test1",
+      "status": "active",
+      "id": "b8bdfef1-663d-4317-9733-520b7c82ef4c",
+      "created_date": "2025-07-28T17:01:01.713250",
+      "modified_date": "2025-07-28T17:01:01.713250",
+      "archive_filename": "concurrent_test_0_efcb15fd_20250728_170101.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/concurrent_test_0_efcb15fd_20250728_170101.zip",
+      "archive_size": 375,
+      "deletion_date": "2025-07-28T17:01:01.722770",
+      "reason": "ユーザー削除"
+    },
+    {
+      "folder_name": "concurrent_test_2_ee325ed7",
+      "project_name": "並行テストプロジェクト3",
+      "description": "並行処理テスト用プロジェクト3",
+      "tags": "test3",
+      "status": "active",
+      "id": "96aec4c7-1934-4a4d-a124-648cedab3cce",
+      "created_date": "2025-07-28T17:01:01.716608",
+      "modified_date": "2025-07-28T17:01:01.716608",
+      "archive_filename": "concurrent_test_2_ee325ed7_20250728_170101.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/concurrent_test_2_ee325ed7_20250728_170101.zip",
+      "archive_size": 375,
+      "deletion_date": "2025-07-28T17:01:01.723940",
+      "reason": "ユーザー削除"
+    },
+    {
+      "folder_name": "concurrent_test_4_ba6d6c1b",
+      "project_name": "並行テストプロジェクト5",
+      "description": "並行処理テスト用プロジェクト5",
+      "tags": "test5",
+      "status": "active",
+      "id": "59ff5728-63a6-4d99-8798-483937754e16",
+      "created_date": "2025-07-28T17:01:01.719739",
+      "modified_date": "2025-07-28T17:01:01.719739",
+      "archive_filename": "concurrent_test_4_ba6d6c1b_20250728_170101.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/concurrent_test_4_ba6d6c1b_20250728_170101.zip",
+      "archive_size": 375,
+      "deletion_date": "2025-07-28T17:01:01.725236",
+      "reason": "ユーザー削除"
+    },
+    {
+      "folder_name": "concurrent_test_0_2d83d836",
+      "project_name": "並行テストプロジェクト1",
+      "description": "並行処理テスト用プロジェクト1",
+      "tags": "test1",
+      "status": "active",
+      "id": "f5a03448-9b95-4b0d-bdee-bb9394282d31",
+      "created_date": "2025-07-28T17:02:13.338155",
+      "modified_date": "2025-07-28T17:02:13.338155",
+      "archive_filename": "concurrent_test_0_2d83d836_20250728_170213.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/concurrent_test_0_2d83d836_20250728_170213.zip",
+      "archive_size": 375,
+      "deletion_date": "2025-07-28T17:02:13.348167",
+      "reason": "ユーザー削除"
+    },
+    {
+      "folder_name": "concurrent_test_2_cc450da3",
+      "project_name": "並行テストプロジェクト3",
+      "description": "並行処理テスト用プロジェクト3",
+      "tags": "test3",
+      "status": "active",
+      "id": "e1c81e4f-5442-4448-90ea-88d84d031106",
+      "created_date": "2025-07-28T17:02:13.342054",
+      "modified_date": "2025-07-28T17:02:13.342054",
+      "archive_filename": "concurrent_test_2_cc450da3_20250728_170213.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/concurrent_test_2_cc450da3_20250728_170213.zip",
+      "archive_size": 374,
+      "deletion_date": "2025-07-28T17:02:13.349390",
+      "reason": "ユーザー削除"
+    },
+    {
+      "folder_name": "concurrent_test_4_73d0fb17",
+      "project_name": "並行テストプロジェクト5",
+      "description": "並行処理テスト用プロジェクト5",
+      "tags": "test5",
+      "status": "active",
+      "id": "ea790dc1-2fad-4e1e-ae29-f57de39d2fcd",
+      "created_date": "2025-07-28T17:02:13.345182",
+      "modified_date": "2025-07-28T17:02:13.345182",
+      "archive_filename": "concurrent_test_4_73d0fb17_20250728_170213.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/concurrent_test_4_73d0fb17_20250728_170213.zip",
+      "archive_size": 376,
+      "deletion_date": "2025-07-28T17:02:13.350711",
+      "reason": "ユーザー削除"
+    },
+    {
+      "folder_name": "concurrent_test_0_1fb7ac72",
+      "project_name": "並行テストプロジェクト1",
+      "description": "並行処理テスト用プロジェクト1",
+      "tags": "test1",
+      "status": "active",
+      "id": "89308044-b174-4b8f-828a-f2ca1c7e969f",
+      "created_date": "2025-07-28T17:03:10.525040",
+      "modified_date": "2025-07-28T17:03:10.525040",
+      "archive_filename": "concurrent_test_0_1fb7ac72_20250728_170310.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/concurrent_test_0_1fb7ac72_20250728_170310.zip",
+      "archive_size": 375,
+      "deletion_date": "2025-07-28T17:03:10.536131",
+      "reason": "ユーザー削除"
+    },
+    {
+      "folder_name": "concurrent_test_2_cd5b71e5",
+      "project_name": "並行テストプロジェクト3",
+      "description": "並行処理テスト用プロジェクト3",
+      "tags": "test3",
+      "status": "active",
+      "id": "3f5c31c8-b469-49bd-b191-683d973467a7",
+      "created_date": "2025-07-28T17:03:10.528416",
+      "modified_date": "2025-07-28T17:03:10.528416",
+      "archive_filename": "concurrent_test_2_cd5b71e5_20250728_170310.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/concurrent_test_2_cd5b71e5_20250728_170310.zip",
+      "archive_size": 376,
+      "deletion_date": "2025-07-28T17:03:10.537484",
+      "reason": "ユーザー削除"
+    },
+    {
+      "folder_name": "concurrent_test_4_b6a0a86d",
+      "project_name": "並行テストプロジェクト5",
+      "description": "並行処理テスト用プロジェクト5",
+      "tags": "test5",
+      "status": "active",
+      "id": "e9ab4e07-42a4-40a9-b720-3b5f25b70c4b",
+      "created_date": "2025-07-28T17:03:10.532732",
+      "modified_date": "2025-07-28T17:03:10.532732",
+      "archive_filename": "concurrent_test_4_b6a0a86d_20250728_170310.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/concurrent_test_4_b6a0a86d_20250728_170310.zip",
+      "archive_size": 375,
+      "deletion_date": "2025-07-28T17:03:10.538741",
+      "reason": "ユーザー削除"
+    }
+  ],
+  "reserved_folders": [
+    "node_modules",
+    "dist",
+    "build",
+    ".git",
+    "backend",
+    "frontend",
+    "trash",
+    "recycle_bin",
+    "deleted",
+    ".trash"
+  ]
+}
+ステータス: 200
+---
+
+[2025-07-29 12:33:06] GET /api/files/tree/ichikawa/
+リクエスト: {}
+レスポンス: {
+  "name": "raw",
+  "path": ".",
+  "type": "directory",
+  "size": 0,
+  "modified": "2025-07-28T19:11:20.600562",
+  "children": [
+    {
+      "name": "市川市アパートの家賃.csv",
+      "path": "市川市アパートの家賃.csv",
+      "type": "file",
+      "size": 20449,
+      "modified": "2025-07-28T19:11:20.600562",
+      "children": [],
+      "comment_count": 0,
+      "has_comments": false
+    }
+  ],
+  "comment_count": 0,
+  "has_comments": false
+}
+ステータス: 200
+---
+
+[2025-07-29 12:33:11] GET /api/files/tags/ichikawa/
+リクエスト: {'file_path': ['市川市アパートの家賃.csv']}
+レスポンス: {
+  "tags": [
+    "分析データ",
+    "項目データ"
+  ]
+}
+ステータス: 200
+---
+
+[2025-07-29 12:33:11] GET /api/files/table/ichikawa/
+リクエスト: {'file_path': ['市川市アパートの家賃.csv']}
+レスポンス: {
+  "error": "FILE_NOT_FOUND",
+  "message": "An unexpected error occurred. Please try again later"
+}
+ステータス: 404
+---
+
+[2025-07-29 12:33:12] GET /api/files/table/ichikawa/
+リクエスト: {'file_path': ['市川市アパートの家賃.csv']}
+レスポンス: {
+  "error": "FILE_NOT_FOUND",
+  "message": "An unexpected error occurred. Please try again later"
+}
+ステータス: 404
+---
+
+[2025-07-29 13:19:10] GET /api/test/
+リクエスト: {}
+レスポンス: {
+  "status": "ok"
+}
+ステータス: 200
+---
+
+[2025-07-29 13:19:25] DELETE /api/files/delete/test_project/
+リクエスト: {}
+レスポンス: {
+  "error": "DELETE_FAILED",
+  "message": "An unexpected error occurred. Please try again later"
+}
+ステータス: 500
+---
+
+[2025-07-29 13:20:08] DELETE /api/test-delete/
+リクエスト: {}
+レスポンス: {
+  "method": "DELETE",
+  "status": "ok"
+}
+ステータス: 200
+---
+
+[2025-07-29 13:20:21] DELETE /api/test-fileviewset/
+リクエスト: {}
+レスポンス: {
+  "error": "DELETE_ERROR",
+  "message": "An unexpected error occurred. Please try again later"
+}
+ステータス: 500
+---
+
+[2025-07-29 13:20:33] DELETE /api/test-fileviewset/test_project/
+リクエスト: {}
+レスポンス: {
+  "error": "DELETE_FAILED",
+  "message": "An unexpected error occurred. Please try again later"
+}
+ステータス: 500
+---
+
+[2025-07-29 13:20:49] DELETE /api/files/delete/test_file_project/
+リクエスト: {}
+レスポンス: {
+  "error": "DELETE_FAILED",
+  "message": "An unexpected error occurred. Please try again later"
+}
+ステータス: 500
+---

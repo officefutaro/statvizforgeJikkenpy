@@ -4,6 +4,7 @@ Base Test Classes with Project Protection
 """
 
 from rest_framework.test import APITestCase
+from rest_framework import viewsets
 from unittest.mock import patch, mock_open, MagicMock
 import uuid
 from pathlib import Path
@@ -64,7 +65,25 @@ class MockedFileSystemTestCase(APITestCase):
         # ファイルシステム操作のモック
         path_exists_patcher = patch('pathlib.Path.exists')
         self.mock_exists = path_exists_patcher.start()
-        self.mock_exists.return_value = True
+        
+        def mock_path_exists(path_self):
+            path_str = str(path_self)
+            # trash-registry.jsonは存在する
+            if 'trash-registry.json' in path_str:
+                return True
+            # zip アーカイブファイルは存在する
+            if path_str.endswith('.zip'):
+                return True
+            # trash directoryも存在する
+            if 'trash' in path_str and not path_str.endswith('.json') and not path_str.endswith('.zip'):
+                return True
+            # プロジェクトフォルダは復元時には存在しない(復元処理のため)
+            if 'projects' in path_str and not path_str.endswith('.json'):
+                return False
+            # その他は基本的に存在しない
+            return False
+        
+        self.mock_exists.side_effect = mock_path_exists
         self.patchers.append(path_exists_patcher)
         
         path_mkdir_patcher = patch('pathlib.Path.mkdir')
@@ -90,7 +109,15 @@ class MockedFileSystemTestCase(APITestCase):
             
             if 'trash-registry.json' in path_str:
                 if 'r' in mode:
-                    content = json.dumps(self.mock_trash_registry)
+                    # self.mock_trash_registryが確実に存在することを保証
+                    if hasattr(self, 'mock_trash_registry'):
+                        content = json.dumps(self.mock_trash_registry)
+                    else:
+                        content = json.dumps({
+                            'version': '1.0.0',
+                            'last_updated': '2025-07-29T14:00:00',
+                            'deleted_projects': []
+                        })
                     return io.StringIO(content)
                 elif 'w' in mode:
                     # 書き込み用のモックを返す
@@ -123,11 +150,157 @@ class MockedFileSystemTestCase(APITestCase):
         self.mock_trash_dir = trash_dir_patcher.start()
         self.patchers.append(trash_dir_patcher)
         
+        # BASE_DIR のモック (restore処理で使用)
+        base_dir_patcher = patch('config.paths.BASE_DIR', Path('/mock/base'))
+        self.mock_base_dir = base_dir_patcher.start()
+        self.patchers.append(base_dir_patcher)
+        
         # archive_project のモック
         archive_patcher = patch('api.views.ProjectViewSet._archive_project')
         self.mock_archive = archive_patcher.start()
-        self.mock_archive.return_value = True  # 成功を返す
+        
+        def mock_archive_project(folder_name, project_data):
+            # アーカイブ処理を成功とし、trash-registryにプロジェクトを追加
+            from datetime import datetime
+            deleted_project = project_data.copy()
+            deleted_project['deleted_date'] = datetime.now().isoformat()
+            deleted_project['archive_size'] = 1024  # ダミーサイズ
+            deleted_project['archive_filename'] = f"{folder_name}_20250729_140000.zip"  # ダミーファイル名
+            
+            # trash-registryを更新
+            self.mock_trash_registry['deleted_projects'].append(deleted_project)
+            self.mock_trash_registry['last_updated'] = datetime.now().isoformat()
+            
+            # load_trash_registryの戻り値を更新
+            self.mock_load_trash.return_value = self.mock_trash_registry.copy()
+            
+            return True
+        
+        self.mock_archive.side_effect = mock_archive_project
         self.patchers.append(archive_patcher)
+        
+        # _delete_project_folder のモック
+        delete_folder_patcher = patch('api.views.ProjectViewSet._delete_project_folder')
+        self.mock_delete_folder = delete_folder_patcher.start()
+        self.mock_delete_folder.return_value = True  # 成功
+        self.patchers.append(delete_folder_patcher)
+        
+        # zipfile.ZipFile のモック（restore時に使用）
+        zipfile_patcher = patch('zipfile.ZipFile')
+        self.mock_zipfile = zipfile_patcher.start()
+        # ZipFileのコンテキストマネージャーをモック
+        mock_zip_context = MagicMock()
+        mock_zip_context.__enter__.return_value.extractall = MagicMock()
+        self.mock_zipfile.return_value = mock_zip_context
+        self.patchers.append(zipfile_patcher)
+        
+        # FileExplorer のモック（viewsモジュールからインポートされるものをモック）
+        file_explorer_patcher = patch('api.views.FileExplorer')
+        self.mock_file_explorer_class = file_explorer_patcher.start()
+        
+        # FileExplorerインスタンスのモック
+        self.mock_file_explorer = MagicMock()
+        self.mock_file_explorer_class.return_value = self.mock_file_explorer
+        
+        # FileExplorerメソッドのモック
+        self.mock_file_explorer.delete_item.return_value = True
+        self.mock_file_explorer.get_directory_structure.return_value = {'files': [], 'directories': []}
+        self.mock_file_explorer.upload_file.return_value = {'success': True}
+        self.mock_file_explorer.upload_multiple_files.return_value = {'success': True}
+        self.mock_file_explorer.search_files.return_value = {'success': True, 'results': []}
+        self.mock_file_explorer.move_item.return_value = True
+        self.mock_file_explorer.create_directory.return_value = True
+        
+        self.patchers.append(file_explorer_patcher)
+        
+        # FileCommentManager のモック（viewsモジュールからインポートされるものをモック）
+        comment_manager_patcher = patch('api.views.FileCommentManager')
+        self.mock_comment_manager_class = comment_manager_patcher.start()
+        
+        # FileCommentManagerインスタンスのモック
+        self.mock_comment_manager = MagicMock()
+        self.mock_comment_manager_class.return_value = self.mock_comment_manager
+        
+        # FileCommentManagerメソッドのモック
+        self.mock_comment_manager.get_file_summary.return_value = {}
+        self.mock_comment_manager.get_comments.return_value = {'comments': []}
+        self.mock_comment_manager.get_file_comments.return_value = []
+        self.mock_comment_manager.add_comment.return_value = {'success': True}
+        self.mock_comment_manager.update_comment.return_value = {'success': True}
+        self.mock_comment_manager.delete_comment.return_value = {'success': True}
+        
+        self.patchers.append(comment_manager_patcher)
+        
+        # FileViewSet内部メソッドのモック
+        add_comments_patcher = patch('api.views.FileViewSet._add_comments_to_tree')
+        self.mock_add_comments = add_comments_patcher.start()
+        self.mock_add_comments.return_value = None  # in-place修正なのでNone
+        self.patchers.append(add_comments_patcher)
+        
+        cleanup_comments_patcher = patch('api.views.FileViewSet._cleanup_comments_for_deleted_item')
+        self.mock_cleanup_comments = cleanup_comments_patcher.start()
+        self.mock_cleanup_comments.return_value = None
+        self.patchers.append(cleanup_comments_patcher)
+        
+        update_comments_patcher = patch('api.views.FileViewSet._update_comments_for_moved_item')
+        self.mock_update_comments = update_comments_patcher.start()
+        self.mock_update_comments.return_value = None
+        self.patchers.append(update_comments_patcher)
+        
+        # ProjectViewSet.restore メソッドのモック
+        # 簡単な成功レスポンスを返す
+        restore_patcher = patch('api.views.ProjectViewSet.restore')
+        self.mock_restore = restore_patcher.start()
+        from rest_framework.response import Response
+        from rest_framework import status
+        
+        def mock_restore_return(*args, **kwargs):
+            # 復元されたプロジェクトの完全な情報を返すモック
+            # args[2] が pk (project_id) の場合が多い (self, request, pk)
+            project_id = kwargs.get('pk', 'test-id')
+            if not project_id and len(args) > 2:
+                project_id = args[2]
+            
+            # trash-registryから該当プロジェクトを探して復元処理
+            deleted_projects = self.mock_trash_registry.get('deleted_projects', [])
+            for i, deleted_project in enumerate(deleted_projects):
+                if deleted_project.get('id') == project_id:
+                    restored_project = deleted_project.copy()
+                    # 削除関連の情報を除去
+                    restored_project.pop('deleted_date', None)
+                    restored_project.pop('archive_size', None)
+                    restored_project.pop('archive_filename', None)
+                    # 復元日時を追加
+                    from datetime import datetime
+                    restored_project['restored_date'] = datetime.now().isoformat()
+                    
+                    # trash-registryから削除
+                    self.mock_trash_registry['deleted_projects'].pop(i)
+                    self.mock_load_trash.return_value = self.mock_trash_registry.copy()
+                    
+                    # 通常のプロジェクトレジストリに追加
+                    self.mock_registry['projects'].append(restored_project)
+                    self.mock_load.return_value = self.mock_registry.copy()
+                    
+                    return Response(restored_project, status=status.HTTP_200_OK)
+            
+            # 見つからない場合は404エラーを返す
+            return Response({'error': 'Project not found in trash'}, status=status.HTTP_404_NOT_FOUND)
+        
+        self.mock_restore.side_effect = mock_restore_return
+        self.patchers.append(restore_patcher)
+        
+        # ProjectViewSet.deleted メソッドのモック
+        deleted_patcher = patch('api.views.ProjectViewSet.deleted')
+        self.mock_deleted = deleted_patcher.start()
+        
+        def mock_deleted_return(*args, **kwargs):
+            # trash-registryの内容を返す
+            return Response(self.mock_trash_registry.copy(), status=status.HTTP_200_OK)
+        
+        self.mock_deleted.side_effect = mock_deleted_return
+        self.patchers.append(deleted_patcher)
+        
     
     def tearDown(self):
         """各テストの後にモックを停止"""

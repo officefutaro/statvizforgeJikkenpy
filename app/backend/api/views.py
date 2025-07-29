@@ -52,15 +52,28 @@ class ProjectViewSet(viewsets.ModelViewSet):
         if hasattr(request, 'data') and request.data:
             new_project = {}
             for key, value in request.data.items():
-                if key == 'tags' and isinstance(value, list):
-                    # tagsは配列のまま保持
-                    new_project[key] = value
+                if key == 'tags':
+                    # tagsフィールドの特別な処理
+                    if isinstance(value, list):
+                        new_project[key] = value
+                    elif isinstance(value, str):
+                        # 文字列で来た場合、元の配列から来たと想定して配列に戻す
+                        # APIテストクライアントが配列を文字列に変換する問題に対処
+                        new_project[key] = [value] if value else []
+                    else:
+                        new_project[key] = []
                 elif isinstance(value, list):
                     new_project[key] = value[0] if value else ''
                 else:
                     new_project[key] = value
         elif hasattr(request, 'POST') and request.POST:
-            new_project = request.POST.dict()
+            new_project = {}
+            for key, value in request.POST.items():
+                if key == 'tags':
+                    # tagsフィールドは複数値を配列として扱う
+                    new_project[key] = request.POST.getlist(key)
+                else:
+                    new_project[key] = value
         else:
             new_project = {}
         
@@ -210,8 +223,10 @@ class ProjectViewSet(viewsets.ModelViewSet):
             from datetime import datetime
             updated_data = {}
             for key, value in request.data.items():
-                # リストで来た場合は最初の要素を使用
-                if isinstance(value, list) and len(value) > 0:
+                # tagsは配列のまま保持、他のリストは最初の要素を使用
+                if key == 'tags' and isinstance(value, list):
+                    updated_data[key] = value
+                elif isinstance(value, list) and len(value) > 0:
                     updated_data[key] = value[0]
                 else:
                     updated_data[key] = value
@@ -533,6 +548,7 @@ class FileViewSet(viewsets.ModelViewSet):
         self.file_explorer = FileExplorer()
         self.comment_manager = FileCommentManager()
     
+    @action(detail=False, methods=['get'], url_path='tree/(?P<project_folder>[^/.]+)')
     def tree(self, request, project_folder=None):
         """プロジェクトのディレクトリツリーを取得"""
         language = get_language_from_request(request)
@@ -559,6 +575,7 @@ class FileViewSet(viewsets.ModelViewSet):
                 status_code=status.HTTP_500_INTERNAL_SERVER_ERROR
             )
     
+    @action(detail=False, methods=['post'], url_path='upload/(?P<project_folder>[^/.]+)')
     def upload(self, request, project_folder=None):
         """ファイルアップロード"""
         language = get_language_from_request(request)
@@ -1187,6 +1204,7 @@ class FileViewSet(viewsets.ModelViewSet):
                     status_code=status.HTTP_500_INTERNAL_SERVER_ERROR
                 )
 
+    @action(detail=False, methods=['delete'], url_path='delete/(?P<project_folder>[^/.]+)')
     def delete(self, request, project_folder=None):
         """ファイル・ディレクトリ削除"""
         language = get_language_from_request(request)
@@ -1222,6 +1240,7 @@ class FileViewSet(viewsets.ModelViewSet):
                 status_code=status.HTTP_500_INTERNAL_SERVER_ERROR
             )
 
+    @action(detail=False, methods=['post'], url_path='move/(?P<project_folder>[^/.]+)')
     def move(self, request, project_folder=None):
         """ファイル・ディレクトリ移動"""
         language = get_language_from_request(request)
@@ -1259,6 +1278,7 @@ class FileViewSet(viewsets.ModelViewSet):
                 status_code=status.HTTP_500_INTERNAL_SERVER_ERROR
             )
 
+    @action(detail=False, methods=['post'], url_path='mkdir/(?P<project_folder>[^/.]+)')
     def mkdir(self, request, project_folder=None):
         """新規ディレクトリ作成"""
         language = get_language_from_request(request)
@@ -1337,6 +1357,7 @@ class FileViewSet(viewsets.ModelViewSet):
             # コメント更新に失敗してもファイル移動は成功とする
             pass
 
+    @action(detail=False, methods=['get'], url_path='search/(?P<project_folder>[^/.]+)')
     def search(self, request, project_folder=None):
         """ファイル検索"""
         language = get_language_from_request(request)
