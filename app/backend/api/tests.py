@@ -677,6 +677,10 @@ class FileManagementTestCase(MockedFileSystemTestCase):
             'file_path': 'test.txt'
         })
         
+        print(f"DEBUG: Response status: {response.status_code}")
+        print(f"DEBUG: Response content: {response.content}")
+        print(f"DEBUG: URL accessed: /api/files/delete/{self.test_project_folder}")
+        
         self.assertEqual(response.status_code, status.HTTP_200_OK)
         self.assertTrue(response.data['success'])
         

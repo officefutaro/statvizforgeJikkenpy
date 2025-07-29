@@ -1,13 +1,19 @@
 from django.urls import path, include
+from django.http import JsonResponse
 from rest_framework.routers import DefaultRouter
 from .views import ProjectViewSet, FileViewSet, JupyterLabViewSet, server_info
 
-router = DefaultRouter()
-router.register(r'projects', ProjectViewSet, basename='project')
-router.register(r'files', FileViewSet, basename='file')
-router.register(r'jupyter', JupyterLabViewSet, basename='jupyter')
+# router = DefaultRouter()
+# router.register(r'projects', ProjectViewSet, basename='project')
+# router.register(r'files', FileViewSet, basename='file')
+# router.register(r'jupyter', JupyterLabViewSet, basename='jupyter')
 
 urlpatterns = [
+    # テスト用シンプルパターン
+    path('test/', lambda request: JsonResponse({'status': 'ok'}), name='test'),
+    
+    # 固定パターンを先頭に配置（router.urlsの前に処理される）
+    
     # ファイル管理エンドポイント（固定パターン）
     path('files/tree/<str:project_folder>/', FileViewSet.as_view({'get': 'tree'}), name='file-tree'),
     path('files/upload/<str:project_folder>/', FileViewSet.as_view({'post': 'upload'}), name='file-upload'),
@@ -38,6 +44,9 @@ urlpatterns = [
     path('files/search-by-tags/<str:project_folder>/', FileViewSet.as_view({
         'get': 'search_files_by_tags'
     }), name='file-search-by-tags'),
+    path('files/table/<str:project_folder>/', FileViewSet.as_view({
+        'get': 'table'
+    }), name='file-table'),
     
     # RESTful プロジェクト管理エンドポイント
     path('projects/', ProjectViewSet.as_view({
@@ -58,4 +67,4 @@ urlpatterns = [
     path('jupyter/status/', JupyterLabViewSet.as_view({'get': 'status'}), name='jupyter-status'),
     
     path('server-info/', server_info, name='server_info'),
-] + router.urls
+]
