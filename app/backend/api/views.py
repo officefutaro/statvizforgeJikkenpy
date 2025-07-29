@@ -1412,6 +1412,100 @@ class FileViewSet(viewsets.ModelViewSet):
                 status_code=status.HTTP_500_INTERNAL_SERVER_ERROR
             )
 
+    @action(detail=False, methods=['get', 'post'], url_path='column-types/(?P<project_folder>[^/.]+)')
+    def column_types(self, request, project_folder=None):
+        """列データ型設定の取得・保存"""
+        language = get_language_from_request(request)
+        
+        # プロジェクトフォルダの存在確認
+        from config.paths import PROJECT_DATA_DIR
+        project_path = PROJECT_DATA_DIR / project_folder
+        if not project_path.exists():
+            return create_error_response(
+                'PROJECT_NOT_FOUND',
+                language,
+                status_code=status.HTTP_404_NOT_FOUND
+            )
+        
+        # analysisdataフォルダの確保
+        analysisdata_path = project_path / 'analysisdata'
+        analysisdata_path.mkdir(exist_ok=True)
+        
+        # 列データ型設定ファイル
+        column_types_file = analysisdata_path / 'column_types.json'
+        
+        if request.method == 'GET':
+            # 列データ型設定を取得
+            file_path = request.query_params.get('file_path')
+            if not file_path:
+                return create_error_response(
+                    'FILE_PATH_REQUIRED',
+                    language,
+                    status_code=status.HTTP_400_BAD_REQUEST
+                )
+            
+            try:
+                if column_types_file.exists():
+                    with open(column_types_file, 'r', encoding='utf-8') as f:
+                        all_column_types = json.load(f)
+                else:
+                    all_column_types = {}
+                
+                # ファイルパスの正規化
+                normalized_path = file_path.replace('\\', '/')
+                column_types = all_column_types.get(normalized_path, {})
+                
+                return Response({'column_types': column_types})
+            except Exception as e:
+                return Response({'column_types': {}})
+        
+        elif request.method == 'POST':
+            # 列データ型設定を保存
+            file_path = request.data.get('file_path')
+            column_types = request.data.get('column_types', {})
+            
+            if not file_path:
+                return create_error_response(
+                    'FILE_PATH_REQUIRED',
+                    language,
+                    status_code=status.HTTP_400_BAD_REQUEST
+                )
+            
+            try:
+                # 既存の設定を読み込み
+                if column_types_file.exists():
+                    try:
+                        with open(column_types_file, 'r', encoding='utf-8') as f:
+                            all_column_types = json.load(f)
+                    except:
+                        all_column_types = {}
+                else:
+                    all_column_types = {}
+                
+                # ファイルパスの正規化
+                normalized_path = file_path.replace('\\', '/')
+                
+                # 列データ型設定を更新
+                all_column_types[normalized_path] = column_types
+                
+                # ファイルに保存
+                with open(column_types_file, 'w', encoding='utf-8') as f:
+                    json.dump(all_column_types, f, indent=2, ensure_ascii=False)
+                
+                return Response({
+                    'success': True,
+                    'column_types': column_types,
+                    'saved_to': str(column_types_file)
+                })
+            
+            except Exception as e:
+                return create_error_response(
+                    'FAILED_TO_SAVE_COLUMN_TYPES',
+                    language,
+                    details={'error': str(e)},
+                    status_code=status.HTTP_500_INTERNAL_SERVER_ERROR
+                )
+
 
 
 
