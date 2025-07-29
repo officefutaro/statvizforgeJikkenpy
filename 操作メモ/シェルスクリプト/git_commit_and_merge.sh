@@ -185,7 +185,7 @@ log "=== Git操作完了レポート ==="
 log "作業ブランチ: $EXPECTED_BRANCH"
 log "マージ先: main"
 log "最終状態: $(git branch --show-current)"
-
+2
 # 最近のコミット履歴表示
 log "最近のコミット履歴:"
 git log --oneline -5 | while read -r commit_line; do
