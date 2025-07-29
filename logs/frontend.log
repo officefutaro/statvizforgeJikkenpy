@@ -515,3 +515,4 @@ Dashboard component rendered
  ✓ Compiled /api/files/[...slug]/route in 81ms (431 modules)
 [API Proxy] Forwarding GET request to: http://localhost:8000/api/files/tags/Yachin/?file_path=%E3%82%A2%E3%83%91%E3%83%BC%E3%83%88%E3%81%AE%E5%AE%B6%E8%B3%83.csv
 [API Proxy] Successfully handled files request: tags/Yachin
+<w> [webpack.cache.PackFileCacheStrategy] Caching failed for pack: Error: incorrect header check
