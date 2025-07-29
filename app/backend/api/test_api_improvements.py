@@ -104,14 +104,21 @@ class APIImprovementsTestCase(DjangoTestCaseMixin, APITestCase):
         )
     
     @patch('api.views.FileExplorer')
-    def test_file_search_url_unified(self, mock_explorer):
+    @patch('api.views.FileCommentManager')
+    def test_file_search_url_unified(self, mock_comment_manager, mock_explorer):
         """ファイル検索APIのURL統一テスト"""
+        # FileExplorer のモック設定
         mock_explorer_instance = MagicMock()
         mock_explorer.return_value = mock_explorer_instance
         mock_explorer_instance.search_files.return_value = {
             'results': [],
             'total': 0
         }
+        
+        # FileCommentManager のモック設定
+        mock_comment_manager_instance = MagicMock()
+        mock_comment_manager.return_value = mock_comment_manager_instance
+        mock_comment_manager_instance.get_file_summary.return_value = {}
         
         # URLs.pyで定義されたエンドポイントを使用
         url = f'/api/files/search/{self.test_project}/'

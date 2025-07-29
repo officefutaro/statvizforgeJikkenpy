@@ -32,13 +32,13 @@ class MockedFileSystemTestCase(APITestCase):
         self.patchers = []
         
         # load_projects_registry のモック
-        load_patcher = patch('api.utils.load_projects_registry')
+        load_patcher = patch('api.views.load_projects_registry')
         self.mock_load = load_patcher.start()
         self.mock_load.return_value = self.mock_registry.copy()
         self.patchers.append(load_patcher)
         
         # save_projects_registry のモック
-        save_patcher = patch('api.utils.save_projects_registry')
+        save_patcher = patch('api.views.save_projects_registry')
         self.mock_save = save_patcher.start()
         self.patchers.append(save_patcher)
         

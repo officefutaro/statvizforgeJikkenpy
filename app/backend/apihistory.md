@@ -104951,3 +104951,43 @@ Content-Type: text/csv
 }
 ステータス: 200
 ---
+
+[2025-07-29 09:43:02] POST /api/projects/
+リクエスト: --BoUnDaRyStRiNg
+Content-Disposition: form-data; name="folder_name"
+
+test_project_4f1b6ebf
+--BoUnDaRyStRiNg
+Content-Disposition: form-data; name="project_name"
+
+テストプロジェクト
+--BoUnDaRyStRiNg
+Content-Disposition: form-data; name="description"
+
+ライフサイクルテスト用プロジェクト
+--BoUnDaRyStRiNg
+Content-Disposition: form-data; name="tags"
+
+test
+--BoUnDaRyStRiNg
+Content-Disposition: form-data; name="tags"
+
+lifecycle
+--BoUnDaRyStRiNg
+Content-Disposition: form-data; name="status"
+
+active
+--BoUnDaRyStRiNg--
+
+レスポンス: {
+  "folder_name": "test_project_4f1b6ebf",
+  "project_name": "テストプロジェクト",
+  "description": "ライフサイクルテスト用プロジェクト",
+  "tags": "lifecycle",
+  "status": "active",
+  "id": "d2c7d39b-c3a4-4591-9f89-b7f1def829d3",
+  "created_date": "2025-07-29T09:43:02.366552",
+  "modified_date": "2025-07-29T09:43:02.366552"
+}
+ステータス: 201
+---

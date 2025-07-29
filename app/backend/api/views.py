@@ -595,29 +595,6 @@ class FileViewSet(viewsets.ModelViewSet):
                 status_code=status.HTTP_500_INTERNAL_SERVER_ERROR
             )
     
-    def search(self, request, project_folder=None):
-        """ファイル検索"""
-        language = get_language_from_request(request)
-        
-        query = request.query_params.get('query')
-        if not query:
-            return create_error_response(
-                'QUERY_REQUIRED',
-                language,
-                status_code=status.HTTP_400_BAD_REQUEST
-            )
-        
-        search_type = request.query_params.get('type', 'both')  # name, content, both
-        
-        try:
-            results = self.file_explorer.search_files(project_folder, query, search_type)
-            return Response(results)
-        except Exception as e:
-            return create_error_response(
-                'SEARCH_FAILED',
-                language,
-                status_code=status.HTTP_500_INTERNAL_SERVER_ERROR
-            )
     
     def delete(self, request, project_folder=None):
         """ファイル・ディレクトリ削除"""
