@@ -1056,6 +1056,10 @@ class FileViewSet(viewsets.ModelViewSet):
                     status_code=status.HTTP_400_BAD_REQUEST
                 )
             
+            # ファイルパスがraw/で始まらない場合は追加
+            if not file_path.startswith('raw/'):
+                file_path = f'raw/{file_path}'
+            
             from config.paths import PROJECT_DATA_DIR
             project_path = PROJECT_DATA_DIR / project_folder
             full_file_path = project_path / file_path
