@@ -1,0 +1,11 @@
+{
+  "timestamp": "2025-07-28T08:32:34.240Z",
+  "date": "20250728",
+  "tests": {
+    "jest": {
+      "success": false,
+      "error": "Command failed: npm test -- --json --coverage\nsh: 1: Syntax error: word unexpected\n",
+      "rawOutput": "\n> nextjs@0.1.0 test\n> jest && node scripts/test-reporter.js || (node scripts/test-reporter.js && exit 1) --json --coverage\n\n"
+    }
+  }
+}

@@ -11,13 +11,15 @@ import json
 import uuid
 from unittest.mock import patch, mock_open
 from pathlib import Path
+from .test_base import MockedFileSystemTestCase
 
 
-class ProjectLifecycleTestCase(APITestCase):
+class ProjectLifecycleTestCase(MockedFileSystemTestCase):
     """プロジェクト完全ライフサイクルテスト"""
     
     def setUp(self):
         """テスト前の準備"""
+        super().setUp()
         self.test_project_data = {
             'folder_name': f'test_project_{uuid.uuid4().hex[:8]}',
             'project_name': 'テストプロジェクト',
@@ -25,33 +27,15 @@ class ProjectLifecycleTestCase(APITestCase):
             'tags': ['test', 'lifecycle'],
             'status': 'active'
         }
-        
-        # モックデータ
-        self.mock_registry = {
-            'version': '1.0.0',
-            'last_updated': '2025-07-26T10:00:00',
-            'projects': []
-        }
-        
-        self.mock_trash_registry = {
-            'version': '1.0.0',
-            'last_updated': '2025-07-26T10:00:00',
-            'deleted_projects': []
-        }
 
-    @patch('api.utils.load_projects_registry')
-    @patch('api.utils.save_projects_registry')
-    @patch('builtins.open', new_callable=mock_open)
-    @patch('pathlib.Path.exists')
     @patch('pathlib.Path.mkdir')
-    def test_complete_project_lifecycle(self, mock_mkdir, mock_exists, mock_file, 
-                                      mock_save, mock_load):
+    @patch('pathlib.Path.exists')
+    @patch('builtins.open', new_callable=mock_open)
+    @patch('api.utils.save_projects_registry')
+    @patch('api.utils.load_projects_registry')
+    def test_complete_project_lifecycle(self, mock_load, mock_save, mock_file, 
+                                      mock_exists, mock_mkdir):
         """プロジェクト完全ライフサイクルテスト: 作成→更新→削除→復元"""
-        
-        # セットアップ
-        mock_load.return_value = self.mock_registry.copy()
-        mock_exists.return_value = True
-        
         print("\n=== プロジェクト完全ライフサイクルテスト開始 ===")
         
         # Phase 1: プロジェクト作成
@@ -254,7 +238,7 @@ class ProjectAPIPerformanceTestCase(APITestCase):
         print("=== パフォーマンステスト完了 ===")
 
 
-class ProjectValidationTestCase(APITestCase):
+class ProjectValidationTestCase(MockedFileSystemTestCase):
     """プロジェクトバリデーションテスト - 実際のテスト記述例"""
     
     def test_プロジェクト名バリデーション(self):
@@ -343,7 +327,7 @@ class ProjectValidationTestCase(APITestCase):
         print(f"✓ {test_name} - 成功: {tags}")
 
 
-class ProjectIntegrationTestCase(APITestCase):
+class ProjectIntegrationTestCase(MockedFileSystemTestCase):
     """統合テスト - より複雑なシナリオ"""
     
     def test_同時削除復元操作(self):
@@ -458,11 +442,12 @@ class ProjectIntegrationTestCase(APITestCase):
         print("=== エラー混在ライフサイクルテスト完了 ===")
 
 
-class FileManagementTestCase(APITestCase):
+class FileManagementTestCase(MockedFileSystemTestCase):
     """ファイル管理API統合テスト"""
     
     def setUp(self):
         """テスト前の準備"""
+        super().setUp()
         self.test_project_folder = 'test_file_project'
         
         # モックファイルツリー
@@ -754,11 +739,12 @@ class FileManagementTestCase(APITestCase):
         print("=== ファイルAPI エラーハンドリングテスト完了 ===")
 
 
-class FileCommentsTestCase(APITestCase):
+class FileCommentsTestCase(MockedFileSystemTestCase):
     """ファイルコメントAPI テスト"""
     
     def setUp(self):
         """テスト前の準備"""
+        super().setUp()
         self.test_project_folder = 'test_comment_project'
         self.test_file_path = 'test.txt'
 
@@ -889,7 +875,7 @@ class FileCommentsTestCase(APITestCase):
         print("=== コメントAPI バリデーションテスト完了 ===")
 
 
-class APIIntegrationTestCase(APITestCase):
+class APIIntegrationTestCase(MockedFileSystemTestCase):
     """API統合テスト - 複数APIの連携"""
     
     @patch('api.utils.load_projects_registry')

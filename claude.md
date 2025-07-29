@@ -392,3 +392,79 @@ project/
 - エラーハンドリングの強化（フォルダ作成失敗時）
 - プロジェクト削除時のフォルダ削除機能
 - ファイルアップロード機能のraw/フォルダ連携
+
+---
+
+## 2025年7月28日の作業内容
+
+### 実装概要
+ファイル説明専用APIシステムの完成とプロジェクトフォルダ仕様書の作成
+
+### 作業項目詳細
+
+#### 1. ファイル説明APIのバグ修正と完成
+**発生したバグ**:
+- HTTP 415エラー: DjangoのFileViewSetにJSONParserが未設定
+- name 'json' is not definedエラー: jsonモジュール未インポート
+
+**修正内容**:
+- `/app/backend/api/views.py`にJSONParser追加とjsonモジュールインポート
+- `parser_classes = (MultiPartParser, FormParser, JSONParser)`に修正
+
+**結果**: 
+- POST/GETエンドポイント正常動作
+- `analysisdata/file_descriptions.json`への保存成功
+- 日本語ファイル名の正常処理
+
+#### 2. プロジェクトフォルダ仕様書の作成
+**ファイル**: `/app/doc/PROJECT_FOLDER_SPECIFICATION.md`
+
+**内容**:
+- プロジェクト基本構造定義
+- 全JSONファイル仕様（project.json, file_descriptions.json等）
+- API エンドポイント一覧
+- 命名規則とセキュリティ要件
+- バックアップ・アーカイブ処理仕様
+- エラーハンドリングとメンテナンス方針
+
+#### 3. 開発環境の安定化
+**問題と対応**:
+- WSL環境でのpython/python3コマンド問題 → python3使用で解決
+- Django仮想環境の適切なアクティベート
+- ポート競合問題の解決
+
+### 技術仕様
+
+#### ファイル説明API
+- **エンドポイント**: `/api/files/descriptions/{project_folder}/`
+- **保存場所**: `{project_folder}/analysisdata/file_descriptions.json`
+- **データ形式**:
+```json
+{
+  "filename.csv": {
+    "description": "説明",
+    "updated": "2025-07-28T23:33:30.790231",
+    "author": "システム"
+  }
+}
+```
+
+#### プロジェクト構造標準化
+- **必須フォルダ**: `raw/`（生データ）、`analysisdata/`（メタデータ）
+- **設定ファイル**: `project.json`（プロジェクト情報）
+- **管理ファイル**: `projects-registry.json`（プロジェクト一覧）
+
+### 動作確認済み機能
+✅ ファイル説明保存・取得API（POST/GET）
+✅ analysisdataフォルダへの専用保存
+✅ 日本語ファイル名対応
+✅ エラーハンドリング（編集モード終了）
+✅ Firefox UI での動作確認
+✅ プロジェクトフォルダ仕様書完成
+
+### 残件・今後の課題
+- ファイルタグシステムの同様の修正
+- UI改善（×ボタン、キーボードショートカット）の継続テスト
+- プロジェクト終了ボタン機能のテスト
+- 大量ファイル処理時のパフォーマンス最適化
+- セキュリティ強化（ファイルパス検証等）

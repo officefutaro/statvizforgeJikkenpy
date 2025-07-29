@@ -1,9 +1,10 @@
 from rest_framework import viewsets, status
 from rest_framework.decorators import action, api_view
 from rest_framework.response import Response
-from rest_framework.parsers import MultiPartParser, FormParser
+from rest_framework.parsers import MultiPartParser, FormParser, JSONParser
 from django.http import FileResponse
 from django.conf import settings
+from django.utils import timezone
 from .models import Project, ProjectFile
 from .serializers import ProjectSerializer, ProjectFileSerializer
 from .utils import load_projects_registry, save_projects_registry
@@ -20,6 +21,7 @@ import os
 import threading
 import time
 import socket
+import json
 
 
 class ProjectViewSet(viewsets.ModelViewSet):
@@ -50,7 +52,10 @@ class ProjectViewSet(viewsets.ModelViewSet):
         if hasattr(request, 'data') and request.data:
             new_project = {}
             for key, value in request.data.items():
-                if isinstance(value, list):
+                if key == 'tags' and isinstance(value, list):
+                    # tagsは配列のまま保持
+                    new_project[key] = value
+                elif isinstance(value, list):
                     new_project[key] = value[0] if value else ''
                 else:
                     new_project[key] = value
@@ -512,7 +517,7 @@ class FileViewSet(viewsets.ModelViewSet):
     """ファイル操作API"""
     queryset = ProjectFile.objects.all()
     serializer_class = ProjectFileSerializer
-    parser_classes = (MultiPartParser, FormParser)
+    parser_classes = (MultiPartParser, FormParser, JSONParser)
     
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
@@ -651,9 +656,9 @@ class FileViewSet(viewsets.ModelViewSet):
         language = get_language_from_request(request)
         
         source_path = request.data.get('source_path')
-        target_path = request.data.get('target_path')
+        destination_path = request.data.get('destination_path')
         
-        if not source_path or not target_path:
+        if not source_path or not destination_path:
             return create_error_response(
                 'SOURCE_AND_TARGET_REQUIRED',
                 language,
@@ -661,10 +666,10 @@ class FileViewSet(viewsets.ModelViewSet):
             )
         
         try:
-            result = self.file_explorer.move_file_or_directory(project_folder, source_path, target_path)
+            result = self.file_explorer.move_file_or_directory(project_folder, source_path, destination_path)
             if result.get('success'):
                 # コメントも移動
-                self.comment_manager.move_file_comments(project_folder, source_path, target_path)
+                self.comment_manager.move_file_comments(project_folder, source_path, destination_path)
                 return Response(result)
             else:
                 return create_error_response(
@@ -774,7 +779,16 @@ class FileViewSet(viewsets.ModelViewSet):
         """コメント更新"""
         language = get_language_from_request(request)
         
+        file_path = request.data.get('file_path')
         comment_text = request.data.get('comment')
+        
+        if not file_path:
+            return create_error_response(
+                'FILE_PATH_REQUIRED',
+                language,
+                status_code=status.HTTP_400_BAD_REQUEST
+            )
+        
         if not comment_text:
             return create_error_response(
                 'COMMENT_TEXT_REQUIRED',
@@ -783,7 +797,7 @@ class FileViewSet(viewsets.ModelViewSet):
             )
         
         try:
-            result = self.comment_manager.update_comment(project_folder, comment_id, comment_text)
+            result = self.comment_manager.update_comment(project_folder, file_path, comment_id, comment_text)
             if result.get('success'):
                 return Response(result)
             else:
@@ -804,8 +818,16 @@ class FileViewSet(viewsets.ModelViewSet):
         """コメント削除"""
         language = get_language_from_request(request)
         
+        file_path = request.query_params.get('file_path')
+        if not file_path:
+            return create_error_response(
+                'FILE_PATH_REQUIRED',
+                language,
+                status_code=status.HTTP_400_BAD_REQUEST
+            )
+        
         try:
-            result = self.comment_manager.delete_comment(project_folder, comment_id)
+            result = self.comment_manager.delete_comment(project_folder, file_path, comment_id)
             if result.get('success'):
                 return Response(result)
             else:
@@ -839,6 +861,279 @@ class FileViewSet(viewsets.ModelViewSet):
         if 'children' in node:
             for child in node['children']:
                 self._add_comments_to_tree(child, comment_summary, node_path)
+
+    def save_file_description(self, request, project_folder=None):
+        """ファイル説明を保存する"""
+        language = get_language_from_request(request)
+        
+        # プロジェクトフォルダの存在確認
+        from config.paths import PROJECT_DATA_DIR
+        project_path = PROJECT_DATA_DIR / project_folder
+        if not project_path.exists():
+            return create_error_response(
+                'PROJECT_NOT_FOUND',
+                language,
+                status_code=status.HTTP_404_NOT_FOUND
+            )
+        
+        file_path = request.data.get('file_path')
+        description = request.data.get('description', '')
+        
+        if not file_path:
+            return create_error_response(
+                'FILE_PATH_REQUIRED',
+                language,
+                status_code=status.HTTP_400_BAD_REQUEST
+            )
+        
+        try:
+            # analysisdataフォルダに保存
+            analysisdata_path = project_path / 'analysisdata'
+            analysisdata_path.mkdir(exist_ok=True)
+            
+            # ファイル説明専用ファイル
+            descriptions_file = analysisdata_path / 'file_descriptions.json'
+            
+            # 既存の説明データを読み込み
+            if descriptions_file.exists():
+                try:
+                    with open(descriptions_file, 'r', encoding='utf-8') as f:
+                        descriptions_data = json.load(f)
+                except:
+                    descriptions_data = {}
+            else:
+                descriptions_data = {}
+            
+            # ファイルパスの正規化（rawフォルダ相対パス）
+            normalized_path = file_path.replace('\\', '/')
+            
+            # 説明を保存
+            from datetime import datetime
+            descriptions_data[normalized_path] = {
+                'description': description,
+                'updated': datetime.now().isoformat(),
+                'author': 'システム'
+            }
+            
+            # ファイルに書き込み
+            with open(descriptions_file, 'w', encoding='utf-8') as f:
+                json.dump(descriptions_data, f, indent=2, ensure_ascii=False)
+            
+            return Response({
+                'success': True, 
+                'description': description,
+                'saved_to': str(descriptions_file)
+            })
+        
+        except Exception as e:
+            return create_error_response(
+                'FAILED_TO_SAVE_DESCRIPTION',
+                language,
+                details={'error': str(e)},
+                status_code=status.HTTP_500_INTERNAL_SERVER_ERROR
+            )
+
+    def get_file_description(self, request, project_folder=None):
+        """ファイル説明を取得する"""
+        file_path = request.query_params.get('file_path')
+        if not file_path:
+            return Response({'description': ''})
+        
+        try:
+            # プロジェクトフォルダの存在確認
+            from config.paths import PROJECT_DATA_DIR
+            project_path = PROJECT_DATA_DIR / project_folder
+            if not project_path.exists():
+                return Response({'description': ''})
+            
+            # 説明ファイルの読み込み
+            descriptions_file = project_path / 'analysisdata' / 'file_descriptions.json'
+            if not descriptions_file.exists():
+                return Response({'description': ''})
+            
+            with open(descriptions_file, 'r', encoding='utf-8') as f:
+                descriptions_data = json.load(f)
+            
+            # ファイルパスの正規化
+            normalized_path = file_path.replace('\\', '/')
+            file_description = descriptions_data.get(normalized_path, {}).get('description', '')
+            
+            return Response({'description': file_description})
+        
+        except Exception as e:
+            return Response({'description': ''})
+    
+    def save_file_tags(self, request, project_folder=None):
+        """ファイルタグを保存する"""
+        language = get_language_from_request(request)
+        
+        # プロジェクトフォルダの存在確認
+        from config.paths import PROJECT_DATA_DIR
+        project_path = PROJECT_DATA_DIR / project_folder
+        if not project_path.exists():
+            return create_error_response(
+                'PROJECT_NOT_FOUND',
+                language,
+                status_code=status.HTTP_404_NOT_FOUND
+            )
+        
+        file_path = request.data.get('file_path')
+        tags = request.data.get('tags', [])
+        
+        if not file_path:
+            return create_error_response(
+                'FILE_PATH_REQUIRED',
+                language,
+                status_code=status.HTTP_400_BAD_REQUEST
+            )
+        
+        try:
+            # ファイルタグ管理システムを使ってタグを保存
+            # プロジェクトのfile_tags.jsonに保存
+            tags_file = project_path / 'file_tags.json'
+            
+            # 既存のタグデータを読み込み
+            if tags_file.exists():
+                try:
+                    with open(tags_file, 'r', encoding='utf-8') as f:
+                        tags_data = json.load(f)
+                except:
+                    tags_data = {}
+            else:
+                tags_data = {}
+            
+            # ファイルパスの正規化（rawフォルダ相対パス）
+            normalized_path = file_path.replace('\\', '/')
+            
+            # タグを保存
+            tags_data[normalized_path] = tags
+            
+            # ファイルに書き込み
+            with open(tags_file, 'w', encoding='utf-8') as f:
+                json.dump(tags_data, f, indent=2, ensure_ascii=False)
+            
+            return Response({
+                'success': True,
+                'file_path': normalized_path,
+                'tags': tags,
+                'updated': timezone.now().isoformat()
+            })
+        
+        except Exception as e:
+            return create_error_response(
+                'FAILED_TO_SAVE_TAGS',
+                language,
+                details={'error': str(e)},
+                status_code=status.HTTP_500_INTERNAL_SERVER_ERROR
+            )
+    
+    def get_file_tags(self, request, project_folder=None):
+        """ファイルのタグを取得する（クエリパラメータ対応）"""
+        file_path = request.query_params.get('file_path')
+        
+        try:
+            # プロジェクトフォルダの存在確認
+            from config.paths import PROJECT_DATA_DIR
+            project_path = PROJECT_DATA_DIR / project_folder
+            if not project_path.exists():
+                if file_path:
+                    return Response({'tags': []})
+                else:
+                    return Response({'files': {}})
+            
+            # タグファイルの読み込み
+            tags_file = project_path / 'file_tags.json'
+            if not tags_file.exists():
+                if file_path:
+                    return Response({'tags': []})
+                else:
+                    return Response({'files': {}})
+            
+            with open(tags_file, 'r', encoding='utf-8') as f:
+                tags_data = json.load(f)
+            
+            if file_path:
+                # 個別ファイルのタグ取得
+                normalized_path = file_path.replace('\\', '/')
+                file_tags = tags_data.get(normalized_path, [])
+                return Response({'tags': file_tags})
+            else:
+                # 全ファイルのタグ取得
+                return Response({'files': tags_data})
+        
+        except Exception as e:
+            if file_path:
+                return Response({'tags': []})
+            else:
+                return Response({'files': {}})
+    
+    def search_files_by_tags(self, request, project_folder=None):
+        """タグによるファイル検索"""
+        language = get_language_from_request(request)
+        tags = request.query_params.getlist('tags')
+        
+        if not tags:
+            return create_error_response(
+                'TAGS_REQUIRED',
+                language,
+                status_code=status.HTTP_400_BAD_REQUEST
+            )
+        
+        try:
+            # プロジェクトフォルダの存在確認
+            from config.paths import PROJECT_DATA_DIR
+            project_path = PROJECT_DATA_DIR / project_folder
+            if not project_path.exists():
+                return create_error_response(
+                    'PROJECT_NOT_FOUND',
+                    language,
+                    status_code=status.HTTP_404_NOT_FOUND
+                )
+            
+            # タグファイルの読み込み
+            tags_file = project_path / 'file_tags.json'
+            if not tags_file.exists():
+                return Response({
+                    'success': True,
+                    'query_tags': tags,
+                    'results': [],
+                    'total': 0
+                })
+            
+            with open(tags_file, 'r', encoding='utf-8') as f:
+                tags_data = json.load(f)
+            
+            # タグにマッチするファイルを検索
+            results = []
+            for file_path, file_tags in tags_data.items():
+                # 指定されたタグがファイルのタグに含まれているかチェック
+                if any(tag in file_tags for tag in tags):
+                    # ファイル情報を取得
+                    full_file_path = project_path / 'raw' / file_path
+                    if full_file_path.exists():
+                        results.append({
+                            'file_path': file_path,
+                            'tags': file_tags,
+                            'matched_tags': [tag for tag in tags if tag in file_tags],
+                            'size': full_file_path.stat().st_size if full_file_path.is_file() else 0,
+                            'type': 'file' if full_file_path.is_file() else 'directory',
+                            'modified': full_file_path.stat().st_mtime
+                        })
+            
+            return Response({
+                'success': True,
+                'query_tags': tags,
+                'results': results,
+                'total': len(results)
+            })
+        
+        except Exception as e:
+            return create_error_response(
+                'SEARCH_FAILED',
+                language,
+                details={'error': str(e)},
+                status_code=status.HTTP_500_INTERNAL_SERVER_ERROR
+            )
 
     @action(detail=False, methods=['put', 'delete'], url_path='comments/(?P<project_folder>[^/.]+)/(?P<comment_id>[^/.]+)')
     def comment_detail(self, request, project_folder=None, comment_id=None):
@@ -889,8 +1184,7 @@ class FileViewSet(viewsets.ModelViewSet):
                     status_code=status.HTTP_500_INTERNAL_SERVER_ERROR
                 )
 
-    @action(detail=False, methods=['delete'], url_path='delete/(?P<project_folder>[^/.]+)')
-    def delete_file(self, request, project_folder=None):
+    def delete(self, request, project_folder=None):
         """ファイル・ディレクトリ削除"""
         language = get_language_from_request(request)
         file_path = request.data.get('file_path') or request.query_params.get('file_path')
@@ -925,8 +1219,7 @@ class FileViewSet(viewsets.ModelViewSet):
                 status_code=status.HTTP_500_INTERNAL_SERVER_ERROR
             )
 
-    @action(detail=False, methods=['post'], url_path='move/(?P<project_folder>[^/.]+)')
-    def move_file(self, request, project_folder=None):
+    def move(self, request, project_folder=None):
         """ファイル・ディレクトリ移動"""
         language = get_language_from_request(request)
         source_path = request.data.get('source_path')
@@ -963,8 +1256,7 @@ class FileViewSet(viewsets.ModelViewSet):
                 status_code=status.HTTP_500_INTERNAL_SERVER_ERROR
             )
 
-    @action(detail=False, methods=['post'], url_path='mkdir/(?P<project_folder>[^/.]+)')
-    def create_directory(self, request, project_folder=None):
+    def mkdir(self, request, project_folder=None):
         """新規ディレクトリ作成"""
         language = get_language_from_request(request)
         dir_path = request.data.get('dir_path')
@@ -1042,8 +1334,7 @@ class FileViewSet(viewsets.ModelViewSet):
             # コメント更新に失敗してもファイル移動は成功とする
             pass
 
-    @action(detail=False, methods=['get'], url_path='search/(?P<project_folder>[^/.]+)')
-    def search_files(self, request, project_folder=None):
+    def search(self, request, project_folder=None):
         """ファイル検索"""
         language = get_language_from_request(request)
         query = request.query_params.get('q', '').strip()
@@ -1103,15 +1394,20 @@ jupyter_instances = {}
 def get_wsl_ip():
     """WSLのIPアドレスを取得する"""
     try:
-        # WSLのIPアドレスを取得
+        # WSL内での開発を前提とし、localhostを優先
+        # WSL2の場合、WSL内でのアクセスはlocalhostで十分
+        if os.path.exists('/proc/version'):
+            with open('/proc/version', 'r') as f:
+                if 'microsoft' in f.read().lower():  # WSL環境の場合
+                    return "localhost"
+        
+        # その他の場合はIPアドレスを取得
         result = subprocess.run(['hostname', '-I'], capture_output=True, text=True)
         if result.returncode == 0:
-            # 最初のIPアドレスを取得（通常はeth0のアドレス）
             ip = result.stdout.strip().split()[0]
             return ip
     except:
         pass
-    # フォールバック
     return "localhost"
 
 def find_free_port(start_port=8888):
@@ -1137,9 +1433,10 @@ def start_jupyter_lab(project_folder, working_dir):
             jupyter_cmd,
             "--no-browser",
             "--port", str(port),
-            "--ip", "0.0.0.0",
-            "--NotebookApp.token=''",
-            "--NotebookApp.password=''",
+            "--ip", "127.0.0.1",  # WSL内アクセスを想定してlocalhostに限定
+            "--ServerApp.token=''",  # 新しい設定名
+            "--ServerApp.password=''",
+            "--ServerApp.allow_origin='*'",  # CORS対応
             "--allow-root",
             f"--notebook-dir={working_dir}"
         ]
@@ -1305,3 +1602,124 @@ def server_info(request):
         'django_version': '5.2.4',
         'api_version': '1.0.0'
     })
+
+
+@api_view(['GET'])
+def get_jupyter_status(request):
+    """全JupyterLabインスタンスの状態を取得"""
+    running_instances = []
+    
+    for project_folder, instance in list(jupyter_instances.items()):
+        if instance['process'].poll() is None:
+            running_instances.append({
+                'project_folder': project_folder,
+                'url': instance['url'],
+                'port': instance['port'],
+                'started_at': instance['started_at']
+            })
+        else:
+            del jupyter_instances[project_folder]
+    
+    return Response({
+        'running_instances': running_instances,
+        'total_count': len(running_instances)
+    })
+
+
+@api_view(['POST'])
+def start_jupyter_lab(request):
+    """指定されたプロジェクトのJupyterLabを起動"""
+    language = get_language_from_request(request)
+    project_folder = request.data.get('project_folder')
+    
+    if not project_folder:
+        return create_error_response(
+            'MISSING_PROJECT_FOLDER',
+            language,
+            status_code=status.HTTP_400_BAD_REQUEST
+        )
+    
+    project_base_path = os.path.join(settings.BASE_DIR, '../../project')
+    working_dir = os.path.join(project_base_path, project_folder, 'raw')
+    
+    if not os.path.exists(working_dir):
+        return create_error_response(
+            'PROJECT_NOT_FOUND',
+            language,
+            status_code=status.HTTP_404_NOT_FOUND
+        )
+    
+    if project_folder in jupyter_instances:
+        instance = jupyter_instances[project_folder]
+        if instance['process'].poll() is None:
+            return Response({
+                'success': True,
+                'url': instance['url'],
+                'port': instance['port'],
+                'message': 'JupyterLab is already running',
+                'project_folder': project_folder
+            })
+        else:
+            del jupyter_instances[project_folder]
+    
+    instance, error = start_jupyter_lab(project_folder, working_dir)
+    
+    if instance:
+        return Response({
+            'success': True,
+            'url': instance['url'],
+            'port': instance['port'],
+            'message': 'JupyterLab started successfully',
+            'project_folder': project_folder
+        })
+    else:
+        return create_error_response(
+            'JUPYTER_START_FAILED',
+            language,
+            details={'error': error},
+            status_code=status.HTTP_500_INTERNAL_SERVER_ERROR
+        )
+
+
+@api_view(['POST'])
+def stop_jupyter_lab(request):
+    """指定されたプロジェクトのJupyterLabを停止"""
+    language = get_language_from_request(request)
+    project_folder = request.data.get('project_folder')
+    
+    if not project_folder:
+        return create_error_response(
+            'MISSING_PROJECT_FOLDER',
+            language,
+            status_code=status.HTTP_400_BAD_REQUEST
+        )
+    
+    if project_folder not in jupyter_instances:
+        return create_error_response(
+            'JUPYTER_NOT_RUNNING',
+            language,
+            status_code=status.HTTP_404_NOT_FOUND
+        )
+    
+    try:
+        instance = jupyter_instances[project_folder]
+        instance['process'].terminate()
+        instance['process'].wait(timeout=5)
+        del jupyter_instances[project_folder]
+        
+        return Response({
+            'success': True,
+            'message': 'JupyterLab stopped successfully',
+            'project_folder': project_folder
+        })
+    except Exception as e:
+        return create_error_response(
+            'JUPYTER_STOP_FAILED',
+            language,
+            details={'error': str(e)},
+            status_code=status.HTTP_500_INTERNAL_SERVER_ERROR
+        )
+
+
+# jupyter_service は JupyterLabViewSet のインスタンスとして使用
+jupyter_service = JupyterLabViewSet()

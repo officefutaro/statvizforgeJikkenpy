@@ -143,7 +143,7 @@ app/
 ## 保護される内容
 
 ### 対象ディレクトリ
-- `StatVizForge_JikkenPy/projects/` - 全プロジェクトフォルダ
+- `StatVizForge_JikkenPy/project/` - 全プロジェクトフォルダ
 
 ### 保護されるデータ
 - プロジェクトフォルダとその全内容

@@ -1,0 +1,47 @@
+{
+  "version": "1.0.0",
+  "description": "StatVizForge テスト設定ファイル",
+  "auto_record": {
+    "enabled": true,
+    "description": "テスト実行時に自動的に結果を記録する",
+    "output_directory": "./testing/results",
+    "date_format": "YYYYMMDD",
+    "summary_format": "markdown"
+  },
+  "project_data_protection": {
+    "enabled": true,
+    "description": "テスト実行時にプロジェクトデータを保護する",
+    "backup_directory": "./app/frontend/.test-backups",
+    "target_directory": "./project",
+    "cleanup_old_backups": true,
+    "cleanup_after_hours": 1
+  },
+  "test_execution": {
+    "jest": {
+      "timeout": 30000,
+      "coverage": true,
+      "run_reporter": true
+    },
+    "playwright": {
+      "timeout": 60000,
+      "browsers": ["chromium", "firefox", "webkit"],
+      "parallel": false
+    },
+    "django": {
+      "timeout": 30000,
+      "verbosity": 2
+    }
+  },
+  "reporting": {
+    "formats": ["json", "markdown"],
+    "include_coverage": true,
+    "include_screenshots": true,
+    "auto_cleanup_old_reports": true,
+    "retention_days": 30
+  },
+  "notifications": {
+    "on_success": false,
+    "on_failure": true,
+    "include_summary": true
+  }
+}

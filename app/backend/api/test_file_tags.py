@@ -15,7 +15,16 @@ from pathlib import Path
 
 # プロジェクトルートを追加
 sys.path.append(str(Path(__file__).parent.parent))
-from test_utils.project_backup import DjangoTestCaseMixin
+try:
+    from test_utils.project_backup import DjangoTestCaseMixin
+except ImportError:
+    # フォールバック用の空のミックスイン
+    class DjangoTestCaseMixin:
+        def setUp(self):
+            pass
+        
+        def tearDown(self):
+            pass
 
 
 class FileTagsAPITestCase(DjangoTestCaseMixin, APITestCase):

@@ -1,6 +1,6 @@
 {
   "version": "1.0.0",
-  "last_updated": "2025-07-27T10:38:36.035743",
+  "last_updated": "2025-07-28T17:03:10.538450",
   "deleted_projects": [
     {
       "id": "82886a55-fe6c-4559-9dfa-27aeb21e924e",
@@ -39,6 +39,138 @@
         "test"
       ],
       "description": "正常に作成されるべきプロジェクト"
+    },
+    {
+      "id": "93f59528-8874-43e2-9046-8aa7f20cec4e",
+      "folder_name": "concurrent_test_0_66622648",
+      "project_name": "並行テストプロジェクト1",
+      "archive_filename": "concurrent_test_0_66622648_20250728_161911.zip",
+      "archive_size": 376,
+      "deletion_date": "2025-07-28T16:19:11.138006",
+      "original_created_date": "2025-07-28T16:19:11.132327",
+      "tags": "test1",
+      "description": "並行処理テスト用プロジェクト1"
+    },
+    {
+      "id": "19800ff7-d7fc-4ab4-85e5-d16075ee81bc",
+      "folder_name": "concurrent_test_2_e609d57b",
+      "project_name": "並行テストプロジェクト3",
+      "archive_filename": "concurrent_test_2_e609d57b_20250728_161911.zip",
+      "archive_size": 376,
+      "deletion_date": "2025-07-28T16:19:11.138943",
+      "original_created_date": "2025-07-28T16:19:11.134657",
+      "tags": "test3",
+      "description": "並行処理テスト用プロジェクト3"
+    },
+    {
+      "id": "09e9dfc9-ca4f-44f4-986a-03f567c8ce12",
+      "folder_name": "concurrent_test_4_092f0468",
+      "project_name": "並行テストプロジェクト5",
+      "archive_filename": "concurrent_test_4_092f0468_20250728_161911.zip",
+      "archive_size": 374,
+      "deletion_date": "2025-07-28T16:19:11.139772",
+      "original_created_date": "2025-07-28T16:19:11.136815",
+      "tags": "test5",
+      "description": "並行処理テスト用プロジェクト5"
+    },
+    {
+      "id": "b8bdfef1-663d-4317-9733-520b7c82ef4c",
+      "folder_name": "concurrent_test_0_efcb15fd",
+      "project_name": "並行テストプロジェクト1",
+      "archive_filename": "concurrent_test_0_efcb15fd_20250728_170101.zip",
+      "archive_size": 375,
+      "deletion_date": "2025-07-28T17:01:01.722419",
+      "original_created_date": "2025-07-28T17:01:01.713250",
+      "tags": "test1",
+      "description": "並行処理テスト用プロジェクト1"
+    },
+    {
+      "id": "96aec4c7-1934-4a4d-a124-648cedab3cce",
+      "folder_name": "concurrent_test_2_ee325ed7",
+      "project_name": "並行テストプロジェクト3",
+      "archive_filename": "concurrent_test_2_ee325ed7_20250728_170101.zip",
+      "archive_size": 375,
+      "deletion_date": "2025-07-28T17:01:01.723655",
+      "original_created_date": "2025-07-28T17:01:01.716608",
+      "tags": "test3",
+      "description": "並行処理テスト用プロジェクト3"
+    },
+    {
+      "id": "59ff5728-63a6-4d99-8798-483937754e16",
+      "folder_name": "concurrent_test_4_ba6d6c1b",
+      "project_name": "並行テストプロジェクト5",
+      "archive_filename": "concurrent_test_4_ba6d6c1b_20250728_170101.zip",
+      "archive_size": 375,
+      "deletion_date": "2025-07-28T17:01:01.724768",
+      "original_created_date": "2025-07-28T17:01:01.719739",
+      "tags": "test5",
+      "description": "並行処理テスト用プロジェクト5"
+    },
+    {
+      "id": "f5a03448-9b95-4b0d-bdee-bb9394282d31",
+      "folder_name": "concurrent_test_0_2d83d836",
+      "project_name": "並行テストプロジェクト1",
+      "archive_filename": "concurrent_test_0_2d83d836_20250728_170213.zip",
+      "archive_size": 375,
+      "deletion_date": "2025-07-28T17:02:13.347862",
+      "original_created_date": "2025-07-28T17:02:13.338155",
+      "tags": "test1",
+      "description": "並行処理テスト用プロジェクト1"
+    },
+    {
+      "id": "e1c81e4f-5442-4448-90ea-88d84d031106",
+      "folder_name": "concurrent_test_2_cc450da3",
+      "project_name": "並行テストプロジェクト3",
+      "archive_filename": "concurrent_test_2_cc450da3_20250728_170213.zip",
+      "archive_size": 374,
+      "deletion_date": "2025-07-28T17:02:13.349103",
+      "original_created_date": "2025-07-28T17:02:13.342054",
+      "tags": "test3",
+      "description": "並行処理テスト用プロジェクト3"
+    },
+    {
+      "id": "ea790dc1-2fad-4e1e-ae29-f57de39d2fcd",
+      "folder_name": "concurrent_test_4_73d0fb17",
+      "project_name": "並行テストプロジェクト5",
+      "archive_filename": "concurrent_test_4_73d0fb17_20250728_170213.zip",
+      "archive_size": 376,
+      "deletion_date": "2025-07-28T17:02:13.350340",
+      "original_created_date": "2025-07-28T17:02:13.345182",
+      "tags": "test5",
+      "description": "並行処理テスト用プロジェクト5"
+    },
+    {
+      "id": "89308044-b174-4b8f-828a-f2ca1c7e969f",
+      "folder_name": "concurrent_test_0_1fb7ac72",
+      "project_name": "並行テストプロジェクト1",
+      "archive_filename": "concurrent_test_0_1fb7ac72_20250728_170310.zip",
+      "archive_size": 375,
+      "deletion_date": "2025-07-28T17:03:10.535698",
+      "original_created_date": "2025-07-28T17:03:10.525040",
+      "tags": "test1",
+      "description": "並行処理テスト用プロジェクト1"
+    },
+    {
+      "id": "3f5c31c8-b469-49bd-b191-683d973467a7",
+      "folder_name": "concurrent_test_2_cd5b71e5",
+      "project_name": "並行テストプロジェクト3",
+      "archive_filename": "concurrent_test_2_cd5b71e5_20250728_170310.zip",
+      "archive_size": 376,
+      "deletion_date": "2025-07-28T17:03:10.537115",
+      "original_created_date": "2025-07-28T17:03:10.528416",
+      "tags": "test3",
+      "description": "並行処理テスト用プロジェクト3"
+    },
+    {
+      "id": "e9ab4e07-42a4-40a9-b720-3b5f25b70c4b",
+      "folder_name": "concurrent_test_4_b6a0a86d",
+      "project_name": "並行テストプロジェクト5",
+      "archive_filename": "concurrent_test_4_b6a0a86d_20250728_170310.zip",
+      "archive_size": 375,
+      "deletion_date": "2025-07-28T17:03:10.538447",
+      "original_created_date": "2025-07-28T17:03:10.532732",
+      "tags": "test5",
+      "description": "並行処理テスト用プロジェクト5"
     }
   ]
 }

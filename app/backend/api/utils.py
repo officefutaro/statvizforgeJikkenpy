@@ -49,3 +49,36 @@ def update_projects_registry(projects):
     data['last_updated'] = datetime.now().isoformat()
     save_projects_registry(data)
     return data
+
+
+def get_trash_registry_path():
+    """trash-registry.jsonのパスを取得"""
+    project_root = Path(settings.BASE_DIR).parent.parent
+    return project_root / 'project' / 'trash' / 'trash-registry.json'
+
+
+def load_trash_registry():
+    """trash-registry.jsonを読み込む"""
+    registry_path = get_trash_registry_path()
+    
+    if not registry_path.exists():
+        initial_data = {
+            "version": "1.0.0",
+            "last_updated": "",
+            "deleted_projects": []
+        }
+        save_trash_registry(initial_data)
+        return initial_data
+    
+    with open(registry_path, 'r', encoding='utf-8') as f:
+        return json.load(f)
+
+
+def save_trash_registry(data):
+    """trash-registry.jsonに保存"""
+    registry_path = get_trash_registry_path()
+    
+    registry_path.parent.mkdir(parents=True, exist_ok=True)
+    
+    with open(registry_path, 'w', encoding='utf-8') as f:
+        json.dump(data, f, ensure_ascii=False, indent=2)

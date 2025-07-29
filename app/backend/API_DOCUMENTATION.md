@@ -1,13 +1,331 @@
-# StatVizForge API Documentation
+# API 仕様書
 
-## 概要
-StatVizForge APIは、プロジェクト管理とファイル操作を提供するRESTful APIです。
-クリーンアップされ、一貫性のある設計により、プロジェクトライフサイクル全体をサポートします。
+**最終更新**: 2025-07-29  
+**バージョン**: 1.2.0
 
-## ⚠️ 重要な注意事項
-**この仕様書は理想的なAPI設計を示しています。現在の実装とは一部異なる場合があります。**
+## 目次
+1. [プロジェクト管理API](#プロジェクト管理api)
+2. [ファイル管理API](#ファイル管理api)
+3. [JupyterLab管理API](#jupyterlab管理api)
+4. [問題点と改善案](#問題点と改善案)
 
-- 実装コードとの差異は段階的に修正予定
+---
+
+## プロジェクト管理API
+
+### 1. プロジェクト一覧取得
+- **エンドポイント**: `GET /api/projects/`
+- **機能**: プロジェクト一覧を取得
+- **クエリパラメータ**: 
+  - `lang`: 言語指定 (ja/en)
+- **レスポンス**: projects-registry.json の内容
+
+### 2. プロジェクト作成
+- **エンドポイント**: `POST /api/projects/`
+- **機能**: 新規プロジェクト作成
+- **リクエストボディ**:
+  ```json
+  {
+    "folder_name": "string",
+    "project_name": "string", 
+    "description": "string",
+    "tags": ["string"],
+    "status": "active"
+  }
+  ```
+
+### 3. プロジェクト詳細取得
+- **エンドポイント**: `GET /api/projects/{project_id}/`
+- **機能**: 指定プロジェクトの詳細情報取得
+
+### 4. プロジェクト更新
+- **エンドポイント**: `PUT /api/projects/{project_id}/`
+- **機能**: プロジェクト情報更新
+
+### 5. プロジェクト削除
+- **エンドポイント**: `DELETE /api/projects/{project_id}/`
+- **機能**: プロジェクトをtrashに移動（zipアーカイブ化）
+
+### 6. 削除済みプロジェクト一覧
+- **エンドポイント**: `GET /api/projects/deleted/`
+- **機能**: trash内の削除済みプロジェクト一覧取得
+
+### 7. プロジェクト復元
+- **エンドポイント**: `POST /api/projects/{project_id}/restore/`
+- **機能**: trash内のプロジェクトを復元
+
+---
+
+## ファイル管理API
+
+### 1. ディレクトリツリー取得
+- **エンドポイント**: `GET /api/files/tree/{project_folder}/`
+- **クエリパラメータ**: 
+  - `path`: 取得するパス (デフォルト: ルート)
+- **機能**: プロジェクト内のディレクトリ構造取得
+
+### 2. ファイルアップロード
+- **エンドポイント**: `POST /api/files/upload/{project_folder}/`
+- **機能**: ファイルのアップロード
+- **Content-Type**: `multipart/form-data`
+
+### 3. ファイル検索
+- **エンドポイント**: `GET /api/files/search/{project_folder}/`
+- **クエリパラメータ**:
+  - `q`: 検索クエリ
+- **機能**: ファイル名による検索
+
+### 4. ファイル削除
+- **エンドポイント**: `DELETE /api/files/delete/{project_folder}/`
+- **リクエストボディ**:
+  ```json
+  {
+    "file_path": "string"
+  }
+  ```
+
+### 5. ファイル移動
+- **エンドポイント**: `POST /api/files/move/{project_folder}/`
+- **リクエストボディ**:
+  ```json
+  {
+    "source_path": "string",
+    "target_path": "string"
+  }
+  ```
+
+### 6. ディレクトリ作成
+- **エンドポイント**: `POST /api/files/mkdir/{project_folder}/`
+- **リクエストボディ**:
+  ```json
+  {
+    "dir_path": "string"
+  }
+  ```
+
+### 7. ファイルコメント管理
+#### 7.1 コメント取得
+- **エンドポイント**: `GET /api/files/comments/{project_folder}/`
+- **クエリパラメータ**:
+  - `file_path`: ファイルパス
+
+#### 7.2 コメント追加
+- **エンドポイント**: `POST /api/files/comments/{project_folder}/`
+- **リクエストボディ**:
+  ```json
+  {
+    "file_path": "string",
+    "comment": "string"
+  }
+  ```
+
+#### 7.3 コメント更新
+- **エンドポイント**: `PUT /api/files/comments/{project_folder}/{comment_id}/`
+
+#### 7.4 コメント削除
+- **エンドポイント**: `DELETE /api/files/comments/{project_folder}/{comment_id}/`
+
+### 8. ファイル説明管理
+#### 8.1 説明取得
+- **エンドポイント**: `GET /api/files/descriptions/{project_folder}/`
+- **クエリパラメータ**:
+  - `file_path`: ファイルパス
+
+#### 8.2 説明保存
+- **エンドポイント**: `POST /api/files/descriptions/{project_folder}/`
+- **リクエストボディ**:
+  ```json
+  {
+    "file_path": "string",
+    "description": "string"
+  }
+  ```
+
+### 9. ファイルタグ管理
+#### 9.1 全ファイルタグ取得
+- **エンドポイント**: `GET /api/files/tags/{project_folder}/`
+- **機能**: プロジェクト内全ファイルのタグ情報取得
+
+#### 9.2 個別ファイルタグ取得
+- **エンドポイント**: `GET /api/files/tags/{project_folder}/`
+- **クエリパラメータ**:
+  - `file_path`: ファイルパス
+- **機能**: 指定ファイルのタグ取得
+
+#### 9.3 ファイルタグ保存
+- **エンドポイント**: `POST /api/files/tags/{project_folder}/`
+- **リクエストボディ**:
+  ```json
+  {
+    "file_path": "string",
+    "tags": ["分析データ", "項目データ"]
+  }
+  ```
+- **タグルール**:
+  - 分析データ (トップレベル)
+    - 時系列データ (サブレベル)
+    - 項目データ (サブレベル)
+  - 参考資料 (トップレベル)
+
+#### 9.4 タグによるファイル検索
+- **エンドポイント**: `GET /api/files/search-by-tags/{project_folder}/`
+- **クエリパラメータ**:
+  - `tags`: 検索対象タグ（複数可、カンマ区切り）
+
+---
+
+## JupyterLab管理API
+
+### 1. JupyterLab起動
+- **エンドポイント**: `POST /api/jupyter/start/`
+- **リクエストボディ**:
+  ```json
+  {
+    "project_folder": "string"
+  }
+  ```
+
+### 2. JupyterLab停止
+- **エンドポイント**: `POST /api/jupyter/stop/`
+- **リクエストボディ**:
+  ```json
+  {
+    "project_folder": "string"
+  }
+  ```
+
+### 3. JupyterLab状態確認
+- **エンドポイント**: `GET /api/jupyter/status/`
+- **機能**: 実行中のJupyterLabインスタンス一覧取得
+
+### 4. サーバー情報取得
+- **エンドポイント**: `GET /api/server-info/`
+- **機能**: APIサーバーの基本情報取得
+
+---
+
+## 問題点と改善案
+
+### 🔴 重要な問題点
+
+#### 1. **URLパターンの重複と混乱**
+**問題**: 
+- `urls.py`でファイル管理APIが二重定義されている
+- 同じ機能に対して複数のエンドポイントが存在
+
+**具体例**:
+```python
+# 重複例1: ファイル削除
+path('files/delete/<str:project_folder>/', ...)  # Line 15
+@action(detail=False, methods=['delete'], url_path='delete/(?P<project_folder>[^/.]+)')
+def delete_file(self, request, project_folder=None):  # views.py
+
+# 重複例2: ファイル移動
+path('files/move/<str:project_folder>/', ...)  # Line 16  
+@action(detail=False, methods=['post'], url_path='move/(?P<project_folder>[^/.]+)')
+def move_file(self, request, project_folder=None):  # views.py
+```
+
+**改善案**:
+- 重複するエンドポイント定義を削除
+- 統一されたURL体系に整理（urls.pyの固定パターンを採用）
+
+#### 2. **ファイルタグAPIの不整合**
+**問題**:
+- パラメータ付きとパラメータなしで異なる動作
+- `file_path`の指定方法が不統一
+
+**現在**:
+```
+GET /api/files/tags/{project_folder}/                # 全ファイル
+GET /api/files/tags/{project_folder}/{file_path}/    # 個別ファイル（削除推奨）
+POST /api/files/tags/{project_folder}/               # 保存
+```
+
+**改善案**:
+```
+GET /api/files/tags/{project_folder}/                # 全ファイル
+GET /api/files/tags/{project_folder}/?file_path=xxx  # 個別ファイル（クエリ統一）
+POST /api/files/tags/{project_folder}/               # 保存
+```
+
+#### 3. **レスポンス形式の不統一**
+**問題**:
+- 成功/失敗レスポンスの形式が統一されていない
+- エラーメッセージの国際化が部分的
+
+**改善案**:
+```json
+// 統一レスポンス形式
+{
+  "success": boolean,
+  "data": object | null,
+  "error": {
+    "code": "string",
+    "message": "string",
+    "details": object | null
+  } | null,
+  "meta": {
+    "timestamp": "ISO8601",
+    "version": "string"
+  }
+}
+```
+
+#### 4. **メソッド名と機能の不一致**
+**問題**:
+- `get_file_tags` vs `save_file_tags` の命名不統一
+- `search_files_by_tags` の実装が未完了
+
+**改善案**:
+- 命名規則の統一（get_*, save_*, search_*）
+- 未実装機能の完成
+
+### 🟡 改善提案
+
+#### 5. **APIバージョニング**
+**現状**: バージョン管理なし
+**提案**: 
+```
+/api/v1/projects/
+/api/v1/files/
+/api/v1/jupyter/
+```
+
+#### 6. **認証・権限管理**
+**現状**: 認証なし
+**提案**: 
+- プロジェクトレベルでのアクセス制御
+- 読み取り専用/読み書き権限の分離
+
+#### 7. **リクエスト制限・レート制限**
+**現状**: 制限なし
+**提案**:
+- ファイルアップロードサイズ制限明記
+- API呼び出し頻度制限
+
+#### 8. **非同期処理の明確化**
+**現状**: 同期処理のみ
+**提案**:
+- 大きなファイル操作の非同期化
+- 進行状況の取得API
+
+### 🟢 良い点
+
+1. **多言語対応**: 全APIで言語パラメータ対応
+2. **RESTful設計**: 基本的なREST原則に準拠
+3. **エラーハンドリング**: 適切な例外処理
+4. **ファイル安全性**: 不正パスアクセスの防止
+5. **タグ階層システム**: 分析データ→項目データの条件付きタグ
+
+### 📋 推奨される改善順序
+
+1. **緊急**: URL重複の解消（urls.py整理）
+2. **高**: ファイルタグAPIの統一（パスパラメータ→クエリパラメータ）
+3. **高**: レスポンス形式の統一
+4. **中**: 未実装機能の完成（search_files_by_tags等）
+5. **低**: バージョニング導入
+6. **将来**: 認証・権限管理追加
 - フロントエンドAPIプロキシ経由でのアクセスを推奨
 - 現在の実装状況は「実装状況と今後の予定」セクションを参照
 

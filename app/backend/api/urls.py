@@ -3,7 +3,9 @@ from rest_framework.routers import DefaultRouter
 from .views import ProjectViewSet, FileViewSet, JupyterLabViewSet, server_info
 
 router = DefaultRouter()
+router.register(r'projects', ProjectViewSet, basename='project')
 router.register(r'files', FileViewSet, basename='file')
+router.register(r'jupyter', JupyterLabViewSet, basename='jupyter')
 
 urlpatterns = [
     # ファイル管理エンドポイント（固定パターン）
@@ -21,6 +23,21 @@ urlpatterns = [
         'put': 'update_comment',
         'delete': 'delete_comment'
     }), name='file-comment-detail'),
+    
+    # ファイル説明関連エンドポイント
+    path('files/descriptions/<str:project_folder>/', FileViewSet.as_view({
+        'get': 'get_file_description',
+        'post': 'save_file_description'
+    }), name='file-descriptions'),
+    
+    # ファイルタグ関連エンドポイント
+    path('files/tags/<str:project_folder>/', FileViewSet.as_view({
+        'get': 'get_file_tags',
+        'post': 'save_file_tags'
+    }), name='file-tags'),
+    path('files/search-by-tags/<str:project_folder>/', FileViewSet.as_view({
+        'get': 'search_files_by_tags'
+    }), name='file-search-by-tags'),
     
     # RESTful プロジェクト管理エンドポイント
     path('projects/', ProjectViewSet.as_view({
@@ -41,4 +58,4 @@ urlpatterns = [
     path('jupyter/status/', JupyterLabViewSet.as_view({'get': 'status'}), name='jupyter-status'),
     
     path('server-info/', server_info, name='server_info'),
-]
+] + router.urls

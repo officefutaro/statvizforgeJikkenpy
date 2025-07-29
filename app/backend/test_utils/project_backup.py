@@ -16,7 +16,7 @@ class ProjectBackupManager:
     """プロジェクトデータのバックアップ・リストア管理"""
     
     def __init__(self):
-        self.projects_dir = Path(settings.BASE_DIR).parent.parent / 'projects'
+        self.projects_dir = Path(settings.BASE_DIR).parent.parent / 'project'
         self.backup_dir = None
         self.original_projects_existed = False
     
@@ -121,8 +121,9 @@ class DjangoTestCaseMixin:
     
     def tearDown(self):
         # 各テスト後にリストア
-        self.test_backup_manager.restore_backup()
-        self.test_backup_manager.cleanup_backup()
+        if hasattr(self, 'test_backup_manager'):
+            self.test_backup_manager.restore_backup()
+            self.test_backup_manager.cleanup_backup()
         super().tearDown()
     
     def create_test_project(self, project_name, files=None):

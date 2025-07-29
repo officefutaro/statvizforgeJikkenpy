@@ -1,9 +1,9 @@
 {
   "folder_name": "minimal_test",
-  "project_name": "Minimal Test",
-  "description": "Minimal test project",
-  "created_date": "2025-07-27T10:38:36.031250",
-  "modified_date": "2025-07-27T10:38:36.031250",
-  "tags": [],
+  "project_name": "Minimal Test Project",
+  "description": "Test project for minimal testing",
+  "created_date": "2025-07-28T00:00:00",
+  "modified_date": "2025-07-28T00:00:00",
+  "tags": ["test"],
   "status": "active"
 }

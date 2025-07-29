@@ -1,0 +1,654 @@
+{
+  "version": "1.0.0",
+  "last_updated": "2025-07-28T17:03:10.555545",
+  "retention_months": 13,
+  "projects": [
+    {
+      "folder_name": "testProject",
+      "project_name": "テストのためのプロジェクト",
+      "description": "テストです。サンプルファイルとサブフォルダが追加されました。",
+      "tags": [
+        "sample"
+      ],
+      "status": "active",
+      "id": "2cec431a-0416-4451-a43b-fdc85e0c5c62",
+      "created_date": "2025-07-24T23:31:44.186614",
+      "modified_date": "2025-07-27T20:33:51.353635"
+    },
+    {
+      "folder_name": "minimal_test",
+      "project_name": "Minimal Test",
+      "description": "Minimal test project with README and CSV data",
+      "tags": [
+        "test",
+        "data"
+      ],
+      "status": "active",
+      "id": "a908299f-f131-4f70-8b16-43fd9f01b7d2",
+      "created_date": "2025-07-27T10:38:36.031250",
+      "modified_date": "2025-07-27T20:34:11.205509"
+    },
+    {
+      "folder_name": "debug_test_project",
+      "project_name": "デバッグテストプロジェクト",
+      "description": "デバッグのためのテストプロジェクト（JSONデータファイル付き）",
+      "tags": [
+        "debug",
+        "test",
+        "json"
+      ],
+      "status": "active",
+      "id": "c51050dc-a2c0-418f-9e1f-e65e42c6516a",
+      "created_date": "2025-07-27T16:03:20.315824",
+      "modified_date": "2025-07-27T20:34:00.984380"
+    },
+    {
+      "id": "b053ecbe-e6b0-468f-a128-2a09f8bc912f",
+      "folder_name": "error_mix_test_valid",
+      "project_name": [
+        "更新済み正常プロジェクト"
+      ],
+      "description": "正常なプロジェクト",
+      "tags": [],
+      "status": "active",
+      "created_date": "2025-07-28T16:19:11.123684",
+      "modified_date": "2025-07-28T16:19:11.130918",
+      "restored_date": "2025-07-28T16:19:11.130919"
+    },
+    {
+      "folder_name": "concurrent_test_1_11f46fcf",
+      "project_name": "並行テストプロジェクト2",
+      "description": "並行処理テスト用プロジェクト2",
+      "tags": "test2",
+      "status": "active",
+      "id": "517c14ec-cf82-4bd3-b944-5b89b6ef6407",
+      "created_date": "2025-07-28T16:19:11.133451",
+      "modified_date": "2025-07-28T16:19:11.133451"
+    },
+    {
+      "folder_name": "concurrent_test_3_9e77acca",
+      "project_name": "並行テストプロジェクト4",
+      "description": "並行処理テスト用プロジェクト4",
+      "tags": "test4",
+      "status": "active",
+      "id": "de1ada8f-ff1d-4e7a-886a-9cd56082b24e",
+      "created_date": "2025-07-28T16:19:11.135660",
+      "modified_date": "2025-07-28T16:19:11.135660"
+    },
+    {
+      "folder_name": "tag_test_1104",
+      "project_name": "タグテスト - 空のタグ配列",
+      "description": "空のタグ配列のテスト",
+      "status": "active",
+      "id": "0df5092a-fbf0-422e-b318-9dde2d5fa03a",
+      "created_date": "2025-07-28T16:19:11.150134",
+      "modified_date": "2025-07-28T16:19:11.150134",
+      "tags": []
+    },
+    {
+      "folder_name": "tag_test_2665",
+      "project_name": "タグテスト - 単一タグ",
+      "description": "単一タグのテスト",
+      "tags": "tag1",
+      "status": "active",
+      "id": "32767221-128e-421a-b41f-c4341ba18217",
+      "created_date": "2025-07-28T16:19:11.151778",
+      "modified_date": "2025-07-28T16:19:11.151778"
+    },
+    {
+      "folder_name": "tag_test_2737",
+      "project_name": "タグテスト - 複数タグ",
+      "description": "複数タグのテスト",
+      "tags": "tag3",
+      "status": "active",
+      "id": "56ff0c74-ecac-4ee2-9bb2-e714dcb9ffc4",
+      "created_date": "2025-07-28T16:19:11.153793",
+      "modified_date": "2025-07-28T16:19:11.153793"
+    },
+    {
+      "folder_name": "tag_test_4584",
+      "project_name": "タグテスト - 日本語タグ",
+      "description": "日本語タグのテスト",
+      "tags": "サンプル",
+      "status": "active",
+      "id": "1e43a40b-a05d-49b1-919f-7da081a7d5a9",
+      "created_date": "2025-07-28T16:19:11.155340",
+      "modified_date": "2025-07-28T16:19:11.155340"
+    },
+    {
+      "folder_name": "tag_test_1351",
+      "project_name": "タグテスト - 英数字タグ",
+      "description": "英数字タグのテスト",
+      "tags": "demo123",
+      "status": "active",
+      "id": "4c790b6b-b65e-49f3-875a-0c24563cfcbc",
+      "created_date": "2025-07-28T16:19:11.156988",
+      "modified_date": "2025-07-28T16:19:11.156988"
+    },
+    {
+      "folder_name": "valid_project_folder",
+      "project_name": "正常なプロジェクト名",
+      "description": "正常な説明",
+      "tags": "valid",
+      "status": "active",
+      "id": "685ea9cf-2ffd-4415-8900-3293f41d7360",
+      "created_date": "2025-07-28T16:19:11.158459",
+      "modified_date": "2025-07-28T16:19:11.158459"
+    },
+    {
+      "folder_name": "duplicate_test_folder",
+      "project_name": "最初のプロジェクト",
+      "description": "最初のプロジェクトの説明",
+      "status": "active",
+      "id": "618d366f-d240-4dcc-b03b-ed0a065c457d",
+      "created_date": "2025-07-28T16:19:11.160953",
+      "modified_date": "2025-07-28T16:19:11.160953",
+      "tags": []
+    },
+    {
+      "folder_name": "concurrent_test_1_91cfa28b",
+      "project_name": "並行テストプロジェクト2",
+      "description": "並行処理テスト用プロジェクト2",
+      "tags": "test2",
+      "status": "active",
+      "id": "78d380e8-389d-4630-982e-49186909ef87",
+      "created_date": "2025-07-28T17:01:01.715022",
+      "modified_date": "2025-07-28T17:01:01.715022"
+    },
+    {
+      "folder_name": "concurrent_test_3_57b2c647",
+      "project_name": "並行テストプロジェクト4",
+      "description": "並行処理テスト用プロジェクト4",
+      "tags": "test4",
+      "status": "active",
+      "id": "1f81f4ed-638d-4e9a-95ab-5e5a8180b895",
+      "created_date": "2025-07-28T17:01:01.718258",
+      "modified_date": "2025-07-28T17:01:01.718258"
+    },
+    {
+      "folder_name": "tag_test_8084",
+      "project_name": "タグテスト - 空のタグ配列",
+      "description": "空のタグ配列のテスト",
+      "status": "active",
+      "id": "dde890cd-1629-40ab-a56f-eb65df1eeb2f",
+      "created_date": "2025-07-28T17:01:01.734827",
+      "modified_date": "2025-07-28T17:01:01.734827",
+      "tags": []
+    },
+    {
+      "folder_name": "tag_test_6543",
+      "project_name": "タグテスト - 単一タグ",
+      "description": "単一タグのテスト",
+      "tags": "tag1",
+      "status": "active",
+      "id": "cc5b965f-2542-4041-a447-db06bc161f51",
+      "created_date": "2025-07-28T17:01:01.736419",
+      "modified_date": "2025-07-28T17:01:01.736419"
+    },
+    {
+      "folder_name": "tag_test_881",
+      "project_name": "タグテスト - 複数タグ",
+      "description": "複数タグのテスト",
+      "tags": "tag3",
+      "status": "active",
+      "id": "00db8395-1604-4c1f-a55b-a8205e18c3f4",
+      "created_date": "2025-07-28T17:01:01.738141",
+      "modified_date": "2025-07-28T17:01:01.738141"
+    },
+    {
+      "folder_name": "tag_test_9500",
+      "project_name": "タグテスト - 日本語タグ",
+      "description": "日本語タグのテスト",
+      "tags": "サンプル",
+      "status": "active",
+      "id": "88cbcf29-b168-4d2d-b01d-cff5de692708",
+      "created_date": "2025-07-28T17:01:01.739856",
+      "modified_date": "2025-07-28T17:01:01.739856"
+    },
+    {
+      "folder_name": "tag_test_3607",
+      "project_name": "タグテスト - 英数字タグ",
+      "description": "英数字タグのテスト",
+      "tags": "demo123",
+      "status": "active",
+      "id": "33335f1e-840b-4ce8-8520-31a37a8316a0",
+      "created_date": "2025-07-28T17:01:01.741578",
+      "modified_date": "2025-07-28T17:01:01.741578"
+    },
+    {
+      "folder_name": "concurrent_test_1_93889e4a",
+      "project_name": "並行テストプロジェクト2",
+      "description": "並行処理テスト用プロジェクト2",
+      "tags": "test2",
+      "status": "active",
+      "id": "f8989e55-a84c-4c11-91d8-bac2e263dece",
+      "created_date": "2025-07-28T17:02:13.340354",
+      "modified_date": "2025-07-28T17:02:13.340354"
+    },
+    {
+      "folder_name": "concurrent_test_3_5cfc0c44",
+      "project_name": "並行テストプロジェクト4",
+      "description": "並行処理テスト用プロジェクト4",
+      "tags": "test4",
+      "status": "active",
+      "id": "c3c56a32-fffa-46a3-ad35-6495e1fc4dca",
+      "created_date": "2025-07-28T17:02:13.343639",
+      "modified_date": "2025-07-28T17:02:13.343639"
+    },
+    {
+      "folder_name": "tag_test_6735",
+      "project_name": "タグテスト - 空のタグ配列",
+      "description": "空のタグ配列のテスト",
+      "status": "active",
+      "id": "6ab8d132-851f-4576-a47d-276769d494a3",
+      "created_date": "2025-07-28T17:02:13.360138",
+      "modified_date": "2025-07-28T17:02:13.360138",
+      "tags": []
+    },
+    {
+      "folder_name": "tag_test_4585",
+      "project_name": "タグテスト - 単一タグ",
+      "description": "単一タグのテスト",
+      "tags": "tag1",
+      "status": "active",
+      "id": "64936ef3-8ec8-4ac1-9ad2-1d4a9cf5d87e",
+      "created_date": "2025-07-28T17:02:13.361752",
+      "modified_date": "2025-07-28T17:02:13.361752"
+    },
+    {
+      "folder_name": "tag_test_768",
+      "project_name": "タグテスト - 複数タグ",
+      "description": "複数タグのテスト",
+      "tags": "tag3",
+      "status": "active",
+      "id": "c43bbef4-d4be-4fe2-a9c1-3247a1acb922",
+      "created_date": "2025-07-28T17:02:13.363524",
+      "modified_date": "2025-07-28T17:02:13.363524"
+    },
+    {
+      "folder_name": "tag_test_148",
+      "project_name": "タグテスト - 日本語タグ",
+      "description": "日本語タグのテスト",
+      "tags": "サンプル",
+      "status": "active",
+      "id": "bc7bafab-af70-4aae-821d-ef680251be38",
+      "created_date": "2025-07-28T17:02:13.365168",
+      "modified_date": "2025-07-28T17:02:13.365168"
+    },
+    {
+      "folder_name": "tag_test_1585",
+      "project_name": "タグテスト - 英数字タグ",
+      "description": "英数字タグのテスト",
+      "tags": "demo123",
+      "status": "active",
+      "id": "b707ab54-432e-4b6a-9cd5-0bd6ef7a8290",
+      "created_date": "2025-07-28T17:02:13.366930",
+      "modified_date": "2025-07-28T17:02:13.366930"
+    },
+    {
+      "folder_name": "concurrent_test_1_cbb2ed29",
+      "project_name": "並行テストプロジェクト2",
+      "description": "並行処理テスト用プロジェクト2",
+      "tags": "test2",
+      "status": "active",
+      "id": "1dc4230b-1cd2-445d-b79c-f3118bd10ab3",
+      "created_date": "2025-07-28T17:03:10.526676",
+      "modified_date": "2025-07-28T17:03:10.526676"
+    },
+    {
+      "folder_name": "concurrent_test_3_3d1cc9cf",
+      "project_name": "並行テストプロジェクト4",
+      "description": "並行処理テスト用プロジェクト4",
+      "tags": "test4",
+      "status": "active",
+      "id": "03a849d3-4bd7-4f00-8294-a396bb9e3d9b",
+      "created_date": "2025-07-28T17:03:10.530841",
+      "modified_date": "2025-07-28T17:03:10.530841"
+    },
+    {
+      "folder_name": "tag_test_9375",
+      "project_name": "タグテスト - 空のタグ配列",
+      "description": "空のタグ配列のテスト",
+      "status": "active",
+      "id": "8a8474e9-e545-425f-bbe2-621765a2037a",
+      "created_date": "2025-07-28T17:03:10.548493",
+      "modified_date": "2025-07-28T17:03:10.548493",
+      "tags": []
+    },
+    {
+      "folder_name": "tag_test_4046",
+      "project_name": "タグテスト - 単一タグ",
+      "description": "単一タグのテスト",
+      "tags": "tag1",
+      "status": "active",
+      "id": "5d2abed7-05f8-4b62-b59e-0de93b86eacc",
+      "created_date": "2025-07-28T17:03:10.550135",
+      "modified_date": "2025-07-28T17:03:10.550135"
+    },
+    {
+      "folder_name": "tag_test_1079",
+      "project_name": "タグテスト - 複数タグ",
+      "description": "複数タグのテスト",
+      "tags": "tag3",
+      "status": "active",
+      "id": "ffe7df71-839d-4b6e-9a87-fa208c93c8e0",
+      "created_date": "2025-07-28T17:03:10.552045",
+      "modified_date": "2025-07-28T17:03:10.552045"
+    },
+    {
+      "folder_name": "tag_test_1929",
+      "project_name": "タグテスト - 日本語タグ",
+      "description": "日本語タグのテスト",
+      "tags": "サンプル",
+      "status": "active",
+      "id": "11175ba0-37fe-4bdd-ad0b-e6d1a4bf1b96",
+      "created_date": "2025-07-28T17:03:10.553840",
+      "modified_date": "2025-07-28T17:03:10.553840"
+    },
+    {
+      "folder_name": "tag_test_1096",
+      "project_name": "タグテスト - 英数字タグ",
+      "description": "英数字タグのテスト",
+      "tags": "demo123",
+      "status": "active",
+      "id": "80b4368c-cf6c-4dab-8dd8-6b769dd8efa5",
+      "created_date": "2025-07-28T17:03:10.555545",
+      "modified_date": "2025-07-28T17:03:10.555545"
+    }
+  ],
+  "archived_projects": [
+    {
+      "folder_name": "direct_test_project",
+      "project_name": "直接テストプロジェクト",
+      "description": "直接テスト用プロジェクト",
+      "tags": [
+        "test"
+      ],
+      "status": "active",
+      "id": "82886a55-fe6c-4559-9dfa-27aeb21e924e",
+      "created_date": "2025-07-27T10:37:56.949497",
+      "modified_date": "2025-07-27T10:37:56.949497",
+      "archive_filename": "direct_test_project_20250727_103756.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/direct_test_project_20250727_103756.zip",
+      "archive_size": 347,
+      "deletion_date": "2025-07-27T10:37:56.952974",
+      "reason": "ユーザー削除"
+    },
+    {
+      "folder_name": "success_test_project",
+      "project_name": "成功テストプロジェクト",
+      "description": "正常に作成されるべきプロジェクト",
+      "tags": [
+        "success",
+        "test"
+      ],
+      "status": "active",
+      "id": "658786da-0f80-4434-bf7c-4e389df4b9b2",
+      "created_date": "2025-07-27T10:38:36.034282",
+      "modified_date": "2025-07-27T10:38:36.034282",
+      "archive_filename": "success_test_project_20250727_103836.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/success_test_project_20250727_103836.zip",
+      "archive_size": 385,
+      "deletion_date": "2025-07-27T10:38:36.035929",
+      "reason": "ユーザー削除"
+    },
+    {
+      "folder_name": "save_test",
+      "project_name": "セーブテスト",
+      "description": "セーブテスト（フォルダが存在しないため移動）",
+      "tags": [],
+      "status": "active",
+      "id": "bb5830e9-e13c-4960-bc25-fa8045a272e9",
+      "created_date": "2025-07-27T10:37:56.948759",
+      "modified_date": "2025-07-27T10:37:56.948769",
+      "archive_filename": "save_test_auto_archived.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/save_test_auto_archived.zip",
+      "archive_size": 0,
+      "deletion_date": "2025-07-27T17:30:00.000000",
+      "reason": "フォルダが存在しないため自動アーカイブ"
+    },
+    {
+      "folder_name": "test_project_simple",
+      "project_name": "Simple Test Project",
+      "description": "A simple test project（不正データのため移動）",
+      "tags": [
+        "test"
+      ],
+      "status": "active",
+      "id": "bd7e7a94-fce7-471b-9dce-7e4c1bcb8255",
+      "created_date": "2025-07-27T16:08:14.889746",
+      "modified_date": "2025-07-27T16:08:14.889746",
+      "archive_filename": "test_project_simple_invalid_data.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/test_project_simple_invalid_data.zip",
+      "archive_size": 0,
+      "deletion_date": "2025-07-27T17:30:00.000000",
+      "reason": "不正な配列データのため自動アーカイブ"
+    },
+    {
+      "folder_name": "test_project_simple",
+      "project_name": "Simple Test Project",
+      "description": "A simple test project（重複データのため移動）",
+      "tags": [
+        "test"
+      ],
+      "status": "active",
+      "id": "7e7be177-9396-4e40-baf3-0b15c2310500",
+      "created_date": "2025-07-27T16:42:31.526622",
+      "modified_date": "2025-07-27T16:42:31.526622",
+      "archive_filename": "test_project_simple_duplicate.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/test_project_simple_duplicate.zip",
+      "archive_size": 0,
+      "deletion_date": "2025-07-27T17:30:00.000000",
+      "reason": "重複データのため自動アーカイブ"
+    },
+    {
+      "folder_name": "error_mix_test_valid",
+      "project_name": [
+        "更新済み正常プロジェクト"
+      ],
+      "description": "正常なプロジェクト",
+      "status": "active",
+      "id": "b053ecbe-e6b0-468f-a128-2a09f8bc912f",
+      "created_date": "2025-07-28T16:19:11.123684",
+      "modified_date": "2025-07-28T16:19:11.125795",
+      "tags": [],
+      "archive_filename": "error_mix_test_valid_20250728_161911.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/error_mix_test_valid_20250728_161911.zip",
+      "archive_size": 340,
+      "deletion_date": "2025-07-28T16:19:11.128968",
+      "reason": "ユーザー削除"
+    },
+    {
+      "folder_name": "concurrent_test_0_66622648",
+      "project_name": "並行テストプロジェクト1",
+      "description": "並行処理テスト用プロジェクト1",
+      "tags": "test1",
+      "status": "active",
+      "id": "93f59528-8874-43e2-9046-8aa7f20cec4e",
+      "created_date": "2025-07-28T16:19:11.132327",
+      "modified_date": "2025-07-28T16:19:11.132327",
+      "archive_filename": "concurrent_test_0_66622648_20250728_161911.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/concurrent_test_0_66622648_20250728_161911.zip",
+      "archive_size": 376,
+      "deletion_date": "2025-07-28T16:19:11.138207",
+      "reason": "ユーザー削除"
+    },
+    {
+      "folder_name": "concurrent_test_2_e609d57b",
+      "project_name": "並行テストプロジェクト3",
+      "description": "並行処理テスト用プロジェクト3",
+      "tags": "test3",
+      "status": "active",
+      "id": "19800ff7-d7fc-4ab4-85e5-d16075ee81bc",
+      "created_date": "2025-07-28T16:19:11.134657",
+      "modified_date": "2025-07-28T16:19:11.134657",
+      "archive_filename": "concurrent_test_2_e609d57b_20250728_161911.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/concurrent_test_2_e609d57b_20250728_161911.zip",
+      "archive_size": 376,
+      "deletion_date": "2025-07-28T16:19:11.139132",
+      "reason": "ユーザー削除"
+    },
+    {
+      "folder_name": "concurrent_test_4_092f0468",
+      "project_name": "並行テストプロジェクト5",
+      "description": "並行処理テスト用プロジェクト5",
+      "tags": "test5",
+      "status": "active",
+      "id": "09e9dfc9-ca4f-44f4-986a-03f567c8ce12",
+      "created_date": "2025-07-28T16:19:11.136815",
+      "modified_date": "2025-07-28T16:19:11.136815",
+      "archive_filename": "concurrent_test_4_092f0468_20250728_161911.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/concurrent_test_4_092f0468_20250728_161911.zip",
+      "archive_size": 374,
+      "deletion_date": "2025-07-28T16:19:11.139959",
+      "reason": "ユーザー削除"
+    },
+    {
+      "folder_name": "concurrent_test_0_efcb15fd",
+      "project_name": "並行テストプロジェクト1",
+      "description": "並行処理テスト用プロジェクト1",
+      "tags": "test1",
+      "status": "active",
+      "id": "b8bdfef1-663d-4317-9733-520b7c82ef4c",
+      "created_date": "2025-07-28T17:01:01.713250",
+      "modified_date": "2025-07-28T17:01:01.713250",
+      "archive_filename": "concurrent_test_0_efcb15fd_20250728_170101.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/concurrent_test_0_efcb15fd_20250728_170101.zip",
+      "archive_size": 375,
+      "deletion_date": "2025-07-28T17:01:01.722770",
+      "reason": "ユーザー削除"
+    },
+    {
+      "folder_name": "concurrent_test_2_ee325ed7",
+      "project_name": "並行テストプロジェクト3",
+      "description": "並行処理テスト用プロジェクト3",
+      "tags": "test3",
+      "status": "active",
+      "id": "96aec4c7-1934-4a4d-a124-648cedab3cce",
+      "created_date": "2025-07-28T17:01:01.716608",
+      "modified_date": "2025-07-28T17:01:01.716608",
+      "archive_filename": "concurrent_test_2_ee325ed7_20250728_170101.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/concurrent_test_2_ee325ed7_20250728_170101.zip",
+      "archive_size": 375,
+      "deletion_date": "2025-07-28T17:01:01.723940",
+      "reason": "ユーザー削除"
+    },
+    {
+      "folder_name": "concurrent_test_4_ba6d6c1b",
+      "project_name": "並行テストプロジェクト5",
+      "description": "並行処理テスト用プロジェクト5",
+      "tags": "test5",
+      "status": "active",
+      "id": "59ff5728-63a6-4d99-8798-483937754e16",
+      "created_date": "2025-07-28T17:01:01.719739",
+      "modified_date": "2025-07-28T17:01:01.719739",
+      "archive_filename": "concurrent_test_4_ba6d6c1b_20250728_170101.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/concurrent_test_4_ba6d6c1b_20250728_170101.zip",
+      "archive_size": 375,
+      "deletion_date": "2025-07-28T17:01:01.725236",
+      "reason": "ユーザー削除"
+    },
+    {
+      "folder_name": "concurrent_test_0_2d83d836",
+      "project_name": "並行テストプロジェクト1",
+      "description": "並行処理テスト用プロジェクト1",
+      "tags": "test1",
+      "status": "active",
+      "id": "f5a03448-9b95-4b0d-bdee-bb9394282d31",
+      "created_date": "2025-07-28T17:02:13.338155",
+      "modified_date": "2025-07-28T17:02:13.338155",
+      "archive_filename": "concurrent_test_0_2d83d836_20250728_170213.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/concurrent_test_0_2d83d836_20250728_170213.zip",
+      "archive_size": 375,
+      "deletion_date": "2025-07-28T17:02:13.348167",
+      "reason": "ユーザー削除"
+    },
+    {
+      "folder_name": "concurrent_test_2_cc450da3",
+      "project_name": "並行テストプロジェクト3",
+      "description": "並行処理テスト用プロジェクト3",
+      "tags": "test3",
+      "status": "active",
+      "id": "e1c81e4f-5442-4448-90ea-88d84d031106",
+      "created_date": "2025-07-28T17:02:13.342054",
+      "modified_date": "2025-07-28T17:02:13.342054",
+      "archive_filename": "concurrent_test_2_cc450da3_20250728_170213.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/concurrent_test_2_cc450da3_20250728_170213.zip",
+      "archive_size": 374,
+      "deletion_date": "2025-07-28T17:02:13.349390",
+      "reason": "ユーザー削除"
+    },
+    {
+      "folder_name": "concurrent_test_4_73d0fb17",
+      "project_name": "並行テストプロジェクト5",
+      "description": "並行処理テスト用プロジェクト5",
+      "tags": "test5",
+      "status": "active",
+      "id": "ea790dc1-2fad-4e1e-ae29-f57de39d2fcd",
+      "created_date": "2025-07-28T17:02:13.345182",
+      "modified_date": "2025-07-28T17:02:13.345182",
+      "archive_filename": "concurrent_test_4_73d0fb17_20250728_170213.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/concurrent_test_4_73d0fb17_20250728_170213.zip",
+      "archive_size": 376,
+      "deletion_date": "2025-07-28T17:02:13.350711",
+      "reason": "ユーザー削除"
+    },
+    {
+      "folder_name": "concurrent_test_0_1fb7ac72",
+      "project_name": "並行テストプロジェクト1",
+      "description": "並行処理テスト用プロジェクト1",
+      "tags": "test1",
+      "status": "active",
+      "id": "89308044-b174-4b8f-828a-f2ca1c7e969f",
+      "created_date": "2025-07-28T17:03:10.525040",
+      "modified_date": "2025-07-28T17:03:10.525040",
+      "archive_filename": "concurrent_test_0_1fb7ac72_20250728_170310.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/concurrent_test_0_1fb7ac72_20250728_170310.zip",
+      "archive_size": 375,
+      "deletion_date": "2025-07-28T17:03:10.536131",
+      "reason": "ユーザー削除"
+    },
+    {
+      "folder_name": "concurrent_test_2_cd5b71e5",
+      "project_name": "並行テストプロジェクト3",
+      "description": "並行処理テスト用プロジェクト3",
+      "tags": "test3",
+      "status": "active",
+      "id": "3f5c31c8-b469-49bd-b191-683d973467a7",
+      "created_date": "2025-07-28T17:03:10.528416",
+      "modified_date": "2025-07-28T17:03:10.528416",
+      "archive_filename": "concurrent_test_2_cd5b71e5_20250728_170310.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/concurrent_test_2_cd5b71e5_20250728_170310.zip",
+      "archive_size": 376,
+      "deletion_date": "2025-07-28T17:03:10.537484",
+      "reason": "ユーザー削除"
+    },
+    {
+      "folder_name": "concurrent_test_4_b6a0a86d",
+      "project_name": "並行テストプロジェクト5",
+      "description": "並行処理テスト用プロジェクト5",
+      "tags": "test5",
+      "status": "active",
+      "id": "e9ab4e07-42a4-40a9-b720-3b5f25b70c4b",
+      "created_date": "2025-07-28T17:03:10.532732",
+      "modified_date": "2025-07-28T17:03:10.532732",
+      "archive_filename": "concurrent_test_4_b6a0a86d_20250728_170310.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/concurrent_test_4_b6a0a86d_20250728_170310.zip",
+      "archive_size": 375,
+      "deletion_date": "2025-07-28T17:03:10.538741",
+      "reason": "ユーザー削除"
+    }
+  ],
+  "reserved_folders": [
+    "node_modules",
+    "dist",
+    "build",
+    ".git",
+    "backend",
+    "frontend",
+    "trash",
+    "recycle_bin",
+    "deleted",
+    ".trash"
+  ]
+}
