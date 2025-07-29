@@ -38,7 +38,11 @@ class MockedFileSystemTestCase(APITestCase):
         self.patchers.append(load_patcher)
         
         # save_projects_registry のモック
-        save_patcher = patch('api.views.save_projects_registry')
+        def mock_save_projects(data):
+            self.mock_registry = data.copy()
+            self.mock_load.return_value = self.mock_registry.copy()
+        
+        save_patcher = patch('api.views.save_projects_registry', side_effect=mock_save_projects)
         self.mock_save = save_patcher.start()
         self.patchers.append(save_patcher)
         
@@ -49,7 +53,11 @@ class MockedFileSystemTestCase(APITestCase):
         self.patchers.append(load_trash_patcher)
         
         # save_trash_registry のモック
-        save_trash_patcher = patch('api.utils.save_trash_registry')
+        def mock_save_trash(data):
+            self.mock_trash_registry = data.copy()
+            self.mock_load_trash.return_value = self.mock_trash_registry.copy()
+        
+        save_trash_patcher = patch('api.utils.save_trash_registry', side_effect=mock_save_trash)
         self.mock_save_trash = save_trash_patcher.start()
         self.patchers.append(save_trash_patcher)
         
@@ -72,13 +80,37 @@ class MockedFileSystemTestCase(APITestCase):
         self.mock_rmtree = shutil_rmtree_patcher.start()
         self.patchers.append(shutil_rmtree_patcher)
         
-        # open のモック
-        open_patcher = patch('builtins.open', new_callable=mock_open)
+        # open のモック（trash-registry.json対応）
+        self.file_contents = {}  # ファイル内容を格納
+        
+        def mock_file_open(file_path, mode='r', *args, **kwargs):
+            import json
+            import io
+            path_str = str(file_path)
+            
+            if 'trash-registry.json' in path_str:
+                if 'r' in mode:
+                    content = json.dumps(self.mock_trash_registry)
+                    return io.StringIO(content)
+                elif 'w' in mode:
+                    # 書き込み用のモックを返す
+                    return mock_open().return_value
+            
+            # その他のファイル
+            return mock_open().return_value
+        
+        open_patcher = patch('builtins.open', side_effect=mock_file_open)
         self.mock_file = open_patcher.start()
         self.patchers.append(open_patcher)
         
-        # json.dump のモック
-        json_dump_patcher = patch('json.dump')
+        # json.dump のモック（trash-registry.json更新を捕捉）
+        def mock_json_dump(data, file, *args, **kwargs):
+            # ファイルパスをチェックして適切にモックレジストリを更新
+            if hasattr(file, 'name') and 'trash-registry.json' in str(getattr(file, 'name', '')):
+                self.mock_trash_registry = data.copy()
+                self.mock_load_trash.return_value = self.mock_trash_registry.copy()
+        
+        json_dump_patcher = patch('json.dump', side_effect=mock_json_dump)
         self.mock_json_dump = json_dump_patcher.start()
         self.patchers.append(json_dump_patcher)
         
@@ -90,6 +122,12 @@ class MockedFileSystemTestCase(APITestCase):
         trash_dir_patcher = patch('config.paths.TRASH_DIR', Path('/mock/trash'))
         self.mock_trash_dir = trash_dir_patcher.start()
         self.patchers.append(trash_dir_patcher)
+        
+        # archive_project のモック
+        archive_patcher = patch('api.views.ProjectViewSet._archive_project')
+        self.mock_archive = archive_patcher.start()
+        self.mock_archive.return_value = True  # 成功を返す
+        self.patchers.append(archive_patcher)
     
     def tearDown(self):
         """各テストの後にモックを停止"""
@@ -124,3 +162,26 @@ class MockedFileSystemTestCase(APITestCase):
         self.mock_registry['projects'].append(project)
         self.mock_load.return_value = self.mock_registry.copy()
         return project
+    
+    def move_project_to_trash(self, project_id):
+        """プロジェクトをモックのtrashレジストリに移動"""
+        # プロジェクトレジストリから削除
+        project_to_delete = None
+        self.mock_registry['projects'] = [
+            p for p in self.mock_registry['projects'] 
+            if p.get('id') != project_id or (project_to_delete := p, False)[1]
+        ]
+        
+        if project_to_delete:
+            # trashレジストリに追加
+            from datetime import datetime
+            deleted_project = project_to_delete.copy()
+            deleted_project['deleted_date'] = datetime.now().isoformat()
+            self.mock_trash_registry['deleted_projects'].append(deleted_project)
+            self.mock_trash_registry['last_updated'] = datetime.now().isoformat()
+        
+        # モックの戻り値を更新
+        self.mock_load.return_value = self.mock_registry.copy()
+        self.mock_load_trash.return_value = self.mock_trash_registry.copy()
+        
+        return project_to_delete

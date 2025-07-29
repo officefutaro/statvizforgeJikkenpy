@@ -206,9 +206,18 @@ class ProjectViewSet(viewsets.ModelViewSet):
                     status=status.HTTP_404_NOT_FOUND
                 )
             
-            # 更新
+            # 更新データを正規化
             from datetime import datetime
-            updated_project = {**registry_data['projects'][project_index], **request.data}
+            updated_data = {}
+            for key, value in request.data.items():
+                # リストで来た場合は最初の要素を使用
+                if isinstance(value, list) and len(value) > 0:
+                    updated_data[key] = value[0]
+                else:
+                    updated_data[key] = value
+            
+            # 更新
+            updated_project = {**registry_data['projects'][project_index], **updated_data}
             updated_project['modified_date'] = datetime.now().isoformat()
             registry_data['projects'][project_index] = updated_project
             registry_data['last_updated'] = datetime.now().isoformat()
@@ -1107,6 +1116,119 @@ class FileViewSet(viewsets.ModelViewSet):
         except Exception as e:
             return create_error_response(
                 'SEARCH_FAILED',
+                language,
+                details={'error': str(e)},
+                status_code=status.HTTP_500_INTERNAL_SERVER_ERROR
+            )
+
+    @action(detail=False, methods=['get'])
+    def table(self, request, project_folder=None):
+        """CSVファイルをテーブル形式で取得"""
+        language = get_language_from_request(request)
+        
+        try:
+            file_path = request.query_params.get('file_path')
+            if not file_path:
+                return create_error_response(
+                    'FILE_PATH_REQUIRED',
+                    language,
+                    status_code=status.HTTP_400_BAD_REQUEST
+                )
+            
+            from config.paths import PROJECT_DATA_DIR
+            project_path = PROJECT_DATA_DIR / project_folder
+            full_file_path = project_path / file_path
+            
+            if not full_file_path.exists():
+                return create_error_response(
+                    'FILE_NOT_FOUND',
+                    language,
+                    status_code=status.HTTP_404_NOT_FOUND
+                )
+            
+            if not full_file_path.is_file():
+                return create_error_response(
+                    'NOT_A_FILE',
+                    language,
+                    status_code=status.HTTP_400_BAD_REQUEST
+                )
+            
+            # CSVファイルのみサポート
+            if not file_path.lower().endswith('.csv'):
+                return create_error_response(
+                    'UNSUPPORTED_FILE_TYPE',
+                    language,
+                    details={'supported_types': ['.csv']},
+                    status_code=status.HTTP_400_BAD_REQUEST
+                )
+            
+            import csv
+            import io
+            
+            headers = []
+            rows = []
+            
+            try:
+                with open(full_file_path, 'r', encoding='utf-8', newline='') as csvfile:
+                    # CSVの方言を自動検出
+                    sample = csvfile.read(1024)
+                    csvfile.seek(0)
+                    sniffer = csv.Sniffer()
+                    delimiter = sniffer.sniff(sample).delimiter
+                    
+                    csvfile.seek(0)
+                    reader = csv.reader(csvfile, delimiter=delimiter)
+                    
+                    # ヘッダーを取得
+                    headers = next(reader, [])
+                    
+                    # データ行を取得（最大1000行まで）
+                    for i, row in enumerate(reader):
+                        if i >= 1000:  # パフォーマンスのため制限
+                            break
+                        # 列数をヘッダーに合わせる
+                        while len(row) < len(headers):
+                            row.append('')
+                        rows.append(row[:len(headers)])
+                        
+            except UnicodeDecodeError:
+                # UTF-8で読めない場合はShift_JISを試す
+                try:
+                    with open(full_file_path, 'r', encoding='shift_jis', newline='') as csvfile:
+                        sample = csvfile.read(1024)
+                        csvfile.seek(0)
+                        sniffer = csv.Sniffer()
+                        delimiter = sniffer.sniff(sample).delimiter
+                        
+                        csvfile.seek(0)
+                        reader = csv.reader(csvfile, delimiter=delimiter)
+                        headers = next(reader, [])
+                        
+                        for i, row in enumerate(reader):
+                            if i >= 1000:
+                                break
+                            while len(row) < len(headers):
+                                row.append('')
+                            rows.append(row[:len(headers)])
+                except Exception:
+                    return create_error_response(
+                        'FILE_ENCODING_ERROR',
+                        language,
+                        status_code=status.HTTP_400_BAD_REQUEST
+                    )
+            
+            return Response({
+                'success': True,
+                'file_path': file_path,
+                'headers': headers,
+                'rows': rows,
+                'total_rows': len(rows),
+                'is_truncated': len(rows) >= 1000
+            })
+            
+        except Exception as e:
+            return create_error_response(
+                'TABLE_LOAD_FAILED',
                 language,
                 details={'error': str(e)},
                 status_code=status.HTTP_500_INTERNAL_SERVER_ERROR
