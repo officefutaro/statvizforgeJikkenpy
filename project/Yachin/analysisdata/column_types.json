@@ -1,0 +1,15 @@
+{
+  "アパートの家賃.csv": {
+    "﻿NO": "numeric",
+    "所在地": "category",
+    "家賃": "numeric",
+    "敷金": "numeric",
+    "礼金": "numeric",
+    "面積": "numeric",
+    "築年数": "numeric",
+    "駅徒歩分": "numeric",
+    "間取": "category",
+    "方位": "category",
+    "構造": "category"
+  }
+}
