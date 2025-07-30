@@ -28,17 +28,22 @@ class FilePathValidator:
         if not file_path:
             raise ValidationError(_("ファイルパスが指定されていません"))
         
+        # パスの正規化前に危険なパターンをチェック
+        if '..' in file_path or file_path.startswith('/') or file_path.startswith('\\'):
+            raise ValidationError(_("無効なファイルパスです（ディレクトリトラバーサル検出）"))
+        
         # パスの正規化
         normalized_path = os.path.normpath(file_path)
         
-        # ディレクトリトラバーサル攻撃の防止
+        # 正規化後も再度チェック
         if '..' in normalized_path or normalized_path.startswith('/'):
             raise ValidationError(_("無効なファイルパスです"))
         
-        # 危険な文字のチェック
-        dangerous_chars = ['~', '\\0', '\n', '\r']
-        if any(char in normalized_path for char in dangerous_chars):
-            raise ValidationError(_("ファイルパスに無効な文字が含まれています"))
+        # 危険な文字のチェック（null文字、改行、チルダ）
+        dangerous_chars = ['~', '\0', '\n', '\r', '\x00']
+        for char in dangerous_chars:
+            if char in file_path:
+                raise ValidationError(_("ファイルパスに無効な文字が含まれています"))
         
         return normalized_path
     

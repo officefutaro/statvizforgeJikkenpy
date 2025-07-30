@@ -53,36 +53,56 @@ class ProjectViewSet(viewsets.ModelViewSet):
         """プロジェクト新規作成 - projects-registry.jsonに追加、プロジェクトフォルダとproject.jsonを作成"""
         language = get_language_from_request(request)
         
+        # リクエストデータの取得
+        try:
+            if hasattr(request, 'data') and request.data:
+                new_project = {}
+                for key, value in request.data.items():
+                    if key == 'tags':
+                        # tagsフィールドの特別な処理
+                        if isinstance(value, list):
+                            new_project[key] = value
+                        elif isinstance(value, str):
+                            new_project[key] = [value] if value else []
+                        else:
+                            new_project[key] = []
+                    elif isinstance(value, list):
+                        new_project[key] = value[0] if value else ''
+                    else:
+                        new_project[key] = value
+            elif hasattr(request, 'POST') and request.POST:
+                new_project = {}
+                for key, value in request.POST.items():
+                    if key == 'tags':
+                        new_project[key] = request.POST.getlist(key)
+                    else:
+                        new_project[key] = value
+            else:
+                new_project = {}
+        except Exception as e:
+            return create_error_response(
+                'INVALID_REQUEST_DATA',
+                language,
+                details={'error': str(e)},
+                status_code=status.HTTP_400_BAD_REQUEST
+            )
+        
+        # フォルダ名のバリデーション
+        folder_name = new_project.get('folder_name', '')
+        if folder_name:
+            try:
+                from .validators import FilePathValidator
+                FilePathValidator.validate_project_folder(folder_name)
+            except ValidationError as e:
+                return create_error_response(
+                    'INVALID_FOLDER_NAME',
+                    language,
+                    details={'error': str(e)},
+                    status_code=status.HTTP_400_BAD_REQUEST
+                )
+        
         # バリデーション
         validation_errors = {}
-        # リクエストデータの統一的な取得（値を文字列として正規化）
-        if hasattr(request, 'data') and request.data:
-            new_project = {}
-            for key, value in request.data.items():
-                if key == 'tags':
-                    # tagsフィールドの特別な処理
-                    if isinstance(value, list):
-                        new_project[key] = value
-                    elif isinstance(value, str):
-                        # 文字列で来た場合、元の配列から来たと想定して配列に戻す
-                        # APIテストクライアントが配列を文字列に変換する問題に対処
-                        new_project[key] = [value] if value else []
-                    else:
-                        new_project[key] = []
-                elif isinstance(value, list):
-                    new_project[key] = value[0] if value else ''
-                else:
-                    new_project[key] = value
-        elif hasattr(request, 'POST') and request.POST:
-            new_project = {}
-            for key, value in request.POST.items():
-                if key == 'tags':
-                    # tagsフィールドは複数値を配列として扱う
-                    new_project[key] = request.POST.getlist(key)
-                else:
-                    new_project[key] = value
-        else:
-            new_project = {}
         
         # 必須フィールドチェック
         required_fields = ['folder_name', 'project_name', 'description']
@@ -202,9 +222,10 @@ class ProjectViewSet(viewsets.ModelViewSet):
             project = next((p for p in registry_data['projects'] if p.get('id') == pk), None)
             
             if not project:
-                return Response(
-                    {'error': 'Project not found'},
-                    status=status.HTTP_404_NOT_FOUND
+                return create_error_response(
+                    'PROJECT_NOT_FOUND',
+                    get_language_from_request(request),
+                    status_code=status.HTTP_404_NOT_FOUND
                 )
             
             return Response(project)
