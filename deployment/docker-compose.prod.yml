@@ -1,0 +1,191 @@
+version: '3.8'
+
+services:
+  # データベース（PostgreSQL）
+  postgres:
+    image: postgres:15-alpine
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: ${DB_NAME:-statvizforge}
+      POSTGRES_USER: ${DB_USER:-statvizforge}
+      POSTGRES_PASSWORD: ${DB_PASSWORD}
+      POSTGRES_INITDB_ARGS: "--encoding=UTF-8 --locale=C"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+      - ./postgres/init:/docker-entrypoint-initdb.d
+    ports:
+      - "5432:5432"
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${DB_USER:-statvizforge}"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    networks:
+      - statvizforge_network
+
+  # Redis（キャッシュ・セッション）
+  redis:
+    image: redis:7-alpine
+    restart: unless-stopped
+    command: redis-server --requirepass ${REDIS_PASSWORD}
+    volumes:
+      - redis_data:/data
+    ports:
+      - "6379:6379"
+    healthcheck:
+      test: ["CMD", "redis-cli", "--raw", "incr", "ping"]
+      interval: 10s
+      timeout: 3s
+      retries: 5
+    networks:
+      - statvizforge_network
+
+  # Django アプリケーション
+  web:
+    build:
+      context: ../app/backend
+      dockerfile: ../../deployment/Dockerfile.prod
+    restart: unless-stopped
+    environment:
+      - DJANGO_SETTINGS_MODULE=config.production_settings
+      - DB_ENGINE=django.db.backends.postgresql
+      - DB_NAME=${DB_NAME:-statvizforge}
+      - DB_USER=${DB_USER:-statvizforge}
+      - DB_PASSWORD=${DB_PASSWORD}
+      - DB_HOST=postgres
+      - DB_PORT=5432
+      - REDIS_URL=redis://:${REDIS_PASSWORD}@redis:6379/1
+      - DJANGO_SECRET_KEY=${DJANGO_SECRET_KEY}
+      - USE_TLS=${USE_TLS:-false}
+      - PROJECT_ROOT_PATH=/opt/statvizforge/projects
+      - JUPYTER_ROOT_PATH=/opt/statvizforge/jupyter
+      - ADMIN_EMAIL=${ADMIN_EMAIL:-admin@localhost}
+      - SERVER_EMAIL=${SERVER_EMAIL:-noreply@localhost}
+      - MONITORING_ENABLED=${MONITORING_ENABLED:-true}
+      - HEALTH_CHECK_ACCESS_TOKEN=${HEALTH_CHECK_ACCESS_TOKEN}
+    volumes:
+      - static_files:/opt/statvizforge/staticfiles
+      - media_files:/opt/statvizforge/media
+      - project_data:/opt/statvizforge/projects
+      - jupyter_data:/opt/statvizforge/jupyter
+      - app_logs:/opt/statvizforge/logs
+    ports:
+      - "8000:8000"
+    depends_on:
+      postgres:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8000/api/v1/test/"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
+    networks:
+      - statvizforge_network
+
+  # Nginx（リバースプロキシ）
+  nginx:
+    image: nginx:alpine
+    restart: unless-stopped
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./nginx/nginx.conf:/etc/nginx/nginx.conf:ro
+      - ./nginx/sites-available:/etc/nginx/sites-available:ro
+      - ./nginx/ssl:/etc/nginx/ssl:ro
+      - static_files:/opt/statvizforge/staticfiles:ro
+      - media_files:/opt/statvizforge/media:ro
+      - nginx_logs:/var/log/nginx
+    depends_on:
+      - web
+    healthcheck:
+      test: ["CMD", "wget", "--quiet", "--tries=1", "--spider", "http://localhost/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+    networks:
+      - statvizforge_network
+
+  # JupyterLab（オプション）
+  jupyter:
+    build:
+      context: ../app/backend
+      dockerfile: ../../deployment/Dockerfile.jupyter
+    restart: unless-stopped
+    environment:
+      - JUPYTER_ENABLE_LAB=yes
+      - JUPYTER_TOKEN=${JUPYTER_TOKEN}
+    volumes:
+      - jupyter_data:/home/jovyan/work
+      - project_data:/home/jovyan/projects:ro
+    ports:
+      - "8888:8888"
+    networks:
+      - statvizforge_network
+
+  # 監視（Prometheus）
+  prometheus:
+    image: prom/prometheus:latest
+    restart: unless-stopped
+    ports:
+      - "9090:9090"
+    volumes:
+      - ./monitoring/prometheus.yml:/etc/prometheus/prometheus.yml:ro
+      - prometheus_data:/prometheus
+    command:
+      - '--config.file=/etc/prometheus/prometheus.yml'
+      - '--storage.tsdb.path=/prometheus'
+      - '--web.console.libraries=/etc/prometheus/console_libraries'
+      - '--web.console.templates=/etc/prometheus/consoles'
+      - '--storage.tsdb.retention.time=200h'
+      - '--web.enable-lifecycle'
+    networks:
+      - statvizforge_network
+
+  # 可視化（Grafana）
+  grafana:
+    image: grafana/grafana:latest
+    restart: unless-stopped
+    ports:
+      - "3000:3000"
+    environment:
+      - GF_SECURITY_ADMIN_PASSWORD=${GRAFANA_PASSWORD}
+      - GF_USERS_ALLOW_SIGN_UP=false
+    volumes:
+      - grafana_data:/var/lib/grafana
+      - ./monitoring/grafana/dashboards:/etc/grafana/provisioning/dashboards:ro
+      - ./monitoring/grafana/datasources:/etc/grafana/provisioning/datasources:ro
+    networks:
+      - statvizforge_network
+
+volumes:
+  postgres_data:
+    driver: local
+  redis_data:
+    driver: local
+  static_files:
+    driver: local
+  media_files:
+    driver: local
+  project_data:
+    driver: local
+  jupyter_data:
+    driver: local
+  app_logs:
+    driver: local
+  nginx_logs:
+    driver: local
+  prometheus_data:
+    driver: local
+  grafana_data:
+    driver: local
+
+networks:
+  statvizforge_network:
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 172.20.0.0/16

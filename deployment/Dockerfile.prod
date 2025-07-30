@@ -1,0 +1,70 @@
+# マルチステージビルドで本番環境用Dockerイメージを作成
+FROM python:3.11-slim as builder
+
+# システム依存関係のインストール
+RUN apt-get update && apt-get install -y \
+    build-essential \
+    libpq-dev \
+    git \
+    && rm -rf /var/lib/apt/lists/*
+
+# Python依存関係の準備
+COPY requirements.txt /tmp/
+RUN pip install --no-cache-dir --user -r /tmp/requirements.txt
+
+# 本番環境用の追加パッケージ
+RUN pip install --no-cache-dir --user \
+    gunicorn \
+    psycopg2-binary \
+    django-redis \
+    django-ratelimit
+
+FROM python:3.11-slim as runtime
+
+# ランタイム依存関係のインストール
+RUN apt-get update && apt-get install -y \
+    libpq5 \
+    curl \
+    && rm -rf /var/lib/apt/lists/* \
+    && apt-get clean
+
+# 非rootユーザーの作成
+RUN groupadd -r statvizforge && useradd -r -g statvizforge statvizforge
+
+# アプリケーションディレクトリの準備
+WORKDIR /opt/statvizforge
+RUN mkdir -p logs staticfiles media projects jupyter \
+    && chown -R statvizforge:statvizforge /opt/statvizforge
+
+# Python依存関係のコピー
+COPY --from=builder /root/.local /home/statvizforge/.local
+ENV PATH=/home/statvizforge/.local/bin:$PATH
+
+# アプリケーションコードのコピー
+COPY --chown=statvizforge:statvizforge . /opt/statvizforge/app/
+
+# 設定ファイルのコピー
+COPY --chown=statvizforge:statvizforge ../deployment/production_settings.py /opt/statvizforge/app/config/production_settings.py
+
+# 静的ファイルの収集
+USER statvizforge
+WORKDIR /opt/statvizforge/app
+RUN python manage.py collectstatic --noinput --settings=config.production_settings
+
+# ヘルスチェック用スクリプト
+COPY --chown=statvizforge:statvizforge ../deployment/health_check.py /opt/statvizforge/health_check.py
+
+# ポート設定
+EXPOSE 8000
+
+# 起動スクリプト
+COPY --chown=statvizforge:statvizforge ../deployment/entrypoint.prod.sh /opt/statvizforge/entrypoint.sh
+RUN chmod +x /opt/statvizforge/entrypoint.sh
+
+# ヘルスチェック
+HEALTHCHECK --interval=30s --timeout=10s --start-period=40s --retries=3 \
+    CMD python /opt/statvizforge/health_check.py
+
+# エントリーポイント
+ENTRYPOINT ["/opt/statvizforge/entrypoint.sh"]
+CMD ["gunicorn", "--bind", "0.0.0.0:8000", "--workers", "4", "--worker-class", "gevent", "--worker-connections", "1000", "--max-requests", "1000", "--max-requests-jitter", "100", "--timeout", "30", "--keep-alive", "2", "--access-logfile", "/opt/statvizforge/logs/gunicorn.access.log", "--error-logfile", "/opt/statvizforge/logs/gunicorn.error.log", "--log-level", "info", "config.wsgi:application"]
