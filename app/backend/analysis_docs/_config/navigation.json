@@ -1,0 +1,218 @@
+{
+  "navigation": {
+    "ja": {
+      "title": "分析ドキュメント",
+      "sections": [
+        {
+          "title": "はじめに",
+          "items": [
+            {
+              "title": "ドキュメント概要",
+              "path": "/analysis-docs",
+              "description": "分析ドキュメントシステムの使い方"
+            },
+            {
+              "title": "基本的な分析フロー",
+              "path": "/analysis-docs/getting-started",
+              "description": "データ分析の基本的な進め方"
+            }
+          ]
+        },
+        {
+          "title": "探索的分析",
+          "category": "exploratory",
+          "items": [
+            {
+              "title": "データプロファイリング",
+              "path": "/analysis-docs/exploratory/data-profiling",
+              "description": "データの基本統計と品質把握"
+            },
+            {
+              "title": "初期探索",
+              "path": "/analysis-docs/exploratory/initial-exploration",
+              "description": "データの全体像把握手法"
+            },
+            {
+              "title": "パターン発見",
+              "path": "/analysis-docs/exploratory/pattern-discovery",
+              "description": "データ内のパターンや特異点の発見"
+            }
+          ]
+        },
+        {
+          "title": "統計分析",
+          "category": "statistical",
+          "items": [
+            {
+              "title": "相関分析",
+              "path": "/analysis-docs/statistical/correlation-analysis",
+              "description": "変数間の関係性分析"
+            },
+            {
+              "title": "回帰分析",
+              "path": "/analysis-docs/statistical/regression-analysis",
+              "description": "予測モデリングの基本"
+            },
+            {
+              "title": "仮説検定",
+              "path": "/analysis-docs/statistical/hypothesis-testing",
+              "description": "統計的仮説の検証方法"
+            }
+          ]
+        },
+        {
+          "title": "予測分析",
+          "category": "predictive",
+          "items": [
+            {
+              "title": "時系列予測",
+              "path": "/analysis-docs/predictive/time-series-forecast",
+              "description": "時系列データの予測手法"
+            },
+            {
+              "title": "分類分析",
+              "path": "/analysis-docs/predictive/classification",
+              "description": "カテゴリ分類の機械学習"
+            },
+            {
+              "title": "モデル評価",
+              "path": "/analysis-docs/predictive/model-evaluation",
+              "description": "予測モデルの性能評価"
+            }
+          ]
+        },
+        {
+          "title": "可視化分析",
+          "category": "visualization",
+          "items": [
+            {
+              "title": "チャート選択ガイド",
+              "path": "/analysis-docs/visualization/chart-selection",
+              "description": "適切なグラフの選び方"
+            },
+            {
+              "title": "ダッシュボード設計",
+              "path": "/analysis-docs/visualization/dashboard-design",
+              "description": "効果的なダッシュボード作成"
+            },
+            {
+              "title": "インタラクティブ可視化",
+              "path": "/analysis-docs/visualization/interactive-plots",
+              "description": "動的な可視化の実装"
+            }
+          ]
+        }
+      ]
+    },
+    "en": {
+      "title": "Analysis Documentation",
+      "sections": [
+        {
+          "title": "Getting Started",
+          "items": [
+            {
+              "title": "Documentation Overview",
+              "path": "/analysis-docs",
+              "description": "How to use the analysis documentation system"
+            },
+            {
+              "title": "Basic Analysis Workflow",
+              "path": "/analysis-docs/getting-started",
+              "description": "Fundamental approach to data analysis"
+            }
+          ]
+        },
+        {
+          "title": "Exploratory Analysis",
+          "category": "exploratory",
+          "items": [
+            {
+              "title": "Data Profiling",
+              "path": "/analysis-docs/exploratory/data-profiling",
+              "description": "Understanding basic statistics and data quality"
+            },
+            {
+              "title": "Initial Exploration",
+              "path": "/analysis-docs/exploratory/initial-exploration",
+              "description": "Methods to grasp overall data structure"
+            },
+            {
+              "title": "Pattern Discovery",
+              "path": "/analysis-docs/exploratory/pattern-discovery",
+              "description": "Finding patterns and anomalies in data"
+            }
+          ]
+        },
+        {
+          "title": "Statistical Analysis",
+          "category": "statistical",
+          "items": [
+            {
+              "title": "Correlation Analysis",
+              "path": "/analysis-docs/statistical/correlation-analysis",
+              "description": "Analyzing relationships between variables"
+            },
+            {
+              "title": "Regression Analysis",
+              "path": "/analysis-docs/statistical/regression-analysis",
+              "description": "Fundamentals of predictive modeling"
+            },
+            {
+              "title": "Hypothesis Testing",
+              "path": "/analysis-docs/statistical/hypothesis-testing",
+              "description": "Methods for statistical hypothesis verification"
+            }
+          ]
+        },
+        {
+          "title": "Predictive Analysis",
+          "category": "predictive",
+          "items": [
+            {
+              "title": "Time Series Forecasting",
+              "path": "/analysis-docs/predictive/time-series-forecast",
+              "description": "Methods for time series data prediction"
+            },
+            {
+              "title": "Classification",
+              "path": "/analysis-docs/predictive/classification",
+              "description": "Machine learning for category classification"
+            },
+            {
+              "title": "Model Evaluation",
+              "path": "/analysis-docs/predictive/model-evaluation",
+              "description": "Performance evaluation of prediction models"
+            }
+          ]
+        },
+        {
+          "title": "Visualization Analysis",
+          "category": "visualization",
+          "items": [
+            {
+              "title": "Chart Selection Guide",
+              "path": "/analysis-docs/visualization/chart-selection",
+              "description": "How to choose appropriate charts"
+            },
+            {
+              "title": "Dashboard Design",
+              "path": "/analysis-docs/visualization/dashboard-design",
+              "description": "Creating effective dashboards"
+            },
+            {
+              "title": "Interactive Visualization",
+              "path": "/analysis-docs/visualization/interactive-plots",
+              "description": "Implementing dynamic visualizations"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "meta": {
+    "version": "1.0.0",
+    "lastUpdated": "2025-01-30",
+    "supportedLanguages": ["ja", "en"],
+    "totalItems": 12
+  }
+}

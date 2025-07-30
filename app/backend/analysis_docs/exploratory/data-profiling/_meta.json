@@ -1,0 +1,64 @@
+{
+  "id": "exploratory.data-profiling",
+  "title": {
+    "ja": "データプロファイリング",
+    "en": "Data Profiling",
+    "zh": "数据概况分析"
+  },
+  "description": {
+    "ja": "データの基本的な統計情報と品質を体系的に把握する手法",
+    "en": "Methods to systematically understand basic statistics and quality of data",
+    "zh": "系统性理解数据基本统计信息和质量的方法"
+  },
+  "category": "exploratory",
+  "difficulty": "beginner",
+  "tags": ["essential", "data-quality", "statistics", "eda"],
+  "languages": ["ja", "en"],
+  "prerequisites": {
+    "ja": [
+      "基本的なPythonの知識",
+      "pandasライブラリの基本操作",
+      "統計の基礎知識（平均、標準偏差等）"
+    ],
+    "en": [
+      "Basic Python knowledge",
+      "Basic operations of pandas library",
+      "Fundamental statistics knowledge (mean, standard deviation, etc.)"
+    ]
+  },
+  "outcomes": {
+    "ja": [
+      "データの全体的な特徴を把握できる",
+      "データ品質の問題を特定できる",
+      "適切な前処理手法を選択できる",
+      "分析戦略を立案できる"
+    ],
+    "en": [
+      "Can understand overall characteristics of data",
+      "Can identify data quality issues",
+      "Can select appropriate preprocessing methods",
+      "Can formulate analysis strategy"
+    ]
+  },
+  "tools": ["pandas", "numpy", "matplotlib", "seaborn", "scipy"],
+  "estimatedTime": "2-3 hours",
+  "version": "1.0.0",
+  "lastUpdated": "2025-01-30",
+  "authors": [
+    {
+      "name": "Claude Code",
+      "role": "Technical Writer"
+    }
+  ],
+  "reviewers": [
+    {
+      "name": "StatVizForge Data Team",
+      "role": "Technical Reviewer"
+    }
+  ],
+  "relatedDocs": [
+    "exploratory.initial-exploration",
+    "statistical.correlation-analysis",
+    "visualization.chart-selection"
+  ]
+}

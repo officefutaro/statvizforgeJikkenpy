@@ -1,12 +1,13 @@
 from django.urls import path, include
 from django.http import JsonResponse
 from rest_framework.routers import DefaultRouter
-from .views import ProjectViewSet, FileViewSet, JupyterLabViewSet, server_info
+from .views import ProjectViewSet, FileViewSet, JupyterLabViewSet, TableDisplaySettingsViewSet, server_info
 
 router = DefaultRouter()
 router.register(r'projects', ProjectViewSet, basename='project')
 router.register(r'files', FileViewSet, basename='file')
 router.register(r'jupyter', JupyterLabViewSet, basename='jupyter')
+router.register(r'table-settings', TableDisplaySettingsViewSet, basename='table-settings')
 
 urlpatterns = [
     # テスト用シンプルパターン
@@ -61,6 +62,16 @@ urlpatterns = [
     path('jupyter/start/', JupyterLabViewSet.as_view({'post': 'start'}), name='jupyter-start'),
     path('jupyter/stop/', JupyterLabViewSet.as_view({'post': 'stop'}), name='jupyter-stop'),
     path('jupyter/status/', JupyterLabViewSet.as_view({'get': 'status'}), name='jupyter-status'),
+    
+    # 表表示設定エンドポイント
+    path('table-settings/settings/<str:project_folder>/<str:file_name>/', TableDisplaySettingsViewSet.as_view({
+        'get': 'table_settings',
+        'post': 'table_settings',
+        'delete': 'delete_settings'
+    }), name='table-settings-detail'),
+    path('table-settings/settings/<str:project_folder>/', TableDisplaySettingsViewSet.as_view({
+        'get': 'list_settings'
+    }), name='table-settings-list'),
     
     path('server-info/', server_info, name='server_info'),
 ] + router.urls

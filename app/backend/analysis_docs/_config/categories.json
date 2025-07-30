@@ -1,0 +1,95 @@
+{
+  "categories": [
+    {
+      "id": "exploratory",
+      "name": {
+        "ja": "探索的分析",
+        "en": "Exploratory Analysis",
+        "zh": "探索性分析"
+      },
+      "description": {
+        "ja": "データの基本的な理解と初期探索を行う分析手法",
+        "en": "Analysis methods for basic understanding and initial exploration of data",
+        "zh": "用于基本理解和初步探索数据的分析方法"
+      },
+      "icon": "search",
+      "color": "#3b82f6",
+      "order": 1,
+      "enabled": true
+    },
+    {
+      "id": "statistical",
+      "name": {
+        "ja": "統計分析",
+        "en": "Statistical Analysis",
+        "zh": "统计分析"
+      },
+      "description": {
+        "ja": "統計的手法を用いたデータの定量的分析",
+        "en": "Quantitative analysis of data using statistical methods",
+        "zh": "使用统计方法进行数据定量分析"
+      },
+      "icon": "bar-chart",
+      "color": "#10b981",
+      "order": 2,
+      "enabled": true
+    },
+    {
+      "id": "predictive",
+      "name": {
+        "ja": "予測分析",
+        "en": "Predictive Analysis",
+        "zh": "预测分析"
+      },
+      "description": {
+        "ja": "機械学習や統計モデルを用いた予測・分類分析",
+        "en": "Prediction and classification analysis using machine learning and statistical models",
+        "zh": "使用机器学习和统计模型进行预测和分类分析"
+      },
+      "icon": "trending-up",
+      "color": "#f59e0b",
+      "order": 3,
+      "enabled": true
+    },
+    {
+      "id": "visualization",
+      "name": {
+        "ja": "可視化分析",
+        "en": "Visualization Analysis",
+        "zh": "可视化分析"
+      },
+      "description": {
+        "ja": "データの可視化とダッシュボード設計の手法",
+        "en": "Methods for data visualization and dashboard design",
+        "zh": "数据可视化和仪表板设计方法"
+      },
+      "icon": "pie-chart",
+      "color": "#8b5cf6",
+      "order": 4,
+      "enabled": true
+    },
+    {
+      "id": "advanced",
+      "name": {
+        "ja": "高度分析",
+        "en": "Advanced Analysis",
+        "zh": "高级分析"
+      },
+      "description": {
+        "ja": "深層学習、最適化、高度統計手法による分析",
+        "en": "Analysis using deep learning, optimization, and advanced statistical methods",
+        "zh": "使用深度学习、优化和高级统计方法的分析"
+      },
+      "icon": "cpu",
+      "color": "#ef4444",
+      "order": 5,
+      "enabled": false
+    }
+  ],
+  "meta": {
+    "version": "1.0.0",
+    "lastUpdated": "2025-01-30",
+    "totalCategories": 5,
+    "enabledCategories": 4
+  }
+}

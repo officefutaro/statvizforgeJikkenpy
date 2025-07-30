@@ -53,3 +53,32 @@ class DataAnalysis(models.Model):
     
     def __str__(self):
         return f"{self.project.project_name} - {self.analysis_type}"
+
+
+class TableDisplaySettings(models.Model):
+    """表表示設定モデル"""
+    id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
+    project_folder = models.CharField(max_length=255)
+    file_name = models.CharField(max_length=255)
+    
+    # 表設定
+    table_config = models.JSONField(default=dict)
+    
+    # グラフ設定
+    chart_config = models.JSONField(default=dict)
+    
+    # レイアウト設定
+    layout_config = models.JSONField(default=dict)
+    
+    # 列メタデータ
+    column_metadata = models.JSONField(default=dict)
+    
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
+    
+    class Meta:
+        unique_together = ['project_folder', 'file_name']
+        ordering = ['-updated_at']
+    
+    def __str__(self):
+        return f"{self.project_folder}/{self.file_name} - 表示設定"

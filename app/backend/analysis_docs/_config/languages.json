@@ -1,0 +1,32 @@
+{
+  "default": "ja",
+  "supported": [
+    {
+      "code": "ja",
+      "name": "日本語",
+      "nativeName": "日本語",
+      "direction": "ltr",
+      "enabled": true,
+      "priority": 1
+    },
+    {
+      "code": "en",
+      "name": "English",
+      "nativeName": "English",
+      "direction": "ltr",
+      "enabled": true,
+      "priority": 2
+    },
+    {
+      "code": "zh",
+      "name": "Chinese (Simplified)",
+      "nativeName": "中文（简体）",
+      "direction": "ltr",
+      "enabled": false,
+      "priority": 3
+    }
+  ],
+  "fallback": "en",
+  "autoDetect": true,
+  "requireTranslations": ["ja", "en"]
+}

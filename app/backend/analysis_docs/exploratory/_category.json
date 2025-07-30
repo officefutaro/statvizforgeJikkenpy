@@ -1,0 +1,51 @@
+{
+  "category": {
+    "id": "exploratory",
+    "name": {
+      "ja": "探索的分析",
+      "en": "Exploratory Analysis"
+    },
+    "description": {
+      "ja": "データの基本的な理解と初期探索を行う分析手法群。データの分布、欠損値、外れ値、基本統計量などを把握し、後続の詳細分析の方向性を決定する。",
+      "en": "Analysis methods for basic understanding and initial exploration of data. Understanding data distribution, missing values, outliers, and basic statistics to determine the direction of subsequent detailed analysis."
+    },
+    "prerequisites": {
+      "ja": [
+        "基本的な統計知識",
+        "Pythonまたはデータ分析ツールの使用経験",
+        "データの形式（CSV、JSON等）の理解"
+      ],
+      "en": [
+        "Basic statistical knowledge",
+        "Experience with Python or data analysis tools",
+        "Understanding of data formats (CSV, JSON, etc.)"
+      ]
+    },
+    "outcomes": {
+      "ja": [
+        "データの全体像の把握",
+        "データ品質の評価",
+        "分析戦略の策定",
+        "異常値・パターンの発見"
+      ],
+      "en": [
+        "Understanding the overall picture of data",
+        "Evaluation of data quality",
+        "Formulation of analysis strategy",
+        "Discovery of anomalies and patterns"
+      ]
+    },
+    "tools": [
+      "pandas",
+      "numpy",
+      "matplotlib",
+      "seaborn",
+      "plotly",
+      "jupyter"
+    ],
+    "difficulty": "beginner",
+    "estimatedTime": "2-4 hours",
+    "version": "1.0.0",
+    "lastUpdated": "2025-01-30"
+  }
+}

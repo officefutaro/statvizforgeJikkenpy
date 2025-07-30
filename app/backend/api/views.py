@@ -1876,3 +1876,165 @@ def stop_jupyter_lab(request):
 
 # jupyter_service は JupyterLabViewSet のインスタンスとして使用
 jupyter_service = JupyterLabViewSet()
+
+
+class TableDisplaySettingsViewSet(viewsets.ViewSet):
+    """表表示設定管理API"""
+    
+    @action(detail=False, methods=['get', 'post'], url_path='settings/(?P<project_folder>[^/.]+)/(?P<file_name>[^/.]+)')
+    def table_settings(self, request, project_folder=None, file_name=None):
+        """表表示設定の取得・保存"""
+        language = get_language_from_request(request)
+        
+        if request.method == 'GET':
+            # 設定を取得
+            try:
+                from .models import TableDisplaySettings
+                settings_obj = TableDisplaySettings.objects.filter(
+                    project_folder=project_folder,
+                    file_name=file_name
+                ).first()
+                
+                if settings_obj:
+                    return Response({
+                        'success': True,
+                        'settings': {
+                            'id': str(settings_obj.id),
+                            'project_folder': settings_obj.project_folder,
+                            'file_name': settings_obj.file_name,
+                            'table_config': settings_obj.table_config,
+                            'chart_config': settings_obj.chart_config,
+                            'layout_config': settings_obj.layout_config,
+                            'column_metadata': settings_obj.column_metadata,
+                            'created_at': settings_obj.created_at.isoformat(),
+                            'updated_at': settings_obj.updated_at.isoformat()
+                        }
+                    })
+                else:
+                    return Response({
+                        'success': True,
+                        'settings': None
+                    })
+            except Exception as e:
+                return create_error_response(
+                    'FAILED_TO_GET_SETTINGS',
+                    language,
+                    details={'error': str(e)},
+                    status_code=status.HTTP_500_INTERNAL_SERVER_ERROR
+                )
+        
+        elif request.method == 'POST':
+            # 設定を保存
+            try:
+                from .models import TableDisplaySettings
+                
+                table_config = request.data.get('table_config', {})
+                chart_config = request.data.get('chart_config', {})
+                layout_config = request.data.get('layout_config', {})
+                column_metadata = request.data.get('column_metadata', {})
+                
+                # 既存の設定を取得または新規作成
+                settings_obj, created = TableDisplaySettings.objects.get_or_create(
+                    project_folder=project_folder,
+                    file_name=file_name,
+                    defaults={
+                        'table_config': table_config,
+                        'chart_config': chart_config,
+                        'layout_config': layout_config,
+                        'column_metadata': column_metadata
+                    }
+                )
+                
+                if not created:
+                    # 既存の設定を更新
+                    settings_obj.table_config = table_config
+                    settings_obj.chart_config = chart_config
+                    settings_obj.layout_config = layout_config
+                    settings_obj.column_metadata = column_metadata
+                    settings_obj.save()
+                
+                return Response({
+                    'success': True,
+                    'settings': {
+                        'id': str(settings_obj.id),
+                        'project_folder': settings_obj.project_folder,
+                        'file_name': settings_obj.file_name,
+                        'table_config': settings_obj.table_config,
+                        'chart_config': settings_obj.chart_config,
+                        'layout_config': settings_obj.layout_config,
+                        'column_metadata': settings_obj.column_metadata,
+                        'created_at': settings_obj.created_at.isoformat(),
+                        'updated_at': settings_obj.updated_at.isoformat()
+                    },
+                    'created': created
+                })
+            except Exception as e:
+                return create_error_response(
+                    'FAILED_TO_SAVE_SETTINGS',
+                    language,
+                    details={'error': str(e)},
+                    status_code=status.HTTP_500_INTERNAL_SERVER_ERROR
+                )
+    
+    @action(detail=False, methods=['delete'], url_path='settings/(?P<project_folder>[^/.]+)/(?P<file_name>[^/.]+)')
+    def delete_settings(self, request, project_folder=None, file_name=None):
+        """表表示設定の削除"""
+        language = get_language_from_request(request)
+        
+        try:
+            from .models import TableDisplaySettings
+            settings_obj = TableDisplaySettings.objects.filter(
+                project_folder=project_folder,
+                file_name=file_name
+            ).first()
+            
+            if settings_obj:
+                settings_obj.delete()
+                return Response({'success': True, 'message': 'Settings deleted successfully'})
+            else:
+                return create_error_response(
+                    'SETTINGS_NOT_FOUND',
+                    language,
+                    status_code=status.HTTP_404_NOT_FOUND
+                )
+        except Exception as e:
+            return create_error_response(
+                'FAILED_TO_DELETE_SETTINGS',
+                language,
+                details={'error': str(e)},
+                status_code=status.HTTP_500_INTERNAL_SERVER_ERROR
+            )
+    
+    @action(detail=False, methods=['get'], url_path='settings/(?P<project_folder>[^/.]+)')
+    def list_settings(self, request, project_folder=None):
+        """プロジェクト内の全ファイルの表表示設定一覧を取得"""
+        language = get_language_from_request(request)
+        
+        try:
+            from .models import TableDisplaySettings
+            settings_list = TableDisplaySettings.objects.filter(
+                project_folder=project_folder
+            ).order_by('-updated_at')
+            
+            settings_data = []
+            for settings_obj in settings_list:
+                settings_data.append({
+                    'id': str(settings_obj.id),
+                    'project_folder': settings_obj.project_folder,
+                    'file_name': settings_obj.file_name,
+                    'created_at': settings_obj.created_at.isoformat(),
+                    'updated_at': settings_obj.updated_at.isoformat()
+                })
+            
+            return Response({
+                'success': True,
+                'settings': settings_data,
+                'total': len(settings_data)
+            })
+        except Exception as e:
+            return create_error_response(
+                'FAILED_TO_LIST_SETTINGS',
+                language,
+                details={'error': str(e)},
+                status_code=status.HTTP_500_INTERNAL_SERVER_ERROR
+            )
