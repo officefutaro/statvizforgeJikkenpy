@@ -155,7 +155,22 @@ CORS_ALLOW_HEADERS = [
 # REST Framework settings
 REST_FRAMEWORK = {
     'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.PageNumberPagination',
-    'PAGE_SIZE': 10
+    'PAGE_SIZE': 10,
+    # 権限設定
+    'DEFAULT_PERMISSION_CLASSES': [
+        'rest_framework.permissions.AllowAny',  # 開発中は全て許可
+    ],
+    # APIバージョニング
+    'DEFAULT_VERSIONING_CLASS': 'rest_framework.versioning.NamespaceVersioning',
+    # レート制限（本番環境用）
+    'DEFAULT_THROTTLE_CLASSES': [
+        'rest_framework.throttling.AnonRateThrottle',
+        'rest_framework.throttling.UserRateThrottle'
+    ] if not DEBUG else [],
+    'DEFAULT_THROTTLE_RATES': {
+        'anon': '100/hour',  # 匿名ユーザー：1時間あたり100リクエスト
+        'user': '1000/hour',  # 認証済みユーザー：1時間あたり1000リクエスト
+    }
 }
 
 # Media files

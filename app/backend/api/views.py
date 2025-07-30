@@ -5,6 +5,7 @@ from rest_framework.parsers import MultiPartParser, FormParser, JSONParser
 from django.http import FileResponse
 from django.conf import settings
 from django.utils import timezone
+from django.core.exceptions import ValidationError
 from .models import Project, ProjectFile
 from .serializers import ProjectSerializer, ProjectFileSerializer
 from .utils import load_projects_registry, save_projects_registry
@@ -16,6 +17,8 @@ from .localization import (
 )
 from .file_explorer import FileExplorer
 from .file_comments import FileCommentManager
+from .validators import FilePathValidator, APIPermissionValidator
+from .authentication import APIKeyAuthentication, IsProjectOwner, ReadOnlyOrProjectOwner
 import uuid
 import subprocess
 import os
@@ -29,6 +32,9 @@ class ProjectViewSet(viewsets.ModelViewSet):
     """プロジェクト管理API - projects-registry.jsonファイルを直接操作"""
     queryset = Project.objects.none()  # DBは使用しない
     serializer_class = ProjectSerializer
+    # 認証と権限（開発中は無効）
+    # authentication_classes = [APIKeyAuthentication]
+    # permission_classes = [ReadOnlyOrProjectOwner]
     
     def list(self, request):
         """プロジェクト一覧取得 - projects-registry.jsonの内容を返す"""
@@ -804,6 +810,17 @@ class FileViewSet(viewsets.ModelViewSet):
         """ファイル説明を保存する"""
         language = get_language_from_request(request)
         
+        # プロジェクトフォルダのバリデーション
+        try:
+            project_folder = FilePathValidator.validate_project_folder(project_folder)
+        except ValidationError as e:
+            return create_error_response(
+                'INVALID_PROJECT_FOLDER',
+                language,
+                details={'error': str(e)},
+                status_code=status.HTTP_400_BAD_REQUEST
+            )
+        
         # プロジェクトフォルダの存在確認
         from config.paths import PROJECT_DATA_DIR
         project_path = PROJECT_DATA_DIR / project_folder
@@ -821,6 +838,17 @@ class FileViewSet(viewsets.ModelViewSet):
             return create_error_response(
                 'FILE_PATH_REQUIRED',
                 language,
+                status_code=status.HTTP_400_BAD_REQUEST
+            )
+        
+        # ファイルパスのバリデーション
+        try:
+            file_path = FilePathValidator.validate_file_path(file_path, project_folder)
+        except ValidationError as e:
+            return create_error_response(
+                'INVALID_FILE_PATH',
+                language,
+                details={'error': str(e)},
                 status_code=status.HTTP_400_BAD_REQUEST
             )
         

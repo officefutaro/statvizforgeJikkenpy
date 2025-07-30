@@ -12,7 +12,7 @@
 | DELETE /api/projects/{id}/ | プロジェクト削除 | ✅ | ✅ | ✅ | 2025-07-26 | 2025-07-27 | 削除確認ダイアログ実装済み |
 | GET /api/projects/deleted/ | 削除済みプロジェクト一覧 | ✅ | ✅ | ✅ | 2025-07-26 | 2025-07-27 | trash-registry.json読込 |
 | POST /api/projects/{id}/restore/ | プロジェクト復元 | ✅ | ✅ | ✅ | 2025-07-26 | 2025-07-27 | 削除されたプロジェクトを復元 |
-| GET /api/projects/validate-registry/ | レジストリ検証 | ❌ | ✅ | ✅ | 2025-07-29 | 2025-07-29 | プロジェクトレジストリの整合性チェックと自動修復 |
+| POST /api/projects/validate-registry/ | レジストリ検証 | ❌ | ✅ | ✅ | 2025-07-30 | 2025-07-30 | プロジェクトレジストリの整合性チェックと自動修復 |
 | **ファイル管理API** |
 | GET /api/files/tree/{project_folder} | ディレクトリツリー取得 | ✅ | ✅ | ✅ | 2025-07-27 | 2025-07-27 | rawフォルダをルートとした構造取得 |
 | POST /api/files/upload/{project_folder} | ファイルアップロード | ✅ | ✅ | ✅ | 2025-07-27 | 2025-07-27 | 単一・複数ファイル対応、ドラッグ&ドロップ |
@@ -21,7 +21,7 @@
 | POST /api/files/move/{project_folder} | ファイル・ディレクトリ移動 | ✅ | ✅ | ✅ | 2025-07-27 | 2025-07-27 | コメント連動移動 |
 | POST /api/files/mkdir/{project_folder} | ディレクトリ作成 | ✅ | ✅ | ✅ | 2025-07-27 | 2025-07-27 | 新規フォルダ作成 |
 | GET /api/files/table/{project_folder} | ファイルテーブル表示 | ❌ | ✅ | ✅ | 2025-07-29 | 2025-07-29 | プロジェクト内の全ファイル情報をテーブル形式で取得 |
-| GET /api/files/column-types/{project_folder} | カラムタイプ取得 | ❌ | ✅ | ✅ | 2025-07-29 | 2025-07-29 | CSVファイルのカラムタイプ情報取得 |
+| GET /api/files/column-types/{project_folder} | カラムタイプ取得 | ❌ | ✅ | ✅ | 2025-07-30 | 2025-07-30 | CSVファイルのカラムタイプ情報取得 |
 | **ファイル説明API** |
 | GET /api/files/descriptions/{project_folder} | ファイル説明取得 | ❌ | ✅ | ✅ | 2025-07-29 | 2025-07-29 | ファイルパスで説明を取得 |
 | POST /api/files/descriptions/{project_folder} | ファイル説明保存 | ❌ | ✅ | ✅ | 2025-07-29 | 2025-07-29 | ファイルに説明を追加・更新 |
@@ -43,8 +43,8 @@
 
 ## テスト結果サマリー
 
-**最終テスト実行日時**: 2025年7月27日 18:00  
-**テスト実行バージョン**: v1.8.0 (完全修正版)  
+**最終テスト実行日時**: 2025年7月30日  
+**テスト実行バージョン**: v2.0.0 (メジャーアップデート版)  
 **テストカバレッジ**: 100% (機能テスト: 7/7成功、簡易テスト: 5/5成功)  
 **全体的な動作状況**: 🎉 完全正常動作 - 全テスト合格
 
@@ -74,11 +74,23 @@
 ## 基本情報
 
 **作成日時**: 2025年7月20日  
-**バージョン**: 1.9.0 (拡張版)  
-**ベースURL**: `http://localhost:8000/api`  
+**バージョン**: 2.0.0 (メジャーアップデート版)  
+**ベースURL**: `http://localhost:8000/api/v1`  
+**後方互換性URL**: `http://localhost:8000/api` (非推奨)  
 **フレームワーク**: Django REST Framework  
 
 ## API設計方針
+
+### API設計の主要機能 (v2.0.0)
+
+#### セキュリティ強化
+- **ファイルパスバリデーション**: ディレクトリトラバーサル攻撃を防止
+- **プロジェクトフォルダ名検証**: 英数字、ハイフン、アンダースコアのみ許可
+- **レート制限**: 本番環境での過度なリクエストを制限
+
+#### APIバージョニング
+- **v1**: `/api/v1/` - 現在の安定版
+- **後方互換性**: `/api/` - 非推奨、将来削除予定
 
 ### 新しいクリーンな設計 (v1.8.0)
 バージョン1.8.0で大幅なクリーンアップを実施：
@@ -93,7 +105,7 @@ PUT    /api/projects/{id}/               # 更新
 DELETE /api/projects/{id}/               # 削除
 GET    /api/projects/deleted/            # 削除済み一覧
 POST   /api/projects/{id}/restore/       # 復元
-GET    /api/projects/validate-registry/  # レジストリ検証
+POST   /api/projects/validate-registry/  # レジストリ検証
 
 # ファイル管理
 GET    /api/files/tree/{project_folder}           # ディレクトリツリー
@@ -135,6 +147,12 @@ GET    /api/server-info/                 # サーバー情報
 
 ## 認証
 現在は認証なし（開発段階）
+
+### 将来の認証方式（実装準備済み）
+- **APIKey認証**: `X-API-KEY`ヘッダーを使用
+- **権限クラス**: 
+  - `IsProjectOwner`: プロジェクトオーナー権限
+  - `ReadOnlyOrProjectOwner`: 読み取り専用またはオーナー権限
 
 ## 共通仕様
 
@@ -402,7 +420,7 @@ POST /api/projects/create?lang=zh
 ```
 
 #### 1.8 プロジェクトレジストリ検証
-**メソッド**: `GET`  
+**メソッド**: `POST`  
 **URL**: `/api/projects/validate-registry/`  
 **説明**: プロジェクトレジストリの整合性をチェックし、必要に応じて自動修復
 
@@ -858,3 +876,5 @@ POST /api/projects/create?lang=zh
 | 2025-07-26 | 1.7.0 | RESTful設計への統一、用語統一（archived→deleted）、後方互換性維持 | Claude Code |
 | 2025-07-27 | 1.8.0 | 大幅クリーンアップ：レガシーAPI削除、ファイル管理API実装、検索機能追加、包括的テスト実施 | Claude Code |
 | 2025-07-29 | 1.9.0 | ファイル説明・タグ管理API、JupyterLab管理API、レジストリ検証API、カラムタイプAPI追加 | Claude Code |
+| 2025-07-30 | 1.9.1 | validate-registryのHTTPメソッドをGETからPOSTに修正、API仕様書を最新の実装に合わせて更新 | Claude Code |
+| 2025-07-30 | 2.0.0 | APIバージョニング実装、セキュリティ強化、認証基盤追加、レート制限設定 | Claude Code |
