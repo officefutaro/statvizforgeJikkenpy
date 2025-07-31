@@ -18,4 +18,11 @@ urlpatterns = [
     # デバッグ用エンドポイント（開発環境のみ）
     path('test/', lambda request: JsonResponse({'status': 'ok', 'version': 'v1'}), name='test'),
     
+    # 手動でスラッシュなしのタグエンドポイントを追加
+    path('files/tags/<str:project_folder>', FileViewSet.as_view({'get': 'file_tags', 'post': 'file_tags'}), name='file-tags-no-slash'),
+    path('files/descriptions/<str:project_folder>', FileViewSet.as_view({'get': 'file_descriptions', 'post': 'file_descriptions'}), name='file-descriptions-no-slash'),
+    
+    # テーブルデータ取得エンドポイントを追加
+    path('files/table/<str:project_folder>/', FileViewSet.as_view({'get': 'table'}), name='file-table-with-folder'),
+    
 ] + router.urls

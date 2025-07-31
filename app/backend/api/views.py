@@ -885,6 +885,7 @@ class FileViewSet(viewsets.ModelViewSet):
             for child in node['children']:
                 self._add_comments_to_tree(child, comment_summary, node_path)
 
+    @action(detail=False, methods=['post'], url_path='descriptions/(?P<project_folder>[^/.]+)/?')
     def save_file_description(self, request, project_folder=None):
         """ファイル説明を保存する"""
         language = get_language_from_request(request)
@@ -978,6 +979,7 @@ class FileViewSet(viewsets.ModelViewSet):
                 status_code=status.HTTP_500_INTERNAL_SERVER_ERROR
             )
 
+    @action(detail=False, methods=['get'], url_path='descriptions/(?P<project_folder>[^/.]+)/?')
     def get_file_description(self, request, project_folder=None):
         """ファイル説明を取得する"""
         file_path = request.query_params.get('file_path')
@@ -1008,109 +1010,110 @@ class FileViewSet(viewsets.ModelViewSet):
         except Exception as e:
             return Response({'description': ''})
     
-    def save_file_tags(self, request, project_folder=None):
-        """ファイルタグを保存する"""
+    @action(detail=False, methods=['get', 'post'], url_path='tags/(?P<project_folder>[^/.]+)/?')
+    def file_tags(self, request, project_folder=None):
+        """ファイルタグの取得・保存"""
         language = get_language_from_request(request)
         
         # プロジェクトフォルダの存在確認
         from config.paths import PROJECT_DATA_DIR
         project_path = PROJECT_DATA_DIR / project_folder
         if not project_path.exists():
-            return create_error_response(
-                'PROJECT_NOT_FOUND',
-                language,
-                status_code=status.HTTP_404_NOT_FOUND
-            )
+            if request.method == 'GET':
+                file_path = request.query_params.get('file_path')
+                if file_path:
+                    return Response({'tags': []})
+                else:
+                    return Response({'files': {}})
+            else:
+                return create_error_response(
+                    'PROJECT_NOT_FOUND',
+                    language,
+                    status_code=status.HTTP_404_NOT_FOUND
+                )
         
-        file_path = request.data.get('file_path')
-        tags = request.data.get('tags', [])
-        
-        if not file_path:
-            return create_error_response(
-                'FILE_PATH_REQUIRED',
-                language,
-                status_code=status.HTTP_400_BAD_REQUEST
-            )
-        
-        try:
-            # ファイルタグ管理システムを使ってタグを保存
-            # プロジェクトのfile_tags.jsonに保存
-            tags_file = project_path / 'file_tags.json'
+        if request.method == 'POST':
+            # タグを保存する
+            file_path = request.data.get('file_path')
+            tags = request.data.get('tags', [])
             
-            # 既存のタグデータを読み込み
-            if tags_file.exists():
-                try:
-                    with open(tags_file, 'r', encoding='utf-8') as f:
-                        tags_data = json.load(f)
-                except:
+            if not file_path:
+                return create_error_response(
+                    'FILE_PATH_REQUIRED',
+                    language,
+                    status_code=status.HTTP_400_BAD_REQUEST
+                )
+            
+            try:
+                # ファイルタグ管理システムを使ってタグを保存
+                # プロジェクトのfile_tags.jsonに保存
+                tags_file = project_path / 'file_tags.json'
+                
+                # 既存のタグデータを読み込み
+                if tags_file.exists():
+                    try:
+                        with open(tags_file, 'r', encoding='utf-8') as f:
+                            tags_data = json.load(f)
+                    except:
+                        tags_data = {}
+                else:
                     tags_data = {}
-            else:
-                tags_data = {}
-            
-            # ファイルパスの正規化（rawフォルダ相対パス）
-            normalized_path = file_path.replace('\\', '/')
-            
-            # タグを保存
-            tags_data[normalized_path] = tags
-            
-            # ファイルに書き込み
-            with open(tags_file, 'w', encoding='utf-8') as f:
-                json.dump(tags_data, f, indent=2, ensure_ascii=False)
-            
-            return Response({
-                'success': True,
-                'file_path': normalized_path,
-                'tags': tags,
-                'updated': timezone.now().isoformat()
-            })
-        
-        except Exception as e:
-            return create_error_response(
-                'FAILED_TO_SAVE_TAGS',
-                language,
-                details={'error': str(e)},
-                status_code=status.HTTP_500_INTERNAL_SERVER_ERROR
-            )
-    
-    def get_file_tags(self, request, project_folder=None):
-        """ファイルのタグを取得する（クエリパラメータ対応）"""
-        file_path = request.query_params.get('file_path')
-        
-        try:
-            # プロジェクトフォルダの存在確認
-            from config.paths import PROJECT_DATA_DIR
-            project_path = PROJECT_DATA_DIR / project_folder
-            if not project_path.exists():
-                if file_path:
-                    return Response({'tags': []})
-                else:
-                    return Response({'files': {}})
-            
-            # タグファイルの読み込み
-            tags_file = project_path / 'file_tags.json'
-            if not tags_file.exists():
-                if file_path:
-                    return Response({'tags': []})
-                else:
-                    return Response({'files': {}})
-            
-            with open(tags_file, 'r', encoding='utf-8') as f:
-                tags_data = json.load(f)
-            
-            if file_path:
-                # 個別ファイルのタグ取得
+                
+                # ファイルパスの正規化（rawフォルダ相対パス）
                 normalized_path = file_path.replace('\\', '/')
-                file_tags = tags_data.get(normalized_path, [])
-                return Response({'tags': file_tags})
-            else:
-                # 全ファイルのタグ取得
-                return Response({'files': tags_data})
+                
+                # タグを保存
+                tags_data[normalized_path] = tags
+                
+                # ファイルに書き込み
+                with open(tags_file, 'w', encoding='utf-8') as f:
+                    json.dump(tags_data, f, indent=2, ensure_ascii=False)
+                
+                return Response({
+                    'success': True,
+                    'file_path': normalized_path,
+                    'tags': tags,
+                    'updated': timezone.now().isoformat()
+                })
+            
+            except Exception as e:
+                return create_error_response(
+                    'FAILED_TO_SAVE_TAGS',
+                    language,
+                    details={'error': str(e)},
+                    status_code=status.HTTP_500_INTERNAL_SERVER_ERROR
+                )
         
-        except Exception as e:
-            if file_path:
-                return Response({'tags': []})
-            else:
-                return Response({'files': {}})
+        else:  # GET request
+            # タグを取得する
+            file_path = request.query_params.get('file_path')
+            
+            try:
+                # タグファイルの読み込み
+                tags_file = project_path / 'file_tags.json'
+                if not tags_file.exists():
+                    if file_path:
+                        return Response({'tags': []})
+                    else:
+                        return Response({'files': {}})
+                
+                with open(tags_file, 'r', encoding='utf-8') as f:
+                    tags_data = json.load(f)
+                
+                if file_path:
+                    # 個別ファイルのタグ取得
+                    normalized_path = file_path.replace('\\', '/')
+                    file_tags = tags_data.get(normalized_path, [])
+                    return Response({'tags': file_tags})
+                else:
+                    # 全ファイルのタグ取得
+                    return Response({'files': tags_data})
+            
+            except Exception as e:
+                if file_path:
+                    return Response({'tags': []})
+                else:
+                    return Response({'files': {}})
     
     def search_files_by_tags(self, request, project_folder=None):
         """タグによるファイル検索"""
@@ -1186,7 +1189,18 @@ class FileViewSet(viewsets.ModelViewSet):
         language = get_language_from_request(request)
         
         try:
+            # URLパラメータまたはクエリパラメータからproject_folderを取得
+            if not project_folder:
+                project_folder = request.query_params.get('project_folder')
             file_path = request.query_params.get('file_path')
+            
+            if not project_folder:
+                return create_error_response(
+                    'PROJECT_FOLDER_REQUIRED',
+                    language,
+                    status_code=status.HTTP_400_BAD_REQUEST
+                )
+            
             if not file_path:
                 return create_error_response(
                     'FILE_PATH_REQUIRED',
@@ -2145,3 +2159,78 @@ class TableDisplaySettingsViewSet(viewsets.ViewSet):
                 details={'error': str(e)},
                 status_code=status.HTTP_500_INTERNAL_SERVER_ERROR
             )
+    
+    @action(detail=False, methods=['get', 'post'], url_path='mouseover-settings/(?P<project_folder>[^/.]+)')
+    def mouseover_settings(self, request, project_folder=None):
+        """マウスオーバー表示設定の取得・保存"""
+        language = get_language_from_request(request)
+        
+        if request.method == 'GET':
+            try:
+                # プロジェクトフォルダのマウスオーバー設定を取得
+                settings_file = os.path.join(
+                    settings.PROJECTS_ROOT, 
+                    project_folder, 
+                    '.mouseover-settings.json'
+                )
+                
+                if os.path.exists(settings_file):
+                    with open(settings_file, 'r', encoding='utf-8') as f:
+                        mouseover_settings = json.load(f)
+                else:
+                    # デフォルト設定を返す
+                    mouseover_settings = {
+                        'displayOptions': [
+                            {
+                                'id': 'basic_info',
+                                'enabled': True,
+                                'category': 'basic',
+                                'displayPosition': 'tooltip'
+                            }
+                        ]
+                    }
+                
+                return Response({
+                    'success': True,
+                    'settings': mouseover_settings
+                })
+                
+            except Exception as e:
+                return create_error_response(
+                    'FAILED_TO_LOAD_MOUSEOVER_SETTINGS',
+                    language,
+                    details={'error': str(e)},
+                    status_code=status.HTTP_500_INTERNAL_SERVER_ERROR
+                )
+        
+        elif request.method == 'POST':
+            try:
+                # マウスオーバー設定を保存
+                settings_data = request.data
+                
+                # プロジェクトフォルダが存在するか確認
+                project_path = os.path.join(settings.PROJECTS_ROOT, project_folder)
+                if not os.path.exists(project_path):
+                    return create_error_response(
+                        'PROJECT_NOT_FOUND',
+                        language,
+                        status_code=status.HTTP_404_NOT_FOUND
+                    )
+                
+                # 設定ファイルに保存
+                settings_file = os.path.join(project_path, '.mouseover-settings.json')
+                with open(settings_file, 'w', encoding='utf-8') as f:
+                    json.dump(settings_data, f, ensure_ascii=False, indent=2)
+                
+                return Response({
+                    'success': True,
+                    'message': 'マウスオーバー設定を保存しました' if language == 'ja' else 'Mouse-over settings saved successfully'
+                })
+                
+            except Exception as e:
+                return create_error_response(
+                    'FAILED_TO_SAVE_MOUSEOVER_SETTINGS',
+                    language,
+                    details={'error': str(e)},
+                    status_code=status.HTTP_500_INTERNAL_SERVER_ERROR
+                )
