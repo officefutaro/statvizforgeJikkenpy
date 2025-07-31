@@ -313,3 +313,160 @@
 - テスト用認証情報の分離
 - 権限テストの実装
 - 入力検証の徹底確認
+
+## 12. **必須**: フロントエンド・バックエンドAPI整合性テスト
+
+### 実施タイミング
+**全てのテスト実施時に必ず以下のAPI整合性テストを実行する**
+- 新機能追加時
+- API仕様変更時
+- バグ修正時
+- 定期的なテスト実行時
+
+### テスト対象範囲
+1. **エンドポイント網羅性テスト**
+   - バックエンドに定義された全エンドポイントがフロントエンドで実装済みか
+   - フロントエンドで使用している全エンドポイントがバックエンドに存在するか
+   - doc/APIja.mdの実装状況との整合性確認
+
+2. **リクエスト・レスポンス型整合性テスト**
+   - フロントエンドの型定義（TypeScript interface）とバックエンドのシリアライザーの一致
+   - 必須フィールド、オプションフィールドの整合性
+   - データ型（string, number, boolean, array, object）の一致
+   - 日時形式、配列処理の統一性
+
+3. **HTTPメソッド・ステータスコード整合性テスト**
+   - 各エンドポイントのHTTPメソッド（GET, POST, PUT, DELETE）の一致
+   - 成功時・エラー時のステータスコードの統一
+   - エラーレスポンス形式の統一
+
+4. **API バージョニング整合性テスト**
+   - フロントエンドがcurrent APIバージョン（/api/v1/）を使用しているか
+   - 後方互換性の確認
+   - 環境変数設定の整合性
+
+### 必須実装ファイル
+```bash
+# バックエンド
+api/tests_api_contract.py        # APIコントラクトテスト
+api/tests_frontend_integration.py  # フロントエンド統合テスト
+
+# フロントエンド  
+src/tests/api-client.test.ts     # APIクライアントテスト
+src/tests/api-integration.test.ts # バックエンド統合テスト
+
+# 共通
+tests/api_schema_validation.py   # APIスキーマ検証
+tests/endpoint_coverage.test.js  # エンドポイント網羅性テスト
+```
+
+### テスト実装必須項目
+
+#### 1. エンドポイント発見テスト
+```python
+def test_all_backend_endpoints_have_frontend_client():
+    """バックエンドの全エンドポイントにフロントエンドクライアントが存在することを確認"""
+    backend_urls = extract_all_api_urls()  # URLconfから全エンドポイント取得
+    frontend_clients = extract_frontend_api_calls()  # フロントエンドから取得
+    
+    missing_in_frontend = set(backend_urls) - set(frontend_clients)
+    assert len(missing_in_frontend) == 0, f"フロントエンドに未実装: {missing_in_frontend}"
+
+def test_all_frontend_calls_have_backend_endpoint():
+    """フロントエンドの全API呼び出しにバックエンドエンドポイントが存在することを確認"""
+    # 逆方向の確認
+```
+
+#### 2. 型整合性テスト
+```typescript
+// フロントエンド側
+describe('API Type Consistency', () => {
+  test('project API response matches TypeScript interface', async () => {
+    const response = await projectAPI.getAll();
+    // レスポンス構造の検証
+    expect(response).toMatchSchema(ProjectRegistrySchema);
+    expect(response.projects[0]).toMatchSchema(ProjectSchema);
+  });
+});
+```
+
+```python
+# バックエンド側
+def test_serializer_matches_frontend_types():
+    """シリアライザーの出力がフロントエンドの型定義と一致することを確認"""
+    serializer = ProjectSerializer(instance=sample_project)
+    data = serializer.data
+    
+    # TypeScriptインターフェースとの比較
+    assert_matches_typescript_interface(data, "Project")
+```
+
+#### 3. 実際の通信テスト
+```python
+def test_frontend_backend_communication():
+    """実際のHTTP通信でフロントエンドとバックエンドの整合性を確認"""
+    # 実際のHTTPリクエストを送信
+    response = requests.get(f"{BACKEND_URL}/api/v1/projects/")
+    
+    # フロントエンドの期待する形式と一致するか
+    data = response.json()
+    assert validate_frontend_expected_format(data)
+```
+
+#### 4. 環境設定整合性テスト
+```python
+def test_api_base_url_consistency():
+    """フロントエンドとバックエンドのAPI URL設定の整合性確認"""
+    # .env.local の NEXT_PUBLIC_API_BASE_URL
+    # api-client.ts の API_BASE_URL デフォルト値
+    # バックエンドの CORS設定
+    # の整合性を確認
+```
+
+### テスト実行スクリプト
+```bash
+#!/bin/bash
+# tests/run_api_integration_tests.sh
+
+echo "=== API整合性テスト実行開始 ==="
+
+# バックエンドテスト
+echo "1. バックエンドAPIテスト実行..."
+cd app/backend && python manage.py test api.tests_api_contract
+
+# フロントエンドテスト  
+echo "2. フロントエンドAPIテスト実行..."
+cd app/frontend && npm test -- api-integration.test.ts
+
+# 結合テスト
+echo "3. API結合テスト実行..."
+python tests/api_integration_suite.py
+
+echo "=== API整合性テスト完了 ==="
+```
+
+### テスト失敗時の対応手順
+1. **型不整合**: シリアライザーまたはTypeScriptインターフェースを修正
+2. **エンドポイント不足**: 未実装側にエンドポイント追加
+3. **HTTPメソッド不一致**: 適切なメソッドに統一
+4. **URL設定エラー**: 環境変数・デフォルト値を修正
+
+### レポート生成
+```python
+# テスト結果をdoc/history/api_integration_YYYYMMDD.mdに出力
+def generate_api_integration_report():
+    """API整合性テストの結果レポートを生成"""
+    report = {
+        'test_date': datetime.now(),
+        'endpoint_coverage': calculate_coverage(),
+        'type_mismatches': find_type_mismatches(),
+        'missing_implementations': find_missing_implementations(),
+        'recommendations': generate_recommendations()
+    }
+    save_report_to_markdown(report)
+```
+
+### doc/APIja.md連携
+- テスト結果を基にAPIja.mdの「フロントエンド」「テスト結果」列を自動更新
+- 整合性チェック結果を実装状況表に反映
+- 不整合箇所は❌マークと対応必要として記録
