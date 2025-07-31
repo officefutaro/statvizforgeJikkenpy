@@ -118,7 +118,7 @@ echo "📡 バックエンドサーバーを起動中..."
 cd "$PROJECT_DIR/app/backend"
 if [[ -f "venv/bin/activate" ]]; then
     source venv/bin/activate
-    python manage.py runserver 127.0.0.1:8000 &
+    python manage.py runserver_wsl &
     BACKEND_PID=$!
     echo "✅ バックエンド起動完了 (PID: $BACKEND_PID, Port: 8000)"
 else

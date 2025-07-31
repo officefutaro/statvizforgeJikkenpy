@@ -126,13 +126,13 @@ if [[ -d "$PROJECT_DIR/app/backend" ]]; then
         source venv/bin/activate
         echo "✅ 仮想環境をアクティベート"
         
-        # バックグラウンドで起動
-        python manage.py runserver 127.0.0.1:8000 &
+        # バックグラウンドで起動（WSL2対応）
+        python manage.py runserver_wsl &
         BACKEND_PID=$!
         echo "✅ バックエンド起動 (PID: $BACKEND_PID)"
     else
         echo "⚠️  仮想環境が見つかりません"
-        python3 manage.py runserver 127.0.0.1:8000 &
+        python3 manage.py runserver_wsl &
         BACKEND_PID=$!
         echo "✅ バックエンド起動 (システムPython使用)"
     fi

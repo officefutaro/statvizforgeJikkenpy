@@ -136,7 +136,7 @@ else
     cd "$PROJECT_DIR/app/backend"
     if [[ -f "venv/bin/activate" ]]; then
         source venv/bin/activate
-        nohup python manage.py runserver 127.0.0.1:8000 > /tmp/django.log 2>&1 &
+        nohup python manage.py runserver_wsl > /tmp/django.log 2>&1 &
         BACKEND_PID=$!
         echo "✅ バックエンド起動完了 (PID: $BACKEND_PID, Port: 8000)"
         sleep 3

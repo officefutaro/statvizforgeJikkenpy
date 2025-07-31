@@ -17,8 +17,8 @@ if [ -d "venv" ]; then
     source venv/bin/activate
 fi
 
-# バックエンドをバックグラウンドで起動
-nohup python manage.py runserver 0.0.0.0:8000 > "$PROJECT_ROOT/logs/backend.log" 2>&1 &
+# バックエンドをバックグラウンドで起動（WSL2対応）
+nohup python manage.py runserver_wsl > "$PROJECT_ROOT/logs/backend.log" 2>&1 &
 BACKEND_PID=$!
 echo "バックエンドが起動しました (PID: $BACKEND_PID)"
 
