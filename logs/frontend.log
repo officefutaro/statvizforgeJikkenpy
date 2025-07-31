@@ -6,10 +6,9 @@
   - Local:        http://localhost:3000
   - Environments: .env.local
 
- ✓ Ready in 1076ms
- ✓ Compiled /test-fetch/page in 2s (433 modules)
-MSW disabled - using real backend API
- ✓ Compiled in 225ms (222 modules)
- ✓ Compiled /page in 1152ms (873 modules)
+ ✓ Ready in 1057ms
+ ○ compiling /page ...
+ ✓ Compiled /page in 3.3s (890 modules)
 MSW disabled - using real backend API
 Dashboard component rendered
+ ✓ Compiled in 372ms (450 modules)

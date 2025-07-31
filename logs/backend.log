@@ -1,9 +1,2 @@
 Watching for file changes with StatReloader
-[31/Jul/2025 10:28:20] "GET /api/v1/test/ HTTP/1.1" 200 33
-[31/Jul/2025 13:12:55] "GET /api/v1/projects/ HTTP/1.1" 200 17509
-[31/Jul/2025 13:13:04] "GET /api/v1/projects/ HTTP/1.1" 200 17509
-[31/Jul/2025 13:13:13] "GET /api/v1/test/ HTTP/1.1" 200 33
-[31/Jul/2025 13:33:00] "GET /api/v1/test/ HTTP/1.1" 200 33
-[31/Jul/2025 13:33:08] "OPTIONS /api/v1/projects/ HTTP/1.1" 200 0
-[31/Jul/2025 13:33:13] "GET /api/v1/projects/ HTTP/1.1" 200 17509
-[31/Jul/2025 14:30:39] "GET /api/v1/projects/?lang=ja HTTP/1.1" 200 17509
+[31/Jul/2025 16:31:27] "HEAD /admin/ HTTP/1.1" 302 0
