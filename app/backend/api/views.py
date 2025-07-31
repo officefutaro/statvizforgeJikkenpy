@@ -214,6 +214,19 @@ class ProjectViewSet(viewsets.ModelViewSet):
         project_json_path = project_folder / 'project.json'
         with open(project_json_path, 'w', encoding='utf-8') as f:
             json.dump(project_json_data, f, ensure_ascii=False, indent=2)
+        
+        # file_comments.jsonの初期ファイルを作成
+        from datetime import datetime
+        comments_data = {
+            'version': '1.0.0',
+            'created': datetime.now().isoformat(),
+            'last_updated': datetime.now().isoformat(),
+            'comments': {}
+        }
+        
+        comments_json_path = project_folder / 'file_comments.json'
+        with open(comments_json_path, 'w', encoding='utf-8') as f:
+            json.dump(comments_data, f, ensure_ascii=False, indent=2)
     
     def retrieve(self, request, pk=None):
         """プロジェクト詳細取得"""
@@ -247,6 +260,10 @@ class ProjectViewSet(viewsets.ModelViewSet):
                     status=status.HTTP_404_NOT_FOUND
                 )
             
+            # 現在のプロジェクト情報を取得
+            current_project = registry_data['projects'][project_index]
+            old_folder_name = current_project.get('folder_name')
+            
             # 更新データを正規化
             from datetime import datetime
             updated_data = {}
@@ -259,8 +276,16 @@ class ProjectViewSet(viewsets.ModelViewSet):
                 else:
                     updated_data[key] = value
             
+            # folder_name変更チェック
+            new_folder_name = updated_data.get('folder_name', old_folder_name)
+            folder_name_changed = old_folder_name != new_folder_name
+            
+            # フォルダ名変更時の処理
+            if folder_name_changed:
+                self._handle_folder_rename(old_folder_name, new_folder_name)
+            
             # 更新
-            updated_project = {**registry_data['projects'][project_index], **updated_data}
+            updated_project = {**current_project, **updated_data}
             updated_project['modified_date'] = datetime.now().isoformat()
             registry_data['projects'][project_index] = updated_project
             registry_data['last_updated'] = datetime.now().isoformat()
@@ -399,6 +424,39 @@ class ProjectViewSet(viewsets.ModelViewSet):
         except Exception as e:
             print(f"Failed to archive project: {e}")
             return False
+    
+    def _handle_folder_rename(self, old_folder_name, new_folder_name):
+        """フォルダ名変更時にコメントファイルとタグファイルを保持する処理"""
+        import shutil
+        from pathlib import Path
+        from config.paths import PROJECT_DATA_DIR
+        
+        old_project_folder = PROJECT_DATA_DIR / old_folder_name
+        new_project_folder = PROJECT_DATA_DIR / new_folder_name
+        
+        if not old_project_folder.exists():
+            return
+        
+        try:
+            # プロジェクトフォルダ全体を新しい名前にリネーム
+            shutil.move(str(old_project_folder), str(new_project_folder))
+            
+            # リネーム成功時、新しいフォルダ内のproject.jsonのfolder_nameを更新
+            project_json_path = new_project_folder / 'project.json'
+            if project_json_path.exists():
+                import json
+                with open(project_json_path, 'r', encoding='utf-8') as f:
+                    project_data = json.load(f)
+                
+                project_data['folder_name'] = new_folder_name
+                
+                with open(project_json_path, 'w', encoding='utf-8') as f:
+                    json.dump(project_data, f, ensure_ascii=False, indent=2)
+            
+        except Exception as e:
+            print(f"Failed to rename project folder: {e}")
+            # リネームに失敗した場合は元の状態を維持
+            raise
     
     def _delete_project_folder(self, folder_name):
         """プロジェクトフォルダを削除"""
