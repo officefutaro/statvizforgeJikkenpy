@@ -20,6 +20,11 @@ DEBUG = config('DEBUG', default=True, cast=bool)
 
 ALLOWED_HOSTS = ['*'] if DEBUG else config('ALLOWED_HOSTS', default='localhost,127.0.0.1', cast=lambda v: [s.strip() for s in v.split(',')])
 
+# WSL2対応: 開発サーバーのデフォルトバインドアドレス
+# runserver コマンドで自動的に 0.0.0.0 を使用するための設定
+RUNSERVER_DEFAULT_ADDR = '0.0.0.0'
+RUNSERVER_DEFAULT_PORT = '8000'
+
 
 # Application definition
 

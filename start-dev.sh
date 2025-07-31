@@ -31,8 +31,8 @@ fi
 BACKEND_LOG="$PROJECT_ROOT/logs/backend.log"
 mkdir -p "$PROJECT_ROOT/logs"
 
-# Django開発サーバー起動
-nohup python manage.py runserver 0.0.0.0:8000 > "$BACKEND_LOG" 2>&1 &
+# Django開発サーバー起動（WSL2対応）
+nohup python manage.py runserver_wsl > "$BACKEND_LOG" 2>&1 &
 BACKEND_PID=$!
 echo "Djangoサーバー起動 (PID: $BACKEND_PID) - ログ: $BACKEND_LOG"
 

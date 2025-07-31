@@ -36,6 +36,7 @@ APIの確認やテストに指示されたときの対応
 # プログラム修正指示時
 　CLAUDE_INSTRUCTIONS/auto_branch_workflow.md　を参照
 **プロジェクトデータ保護は　CLAUDE_INSTRUCTIONS/project_data_protection.md　参照**
+**WSL2ネットワーク設定は　CLAUDE_INSTRUCTIONS/wsl2_network_setup.md　参照**
 1. 指示毎にコミットする。  
 1. doc/history/session_YYYYMMDD.md ファイルを作成し、実施事項を追記。すでにある場合はこのファイルに追記。  
 1. **APIに関連する修正の場合**: フロントエンド・バックエンドAPI整合性テストを実施

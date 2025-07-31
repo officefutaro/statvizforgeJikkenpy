@@ -28,7 +28,7 @@ source venv/bin/activate
 BACKEND_LOG="$PROJECT_ROOT/logs/backend.log"
 mkdir -p "$PROJECT_ROOT/logs"
 
-nohup python manage.py runserver 0.0.0.0:8000 > "$BACKEND_LOG" 2>&1 &
+nohup python manage.py runserver_wsl > "$BACKEND_LOG" 2>&1 &
 BACKEND_PID=$!
 echo "$BACKEND_PID" > "$PROJECT_ROOT/.backend.pid"
 
