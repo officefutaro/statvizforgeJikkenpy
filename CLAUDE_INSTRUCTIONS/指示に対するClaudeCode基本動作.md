@@ -7,6 +7,7 @@
 # API確認時
 APIの確認やテストに指示されたときの対応
 テストは　CLAUDE_INSTRUCTIONS/test_generation_rules.md　参照
+**プロジェクトデータ保護は　CLAUDE_INSTRUCTIONS/project_data_protection.md　参照**
 1. APIの一覧を作成する。  
 1. doc/APIja.md　ほかAPIの一覧を更新  
 1. APIの命名規則や仕様をチェック。ユーザーに改善提案  
@@ -18,6 +19,10 @@ APIの確認やテストに指示されたときの対応
    - 型整合性テスト  
    - HTTPメソッド・ステータスコード整合性テスト
    - APIバージョニング整合性テスト
+1. **必須**: プロジェクトデータ保護の確認
+   - project_data_protection.md のガイドラインに従ってデータ保護を実施
+   - テスト前後でprojectフォルダの内容変更がないことを確認
+   - コメント、タグ、メタデータの消失防止策が動作することを検証
 1. doc/APIja.md　ほかAPIの一覧を更新  
 1. mainにブランチをマージし、githubにコミット＆プッシュ
 1. テストの実行  
@@ -30,12 +35,17 @@ APIの確認やテストに指示されたときの対応
 
 # プログラム修正指示時
 　CLAUDE_INSTRUCTIONS/auto_branch_workflow.md　を参照
+**プロジェクトデータ保護は　CLAUDE_INSTRUCTIONS/project_data_protection.md　参照**
 1. 指示毎にコミットする。  
 1. doc/history/session_YYYYMMDD.md ファイルを作成し、実施事項を追記。すでにある場合はこのファイルに追記。  
 1. **APIに関連する修正の場合**: フロントエンド・バックエンドAPI整合性テストを実施
    - test_generation_rules.md の「## 12. 必須: フロントエンド・バックエンドAPI整合性テスト」に従って実行
    - 修正がAPIに影響する場合は必ずテスト実行
    - 結果をdoc/history/api_integration_YYYYMMDD.mdに記録
+1. **プロジェクトデータに影響する修正の場合**: プロジェクトデータ保護を確認
+   - project_data_protection.md のガイドラインに従ってデータ保護策を適用
+   - プロジェクト作成・更新・削除処理の修正時は特に注意
+   - コメント、タグ、メタデータの保護が適切に動作することを確認
 1. ユーザーに確認を促すときは全てのサービスをシャットダウンし、新規プロセスで試す。  
 1. ユーザーから確認を依頼された場合も同様に全てのサービスをシャットダウンし、新規プロセスで試す。  
 
