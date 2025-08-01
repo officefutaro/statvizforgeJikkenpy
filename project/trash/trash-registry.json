@@ -1,6 +1,6 @@
 {
   "version": "1.0.0",
-  "last_updated": "2025-07-31T08:45:05.549438",
+  "last_updated": "2025-08-01T13:30:09.982668",
   "deleted_projects": [
     {
       "id": "82886a55-fe6c-4559-9dfa-27aeb21e924e",
@@ -213,6 +213,30 @@
       "archive_size": 380,
       "deletion_date": "2025-07-31T08:45:05.549434",
       "original_created_date": "2025-07-31T08:45:05.545338",
+      "tags": [],
+      "description": "更新された説明"
+    },
+    {
+      "id": "c1c7070c-ea43-421b-837e-5f834ee245aa",
+      "folder_name": "TestProject_c1c7070c",
+      "project_name": "test_project_c1c7070c",
+      "archive_filename": "TestProject_c1c7070c_20250801_132946.zip",
+      "archive_size": 954,
+      "deletion_date": "2025-08-01T13:29:46.408424",
+      "original_created_date": null,
+      "tags": [
+        "test"
+      ],
+      "description": "テストプロジェクト"
+    },
+    {
+      "id": "7d60709a-7120-422b-b2e4-83aea3f78d9b",
+      "folder_name": "frontend_integration_test",
+      "project_name": "更新されたプロジェクト名",
+      "archive_filename": "frontend_integration_test_20250801_133009.zip",
+      "archive_size": 634,
+      "deletion_date": "2025-08-01T13:30:09.982663",
+      "original_created_date": "2025-08-01T13:30:09.977721",
       "tags": [],
       "description": "更新された説明"
     }

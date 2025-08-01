@@ -1,14 +1,82 @@
 Watching for file changes with StatReloader
-[31/Jul/2025 16:51:05] "HEAD /api/v1/projects/ HTTP/1.1" 200 0
+Not Found: /api/projects/list
+[01/Aug/2025 11:46:54] "GET /api/projects/list HTTP/1.1" 404 21186
+[01/Aug/2025 11:47:33] "OPTIONS /api/v1/projects/?lang=ja HTTP/1.1" 200 0
+[01/Aug/2025 11:47:33] "OPTIONS /api/v1/projects/?lang=ja HTTP/1.1" 200 0
+[01/Aug/2025 11:47:34] "GET /api/v1/projects/?lang=ja HTTP/1.1" 200 17500
+[01/Aug/2025 11:47:34] "GET /api/v1/projects/?lang=ja HTTP/1.1" 200 17500
+[01/Aug/2025 11:47:45] "GET /api/v1/files/tree/Yachin/ HTTP/1.1" 200 337
+[01/Aug/2025 11:47:45] "GET /api/v1/files/tree/Yachin/ HTTP/1.1" 200 337
+Not Found: /api/projects
+[01/Aug/2025 11:47:45] "GET /api/projects HTTP/1.1" 404 21175
+Not Found: /api/projects
+[01/Aug/2025 11:47:45] "GET /api/projects HTTP/1.1" 404 21175
+[01/Aug/2025 11:47:52] "GET /api/v1/files/descriptions/Yachin/?file_path=%E3%82%A2%E3%83%91%E3%83%BC%E3%83%88%E3%81%AE%E5%AE%B6%E8%B3%83.csv HTTP/1.1" 200 18
+[01/Aug/2025 11:47:52] "GET /api/v1/files/tags/Yachin?file_path=%E3%82%A2%E3%83%91%E3%83%BC%E3%83%88%E3%81%AE%E5%AE%B6%E8%B3%83.csv HTTP/1.1" 200 46
+[01/Aug/2025 11:47:55] "GET /api/v1/files/tags/Yachin/?file_path=%E3%82%A2%E3%83%91%E3%83%BC%E3%83%88%E3%81%AE%E5%AE%B6%E8%B3%83.csv HTTP/1.1" 200 46
+[01/Aug/2025 11:47:55] "GET /api/v1/files/column-types/Yachin/?file_path=%E3%82%A2%E3%83%91%E3%83%BC%E3%83%88%E3%81%AE%E5%AE%B6%E8%B3%83.csv HTTP/1.1" 200 242
+[01/Aug/2025 11:47:55] "GET /api/v1/files/table/Yachin/?file_path=%E3%82%A2%E3%83%91%E3%83%BC%E3%83%88%E3%81%AE%E5%AE%B6%E8%B3%83.csv HTTP/1.1" 200 26826
+[01/Aug/2025 11:47:55] "GET /api/v1/files/table/Yachin/?file_path=%E3%82%A2%E3%83%91%E3%83%BC%E3%83%88%E3%81%AE%E5%AE%B6%E8%B3%83.csv HTTP/1.1" 200 26826
+[01/Aug/2025 11:47:55] "GET /api/v1/files/column-types/Yachin/?file_path=%E3%82%A2%E3%83%91%E3%83%BC%E3%83%88%E3%81%AE%E5%AE%B6%E8%B3%83.csv HTTP/1.1" 200 242
+Internal Server Error: /api/v1/table-settings/mouseover-settings/Yachin/
+[01/Aug/2025 11:48:00] "GET /api/v1/table-settings/mouseover-settings/Yachin/ HTTP/1.1" 500 183
+Internal Server Error: /api/v1/table-settings/mouseover-settings/Yachin/
+[01/Aug/2025 11:48:00] "GET /api/v1/table-settings/mouseover-settings/Yachin/ HTTP/1.1" 500 183
+[01/Aug/2025 11:49:05] "GET /api/v1/files/tree/Yachin/ HTTP/1.1" 200 337
+Not Found: /api/projects
+[01/Aug/2025 11:49:05] "GET /api/projects HTTP/1.1" 404 21175
+Not Found: /api/projects
+[01/Aug/2025 11:49:05] "GET /api/projects HTTP/1.1" 404 21175
+[01/Aug/2025 11:49:05] "GET /api/v1/files/tree/Yachin/ HTTP/1.1" 200 337
+[01/Aug/2025 11:49:06] "GET /api/v1/files/column-types/Yachin/?file_path=%E3%82%A2%E3%83%91%E3%83%BC%E3%83%88%E3%81%AE%E5%AE%B6%E8%B3%83.csv HTTP/1.1" 200 242
+[01/Aug/2025 11:49:06] "GET /api/v1/files/table/Yachin/?file_path=%E3%82%A2%E3%83%91%E3%83%BC%E3%83%88%E3%81%AE%E5%AE%B6%E8%B3%83.csv HTTP/1.1" 200 26826
+[01/Aug/2025 11:49:06] "GET /api/v1/files/table/Yachin/?file_path=%E3%82%A2%E3%83%91%E3%83%BC%E3%83%88%E3%81%AE%E5%AE%B6%E8%B3%83.csv HTTP/1.1" 200 26826
+[01/Aug/2025 11:49:06] "GET /api/v1/files/column-types/Yachin/?file_path=%E3%82%A2%E3%83%91%E3%83%BC%E3%83%88%E3%81%AE%E5%AE%B6%E8%B3%83.csv HTTP/1.1" 200 242
+Internal Server Error: /api/v1/table-settings/mouseover-settings/Yachin/
+[01/Aug/2025 11:49:10] "GET /api/v1/table-settings/mouseover-settings/Yachin/ HTTP/1.1" 500 183
+Internal Server Error: /api/v1/table-settings/mouseover-settings/Yachin/
+[01/Aug/2025 11:49:10] "GET /api/v1/table-settings/mouseover-settings/Yachin/ HTTP/1.1" 500 183
+[01/Aug/2025 11:50:14] "GET /api/v1/projects/?lang=ja HTTP/1.1" 200 17500
+[01/Aug/2025 11:50:14] "GET /api/v1/projects/?lang=ja HTTP/1.1" 200 17500
+[01/Aug/2025 11:50:17] "GET /api/v1/files/tree/Yachin/ HTTP/1.1" 200 337
+Not Found: /api/projects
+[01/Aug/2025 11:50:17] "GET /api/projects HTTP/1.1" 404 21175
+Not Found: /api/projects
+[01/Aug/2025 11:50:17] "GET /api/projects HTTP/1.1" 404 21175
+[01/Aug/2025 11:50:17] "GET /api/v1/files/tree/Yachin/ HTTP/1.1" 200 337
+[01/Aug/2025 11:50:20] "GET /api/v1/files/descriptions/Yachin/?file_path=%E3%82%A2%E3%83%91%E3%83%BC%E3%83%88%E3%81%AE%E5%AE%B6%E8%B3%83.csv HTTP/1.1" 200 18
+[01/Aug/2025 11:50:20] "GET /api/v1/files/tags/Yachin?file_path=%E3%82%A2%E3%83%91%E3%83%BC%E3%83%88%E3%81%AE%E5%AE%B6%E8%B3%83.csv HTTP/1.1" 200 46
+[01/Aug/2025 11:50:25] "GET /api/v1/files/tags/Yachin/?file_path=%E3%82%A2%E3%83%91%E3%83%BC%E3%83%88%E3%81%AE%E5%AE%B6%E8%B3%83.csv HTTP/1.1" 200 46
+[01/Aug/2025 11:50:25] "GET /api/v1/files/column-types/Yachin/?file_path=%E3%82%A2%E3%83%91%E3%83%BC%E3%83%88%E3%81%AE%E5%AE%B6%E8%B3%83.csv HTTP/1.1" 200 242
+[01/Aug/2025 11:50:25] "GET /api/v1/files/table/Yachin/?file_path=%E3%82%A2%E3%83%91%E3%83%BC%E3%83%88%E3%81%AE%E5%AE%B6%E8%B3%83.csv HTTP/1.1" 200 26826
+[01/Aug/2025 11:50:25] "GET /api/v1/files/table/Yachin/?file_path=%E3%82%A2%E3%83%91%E3%83%BC%E3%83%88%E3%81%AE%E5%AE%B6%E8%B3%83.csv HTTP/1.1" 200 26826
+[01/Aug/2025 11:50:25] "GET /api/v1/files/column-types/Yachin/?file_path=%E3%82%A2%E3%83%91%E3%83%BC%E3%83%88%E3%81%AE%E5%AE%B6%E8%B3%83.csv HTTP/1.1" 200 242
 /home/futaro/project/StatVizForge_JikkenPy/app/backend/config/settings.py changed, reloading.
 [Registry Validator] プロジェクトレジストリの整合性確認を開始...
-[Registry Validator] レジストリは正常です
+[Registry Validator] 整合性確認完了:
+  - 孤立フォルダからプロジェクトを復元: comprehensive_test_948692de
+  - 孤立フォルダからプロジェクトを復元: perf_test_project_2
+  - 孤立フォルダからプロジェクトを復元: perf_test_project_4
+  - 孤立フォルダからプロジェクトを復元: comprehensive_test_6ab01389
+  - 孤立フォルダからプロジェクトを復元: comprehensive_test_e01c9ace
+  - 孤立フォルダからプロジェクトを復元: perf_test_project_0
+  - 孤立フォルダからプロジェクトを復元: perf_test_project_1
+  - 孤立フォルダからプロジェクトを復元: comprehensive_test_eed85e02
+  - 孤立フォルダからプロジェクトを復元: perf_test_project_3
+  - 孤立フォルダからプロジェクトを復元: comprehensive_test_0c15a5af
+  - 孤立フォルダからプロジェクトを復元: comprehensive_test_62a95ab1
+  - 孤立フォルダからプロジェクトを復元: test_project_4f1b6ebf
+  - レジストリファイルを更新しました
 Starting archive cleanup...
 Archive cleanup completed. Deleted 0 expired archives.
+🌐 WSL2対応モードで起動 - Windows Chromeからアクセス可能
+✅ サーバーが0.0.0.0でバインドされます
+  WSL内: http://localhost:8000
+  Windows: http://localhost:8000 または http://WSL_IP:8000
 Performing system checks...
 
 System check identified no issues (0 silenced).
-July 31, 2025 - 16:48:48
+August 01, 2025 - 11:46:49
 Django version 5.2.4, using settings 'config.settings'
 Starting development server at http://0.0.0.0:8000/
 Quit the server with CONTROL-C.
@@ -16,4 +84,5 @@ Quit the server with CONTROL-C.
 WARNING: This is a development server. Do not use it in a production setting. Use a production WSGI or ASGI server instead.
 For more information on production servers see: https://docs.djangoproject.com/en/5.2/howto/deployment/
 Watching for file changes with StatReloader
-[31/Jul/2025 17:02:38] "GET /api/v1/projects/ HTTP/1.1" 200 17509
+[01/Aug/2025 11:54:08] "GET /api/v1/table-settings/mouseover-settings/Yachin/ HTTP/1.1" 200 130
+[01/Aug/2025 13:07:51] "GET /api/v1/table-settings/mouseover-settings/Yachin/ HTTP/1.1" 200 1267

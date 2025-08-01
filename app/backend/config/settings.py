@@ -178,6 +178,9 @@ REST_FRAMEWORK = {
     }
 }
 
+# プロジェクトデータ保存先
+PROJECTS_ROOT = BASE_DIR.parent.parent / 'project'
+
 # Media files
 MEDIA_URL = '/media/'
 MEDIA_ROOT = BASE_DIR / 'media'

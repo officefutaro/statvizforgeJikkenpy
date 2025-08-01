@@ -1,0 +1,68 @@
+{
+  "version": "1.0.0",
+  "last_updated": "2025-08-01T12:00:00Z",
+  "displayOptions": [
+    {
+      "id": "basic_info",
+      "enabled": true,
+      "category": "basic",
+      "displayPosition": "tooltip",
+      "name": "基本情報",
+      "description": "データ型、値の範囲など"
+    },
+    {
+      "id": "statistics",
+      "enabled": true,
+      "category": "statistics",
+      "displayPosition": "sidebar",
+      "name": "統計情報",
+      "description": "平均、中央値、標準偏差など",
+      "options": {
+        "showMean": true,
+        "showMedian": true,
+        "showStdDev": true,
+        "showQuartiles": true,
+        "showSkewness": false,
+        "showKurtosis": false,
+        "showMin": true,
+        "showMax": true,
+        "showCount": true,
+        "showNullCount": true
+      }
+    },
+    {
+      "id": "distribution",
+      "enabled": false,
+      "category": "advanced",
+      "displayPosition": "overlay",
+      "name": "分布情報",
+      "description": "ヒストグラム、パーセンタイルなど",
+      "options": {
+        "showHistogram": true,
+        "showPercentiles": true,
+        "showOutliers": true
+      }
+    },
+    {
+      "id": "data_quality",
+      "enabled": false,
+      "category": "quality",
+      "displayPosition": "overlay",
+      "name": "データ品質",
+      "description": "欠損値、異常値の検出",
+      "options": {
+        "showMissingValues": true,
+        "showOutliers": true,
+        "showDuplicates": false
+      }
+    }
+  ],
+  "globalSettings": {
+    "defaultDisplayMode": "tooltip",
+    "animationEnabled": true,
+    "showOnlyForNumericColumns": false,
+    "delayMs": 300,
+    "maxDisplayItems": 10,
+    "theme": "light"
+  }
+}
