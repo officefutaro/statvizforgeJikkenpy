@@ -1,40 +1,53 @@
 # エラー報告クイックリファレンス
 
-## Windowsからの保存パス
+## 📸 Windowsからの保存（シンプル！）
 
 ### エクスプローラーでアクセス
 ```
 \\wsl$\Ubuntu\home\futaro\project\StatVizForge_JikkenPy\error-reports\screenshots\
 ```
 
-## よく使うフォルダ
+**保存場所は1箇所だけ！** 全てのスクリーンショットを上記フォルダに保存してください。
 
-### フロントエンドエラー
-- **重大**: `\\wsl$\Ubuntu\home\futaro\project\StatVizForge_JikkenPy\error-reports\screenshots\frontend\critical\`
-- **高**: `\\wsl$\Ubuntu\home\futaro\project\StatVizForge_JikkenPy\error-reports\screenshots\frontend\high\`
-- **中**: `\\wsl$\Ubuntu\home\futaro\project\StatVizForge_JikkenPy\error-reports\screenshots\frontend\medium\`
-
-### バックエンドエラー  
-- **重大**: `\\wsl$\Ubuntu\home\futaro\project\StatVizForge_JikkenPy\error-reports\screenshots\backend\critical\`
-- **高**: `\\wsl$\Ubuntu\home\futaro\project\StatVizForge_JikkenPy\error-reports\screenshots\backend\high\`
-
-### UIエラー
-- **高**: `\\wsl$\Ubuntu\home\futaro\project\StatVizForge_JikkenPy\error-reports\screenshots\ui\high\`
-- **中**: `\\wsl$\Ubuntu\home\futaro\project\StatVizForge_JikkenPy\error-reports\screenshots\ui\medium\`
-
-## ファイル名の付け方
+## 📝 ファイル名の付け方
 
 ```
-20250802_143022_frontend_login-button-broken.png
-20250802_143055_backend_api-500-error.png
-20250802_143112_ui_modal-not-opening.png
+20250802_143022_login-button-broken.png
+20250802_143055_api-timeout-error.png
+20250802_143112_modal-not-opening.png
 ```
 
-**形式**: `YYYYMMDD_HHMMSS_[カテゴリ]_[問題の説明].png`
+**形式**: `YYYYMMDD_HHMMSS_[問題の説明].png`
 
-## 優先度判断
+## 🤖 ClaudeCodeへの相談方法
 
-- **🔴 Critical**: アプリが使えない
-- **🟠 High**: 重要な機能が使えない  
-- **🟡 Medium**: 一部の機能に問題
-- **🟢 Low**: 見た目や軽微な問題
+### 基本形式
+```
+「error-reports/screenshots/[ファイル名] のエラーを解決してください」
+
+状況：
+- [何をしようとしていたか]
+- [どんなエラーが発生したか]
+- [いつから発生しているか]
+```
+
+### 相談例
+```
+「error-reports/screenshots/20250802_143022_project-error.png を見てください。
+
+プロジェクト作成時にこのエラーが発生します。
+昨日まで正常に動作していました。」
+```
+
+## ⚡ メリット
+
+- **手間なし**: フォルダ分類不要、一箇所に保存だけ
+- **AI分析**: ClaudeCodeが文脈から自動でエラー分析
+- **効率化**: 迅速なバグ報告と解決
+
+## 🎯 ClaudeCodeが自動判断
+
+- エラーの種類（フロントエンド/バックエンド/UI等）
+- 重要度（Critical/High/Medium/Low）  
+- 原因の推定
+- 解決手順の提案
