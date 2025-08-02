@@ -77,8 +77,8 @@ git checkout -b "$BRANCH_NAME" || git checkout "$BRANCH_NAME"
 
 # サービス起動
 log "開発環境起動中..." "$YELLOW"
-./stop-dev.sh || true
-./start-dev.sh
+../stop-dev.sh || true
+../start-dev.sh
 
 # 起動待機
 sleep 10
