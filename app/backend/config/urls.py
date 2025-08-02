@@ -9,7 +9,6 @@ from django.conf.urls.static import static
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/v1/', include('api.urls')),  # APIバージョン1
-    path('api/', include('api.urls')),  # 後方互換性のため一時的に保持
 ]
 
 if settings.DEBUG:

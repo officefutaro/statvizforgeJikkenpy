@@ -81,18 +81,18 @@
 ### Project
 
 **TypeScriptに不足**:
+- _
 - l
 - a
-- _
 **Djangoに不足**:
 - folder_name
-- description
-- created_date
-- status
+- id
 - tags
 - project_name
+- status
 - modified_date
-- id
+- created_date
+- description
 
 ## 改善提案
 

@@ -1,6 +1,6 @@
 {
   "version": "1.0.0",
-  "last_updated": "2025-08-01T13:30:09.982668",
+  "last_updated": "2025-08-01T15:13:28.462338",
   "deleted_projects": [
     {
       "id": "82886a55-fe6c-4559-9dfa-27aeb21e924e",
@@ -237,6 +237,132 @@
       "archive_size": 634,
       "deletion_date": "2025-08-01T13:30:09.982663",
       "original_created_date": "2025-08-01T13:30:09.977721",
+      "tags": [],
+      "description": "更新された説明"
+    },
+    {
+      "id": "a8487a69-08dd-49a7-9322-c08514e0408e",
+      "folder_name": "TestProject_a8487a69",
+      "project_name": "test_project_a8487a69",
+      "archive_filename": "TestProject_a8487a69_20250801_140454.zip",
+      "archive_size": 953,
+      "deletion_date": "2025-08-01T14:04:54.744675",
+      "original_created_date": null,
+      "tags": [
+        "test"
+      ],
+      "description": "テストプロジェクト"
+    },
+    {
+      "id": "d55891fa-3a4a-40f7-8738-fe3450677567",
+      "folder_name": "frontend_integration_test",
+      "project_name": "更新されたプロジェクト名",
+      "archive_filename": "frontend_integration_test_20250801_140459.zip",
+      "archive_size": 634,
+      "deletion_date": "2025-08-01T14:04:59.032744",
+      "original_created_date": "2025-08-01T14:04:59.028197",
+      "tags": [],
+      "description": "更新された説明"
+    },
+    {
+      "id": "018a70be-de04-432b-87c1-0d81a98c9e72",
+      "folder_name": "frontend_integration_test",
+      "project_name": "更新されたプロジェクト名",
+      "archive_filename": "frontend_integration_test_20250801_140546.zip",
+      "archive_size": 634,
+      "deletion_date": "2025-08-01T14:05:46.280402",
+      "original_created_date": "2025-08-01T14:05:46.268632",
+      "tags": [],
+      "description": "更新された説明"
+    },
+    {
+      "id": "011e165c-c154-4c68-a319-a9cd6139eae4",
+      "folder_name": "comprehensive_test_948692de",
+      "project_name": "包括テストプロジェクト",
+      "archive_filename": "comprehensive_test_948692de_20250801_141159.zip",
+      "archive_size": 388,
+      "deletion_date": "2025-08-01T14:11:59.304809",
+      "original_created_date": "2025-07-30T08:20:43.002474",
+      "tags": [
+        "test",
+        "comprehensive"
+      ],
+      "description": "全APIテスト用プロジェクト"
+    },
+    {
+      "id": "75786d78-543a-4a02-90da-19e900c75c22",
+      "folder_name": "comment_test",
+      "project_name": "コメントテスト",
+      "archive_filename": "comment_test_20250801_141204.zip",
+      "archive_size": 319,
+      "deletion_date": "2025-08-01T14:12:04.185997",
+      "original_created_date": "2025-07-31T08:44:31.396815",
+      "tags": [],
+      "description": "コメント管理統合テスト"
+    },
+    {
+      "id": "1735b6ba-e4db-44cd-a74d-759805e3e459",
+      "folder_name": "file_management_test",
+      "project_name": "ファイル管理テスト",
+      "archive_filename": "file_management_test_20250801_141207.zip",
+      "archive_size": 346,
+      "deletion_date": "2025-08-01T14:12:07.248487",
+      "original_created_date": "2025-07-31T08:44:31.404658",
+      "tags": [],
+      "description": "ファイル管理統合テスト"
+    },
+    {
+      "id": "96ece226-a401-4153-9c7d-927f84eb4248",
+      "folder_name": "file_perf_test",
+      "project_name": "ファイルパフォーマンステスト",
+      "archive_filename": "file_perf_test_20250801_141957.zip",
+      "archive_size": 337,
+      "deletion_date": "2025-08-01T14:19:57.027930",
+      "original_created_date": "2025-07-31T08:41:49.910970",
+      "tags": [],
+      "description": "ファイル操作パフォーマンステスト"
+    },
+    {
+      "id": "282b0127-fd49-4fb0-8f71-1e32fbf6c359",
+      "folder_name": "perf_test_project_2",
+      "project_name": "パフォーマンステスト2",
+      "archive_filename": "perf_test_project_2_20250801_142002.zip",
+      "archive_size": 353,
+      "deletion_date": "2025-08-01T14:20:02.487245",
+      "original_created_date": "2025-07-31T08:41:49.900989",
+      "tags": [],
+      "description": "パフォーマンステスト用プロジェクト"
+    },
+    {
+      "id": "51ab09b7-068d-4309-bbc9-0dd1f3cbd1cd",
+      "folder_name": "perf_test_project_4",
+      "project_name": "パフォーマンステスト4",
+      "archive_filename": "perf_test_project_4_20250801_142006.zip",
+      "archive_size": 353,
+      "deletion_date": "2025-08-01T14:20:06.660930",
+      "original_created_date": "2025-07-31T08:41:49.903879",
+      "tags": [],
+      "description": "パフォーマンステスト用プロジェクト"
+    },
+    {
+      "id": "55b04edd-5e12-4329-98ae-a25092482d6a",
+      "folder_name": "frontend_integration_test",
+      "project_name": "更新されたプロジェクト名",
+      "archive_filename": "frontend_integration_test_20250801_151250.zip",
+      "archive_size": 634,
+      "deletion_date": "2025-08-01T15:12:50.381737",
+      "original_created_date": "2025-08-01T15:12:50.376784",
+      "tags": [],
+      "description": "更新された説明"
+    },
+    {
+      "id": "6d374a3a-78fd-475b-b199-77970b337919",
+      "folder_name": "frontend_integration_test",
+      "project_name": "更新されたプロジェクト名",
+      "archive_filename": "frontend_integration_test_20250801_151328.zip",
+      "archive_size": 633,
+      "deletion_date": "2025-08-01T15:13:28.462334",
+      "original_created_date": "2025-08-01T15:13:28.458400",
       "tags": [],
       "description": "更新された説明"
     }

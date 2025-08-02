@@ -1,0 +1,135 @@
+{
+  "fullTest": {
+    "name": "夜間フルテスト",
+    "description": "完全な品質保証と自動修正を行う夜間実行テスト",
+    "schedule": {
+      "recommended": "00:00-06:00",
+      "frequency": "weekly or after major changes"
+    },
+    "timeLimit": null,
+    "includeHeadTest": true,
+    "testSuites": {
+      "unit": {
+        "backend": {
+          "enabled": true,
+          "command": "python3 manage.py test --parallel",
+          "timeout": 3600
+        },
+        "frontend": {
+          "enabled": true,
+          "command": "npm test -- --coverage --watchAll=false",
+          "timeout": 3600
+        }
+      },
+      "integration": {
+        "enabled": true,
+        "tests": [
+          "api_integration_test.py",
+          "project_data_protection_test.py"
+        ],
+        "timeout": 3600
+      },
+      "e2e": {
+        "headless": {
+          "enabled": true,
+          "command": "npm run test:e2e",
+          "timeout": 10800
+        },
+        "headed": {
+          "enabled": true,
+          "command": "npm run test:e2e -- --headed",
+          "timeout": 10800
+        }
+      },
+      "performance": {
+        "enabled": true,
+        "metrics": [
+          "api_response_time",
+          "page_load_time",
+          "memory_usage"
+        ]
+      },
+      "security": {
+        "enabled": true,
+        "checks": [
+          "dependency_vulnerabilities",
+          "security_headers",
+          "input_validation"
+        ]
+      }
+    },
+    "autoFix": {
+      "enabled": true,
+      "categories": {
+        "lint": {
+          "enabled": true,
+          "tools": ["eslint", "prettier"],
+          "requiresPermission": false
+        },
+        "typeError": {
+          "enabled": true,
+          "tools": ["typescript"],
+          "requiresPermission": false
+        },
+        "testId": {
+          "enabled": true,
+          "description": "data-testid属性の自動追加",
+          "requiresPermission": false
+        },
+        "documentation": {
+          "enabled": true,
+          "targets": ["API仕様書", "型定義"],
+          "requiresPermission": false
+        },
+        "configuration": {
+          "enabled": true,
+          "description": "設定ファイルの正規化",
+          "requiresPermission": false
+        },
+        "apiChanges": {
+          "enabled": false,
+          "description": "APIエンドポイントの変更",
+          "requiresPermission": true
+        },
+        "schemaChanges": {
+          "enabled": false,
+          "description": "データベーススキーマの変更",
+          "requiresPermission": true
+        },
+        "performanceOptimization": {
+          "enabled": false,
+          "description": "クエリ最適化、キャッシュ追加",
+          "requiresPermission": true
+        },
+        "fileCleanup": {
+          "enabled": false,
+          "description": "未使用ファイルの削除",
+          "requiresPermission": true
+        }
+      }
+    },
+    "notification": {
+      "onStart": false,
+      "onComplete": true,
+      "onError": true,
+      "channels": ["log", "console"]
+    },
+    "backup": {
+      "enabled": true,
+      "keepDays": 7,
+      "includeProjectData": true
+    },
+    "git": {
+      "autoCommit": true,
+      "autoPush": true,
+      "commitMessage": "夜間フルテスト実行と自動修正 - {date}",
+      "branchStrategy": "create-merge-delete"
+    },
+    "output": {
+      "testResults": "doc/history/full_test_{date}.md",
+      "pendingFixes": "doc/history/pending_fixes_{date}.md",
+      "logs": "logs/full-test-{date}.log",
+      "screenshots": "test-results/full-test-{date}/"
+    }
+  }
+}

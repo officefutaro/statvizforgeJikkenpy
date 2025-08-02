@@ -1,0 +1,39 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "Start Claude Code in tmux",
+      "type": "shell",
+      "command": "bash",
+      "args": [
+        "-c",
+        "tmux has-session -t claude-code 2>/dev/null || tmux new-session -d -s claude-code 'claude-code'"
+      ],
+      "group": "build",
+      "presentation": {
+        "echo": true,
+        "reveal": "always",
+        "focus": false,
+        "panel": "new"
+      },
+      "runOptions": {
+        "runOn": "folderOpen"
+      },
+      "problemMatcher": []
+    },
+    {
+      "label": "Attach to Claude Code tmux session",
+      "type": "shell",
+      "command": "tmux",
+      "args": ["attach-session", "-t", "claude-code"],
+      "group": "build",
+      "presentation": {
+        "echo": true,
+        "reveal": "always",
+        "focus": true,
+        "panel": "new"
+      },
+      "problemMatcher": []
+    }
+  ]
+}

@@ -1,6 +1,6 @@
 {
   "version": "1.0.0",
-  "last_updated": "2025-08-01T13:30:09.983017",
+  "last_updated": "2025-08-01T19:31:46.799498",
   "retention_months": 13,
   "projects": [
     {
@@ -46,69 +46,6 @@
       "modified_date": "2025-07-31T08:33:40.634262",
       "status": "active",
       "tags": []
-    },
-    {
-      "folder_name": "file_perf_test",
-      "project_name": "ファイルパフォーマンステスト",
-      "description": "ファイル操作パフォーマンステスト",
-      "id": "96ece226-a401-4153-9c7d-927f84eb4248",
-      "created_date": "2025-07-31T08:41:49.910970",
-      "modified_date": "2025-07-31T08:41:49.910970",
-      "status": "active",
-      "tags": []
-    },
-    {
-      "folder_name": "comment_test",
-      "project_name": "コメントテスト",
-      "description": "コメント管理統合テスト",
-      "id": "75786d78-543a-4a02-90da-19e900c75c22",
-      "created_date": "2025-07-31T08:44:31.396815",
-      "modified_date": "2025-07-31T08:44:31.396815",
-      "status": "active",
-      "tags": []
-    },
-    {
-      "folder_name": "file_management_test",
-      "project_name": "ファイル管理テスト",
-      "description": "ファイル管理統合テスト",
-      "id": "1735b6ba-e4db-44cd-a74d-759805e3e459",
-      "created_date": "2025-07-31T08:44:31.404658",
-      "modified_date": "2025-07-31T08:44:31.404658",
-      "status": "active",
-      "tags": []
-    },
-    {
-      "id": "011e165c-c154-4c68-a319-a9cd6139eae4",
-      "folder_name": "comprehensive_test_948692de",
-      "project_name": "包括テストプロジェクト",
-      "description": "全APIテスト用プロジェクト",
-      "tags": [
-        "test",
-        "comprehensive"
-      ],
-      "status": "active",
-      "created_date": "2025-07-30T08:20:43.002474",
-      "modified_date": "2025-08-01T11:46:49.538161"
-    },
-    {
-      "id": "282b0127-fd49-4fb0-8f71-1e32fbf6c359",
-      "folder_name": "perf_test_project_2",
-      "project_name": "パフォーマンステスト2",
-      "description": "パフォーマンステスト用プロジェクト",
-      "tags": [],
-      "status": "active",
-      "created_date": "2025-07-31T08:41:49.900989",
-      "modified_date": "2025-08-01T11:46:49.538560"
-    },
-    {
-      "id": "51ab09b7-068d-4309-bbc9-0dd1f3cbd1cd",
-      "folder_name": "perf_test_project_4",
-      "project_name": "パフォーマンステスト4",
-      "description": "パフォーマンステスト用プロジェクト",
-      "tags": [],
-      "status": "active",
-      "created_date": "2025-07-31T08:41:49.903879",
-      "modified_date": "2025-08-01T11:46:49.538761"
     },
     {
       "id": "61168f87-6fd6-421e-92db-46ed775d73a7",
@@ -214,6 +151,56 @@
       "status": "active",
       "created_date": "2025-07-29T09:43:02.366552",
       "modified_date": "2025-08-01T11:46:49.540865"
+    },
+    {
+      "folder_name": "comment_test",
+      "project_name": "コメントテスト",
+      "description": "コメント管理統合テスト",
+      "id": "20ecf1ff-680d-4055-94a5-5ad58b91d90d",
+      "created_date": "2025-08-01T15:12:50.358714",
+      "modified_date": "2025-08-01T15:12:50.358714",
+      "status": "active",
+      "tags": []
+    },
+    {
+      "folder_name": "file_management_test",
+      "project_name": "ファイル管理テスト",
+      "description": "ファイル管理統合テスト",
+      "id": "7d256b13-5a22-401e-93b7-f830c0a955a2",
+      "created_date": "2025-08-01T15:12:50.366937",
+      "modified_date": "2025-08-01T15:12:50.366937",
+      "status": "active",
+      "tags": []
+    },
+    {
+      "folder_name": "perf_test_project_2",
+      "project_name": "パフォーマンステスト2",
+      "description": "パフォーマンステスト用プロジェクト",
+      "id": "fa063ed4-5efe-4f26-bea8-e09dfdfb0bef",
+      "created_date": "2025-08-01T15:13:28.464626",
+      "modified_date": "2025-08-01T15:13:28.464626",
+      "status": "active",
+      "tags": []
+    },
+    {
+      "folder_name": "perf_test_project_4",
+      "project_name": "パフォーマンステスト4",
+      "description": "パフォーマンステスト用プロジェクト",
+      "id": "bcef3002-7dd8-461a-a764-101dfaac6d06",
+      "created_date": "2025-08-01T15:13:28.466154",
+      "modified_date": "2025-08-01T15:13:28.466154",
+      "status": "active",
+      "tags": []
+    },
+    {
+      "folder_name": "file_perf_test",
+      "project_name": "ファイルパフォーマンステスト",
+      "description": "ファイル操作パフォーマンステスト",
+      "id": "14d5705e-3298-48dc-a3a9-505a48bde626",
+      "created_date": "2025-08-01T15:13:28.472612",
+      "modified_date": "2025-08-01T15:13:28.472612",
+      "status": "active",
+      "tags": []
     }
   ],
   "archived_projects": [
@@ -522,6 +509,159 @@
       "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/frontend_integration_test_20250801_133009.zip",
       "archive_size": 634,
       "deletion_date": "2025-08-01T13:30:09.983013",
+      "reason": "ユーザー削除"
+    },
+    {
+      "folder_name": "frontend_integration_test",
+      "project_name": "更新されたプロジェクト名",
+      "description": "更新された説明",
+      "id": "d55891fa-3a4a-40f7-8738-fe3450677567",
+      "created_date": "2025-08-01T14:04:59.028197",
+      "modified_date": "2025-08-01T14:04:59.030562",
+      "status": "active",
+      "tags": [],
+      "archive_filename": "frontend_integration_test_20250801_140459.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/frontend_integration_test_20250801_140459.zip",
+      "archive_size": 634,
+      "deletion_date": "2025-08-01T14:04:59.033060",
+      "reason": "ユーザー削除"
+    },
+    {
+      "folder_name": "frontend_integration_test",
+      "project_name": "更新されたプロジェクト名",
+      "description": "更新された説明",
+      "id": "018a70be-de04-432b-87c1-0d81a98c9e72",
+      "created_date": "2025-08-01T14:05:46.268632",
+      "modified_date": "2025-08-01T14:05:46.271337",
+      "status": "active",
+      "tags": [],
+      "archive_filename": "frontend_integration_test_20250801_140546.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/frontend_integration_test_20250801_140546.zip",
+      "archive_size": 634,
+      "deletion_date": "2025-08-01T14:05:46.280886",
+      "reason": "ユーザー削除"
+    },
+    {
+      "id": "011e165c-c154-4c68-a319-a9cd6139eae4",
+      "folder_name": "comprehensive_test_948692de",
+      "project_name": "包括テストプロジェクト",
+      "description": "全APIテスト用プロジェクト",
+      "tags": [
+        "test",
+        "comprehensive"
+      ],
+      "status": "active",
+      "created_date": "2025-07-30T08:20:43.002474",
+      "modified_date": "2025-08-01T11:46:49.538161",
+      "archive_filename": "comprehensive_test_948692de_20250801_141159.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/comprehensive_test_948692de_20250801_141159.zip",
+      "archive_size": 388,
+      "deletion_date": "2025-08-01T14:11:59.306458",
+      "reason": "ユーザー削除"
+    },
+    {
+      "folder_name": "comment_test",
+      "project_name": "コメントテスト",
+      "description": "コメント管理統合テスト",
+      "id": "75786d78-543a-4a02-90da-19e900c75c22",
+      "created_date": "2025-07-31T08:44:31.396815",
+      "modified_date": "2025-07-31T08:44:31.396815",
+      "status": "active",
+      "tags": [],
+      "archive_filename": "comment_test_20250801_141204.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/comment_test_20250801_141204.zip",
+      "archive_size": 319,
+      "deletion_date": "2025-08-01T14:12:04.186465",
+      "reason": "ユーザー削除"
+    },
+    {
+      "folder_name": "file_management_test",
+      "project_name": "ファイル管理テスト",
+      "description": "ファイル管理統合テスト",
+      "id": "1735b6ba-e4db-44cd-a74d-759805e3e459",
+      "created_date": "2025-07-31T08:44:31.404658",
+      "modified_date": "2025-07-31T08:44:31.404658",
+      "status": "active",
+      "tags": [],
+      "archive_filename": "file_management_test_20250801_141207.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/file_management_test_20250801_141207.zip",
+      "archive_size": 346,
+      "deletion_date": "2025-08-01T14:12:07.258422",
+      "reason": "ユーザー削除"
+    },
+    {
+      "folder_name": "file_perf_test",
+      "project_name": "ファイルパフォーマンステスト",
+      "description": "ファイル操作パフォーマンステスト",
+      "id": "96ece226-a401-4153-9c7d-927f84eb4248",
+      "created_date": "2025-07-31T08:41:49.910970",
+      "modified_date": "2025-07-31T08:41:49.910970",
+      "status": "active",
+      "tags": [],
+      "archive_filename": "file_perf_test_20250801_141957.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/file_perf_test_20250801_141957.zip",
+      "archive_size": 337,
+      "deletion_date": "2025-08-01T14:19:57.029879",
+      "reason": "ユーザー削除"
+    },
+    {
+      "id": "282b0127-fd49-4fb0-8f71-1e32fbf6c359",
+      "folder_name": "perf_test_project_2",
+      "project_name": "パフォーマンステスト2",
+      "description": "パフォーマンステスト用プロジェクト",
+      "tags": [],
+      "status": "active",
+      "created_date": "2025-07-31T08:41:49.900989",
+      "modified_date": "2025-08-01T11:46:49.538560",
+      "archive_filename": "perf_test_project_2_20250801_142002.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/perf_test_project_2_20250801_142002.zip",
+      "archive_size": 353,
+      "deletion_date": "2025-08-01T14:20:02.487773",
+      "reason": "ユーザー削除"
+    },
+    {
+      "id": "51ab09b7-068d-4309-bbc9-0dd1f3cbd1cd",
+      "folder_name": "perf_test_project_4",
+      "project_name": "パフォーマンステスト4",
+      "description": "パフォーマンステスト用プロジェクト",
+      "tags": [],
+      "status": "active",
+      "created_date": "2025-07-31T08:41:49.903879",
+      "modified_date": "2025-08-01T11:46:49.538761",
+      "archive_filename": "perf_test_project_4_20250801_142006.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/perf_test_project_4_20250801_142006.zip",
+      "archive_size": 353,
+      "deletion_date": "2025-08-01T14:20:06.662195",
+      "reason": "ユーザー削除"
+    },
+    {
+      "folder_name": "frontend_integration_test",
+      "project_name": "更新されたプロジェクト名",
+      "description": "更新された説明",
+      "id": "55b04edd-5e12-4329-98ae-a25092482d6a",
+      "created_date": "2025-08-01T15:12:50.376784",
+      "modified_date": "2025-08-01T15:12:50.379551",
+      "status": "active",
+      "tags": [],
+      "archive_filename": "frontend_integration_test_20250801_151250.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/frontend_integration_test_20250801_151250.zip",
+      "archive_size": 634,
+      "deletion_date": "2025-08-01T15:12:50.382770",
+      "reason": "ユーザー削除"
+    },
+    {
+      "folder_name": "frontend_integration_test",
+      "project_name": "更新されたプロジェクト名",
+      "description": "更新された説明",
+      "id": "6d374a3a-78fd-475b-b199-77970b337919",
+      "created_date": "2025-08-01T15:13:28.458400",
+      "modified_date": "2025-08-01T15:13:28.460968",
+      "status": "active",
+      "tags": [],
+      "archive_filename": "frontend_integration_test_20250801_151328.zip",
+      "archive_path": "/home/futaro/project/StatVizForge_JikkenPy/project/trash/frontend_integration_test_20250801_151328.zip",
+      "archive_size": 633,
+      "deletion_date": "2025-08-01T15:13:28.462781",
       "reason": "ユーザー削除"
     }
   ],
